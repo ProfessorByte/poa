@@ -6,10 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import * as bootstrap from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Repositorio from "./paginas/Repositorio"
+import Biblioteca from "./paginas/Biblioteca"
 
 ReactDOM.render(
   <React.StrictMode>
-    <Repositorio/>
+    <Biblioteca/>
   </React.StrictMode>,
   document.getElementById("root")
 );
