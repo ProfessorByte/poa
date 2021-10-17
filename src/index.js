@@ -5,10 +5,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import * as bootstrap from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Repositorio from "./paginas/Repositorio"
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Repositorio/>
   </React.StrictMode>,
   document.getElementById("root")
 );
