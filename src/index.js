@@ -10,7 +10,7 @@ import Biblioteca from "./paginas/Biblioteca"
 
 ReactDOM.render(
   <React.StrictMode>
-    <Biblioteca/>
+    <Repositorio/>
   </React.StrictMode>,
   document.getElementById("root")
 );
