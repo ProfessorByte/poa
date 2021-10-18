@@ -1,3 +1,17 @@
 .navbar-styles {
-  background-color: #ffa155;
+  background-color: black;
+}
+h1 {
+  color: #ffffff;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+p {
+  color: rgb(214, 81, 81);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  width: 400px;
+}
+.custom-container {
+  margin-top: 24px;
+  margin-right: 50px;
+  background-image: url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg);
 }
