@@ -1,3 +1,19 @@
 .navbar-styles {
-  background-color: #ffa155;
+  font-family: 'Pixel';
+}
+.navbarBibliografia-styles{
+  background-image: url(./images/fondoBibliografia.png) ;
+  text-align: center;
+  color:white;
+}
+body,.fondoBibliografia{
+  height: 120% ;
+  margin:0;
+  background-image: url(./images/fondoBibliografia.png) ;
+}
+@font-face {
+  font-family: "Pixel";
+  src: url(./fonts/VCR_OSD_MONO_1.001.ttf);
+  font-style: normal;
+  font-weight: normal;
 }
