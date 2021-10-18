@@ -8,6 +8,8 @@ function App() {
     <div>
       <Router>
         <Header />
+        
+        <h1>hola</h1>
         <AppRouter />
       </Router>
     </div>
