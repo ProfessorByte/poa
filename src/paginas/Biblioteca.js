@@ -8,9 +8,7 @@ class Biblioteca extends React.Component {
         return (
             <div>
                 Biblioteca
-                <BrowserRouter>
-                <Route path="/repositorio" component ={Repositorio}/>
-                </BrowserRouter>
+                
             </div>
         )
     }
