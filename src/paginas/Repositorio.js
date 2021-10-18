@@ -3,9 +3,12 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Biblioteca from "./Biblioteca";
 function Repositorio() {
  
-        return (<BrowserRouter>
+        return (<div>
+            repositorio
+            <BrowserRouter>
             <Route path="/biblioteca" component ={Biblioteca}/>
-        </BrowserRouter>)
+            </BrowserRouter>
+        </div>)
 
 }
  
