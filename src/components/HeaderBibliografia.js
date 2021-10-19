@@ -8,12 +8,9 @@ export default class HeaderBibliografia extends Component {
       <>
         <nav className="navbar navbar-light navbar-expand-sm navbar-styles">
           <div className="container justify-content-center">
-            <Link className="navbar-brand mr-auto" to="/">
-              <strong>
-                <h1 color="#ffffff">Bibliografia</h1>
-              </strong>
-            </Link>
+            <h1 className="titulo-de-bibliografia">Bibliografia</h1>
           </div>
+
         </nav>
       </>
     );

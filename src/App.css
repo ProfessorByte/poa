@@ -2,18 +2,31 @@
   font-family: 'Pixel';
 }
 .navbarBibliografia-styles{
-  background-image: url(./images/fondoBibliografia.png) ;
   text-align: center;
-  color:white;
+
 }
 body,.fondoBibliografia{
-  height: 120% ;
+  height: 100% ;
   margin:0;
-  background-image: url(./images/fondoBibliografia.png) ;
+  background-image: url(./images/fondoBibliografia.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+.titulo-de-bibliografia{
+  color:white;
+  text-align: center;
+}
+.descripcion-de-bibliografia{
+  color:white;
+  text-align: center;
+}
+
+
 @font-face {
   font-family: "Pixel";
   src: url(./fonts/VCR_OSD_MONO_1.001.ttf);
   font-style: normal;
   font-weight: normal;
+
 }
