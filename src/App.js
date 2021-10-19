@@ -9,9 +9,9 @@ function App() {
   return (
     <div classname="fondoBibliografia">
       <Router>
-        <HeaderBibliografia>
+        <HeaderBibliografia/>
           
-        </HeaderBibliografia>
+
       </Router>
     </div>
   );

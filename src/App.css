@@ -1,25 +1,18 @@
-.navbar-styles {
-  font-family: 'Pixel';
-}
-.navbarBibliografia-styles{
-  text-align: center;
 
-}
 body,.fondoBibliografia{
-  height: 100% ;
-  margin:0;
+
   background-image: url(./images/fondoBibliografia.png);
+  background-position: center center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
+  height: 100%;
 }
 
 .titulo-de-bibliografia{
   color:white;
-  text-align: center;
-}
-.descripcion-de-bibliografia{
-  color:white;
-  text-align: center;
+text-align: center;
+  font-family: 'Pixel';
 }
 
 
@@ -28,5 +21,11 @@ body,.fondoBibliografia{
   src: url(./fonts/VCR_OSD_MONO_1.001.ttf);
   font-style: normal;
   font-weight: normal;
-
 }
+
+.descripcion-de-bibliografia{
+  color:white;
+
+  font-family: 'Pixel';
+}
+
