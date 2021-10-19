@@ -6,8 +6,9 @@ export const AccordionItem = ({
   expanded,
   title,
   listTitles,
+  listItemActive,
 }) => {
-  const [currentVideo, setCurrentVideo] = useState(-1);
+  const [currentVideo, setCurrentVideo] = useState(listItemActive);
   return (
     <div className="accordion-item">
       <h2 className="accordion-header" id={`item-${itemId}`}>
@@ -35,12 +36,13 @@ export const AccordionItem = ({
         data-bs-parent={`#${accordionId}`}
       >
         <div className="accordion-body">
-          <div id={`list-${itemId}`} class="list-group">
+          <div id={`list-${itemId}`} className="list-group">
             {listTitles.map((titleId) => (
               <a
                 className={`list-group-item list-group-item-action ${
                   titleId.videoId === currentVideo ? "active" : ""
                 }`}
+                key={`list-key-${titleId.videoId}`}
                 href={`#list-video-${titleId.videoId}`}
                 onClick={() => setCurrentVideo(titleId.videoId)}
               >

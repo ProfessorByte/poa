@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { Accordion } from "../components/AccordionComponent";
 import { ButtonBack } from "../components/ButtonBackComponent";
 import Videos from "../components/VideosComponent";
+import { VIDEOS } from "../consts/videos";
 
 export default class VideosPage extends Component {
   render() {
     return (
-      <>
+      <div className="video-background">
         <ButtonBack dir="/" />
         <div className="container">
           <div className="row mt-3">
@@ -24,31 +25,14 @@ export default class VideosPage extends Component {
           </div>
           <div className="row mt-5">
             <div className="col-4">
-              <Accordion
-                accordionId="videos-accordion"
-                changeVideo={() => this.changeVideo}
-              />
+              <Accordion accordionId="videos-accordion" />
             </div>
             <div className="col-8 videos-scroll">
-              <Videos
-                listId={1}
-                listVideos={[
-                  {
-                    videoId: 1,
-                    title: "titulo 1",
-                    videoLink: "https://www.youtube.com/embed/36x21Ogn91w",
-                  },
-                  {
-                    videoId: 2,
-                    title: "titulo 2",
-                    videoLink: "https://www.youtube.com/embed/9-2kr7GFatE",
-                  },
-                ]}
-              />
+              <Videos listId={1} listVideos={VIDEOS} />
             </div>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }
