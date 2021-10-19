@@ -1,4 +1,3 @@
-
 import Header from "../components/HeaderComponent";
 import React from "react";
 import Cards from "../components/Cards.jsx";
@@ -8,7 +7,7 @@ export default function Main() {
 
     <div className="App">
 
-
+<Header />
     <div class="container mt-3">
      <div className="row">
           <div className ="col-sm-6">
@@ -59,5 +58,4 @@ export default function Main() {
     </div>
   );
 }
-
 

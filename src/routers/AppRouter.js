@@ -6,9 +6,10 @@ export default function AppRouter() {
   return (
     <>
       <Switch>
-        <Route exact path="/">
+      <Route exact path="/">
           <Main />
         </Route>
+        
         <Redirect to="/" />
       </Switch>
     </>
