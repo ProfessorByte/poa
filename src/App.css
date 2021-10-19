@@ -2,15 +2,20 @@
   background-color: #ffa155;
 }
 
-figure{
-  
-  opacity:0.8;
- 
-}
-figcaption{
-right: 20px;
-top: 10px;
+.centered {
   position: absolute;
+  top: 25%;
+  left: 35%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  
+}
+.container {
+  position: relative;
+  text-align: center;
+
   
 }
 

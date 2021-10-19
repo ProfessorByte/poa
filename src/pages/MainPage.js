@@ -23,6 +23,26 @@ export default function Main() {
           </div>
           <div className ="col-sm-6">
               <Cards
+              tituloReferncia="Programacion orientada a objetos con java usando Bluej"
+              autor_NombrePagina= "David J. Barnes, Michael Kölling"
+              temas ="Definicio de clases y objetos"
+              tipo ="PDF"
+              link ="https://onemonth.com/users/sign_in"
+
+              />
+          </div>
+          <div className ="col-sm-6">
+              <Cards
+              tituloReferncia="Programacion orientada a objetos con java usando Bluej"
+              autor_NombrePagina= "David J. Barnes, Michael Kölling"
+              temas ="Definicio de clases y objetos"
+              tipo ="PDF"
+              link ="https://onemonth.com/users/sign_in"
+
+              />
+          </div>
+          <div className ="col-sm-6">
+              <Cards
               tituloReferncia="Herencia de clases"
               autor_NombrePagina= "Juan Pavón Mestras"
               temas ="Herencia ,Polimorfismo,Subtipos,Herencia Múltiple "
@@ -31,26 +51,7 @@ export default function Main() {
 
               />
           </div>
-          <div className ="col-sm-6">
-              <Cards
-              tituloReferncia="Programacion orientada a objetos con java usando Bluej"
-              autor_NombrePagina= "David J. Barnes, Michael Kölling"
-              temas ="Definicio de clases y objetos"
-              tipo ="PDF"
-              link ="https://onemonth.com/users/sign_in"
-
-              />
-          </div>
-          <div className ="col-sm-6">
-              <Cards
-              tituloReferncia="Programacion orientada a objetos con java usando Bluej"
-              autor_NombrePagina= "David J. Barnes, Michael Kölling"
-              temas ="Definicio de clases y objetos"
-              tipo ="PDF"
-              link ="https://onemonth.com/users/sign_in"
-
-              />
-          </div>
+       
       </div>
      
       
