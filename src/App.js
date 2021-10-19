@@ -7,14 +7,13 @@ import AppRouter from "./routers/AppRouter";
 
 function App() {
   return (
-    <div classname="fondoBibliografia">
+    <div>
       <Router>
-        <HeaderBibliografia/>
-          
-
+        <AppRouter />
       </Router>
     </div>
   );
 }
+
 
 export default App;
