@@ -1,4 +1,4 @@
-.centered{
+.centeredCard{
     position: absolute;
     top: 34%;
     left: 35%;
@@ -7,13 +7,17 @@
     text-align: center;
 }
   
-.card-body{
+.card-bodyCard{
     background-color:#FAF4F6;
 }
   
-.container{
+.containerCard{
     position: relative;
     text-align: center;
 }
   
+.containerCard{
+  font-family: "Pixel";  
+}
+
   

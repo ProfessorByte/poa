@@ -3,7 +3,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    width: 100vh;
+
   }
   
   .titulo-de-bibliografia{
@@ -22,7 +22,6 @@
   
   .descripcion-de-bibliografia{
     color:white;
-  
     font-family: 'Pixel';
   }
   
