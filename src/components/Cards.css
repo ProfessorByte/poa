@@ -1,0 +1,19 @@
+.centered{
+    position: absolute;
+    top: 34%;
+    left: 35%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+  
+.card-body{
+    background-color:#FAF4F6;
+}
+  
+.container{
+    position: relative;
+    text-align: center;
+}
+  
+  
