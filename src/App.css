@@ -15,10 +15,12 @@
 
 .video-background {
   background-image: url("./assets/img/Am0rbSB.jpg");
-  background-position: center center;
   background-size: cover;
   background-attachment: fixed;
-  height: 91vh;
+  min-height: 92vh;
+  max-height: 220vh;
+  min-width: 90vw;
+  max-width: 220vw;
 }
 
 .videos-scroll {
@@ -28,8 +30,4 @@
   border-radius: 25px;
   overflow: hidden;
   scroll-behavior: smooth;
-}
-
-.custom-container {
-  margin-top: 15px;
 }

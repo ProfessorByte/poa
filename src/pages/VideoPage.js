@@ -7,7 +7,7 @@ export default class VideosPage extends Component {
   render() {
     return (
       <div className="video-background">
-        <div className="container custom-container">
+        <div className="container-fluid">
           <div className="rows">
             <div className="col ">
               <h1>Videos</h1>
@@ -21,13 +21,14 @@ export default class VideosPage extends Component {
               </p>
             </div>
           </div>
-          <div className="row mt-5">
-            <div className="col-4">
+          <div className="row mt-4 ms-4 me-4">
+            <div div className="col-sm-8 videos-scroll">
+              <Videos listId={1} listVideos={VIDEOS} />
+              </div>
+            <div className="col-sm-4 mt-3">
               <Accordion accordionId="videos-accordion" />
             </div>
-            <div className="col-8 videos-scroll">
-              <Videos listId={1} listVideos={VIDEOS} />
-            </div>
+            
           </div>
         </div>
       </div>
