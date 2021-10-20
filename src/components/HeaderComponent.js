@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { ButtonBack } from "./ButtonBackComponent";
 import "../App.css";
 
 export default class Header extends Component {
@@ -7,6 +7,7 @@ export default class Header extends Component {
     return (
       <>
         <nav className="navbar navbar-light navbar-expand-sm navbar-styles">
+        <ButtonBack dir="/" />
           <div className="container justify-content-center">
               <strong>
                 <h1>POA</h1>
