@@ -7,14 +7,19 @@
   font-family: "VCR_OSD_MONO_1";
   background-color: #121212;
   color: #efefef;
-  height: 100vh;
+  padding-bottom: 0.3%;
 }
 
 .video-background {
   background-image: url("./assets/img/Am0rbSB.jpg");
   background-size: cover;
+  background-position: center center;
   background-attachment: fixed;
-  height: 91vh;
+  padding-bottom: 5%;
+}
+
+.lessons-content {
+  background: #0f4d69;
 }
 
 .navbar-styles {
