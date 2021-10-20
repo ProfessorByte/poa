@@ -19,7 +19,7 @@ const Cards =(props)=>{
         <h7 className="card-text">{tipo}</h7>
         
         <br/>
-        <a href="#"class="card-link" style={{link}} >Link</a>
+        
         </div>
     </div> 
     </div>
