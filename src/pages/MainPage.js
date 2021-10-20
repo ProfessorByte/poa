@@ -1,7 +1,7 @@
 
 
 import React from "react";
-import Cards from "../components/Cards.jsx";
+import Cards from "../components/Cards.js";
 
 export default function Main() {
     return (
@@ -23,21 +23,21 @@ export default function Main() {
           </div>
           <div className ="col-sm-6">
               <Cards
-              tituloReferncia="Programacion orientada a objetos con java usando Bluej"
+              tituloReferncia="Estructuras de Control Iterativas"
               autor_NombrePagina= "David J. Barnes, Michael Kölling"
-              temas ="Definicio de clases y objetos"
-              tipo ="PDF"
-              link ="https://onemonth.com/users/sign_in"
+              temas ="while,do-while,for"
+              tipo ="Pagina web"
+              link ="https://webs.um.es/ldaniel/iscyp17-18/13-estructuraRepetitiva.html"
 
               />
           </div>
           <div className ="col-sm-6">
               <Cards
-              tituloReferncia="Programacion orientada a objetos con java usando Bluej"
-              autor_NombrePagina= "David J. Barnes, Michael Kölling"
-              temas ="Definicio de clases y objetos"
-              tipo ="PDF"
-              link ="https://onemonth.com/users/sign_in"
+              tituloReferncia="Interaccion de objetos"
+              autor_NombrePagina= " tutorial de java"
+              temas ="Encapsulamiento de objetos,interaccion de objetos"
+              tipo ="Pagina web"
+              link ="http://dis.um.es/~bmoros/Tutorial/parteA/capa-2.html"
 
               />
           </div>
@@ -45,7 +45,7 @@ export default function Main() {
               <Cards
               tituloReferncia="Herencia de clases"
               autor_NombrePagina= "Juan Pavón Mestras"
-              temas ="Herencia ,Polimorfismo,Subtipos,Herencia Múltiple "
+              temas ="Herencia,Polimorfismo, Subtipos,Herencia Múltiple "
               tipo ="PDF"
               link ="https://drive.google.com/file/d/19GFsGIsbr8YDmcbmSRfuETt6wZjSmquD/view?usp=sharing"
 
