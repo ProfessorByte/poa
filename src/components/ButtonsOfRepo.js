@@ -1,5 +1,5 @@
 import React, {Fragment, useState}from 'react'
-import "../styles.css";
+import "../components/styles.css";
 
 const ButtonsOfRepo = () => {
   return (
