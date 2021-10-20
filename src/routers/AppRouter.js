@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router";
 import Main from "../pages/MainPage";
+import Videos from "../pages/VideoPage"
 
 export default function AppRouter() {
   return (
@@ -9,6 +10,9 @@ export default function AppRouter() {
         <Route exact path="/">
           <Main />
         </Route>
+        <Route exact path="/videos">
+          <Videos />
+          </Route>
         <Redirect to="/" />
       </Switch>
     </>

@@ -5,7 +5,7 @@ export default function Main() {
     <div className="container justify-content-start">
       
       <p>
-        Aqui podras ver los videos ordenados por temas, desde el mas basico al mas complicado
+        Pagina Principal
       </p>
       
     </div>
