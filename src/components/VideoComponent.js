@@ -1,35 +1,43 @@
 import React from "react";
 
 export default function Video({ listId, listVideos }) {
+  const getParameterByName = (name, url = window.location.href) => {
+    name = name.replace(/[[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return "";
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  };
+
   return (
     <div
       data-spy="scroll"
       data-target={`#list-${listId}`}
       data-offset="50"
-      class="scrollspy-example"
+      className="scrollspy-example"
     >
       {listVideos.map((video) => (
-        <div id={`list-video-${video["videoId"]}`}>
+        <div
+          id={`list-video-${video.videoId}`}
+          key={`list-video-key-${video.videoId}`}
+        >
           <div className="mb-4 ms-4 me-4">
             <div className="row">
-              <br/>
-              <br/>
-              <br/>
-              <h2>{video["title"]}</h2>
-              <br/>
-              <br/>
-              <br/>
+              <h2>{video.title}</h2>
             </div>
-            <div className="row" id="corner-wrapper">
-              <iframe
+            <div className="row embed-responsive embed-responsive-16by9">
+              <iframe className="embed-responsive-item"
                 width="720"
                 height="480"
-                src={video["videoLink"]}
+                src={`https://www.youtube.com/embed/${getParameterByName(
+                  "v",
+                  video.videoLink
+                )}`}
                 title="YouTube video player"
-                frameborder="0"
+                frameBorder={0}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                frameborder="0" 
-                allowfullscreen
+                allowFullScreen
               ></iframe>
             </div>
           </div>
