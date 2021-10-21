@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Accordion } from "../components/AccordionComponent";
 import { ButtonBack } from "../components/ButtonBackComponent";
+import Header from "../components/HeaderComponent";
 import Videos from "../components/VideosComponent";
 import { VIDEOS } from "../consts/videos";
 import "../css/VideoPageStyles.css";
@@ -8,6 +9,8 @@ import "../css/VideoPageStyles.css";
 export default class VideosPage extends Component {
   render() {
     return (
+      <>
+      <Header/>
       <div className="video-background">
         <div className="container">
           <div className="row mt-3">
@@ -33,6 +36,7 @@ export default class VideosPage extends Component {
           </div>
         </div>
       </div>
+      </>
     );
   }
 }

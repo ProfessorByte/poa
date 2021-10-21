@@ -2,10 +2,13 @@ import React from 'react'
 import HeaderBibliografia from '../components/HeaderBibliografia'
 import "../css/HeaderBibliografia.css";
 import Cards from "../components/Cards.js";
+import Header from "../components/HeaderComponent"
+
 export default function BibliografiaPage() {
     return (
       <div className="fondoBibliografia">
         <div>
+          <Header/>
           <HeaderBibliografia/>     
         </div>
         <div class="container mt-3">

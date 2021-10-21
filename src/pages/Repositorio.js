@@ -1,10 +1,16 @@
 import React from "react";
 import "../css/Repositorio.css"
 import ButtonsOfRepo from "../components/ButtonsOfRepo";
+import Header from "../components/HeaderComponent";
+import HeaderRepositorio from "../components/HeaderRepositorio"
 
 function Repositorio() {
-  return (      
+  return (    
+
     <div>
+    <div>
+      <HeaderRepositorio/>
+    </div>  
       <body id="img"></body>
      <h2 id="p1">BIENVENIDO AL APARTADO </h2>
      <h3 id="p2">PARA ACLARAR TUS</h3>

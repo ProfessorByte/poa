@@ -1,9 +1,9 @@
 .video-background {
   background-image: url("../assets/img/Am0rbSB.jpg");
-  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center center;
-  background-attachment: fixed;
-  padding-bottom: 5%;
+  background-size: cover;
+  padding-bottom: 15%;
 }
 
 .lessons-content-titles {

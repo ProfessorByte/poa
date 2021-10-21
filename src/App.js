@@ -12,7 +12,6 @@ function App() {
   return (
     <div className="game-styles">
       <Router>
-        <Header />
         <AppRouter />        
       </Router>
     </div>
