@@ -31,7 +31,7 @@
 }
 
 #img {
-  background-image: url("../imagenes/fondon.jpg");
+  background-image: url("../assets/images/fondon.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;

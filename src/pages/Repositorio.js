@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/Repositorio.css"
+import "../css/Repositorio.css"
 import ButtonsOfRepo from "../components/ButtonsOfRepo";
 
 function Repositorio() {
