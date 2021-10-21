@@ -38,7 +38,7 @@ export const AccordionItem = ({
         aria-labelledby={`item-${itemId}`}
         data-bs-parent={`#${accordionId}`}
       >
-        <div className="accordion-body lessons-content">
+        <div className="accordion-body lessons-content-titles">
           <div id={`list-${itemId}`} className="list-group">
             {listTitles.map((titleId) => (
               <a

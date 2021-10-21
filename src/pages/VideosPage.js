@@ -3,6 +3,7 @@ import { Accordion } from "../components/AccordionComponent";
 import { ButtonBack } from "../components/ButtonBackComponent";
 import Videos from "../components/VideosComponent";
 import { VIDEOS } from "../consts/videos";
+import "../css/VideoPageStyles.css";
 
 export default class VideosPage extends Component {
   render() {
