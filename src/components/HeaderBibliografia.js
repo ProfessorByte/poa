@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import "./HeaderBibliografia.css";
+import "../css/HeaderBibliografia.css";
 
 export default class HeaderBibliografia extends Component {
   render() {

@@ -1,6 +1,6 @@
 import React from 'react'
 import HeaderBibliografia from '../components/HeaderBibliografia'
-import "../components/HeaderBibliografia.css";
+import "../css/HeaderBibliografia.css";
 import Cards from "../components/Cards.js";
 export default function BibliografiaPage() {
     return (

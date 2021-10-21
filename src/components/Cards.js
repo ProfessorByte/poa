@@ -1,7 +1,7 @@
 
 import React from "react";
-import libroPNG from "../images/libroPNG.png"
-import '../components/Cards.css'
+import libroPNG from "../assets/images/libroPNG.png"
+import '../css/Cards.css'
 
 const Cards =(props)=>{
     const {tituloReferncia,temas,link,autor_NombrePagina,tipo,}=props

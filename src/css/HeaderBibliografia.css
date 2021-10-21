@@ -1,5 +1,5 @@
 .fondoBibliografia{
-    background-image: url(../images/fondoBibliografia.png);
+    background-image: url(../assets/images/fondoBibliografia.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -15,7 +15,7 @@
   
   @font-face {
     font-family: "Pixel";
-    src: url(../fonts/VCR_OSD_MONO_1.001.ttf);
+    src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
     font-style: normal;
     font-weight: normal;
   }
