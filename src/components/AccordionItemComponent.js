@@ -21,6 +21,9 @@ export const AccordionItem = ({
           data-bs-target={`#collapse${itemId}`}
           aria-expanded={expanded}
           aria-controls={`collapse${itemId}`}
+          onClick={() => {
+            window.location.assign(`#list-video-${currentVideo}`);
+          }}
         >
           {title}
         </button>
@@ -35,7 +38,7 @@ export const AccordionItem = ({
         aria-labelledby={`item-${itemId}`}
         data-bs-parent={`#${accordionId}`}
       >
-        <div className="accordion-body">
+        <div className="accordion-body lessons-content-titles">
           <div id={`list-${itemId}`} className="list-group">
             {listTitles.map((titleId) => (
               <a
