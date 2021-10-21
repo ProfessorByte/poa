@@ -9,7 +9,6 @@ export default class VideosPage extends Component {
   render() {
     return (
       <div className="video-background">
-        <ButtonBack dir="/" />
         <div className="container">
           <div className="row mt-3">
             <div className="col">
