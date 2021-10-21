@@ -31,3 +31,11 @@
   overflow: hidden;
   scroll-behavior: smooth;
 }
+
+.videos-scroll {
+  height: 560px;
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 25px;
+  overflow: hidden;
+}

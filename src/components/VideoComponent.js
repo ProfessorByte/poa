@@ -26,8 +26,8 @@ export default function Videos({ listId, listVideos }) {
             <div className="row">
               <h2>{video.title}</h2>
             </div>
-            <div className="row">
-              <iframe
+            <div className="row embed-responsive embed-responsive-16by9">
+              <iframe className="embed-responsive-item"
                 width="720"
                 height="480"
                 src={`https://www.youtube.com/embed/${getParameterByName(
