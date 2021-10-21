@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { ButtonBack } from "./ButtonBackComponent";
 import "../App.css";
+import { Link } from "react-router-dom";
 
 export default class Header extends Component {
   render() {
     return (
       <>
         <nav className="navbar navbar-light navbar-expand-sm navbar-styles">
+        <ButtonBack dir="/" />
           <div className="container justify-content-center">
-            <Link className="navbar-brand mr-auto" to="/">
               <strong>
                 <h1>POA</h1>
               </strong>
-            </Link>
           </div>
         </nav>
       </>

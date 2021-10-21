@@ -3,10 +3,12 @@ import "./App.css";
 import Header from "./components/HeaderComponent";
 import AppRouter from "./routers/AppRouter";
 import ButtonsOfRepo from "./components/ButtonsOfRepo";
+import "bootstrap/dist/css/bootstrap.min.css";
+require("bootstrap");
 
 function App() {
   return (
-    <div>
+    <div className="game-styles">
       <Router>
         <Header />
         <AppRouter />        
