@@ -1,0 +1,23 @@
+.centeredCard{
+    position: absolute;
+    top: 34%;
+    left: 35%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+  
+.card-bodyCard{
+    background-color:#FAF4F6;
+}
+  
+.containerCard{
+    position: relative;
+    text-align: center;
+}
+  
+.containerCard{
+  font-family: "Pixel";  
+}
+
+  

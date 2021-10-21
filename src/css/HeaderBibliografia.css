@@ -1,0 +1,28 @@
+.fondoBibliografia{
+    background-image: url(../assets/images/fondoBibliografia.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+  }
+  
+  .titulo-de-bibliografia{
+    color:white;
+  text-align: center;
+    font-family: 'Pixel';
+  }
+  
+  
+  @font-face {
+    font-family: "Pixel";
+    src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
+    font-style: normal;
+    font-weight: normal;
+  }
+  
+  .descripcion-de-bibliografia{
+    color:white;
+    font-family: 'Pixel';
+  }
+  
+  
