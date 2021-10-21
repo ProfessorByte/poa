@@ -27,6 +27,22 @@ export const Accordion = ({ accordionId }) => {
         listTitles={closedIntervalVideos(VIDEOS, 4, 11)}
         listItemActive={-1}
       />
+      <AccordionItem
+        accordionId={accordionId}
+        itemId={2}
+        expanded={false}
+        title="Sentencias de control"
+        listTitles={closedIntervalVideos(VIDEOS, 12, 21)}
+        listItemActive={-1}
+      />
+      <AccordionItem
+        accordionId={accordionId}
+        itemId={3}
+        expanded={false}
+        title="Arrays y Strings"
+        listTitles={closedIntervalVideos(VIDEOS, 22, 26)}
+        listItemActive={-1}
+      />
     </div>
   );
 };
