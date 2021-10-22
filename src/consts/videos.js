@@ -19,146 +19,206 @@ export const VIDEOS = [
   },
   {
     videoId: 3,
-    title: "Otras alternativas",
+    title: "Personaliza tu NetBeans",
     videoLink:
-      "https://www.youtube.com/watch?v=iqfAWvvD4yU&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=4",
+      "https://www.youtube.com/watch?v=Rv5NVYxuh_c&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=4",
   },
   {
     videoId: 4,
-    title: "Primeros pasos",
+    title: "Otras Alternativas",
     videoLink:
-      "https://www.youtube.com/watch?v=s50th-MSkpg&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=5",
+      "https://www.youtube.com/watch?v=iqfAWvvD4yU&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=5",
   },
   {
     videoId: 5,
-    title: "Variables",
+    title: "Parametros",
     videoLink:
-      "https://www.youtube.com/watch?v=Wf9vIRjD_5s&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=6",
+      "https://www.youtube.com/watch?v=6cZrdMtSoN0&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=6",
   },
   {
     videoId: 6,
-    title: "Entrada de datos",
+    title: "Tipos de datos",
     videoLink:
-      "https://www.youtube.com/watch?v=zjXj_RagJRU&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=7",
+      "https://www.youtube.com/watch?v=Ekv9yjB61Zo&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=7",
   },
   {
     videoId: 7,
-    title: "Manejo de variables - Parte 1",
+    title: "Abstraccion",
     videoLink:
-      "https://www.youtube.com/watch?v=JxxryCF0tbI&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=8",
+      "https://www.youtube.com/watch?v=oBO01Cx_YwQ&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=8",
   },
   {
     videoId: 8,
-    title: "Manejo de variables - Parte 2",
+    title: "Modificadores de Acceso",
     videoLink:
-      "https://www.youtube.com/watch?v=CIWQ2w1jWxE&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=9",
+      "https://www.youtube.com/watch?v=gR0EssHrl24&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=9",
   },
   {
     videoId: 9,
-    title: "Operadores - Parte 1",
+    title: "Modificador Static-Final",
     videoLink:
-      "https://www.youtube.com/watch?v=9z9xliJX6NY&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=10",
+      "https://www.youtube.com/watch?v=u4GcviXpvCk&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=10",
   },
   {
     videoId: 10,
-    title: "Operadores - Parte 2",
+    title: "Atributos - Metodos",
     videoLink:
-      "https://www.youtube.com/watch?v=ThcHbwLf6rY&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=11",
+      "https://www.youtube.com/watch?v=NUsqGSCNh5g&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=11",
   },
   {
     videoId: 11,
-    title: "Personaliza tu NetBeans",
+    title: "Metodos - 2",
     videoLink:
-      "https://www.youtube.com/watch?v=Rv5NVYxuh_c&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=12",
+      "https://www.youtube.com/watch?v=duZToqP-NdA&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=12",
   },
   {
     videoId: 12,
-    title: "Sentencias de Control (if - else)",
+    title: "Constructores",
     videoLink:
-      "https://www.youtube.com/watch?v=m1xX_8WLI1M&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=13",
+      "https://www.youtube.com/watch?v=5EGS6lnghYE&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=13",
   },
   {
     videoId: 13,
-    title: "Sentencias de Control (Ejercicios)",
+    title: "Variables Locales-Globales",
     videoLink:
-      "https://www.youtube.com/watch?v=p5q_Hir9Vtk&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=14",
+      "https://www.youtube.com/watch?v=ndkxmG5CDX4&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=14",
   },
   {
     videoId: 14,
-    title: "Sentencias de Control (Switch - Parte 1)",
+    title: "Sentencias de Control (if - else)",
     videoLink:
-      "https://www.youtube.com/watch?v=T77h7bcq4sI&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=15",
+      "https://www.youtube.com/watch?v=m1xX_8WLI1M&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=15",
   },
   {
     videoId: 15,
-    title: "Sentencias de Control (Switch - Parte 2)",
+    title: "Sentencias de Control (Ejercicios)",
     videoLink:
-      "https://www.youtube.com/watch?v=qNMvXGGiKAg&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=16",
+      "https://www.youtube.com/watch?v=p5q_Hir9Vtk&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=16",
   },
   {
     videoId: 16,
-    title: `Ciclo "While"`,
+    title: "Sentencias de Control (Switch - Parte 1)",
     videoLink:
-      "https://www.youtube.com/watch?v=qG2At2DqPiU&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=17",
+      "https://www.youtube.com/watch?v=T77h7bcq4sI&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=17",
   },
   {
     videoId: 17,
-    title: `Ciclo "While" (Ejercicios)`,
+    title: "Sentencias de Control (Switch - Parte 2)",
     videoLink:
-      "https://www.youtube.com/watch?v=JRt6-ryXLsU&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=18",
+      "https://www.youtube.com/watch?v=qNMvXGGiKAg&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=18",
   },
   {
     videoId: 18,
-    title: `Ciclo "Do While"`,
+    title: "Interaccion de objetos - Blue J",
     videoLink:
-      "https://www.youtube.com/watch?v=MG4jSh20kh4&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=19",
+      "https://www.youtube.com/watch?v=UOpOS2-0eRI&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=19",
   },
   {
     videoId: 19,
-    title: `Ciclo "For"`,
+    title: "Vectores (Arrays)",
     videoLink:
-      "https://www.youtube.com/watch?v=vtRVa7aMr14&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=20",
+      "https://www.youtube.com/watch?v=WXK8jgBqMsE&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=20",
   },
   {
     videoId: 20,
-    title: `Ciclo "For" (Ejercicios)`,
+    title: "Arrays (Ejercicios)",
     videoLink:
-      "https://www.youtube.com/watch?v=8-yQs_COhQ0&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=21",
+      "https://www.youtube.com/watch?v=qgDWwj1eX58&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=21",
   },
   {
     videoId: 21,
-    title: `Ciclo "For" (Ejercicios - Series)`,
+    title: "Matrices",
     videoLink:
-      "https://www.youtube.com/watch?v=h4eMo4nlfgY&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=22",
+      "https://www.youtube.com/watch?v=dBp4vCmhSts&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=22",
   },
   {
     videoId: 22,
-    title: "Vectores (Arrays)",
+    title: "Matrices (Ejercicios)",
     videoLink:
-      "https://www.youtube.com/watch?v=WXK8jgBqMsE&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=23",
+      "https://www.youtube.com/watch?v=tZmZt2Dqg2M&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=23",
   },
   {
     videoId: 23,
-    title: "Arrays (Ejercicios)",
+    title: "Strings y sus funciones más usadas",
     videoLink:
-      "https://www.youtube.com/watch?v=qgDWwj1eX58&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=24",
+      "https://www.youtube.com/watch?v=6oJjy9Mg3N4&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=24",
   },
   {
     videoId: 24,
-    title: "Matrices",
+    title: `Ciclo "While"`,
     videoLink:
-      "https://www.youtube.com/watch?v=dBp4vCmhSts&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=25",
+      "https://www.youtube.com/watch?v=qG2At2DqPiU&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=25",
   },
   {
     videoId: 25,
-    title: "Matrices (Ejercicios)",
+    title: `Ciclo "While" (Ejercicios)`,
     videoLink:
-      "https://www.youtube.com/watch?v=tZmZt2Dqg2M&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=26",
+      "https://www.youtube.com/watch?v=JRt6-ryXLsU&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=26",
   },
   {
     videoId: 26,
-    title: "Strings y sus funciones más usadas",
+    title: `Ciclo "Do While"`,
     videoLink:
-      "https://www.youtube.com/watch?v=6oJjy9Mg3N4&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=27",
+      "https://www.youtube.com/watch?v=MG4jSh20kh4&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=27",
+  },
+  {
+    videoId: 27,
+    title: `Ciclo "For"`,
+    videoLink:
+      "https://www.youtube.com/watch?v=vtRVa7aMr14&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=28",
+  },
+  {
+    videoId: 28,
+    title: `Ciclo "For" (Ejercicios)`,
+    videoLink:
+      "https://www.youtube.com/watch?v=8-yQs_COhQ0&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=29",
+  },
+  {
+    videoId: 29,
+    title: `Ciclo "For" (Ejercicios - Series)`,
+    videoLink:
+      "https://www.youtube.com/watch?v=h4eMo4nlfgY&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=30",
+  },
+  {
+    videoId: 30,
+    title: `Ciclo "For Each"`,
+    videoLink:
+      "https://www.youtube.com/watch?v=DMV1DZVW_9M&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=31",
+  },
+  {
+    videoId: 31,
+    title: `Superclases y Subclases`,
+    videoLink:
+      "https://www.youtube.com/watch?v=LZPafq9Ve_Q&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=32",
+  },
+  {
+    videoId: 32,
+    title: `Sobrecarga y Sobreescritura`,
+    videoLink:
+      "https://www.youtube.com/watch?v=9ngWaa5iHds&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=33",
+  },
+  {
+    videoId: 33,
+    title: `Herencia Multiple e Interfaces`,
+    videoLink:
+      "https://www.youtube.com/watch?v=YcW9Xf34POI&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=34",
+  },
+  {
+    videoId: 34,
+    title: `Clases abstractas`,
+    videoLink:
+      "https://www.youtube.com/watch?v=wSt523lfPFY&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=35",
+  },
+  {
+    videoId: 35,
+    title: `Interface - ejemplo`,
+    videoLink:
+      "https://www.youtube.com/watch?v=YDNGD0gXg4s&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=36",
+  },
+  {
+    videoId: 36,
+    title: `Polimorfismo`,
+    videoLink:
+      "https://www.youtube.com/watch?v=sdJgcMaazmI&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=37",
   },
 ];
