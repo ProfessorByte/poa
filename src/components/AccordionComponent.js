@@ -14,10 +14,10 @@ export const Accordion = ({ accordionId }) => {
       <AccordionItem
         accordionId={accordionId}
         itemId={0}
-        expanded={true}
+        expanded={false}
         title="Introducción"
         listTitles={closedIntervalVideos(VIDEOS, 0, 4)}
-        listItemActive={0}
+        listItemActive={-1}
       />
       <AccordionItem
         accordionId={accordionId}
