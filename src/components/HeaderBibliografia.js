@@ -13,7 +13,7 @@ export default class HeaderBibliografia extends Component {
               </div> 
               <div className="row descripcion-de-bibliografia">
                 <div className="col-12">
-                <h4>Aqui podrás encontrar referencias del contenido <br />
+                <h4>Aquí podrás encontrar referencias del contenido <br />
                            que existe en esta página</h4>
                 </div>
               </div>
