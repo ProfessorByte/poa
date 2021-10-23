@@ -5,9 +5,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 require("bootstrap");
 
 function App() {
-  window.onresize = function () {
-    window.location.reload();
-  };
   return (
     <div className="game-styles">
       <Router>
