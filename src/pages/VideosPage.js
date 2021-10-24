@@ -10,17 +10,6 @@ export default class VideosPage extends Component {
   render() {
     return (
       <>
-<<<<<<< HEAD
-      <Header/>
-      
-      <div className="video-background">
-      <ButtonBack dir="/" />
-        <div className="container">
-          <div className="row mt-3">
-            <div className="col">
-
-              <h1>Videos</h1>
-=======
         <Header />
         <div className="video-background">
           <div className="container">
@@ -28,7 +17,6 @@ export default class VideosPage extends Component {
               <div className="col">
                 <h1>Videos</h1>
               </div>
->>>>>>> bea07c1b8b2cea1569df5e9b1daf0a181a94f1b1
             </div>
             <div className="row">
               <div className="col">
