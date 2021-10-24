@@ -11,10 +11,13 @@ export default class VideosPage extends Component {
     return (
       <>
       <Header/>
+      
       <div className="video-background">
+      <ButtonBack dir="/" />
         <div className="container">
           <div className="row mt-3">
             <div className="col">
+
               <h1>Videos</h1>
             </div>
           </div>

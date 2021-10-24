@@ -3,12 +3,14 @@ import HeaderBibliografia from '../components/HeaderBibliografia'
 import "../css/HeaderBibliografia.css";
 import Cards from "../components/Cards.js";
 import Header from "../components/HeaderComponent"
+import { ButtonBack } from '../components/ButtonBackComponent';
 
 export default function BibliografiaPage() {
     return (
       <div className="fondoBibliografia">
         <div>
           <Header/>
+          <ButtonBack dir="/" />
           <HeaderBibliografia/>     
         </div>
         <div class="container mt-3">

@@ -6,7 +6,7 @@ export default class Header extends Component {
     return (
       <>
         <nav className="navbar navbar-light navbar-expand-sm navbar-styles">
-        <ButtonBack dir="/" />
+        
           <div className="container justify-content-center">
               <strong>
                 <h1>POA</h1>
