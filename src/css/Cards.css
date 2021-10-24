@@ -23,8 +23,7 @@
 figcaption{
 
     position: absolute;
-    top :400px;
-    left: 100px;
+    bottom: 2rem;
     justify-content: center;
     align-items: center;
     text-align: center;

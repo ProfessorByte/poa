@@ -15,7 +15,7 @@ const Cards =(props)=>{
                 </figure >
                 <figcaption>
 
-                    <div className="card" style={{width: "18rem", border: "#FAF4F6"}}>
+                    <div className="card"  style={{border: "#FAF4F6"}}>
                         <div className="card-bodyCard">
                             <h5 className="card-title">{tituloReferncia}</h5>
                             <h6 className="card-subtitle mb-2 text-muted">{temas}</h6>
