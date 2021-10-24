@@ -22,12 +22,13 @@ export default function Videos({ listId, listVideos }) {
           id={`list-video-${video.videoId}`}
           key={`list-video-key-${video.videoId}`}
         >
-          <div className="mb-4 ms-4 me-4">
+          <div className="mb-5 ms-4 me-4">
             <div className="row">
               <h2>{video.title}</h2>
             </div>
-            <div className="row">
+            <div className="embed-responsive d-inline-flex">
               <iframe
+                className="embed-responsive-item"
                 width="720"
                 height="480"
                 src={`https://www.youtube.com/embed/${getParameterByName(

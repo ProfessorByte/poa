@@ -6,7 +6,10 @@ require("bootstrap");
 
 function App() {
   window.onresize = function () {
-    window.location.reload();
+    const url = window.location;
+    if (url.href.includes("#")) {
+      url.assign(url);
+    }
   };
   return (
     <div className="game-styles">
