@@ -20,5 +20,14 @@
 .containerCard{
   font-family: "Pixel";  
 }
+figcaption{
+
+    position: absolute;
+    top :400px;
+    left: 100px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
   
