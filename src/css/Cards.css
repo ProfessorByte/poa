@@ -9,17 +9,22 @@
   
 .card-bodyCard{
     background-color:#FAF4F6;
+    width:18rem;
+    height:15rem;
+    border:#FAF4F6;
+
+
 }
-  
+
 .containerCard{
     position: relative;
     text-align: center;
     color:black;
+    font-family: "Pixel";
 }
   
-.containerCard{
-  font-family: "Pixel";  
-}
+
+
 figcaption{
 
     position: absolute;
@@ -27,6 +32,29 @@ figcaption{
     justify-content: center;
     align-items: center;
     text-align: center;
+
+}
+.wrapper{
+    margin :2rem;
+    display :grid;
+    gap: 1rem;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    color:black;
+
+}
+ .card {
+
+ }
+
+@media screen and (min-width :500px){
+    .wrapper{
+        grid-template-rows: repeat(auto-fit,minmax(14rem,16rem));
+    }
+    .card{
+        flex-direction: row ;
+        text-align: center;
+        min-width: 14rem;
+    }
 }
 
-  
