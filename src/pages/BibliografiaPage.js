@@ -10,7 +10,6 @@ export default function BibliografiaPage() {
       <div className="fondoBibliografia">
         <div>
           <Header/>
-          <ButtonBack dir="/" />
           <HeaderBibliografia/>     
         </div>
         <div class="container mt-3">
