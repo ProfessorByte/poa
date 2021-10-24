@@ -26,17 +26,13 @@ export default function Videos({ listId, listVideos }) {
             <div className="row">
               <h2>{video.title}</h2>
             </div>
-            <div className="embed-responsive d-inline-flex">
+            <div className="ratio ratio-16x9">
               <iframe
-                className="embed-responsive-item"
-                width="720"
-                height="480"
                 src={`https://www.youtube.com/embed/${getParameterByName(
                   "v",
                   video.videoLink
                 )}`}
                 title="YouTube video player"
-                frameBorder={0}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>

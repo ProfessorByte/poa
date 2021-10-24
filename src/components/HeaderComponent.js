@@ -11,7 +11,7 @@ export default class Header extends Component {
             <strong>
               <h1>POA</h1>
             </strong>
-            <div className="offset-md-1 offset-3"></div>
+            <div className="offset-lg-1 offset-3"></div>
           </div>
         </nav>
       </>
