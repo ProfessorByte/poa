@@ -2,18 +2,18 @@ import React from 'react'
 import HeaderBibliografia from '../components/HeaderBibliografia'
 import "../css/HeaderBibliografia.css";
 import Cards from "../components/Cards.js";
-import Header from "../components/HeaderComponent"
-
+import { ButtonBack } from "../components/ButtonBackComponent";
+import Header from '../components/HeaderComponent';
 export default function BibliografiaPage() {
     return (
       <div className="fondoBibliografia">
         <div>
-          <Header/>
-          <HeaderBibliografia/>     
+        <Header/>
+        <HeaderBibliografia/>
         </div>
         <div class="container mt-3">
      <div className="row">
-          <div className ="col-sm-6">
+          <div className ="col-sm-4">
               <Cards
               tituloReferncia="Programación orientada a objetos con java usando Bluej"
               autor_NombrePagina= "David J. Barnes, Michael Kölling"
@@ -24,7 +24,7 @@ export default function BibliografiaPage() {
 
               />
           </div>
-          <div className ="col-sm-6">
+          <div className ="col-sm-4">
               <Cards
               tituloReferncia="Estructuras de Control Iterativas"
               autor_NombrePagina= "Grupo Docente ISCyP"
@@ -34,7 +34,7 @@ export default function BibliografiaPage() {
 
               />
           </div>
-          <div className ="col-sm-6">
+          <div className ="col-sm-4">
               <Cards
               tituloReferncia="Interacción de objetos"
               autor_NombrePagina= "Tutorial de java"
@@ -44,7 +44,7 @@ export default function BibliografiaPage() {
 
               />
           </div>
-          <div className ="col-sm-6">
+          <div className ="col-sm-4">
               <Cards
               tituloReferncia="Herencia de clases"
               autor_NombrePagina= "Juan Pavón Mestras"
