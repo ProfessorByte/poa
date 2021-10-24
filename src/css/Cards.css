@@ -12,7 +12,7 @@
     width:18rem;
     height:15rem;
     border:#FAF4F6;
-    box-shadow: inset -4px -4px 0px 0px #6f2ea5;
+
 }
   
 .containerCard{
@@ -24,7 +24,7 @@
   
 
 .wrapper{
-
+    margin :2rem;
     display :grid;
     gap: 1rem;
     grid-template-rows: 1fr;
