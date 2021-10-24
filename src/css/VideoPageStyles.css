@@ -1,13 +1,23 @@
 .video-background {
   background-image: url("../assets/img/Am0rbSB.jpg");
-  background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding-bottom: 15%;
+  background-attachment: fixed;
+  position: absolute;
+  padding-bottom: 9%;
+  width: 100%;
 }
 
 .lessons-content-titles {
   background: #0f4d69;
+}
+
+.accordion-scroll {
+  height: 560px;
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 25px;
+  overflow: auto;
 }
 
 .videos-scroll {
