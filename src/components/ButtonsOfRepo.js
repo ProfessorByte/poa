@@ -8,7 +8,7 @@ const ButtonsOfRepo = () => {
     <div className="container">
       <div className="row justify-content-end">
         <Link
-          className="eightbit-btn eightbit-btn--proceed col-md-4 "
+          className="eightbit-btn eightbit-btn--reset col-md-4 "
           to="/poa/videos"
         >
           Videos
@@ -20,10 +20,10 @@ const ButtonsOfRepo = () => {
 
       <div className="row justify-content-end">
         <Link
-          className="eightbit-btn eightbit-btn--proceed col-md-4 "
+          className="eightbit-btn eightbit-btn--reset col-md-4 "
           to="/poa/bibliografia"
         >
-          Bibliografia
+          Bibliografía
         </Link>
       </div>
     </div>
