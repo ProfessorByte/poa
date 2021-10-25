@@ -11,19 +11,18 @@ const Cards =(props)=>{
         <div className="wrapper">
 
 
-            <div className="card" >
-                <div className="card-bodyCard">
-                    <h5 className="card-title">{tituloReferncia}</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">{temas}</h6>
-                    <h7 className="card-title">{autor_NombrePagina}</h7>
-                    <br/>
-                    <h7 className="card-text">{tipo}</h7>
-                    <br/>
-                    <a href={link} target="_blank" className="card-link" style={{link}}> Link</a>
-                </div>
-            </div>
+                    <div className="card">
+                        <div className="card-bodyCard">
+                            <h5 className="card-title">{tituloReferncia}</h5>
+                            <h6 className="card-subtitle mb-2 text-muted">{temas}</h6>
+                            <h7 className="card-title">{autor_NombrePagina}</h7>
+                            <br/>
+                            <h7 className="card-text">{tipo}</h7>
+                            <br/>
+                            <a href={link} target="_blank" className="card-link" style={{link}}> Link</a>
+                        </div>
+                    </div>
         </div>
-
 
     )
 }
