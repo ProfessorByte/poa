@@ -59,6 +59,62 @@ export default function BibliografiaPage() {
 
                         />
                     </div>
+                    <div className="container_cards">
+                        <Cards
+                            tituloReferncia="Modificadores de Acceso"
+                            autor_NombrePagina= "Ing. Ubaldo José Bonaparte"
+                            temas ="Tipos de modificadores de acceso"
+                            tipo ="PDF"
+
+                            link ="https://elvex.ugr.es/decsai/java/pdf/9D-access.pdf
+"
+
+                        />
+                    </div>
+                    <div className="container_cards">
+                        <Cards
+                            tituloReferncia="Objetos, Clases, Atributos y Métodos"
+                            autor_NombrePagina= "jairogarciarincon"
+                            temas ="Objetos, clases, atributos y métodos"
+                            tipo ="Pagina web"
+
+                            link ="https://drive.google.com/file/d/1XScVL00fLkHn7mgmLxiU3-UP8NQvNhGc/view?usp=sharing"
+
+                        />
+                    </div>
+                    <div className="container_cards">
+                        <Cards
+                            tituloReferncia="Variables locales y variables globales"
+                            autor_NombrePagina= "Instituto Tecnológico de Celaya"
+                            temas ="Variables locales y variables globales"
+                            tipo ="PDF"
+
+                            link ="https://drive.google.com/file/d/1Z6lWs8cSGpZfySA6EjbDbZ8GlBgUIGK4/view?usp=sharing"
+
+                        />
+                    </div>
+                    <div className="container_cards">
+                        <Cards
+                            tituloReferncia="Sentencias condicionales simples: if-else"
+                            autor_NombrePagina= "Instituto Tecnológico de Celaya"
+                            temas =" Estructuras de control if-else"
+                            tipo ="PDF"
+
+                            link ="https://drive.google.com/file/d/1X0BgQzlmO64u8cm6dXMtZTVLIr-h6FiJ/view?usp=sharing"
+
+                        />
+                    </div>
+                    <div className="container_cards">
+                        <Cards
+                            tituloReferncia="Clases Abstractas e interfaces"
+                            autor_NombrePagina= "Instituto Tecnológico de Celaya"
+                            temas ="Clases Abstractas,interfaces"
+                            tipo ="PDF"
+
+                            link ="https://www.unirioja.es/cu/jearansa/0809/archivos/EIPR_Tema04.pdf"
+
+                        />
+                    </div>
                 </div>
 
         </div>

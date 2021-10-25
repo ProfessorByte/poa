@@ -29,7 +29,7 @@
 .wrapper-grid {
 
     display: grid;
-    grid-template-columns: repeat(auto-fit,20rem);
+    grid-template-columns: repeat(auto-fit,22rem);
     justify-content: center;
     color: black;
 
