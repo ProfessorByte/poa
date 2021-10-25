@@ -1,60 +1,28 @@
-.centeredCard{
-    position: absolute;
-    top: 34%;
-    left: 35%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+*,
+* ::before,
+* ::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-  
+
+.card{
+    height: 15rem;
+    box-shadow: 0 0 10px 5px;
+    display: flex;
+}
 .card-bodyCard{
-    background-color:#FAF4F6;
-    width:18rem;
-    height:15rem;
-    border:#FAF4F6;
-
-
-}
-
-.containerCard{
-    position: relative;
+     background-color:#FAF4F6;
+     border:#FAF4F6;
+     height: 15rem;
+     margin: 1rem;
     text-align: center;
-    color:black;
-    font-family: "Pixel";
-}
-  
-
-
-figcaption{
-
-    position: absolute;
-    bottom: 2rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-}
-.wrapper{
-    margin :2rem;
-    display :grid;
-    gap: 1rem;
-    grid-template-rows: 1fr;
-    justify-content: center;
-    color:black;
-
-}
- .card {
 
  }
 
-@media screen and (min-width :500px){
-    .wrapper{
-        grid-template-rows: repeat(auto-fit,minmax(14rem,16rem));
-    }
-    .card{
-        flex-direction: row ;
-        text-align: center;
-        min-width: 14rem;
-    }
-}
+
+
+
+
+
 

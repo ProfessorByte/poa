@@ -54,7 +54,7 @@
 .eightbit-btn--reset:active {
   box-shadow: inset 4px 4px 0px 0px #4e0fb4;
 }
-*/ .eightbit-btn--proceed {
+* .eightbit-btn--proceed {
   background: #420d97;
   box-shadow: inset -4px -4px 0px 0px #5206a8;
 }
