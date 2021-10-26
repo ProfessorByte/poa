@@ -2,39 +2,70 @@
   background-color: #fc8422;
 }
 
-#p1 {
-  color: rgb(248, 246, 246);
-  text-indent: 200px;
-  margin-top: -500px;
-  font-family: "VCR_OSD_MONO_1";
+.contenedor {
+  background-image: url("../assets/images/fondon.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: absolute;
+  padding-bottom: 10%;
+  width: 100%;
 }
 
-#p2 {
-  color: rgb(255, 235, 235);
-  text-indent: 200px;
-  margin-top: 10px;
+.bienvenida {
+  color: rgb(255, 255, 255);
+  text-indent: 100px;
+  margin-top: 100px;
   font-family: "VCR_OSD_MONO_1";
+  padding: 20px;
 }
 
-#p3 {
-  color: rgb(252, 247, 247);
-  text-indent: 200px;
-  margin-top: 10px;
-  font-family: "VCR_OSD_MONO_1";
-}
-
-#d1 {
+.texto {
   color: rgb(235, 228, 228);
-  padding: 0 190px 0 150px;
-  margin-top: 5px;
+  text-indent: 100px;
+  margin-top: 0px;
   font-family: "VCR_OSD_MONO_1";
+  padding: 20px;
 }
-
-#img {
+/*#img {
   background-image: url("../assets/images/fondon.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
-  min-height: 100vh;
+  height: 700px;
+  padding-bottom: 9%;
+}*/
+.botones {
+  padding: 20px;
 }
+
+@media screen and (max-width: 700px) {
+  .bienvenida {
+    color: rgb(255, 255, 255);
+    text-indent: 0px;
+    margin-top: 50px;
+    padding: 20px;
+  }
+  .texto {
+    color: rgb(255, 255, 255);
+    text-indent: 0px;
+    margin-top: 20px;
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .Botones {
+    text-indent: 0px;
+    margin-top: 200px;
+    padding: 150px;
+  }
+}
+
+/*@media screen and (min-width: 200px) {
+  .Botones {
+    text-indent: 0px;
+    margin-top: -500px;
+    padding: 150px;
+  }
+}*/
