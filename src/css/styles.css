@@ -8,7 +8,7 @@
   padding: 20px;
   font-family: "Press Start 2P", cursive;
   text-decoration: none;
-  color: rgb(255, 254, 254);
+  color: rgb(255, 255, 255);
   box-shadow: inset -4px -4px 0px 0px #7209b7;
 }
 
@@ -57,4 +57,10 @@
 
 .eightbit-btn--reset:active {
   box-shadow: inset 6px 6px 0px 0px #504a52;
+}
+
+@media screen and (max-width: 1000px) {
+  .eightbit-btn {
+    font-size: small;
+  }
 }

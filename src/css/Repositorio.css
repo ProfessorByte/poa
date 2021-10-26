@@ -46,19 +46,21 @@
     text-indent: 0px;
     margin-top: 50px;
     padding: 20px;
+    font-size: large;
   }
   .texto {
     color: rgb(255, 255, 255);
     text-indent: 0px;
     margin-top: 20px;
     padding: 20px;
+    font-size: large;
   }
 }
 @media screen and (max-width: 1000px) {
   .Botones {
     text-indent: 0px;
     margin-top: 200px;
-    padding: 150px;
+    padding: 150px 30px 0px 30px;
   }
 }
 
