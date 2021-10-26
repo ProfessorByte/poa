@@ -6,7 +6,6 @@ export default class Header extends Component {
     return (
       <>
         <nav className="navbar navbar-light navbar-expand-sm navbar-styles">
-
           <div className="container-fluid d-flex justify-content-between">
             <ButtonBack dir="/poa" />
             <strong>
