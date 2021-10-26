@@ -31,8 +31,8 @@ export default function BibliografiaPage() {
                         <Cards
                             tituloReferncia="Estructuras de Control Iterativas"
                             autor_NombrePagina= "Grupo Docente ISCyP"
-                            temas ="while,do-while,for"
-                            tipo ="Pagina web"
+                            temas ="While,Do-while,For"
+                            tipo ="Página Web"
                             link ="https://webs.um.es/ldaniel/iscyp17-18/13-estructuraRepetitiva.html"
 
                         />
@@ -43,7 +43,7 @@ export default function BibliografiaPage() {
                             tituloReferncia="Interacción de objetos"
                             autor_NombrePagina= "Tutorial de java"
                             temas ="Encapsulamiento de objetos,interacción de objetos"
-                            tipo ="Pagina web"
+                            tipo ="Página Web"
                             link ="http://dis.um.es/~bmoros/Tutorial/parteA/capa-2.html"
 
                         />
@@ -75,8 +75,8 @@ export default function BibliografiaPage() {
                         <Cards
                             tituloReferncia="Objetos, Clases, Atributos y Métodos"
                             autor_NombrePagina= "jairogarciarincon"
-                            temas ="Objetos, clases, atributos y métodos"
-                            tipo ="Pagina web"
+                            temas ="Objetos, Clases, Atributos y Métodos"
+                            tipo ="Página Web"
 
                             link ="https://drive.google.com/file/d/1XScVL00fLkHn7mgmLxiU3-UP8NQvNhGc/view?usp=sharing"
 
@@ -108,13 +108,50 @@ export default function BibliografiaPage() {
                         <Cards
                             tituloReferncia="Clases Abstractas e interfaces"
                             autor_NombrePagina= "Instituto Tecnológico de Celaya"
-                            temas ="Clases Abstractas,interfaces"
+                            temas ="Clases Abstractas,Interfaces"
                             tipo ="PDF"
 
                             link ="https://www.unirioja.es/cu/jearansa/0809/archivos/EIPR_Tema04.pdf"
 
                         />
                     </div>
+                    <div className="container_cards">
+                        <Cards
+                            tituloReferncia="Enlace dinámico y enlace estático"
+                            autor_NombrePagina= "Programador Clic"
+                            temas ="Enlace dinámico y estático"
+                            tipo ="Página Web"
+
+                            link ="https://programmerclick.com/article/12831736491/
+"
+
+                        />
+                    </div>
+                    <div className="container_cards">
+                        <Cards
+                            tituloReferncia="Parámetros y Argumentos en el lenguaje de  programación C++"
+                            autor_NombrePagina= "Ing. Ubaldo José Bonaparte"
+                            temas ="Parámetros y argumentos"
+                            tipo ="PDF"
+
+                            link ="http://www.edutecne.utn.edu.ar/semin_progr_frt/param_y_argum_lenguaje_C.pdf
+"
+
+                        />
+                    </div>
+                    <div className="container_cards">
+                        <Cards
+                            tituloReferncia="Declaración por herencia múltiple"
+                            autor_NombrePagina= "Adolfo Jiménez Millán/ Zator Systems"
+                            temas ="Herencia múltiple"
+                            tipo ="Página Web"
+
+                            link ="https://www.zator.com/Cpp/E4_11_2c.htm#
+"
+
+                        />
+                    </div>
+
                 </div>
 
         </div>
