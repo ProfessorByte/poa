@@ -8,7 +8,7 @@
   
   .titulo-de-bibliografia{
     color:white;
-  text-align: start;
+    text-align: start;
     font-family: 'Pixel';
     padding-top: 3%;
   }
@@ -31,7 +31,7 @@
 .wrapper-grid {
 
     display: grid;
-    grid-template-columns: repeat(auto-fit,25rem);
+    grid-template-columns: repeat(auto-fit,22rem);
     justify-content: center;
     color: black;
 
