@@ -6,11 +6,12 @@ export default class Header extends Component {
     return (
       <>
         <nav className="navbar navbar-light navbar-expand-sm navbar-styles">
-        <ButtonBack dir="/" />
-          <div className="container justify-content-center">
-              <strong>
-                <h1>POA</h1>
-              </strong>
+          <div className="container-fluid d-flex justify-content-between">
+            <ButtonBack dir="/poa" />
+            <strong>
+              <h1>POA</h1>
+            </strong>
+            <div className="offset-md-1 offset-3"></div>
           </div>
         </nav>
       </>
