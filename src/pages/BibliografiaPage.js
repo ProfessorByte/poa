@@ -16,7 +16,7 @@ export default function BibliografiaPage() {
                 <div className="wrapper-grid">
                     <div className="container_cards">
                         <Cards
-                            tituloReferncia="Programación orientada a objetos con java usando Bluej"
+                            tituloReferncia="Programación orientada a objetos con java usando BlueJ"
                             autor_NombrePagina= "David J. Barnes, Michael Kölling"
                             temas ="Todos los temas"
                             tipo ="PDF"
@@ -31,7 +31,7 @@ export default function BibliografiaPage() {
                         <Cards
                             tituloReferncia="Estructuras de Control Iterativas"
                             autor_NombrePagina= "Grupo Docente ISCyP"
-                            temas ="While,Do-while,For"
+                            temas ="While,Do-While,For"
                             tipo ="Página Web"
                             link ="https://webs.um.es/ldaniel/iscyp17-18/13-estructuraRepetitiva.html"
 
