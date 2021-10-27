@@ -5,6 +5,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 require("bootstrap");
 
 function App() {
+  window.onresize = function () {
+    const url = window.location;
+    if (url.href.includes("#")) {
+      url.assign(url);
+    }
+  };
   return (
     <div className="game-styles">
       <Router>

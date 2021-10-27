@@ -22,20 +22,17 @@ export default function Videos({ listId, listVideos }) {
           id={`list-video-${video.videoId}`}
           key={`list-video-key-${video.videoId}`}
         >
-          <div className="mb-4 ms-4 me-4">
+          <div className="pb-5 ms-4 me-4">
             <div className="row">
               <h2>{video.title}</h2>
             </div>
-            <div className="row">
+            <div className="ratio ratio-16x9">
               <iframe
-                width="720"
-                height="480"
                 src={`https://www.youtube.com/embed/${getParameterByName(
                   "v",
                   video.videoLink
                 )}`}
                 title="YouTube video player"
-                frameBorder={0}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>

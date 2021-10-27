@@ -27,11 +27,13 @@ export default class VideosPage extends Component {
               </div>
             </div>
             <div className="row mt-5">
-              <div className="col-md-4 accordion-scroll">
+              <div className="col-lg-4 accordion-scroll">
                 <Accordion accordionId="videos-accordion" />
               </div>
-              <div className="col-md-8 videos-scroll">
-                <Videos listId={1} listVideos={VIDEOS} />
+              <div className="col-lg-8">
+                <div className="ratio ratio-16x9 videos-scroll">
+                  <Videos listId={1} listVideos={VIDEOS} />
+                </div>
               </div>
             </div>
           </div>
