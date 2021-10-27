@@ -1,7 +1,6 @@
 import React from "react";
 import "../css/Repositorio.css"
 import ButtonsOfRepo from "../components/ButtonsOfRepo";
-import Header from "../components/HeaderComponent";
 import HeaderRepositorio from "../components/HeaderRepositorio"
 
 function Repositorio() {

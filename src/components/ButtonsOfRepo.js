@@ -1,6 +1,5 @@
-import React, { Fragment, useState } from "react";
+
 import "../css/styles.css";
-import VideosPage from "../pages/VideosPage";
 import { Link } from "react-router-dom";
 
 const ButtonsOfRepo = () => {

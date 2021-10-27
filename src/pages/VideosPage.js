@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Accordion } from "../components/AccordionComponent";
-import { ButtonBack } from "../components/ButtonBackComponent";
 import Header from "../components/HeaderComponent";
 import Videos from "../components/VideosComponent";
 import { VIDEOS } from "../consts/videos";

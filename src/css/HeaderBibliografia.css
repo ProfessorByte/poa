@@ -1,9 +1,9 @@
 .fondoBibliografia{
     background-image: url(../assets/images/fondoBibliografia.png);
-    background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     padding-bottom: 10%;
+ 
   }
   
   .titulo-de-bibliografia{
@@ -31,7 +31,7 @@
 .wrapper-grid {
 
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(20rem,30rem));
+    grid-template-columns: repeat(auto-fit,minmax(25rem,30rem));
     justify-content: center;
     color: black;
 

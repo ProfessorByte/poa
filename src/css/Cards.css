@@ -7,7 +7,7 @@
 }
 
 .card{
-    height: 16rem;
+    height: 15rem;
     box-shadow: 0 0 10px 5px;
     display: flex;
 }
@@ -18,7 +18,7 @@
      margin: 1rem;
      text-align: center;
      border: 3px solid black;
-
+    font-size: large;
  }
 
 
