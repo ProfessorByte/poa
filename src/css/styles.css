@@ -74,27 +74,3 @@
 }
 
 
-/*
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-/*
-body {
-  font-family: sans-serif;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 30px;
-  font-family: "Maven Pro", sans-serif;
-  text-align: center;
-}
-
-/*h2 {
-  font-family: "Press Start 2P", cursive;
-}*/
-/*
-p {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}

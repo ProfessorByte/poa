@@ -7,11 +7,11 @@ import HeaderRepositorio from "../components/HeaderRepositorio"
 function Repositorio() {
   return (    
 
-    <div>
+    <div className="contenedor">
     <div>
       <HeaderRepositorio/>
      </div>  
-     <div className="contenedor">    
+     <div>    
      <div className="bienvenida">
      <p>REPOSITORIO</p>
      <h2>BIENVENIDO AL APARTADO </h2>
