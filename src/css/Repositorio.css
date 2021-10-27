@@ -16,6 +16,7 @@
   margin-top: 100px;
   font-family: "VCR_OSD_MONO_1";
   padding: 20px;
+ 
 }
 
 .texto {
@@ -24,6 +25,7 @@
   margin-top: 0px;
   font-family: "VCR_OSD_MONO_1";
   padding: 20px;
+  font-size: larger;
 }
 /*#img {
   background-image: url("../assets/images/fondon.jpg");
@@ -54,11 +56,19 @@
     font-size: large;
   }
 }
+
 @media screen and (max-width: 1000px) {
   .Botones {
     text-indent: 0px;
     margin-top: 200px;
     padding: 150px 30px 0px 30px;
+  }
+  .texto {
+    color: rgb(255, 255, 255);
+    text-indent: 0px;
+    margin-top: 20px;
+    padding: 20px;
+    font-size: larger;
   }
 }
 

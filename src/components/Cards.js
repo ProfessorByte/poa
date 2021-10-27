@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import libroPNG from "../assets/images/libroPNG.png"
 import '../css/Cards.css'
 
-import { Container } from "react-bootstrap";
 const Cards =(props)=>{
     const {tituloReferncia,temas,link,autor_NombrePagina,tipo,}=props
     return(
