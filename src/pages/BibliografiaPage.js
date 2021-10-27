@@ -3,6 +3,7 @@ import HeaderBibliografia from '../components/HeaderBibliografia'
 import "../css/HeaderBibliografia.css";
 import Cards from "../components/Cards.js";
 import Header from "../components/HeaderComponent"
+import { ButtonBack } from '../components/ButtonBackComponent';
 
 
 export default function BibliografiaPage() {

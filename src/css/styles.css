@@ -64,3 +64,37 @@
     font-size: small;
   }
 }
+.eightbit-btn--proceed:hover,
+.eightbit-btn--proceed:focus {
+  background: #4c3ce0;
+  box-shadow: inset -6px -6px 0px 0px #450bb3;
+}
+.eightbit-btn--proceed:active {
+  box-shadow: inset 4px 4px 0px 0px #320863;
+}
+
+
+/*
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+/*
+body {
+  font-family: sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: "Maven Pro", sans-serif;
+  text-align: center;
+}
+
+/*h2 {
+  font-family: "Press Start 2P", cursive;
+}*/
+/*
+p {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
