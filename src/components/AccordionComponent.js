@@ -17,7 +17,7 @@ export const Accordion = ({ accordionId }) => {
         expanded={false}
         title="Introducción"
         listTitles={closedIntervalVideos(VIDEOS, 0, 4)}
-        listItemActive={-1}
+        listItemActive={0}
       />
       <AccordionItem
         accordionId={accordionId}
