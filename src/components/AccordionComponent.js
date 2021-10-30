@@ -88,7 +88,7 @@ export const Accordion = ({ accordionId }) => {
         itemId={9}
         expanded={false}
         title="Polimorfismo"
-        listTitles={closedIntervalVideos(VIDEOS, 36, 36)}
+        listTitles={closedIntervalVideos(VIDEOS, 36, 39)}
         listItemActive={-1}
       />
     </div>

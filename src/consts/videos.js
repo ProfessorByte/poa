@@ -219,6 +219,24 @@ export const VIDEOS = [
     videoId: 36,
     title: `Polimorfismo`,
     videoLink:
-      "https://www.youtube.com/watch?v=sdJgcMaazmI&list=PLg9145ptuAihudcXnj8yGBtVWFI6hrrF_&index=37",
+      "https://www.youtube.com/watch?v=5SH5DfQZfTM",
   },
+  {
+    videoId: 37,
+    title: `Conversión ascendente de tipos (Upcasting)`,
+    videoLink:
+      "https://www.youtube.com/watch?v=Phi2oAHWTGs",
+  },
+  {
+    videoId: 38,
+    title: `Conversión descendente de tipos (Downcasting)`,
+    videoLink:
+      "https://www.youtube.com/watch?v=nu2SaM0Sy68",
+  },
+  {
+    videoId: 39,
+    title: `Enlace dinámico y estático`,
+    videoLink:
+      "https://www.youtube.com/watch?v=QgMRmPBgOog",
+  }
 ];
