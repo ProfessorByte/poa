@@ -63,7 +63,7 @@ export default function BibliografiaPage() {
                     <div className="container_cards">
                         <Cards
                             tituloReferncia="Modificadores de Acceso"
-                            autor_NombrePagina= "Ing. Ubaldo José Bonaparte"
+                            autor_NombrePagina= "Fernando Berzal"
                             temas ="Tipos de modificadores de acceso"
                             tipo ="PDF"
 
@@ -77,7 +77,7 @@ export default function BibliografiaPage() {
                             tituloReferncia="Objetos, Clases, Atributos y Métodos"
                             autor_NombrePagina= "jairogarciarincon"
                             temas ="Objetos, Clases, Atributos y Métodos"
-                            tipo ="Página Web"
+                            tipo ="PDF"
 
                             link ="https://drive.google.com/file/d/1XScVL00fLkHn7mgmLxiU3-UP8NQvNhGc/view?usp=sharing"
 
