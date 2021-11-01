@@ -76,10 +76,10 @@ export default function BibliografiaPage() {
                         <Cards
                             tituloReferncia="Objetos, Clases, Atributos y Métodos"
                             autor_NombrePagina= "jairogarciarincon"
-                            temas ="Objetos, Clases, Atributos y Métodos"
-                            tipo ="PDF"
+                            temas ="Atributos,Métodos y Constructores"
+                            tipo ="Página Web"
 
-                            link ="https://drive.google.com/file/d/1XScVL00fLkHn7mgmLxiU3-UP8NQvNhGc/view?usp=sharing"
+                            link ="https://jairogarciarincon.com/clase/programacion-orientada-a-objetos-en-php/objetos-clases-atributos-y-metodos"
 
                         />
                     </div>
@@ -90,7 +90,7 @@ export default function BibliografiaPage() {
                             temas ="Variables locales y variables globales"
                             tipo ="PDF"
 
-                            link ="https://drive.google.com/file/d/1Z6lWs8cSGpZfySA6EjbDbZ8GlBgUIGK4/view?usp=sharing"
+                            link ="https://jairogarciarincon.com/clase/programacion-orientada-a-objetos-en-php/objetos-clases-atributos-y-metodos"
 
                         />
                     </div>
