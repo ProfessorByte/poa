@@ -16,8 +16,12 @@ class LogIn extends React.Component {
                     <Label>EMAIL</Label>
                     <Input type="email" placeholder="Email"/>
                 </FormGroup>
+                <FormGroup>
+                <Label>CONTRASEÑA</Label>
+                    <Input type="password" placeholder="Contraseña"/>
+                </FormGroup>
 
-                <Button className="btn-lg btn-dark btn-block">Log IN</Button>
+                <Button className="btn-lg btn- btn-light">Log In</Button>
             </Form>
         );
     }
