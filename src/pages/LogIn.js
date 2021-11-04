@@ -22,6 +22,10 @@ class LogIn extends React.Component {
                 </FormGroup>
 
                 <Button className="btn-lg btn- btn-light">Log In</Button>
+                <div className="text-center pt-3">
+                    O continua con tu cuenta social
+                </div>
+                <FacebookLoginButton className="mt-3 mb-3"/>
             </Form>
         );
     }
