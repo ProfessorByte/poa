@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { FacebookLoginButton } from "react-social-login-buttons";
+import LogInComponent from "../components/LogInComponent";
 
 class LogIn extends React.Component {
     constructor(props) {
@@ -9,24 +10,7 @@ class LogIn extends React.Component {
     }
     render() {
         return (
-            <Form className="login-form">
-                <h1> LOGIN PAGE</h1>
-                <h2>Bienvenido de Vuelta</h2>
-                <FormGroup>
-                    <Label>EMAIL</Label>
-                    <Input type="email" placeholder="Email"/>
-                </FormGroup>
-                <FormGroup>
-                <Label>CONTRASEÑA</Label>
-                    <Input type="password" placeholder="Contraseña"/>
-                </FormGroup>
-
-                <Button className="btn-lg btn- btn-light">Log In</Button>
-                <div className="text-center pt-3">
-                    O continua con tu cuenta social
-                </div>
-                <FacebookLoginButton className="mt-3 mb-3"/>
-            </Form>
+            <LogInComponent/>
         );
     }
 }

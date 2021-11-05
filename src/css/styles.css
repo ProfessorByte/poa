@@ -73,4 +73,10 @@
   box-shadow: inset 4px 4px 0px 0px #320863;
 }
 
+.formulario{
+  background-color: #450bb3;
+  border-radius: 2%;
+  width: 50%;
+  border: 1px white solid;
 
+}
