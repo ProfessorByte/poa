@@ -1,7 +1,11 @@
-.body{
+.contenedor{
     background-image: url("../assets/images/fondon.jpg");
     background-position: center center;
-  background-size: cover;
-  padding-bottom: 10%;
-  height: 100vh;
+    background-size: cover;
+    padding-bottom: 10%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

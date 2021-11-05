@@ -11,20 +11,20 @@ class LogInComponent extends React.Component {
             <Form className="form-group formulario">
                 <h1> LOGIN PAGE</h1>
                 <h2>Bienvenido de Vuelta</h2>
-                <FormGroup className="col-md-3">
+                <FormGroup className="col-md-5 label">
                     <Label>EMAIL</Label>
                     <Input type="email" placeholder="Email"/>
                 </FormGroup>
-                <FormGroup className="col-md-3">
-                <Label>CONTRASEÑA</Label>
+                <FormGroup className="col-md-5 label">
+                <Label> CONTRASEÑA</Label>
                     <Input type="password" placeholder="Contraseña"/>
                 </FormGroup>
 
-                <Button className="btn-lg btn- btn-light">Log In</Button>
+                <Button className="btn-lg btn btn-light">Log In</Button>
                 <div className="text-center pt-3">
                     O continua con tu cuenta social
                 </div >
-                <FacebookLoginButton className="mt-3 mb-3"/>
+                <FacebookLoginButton className="mt-3 mb-3 col-md-3"/>
             </Form>
          );
     }

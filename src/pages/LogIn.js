@@ -11,7 +11,7 @@ class LogIn extends React.Component {
     }
     render() {
         return (
-            <div className="contenedor">
+            <div className="contenedor ">
                 <LogInComponent/>
             </div>
         );

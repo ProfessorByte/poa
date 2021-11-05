@@ -74,9 +74,16 @@
 }
 
 .formulario{
-  background-color: #450bb3;
+  background-color: #121212;
   border-radius: 2%;
   width: 50%;
+  text-align: center;
   border: 1px white solid;
+  padding-left: 1%;
+  padding-right: 1%;
 
+}
+
+.label{
+  text-align:left;
 }
