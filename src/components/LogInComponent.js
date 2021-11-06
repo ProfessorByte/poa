@@ -20,11 +20,14 @@ class LogInComponent extends React.Component {
                     <Input type="password" placeholder="Contraseña"/>
                 </FormGroup>
 
-                <Button className="btn-lg btn btn-light">Log In</Button>
+                <Button className="eightbit-btn eightbit-btn--proceed col-md-3 col-3">Log In</Button>
                 <div className="text-center pt-3">
                     O continua con tu cuenta social
                 </div >
-                <FacebookLoginButton className="mt-3 mb-3 col-md-3"/>
+                <div className="col-md-6 col-5">
+                <FacebookLoginButton className="mt-3 mb-3"/>
+                </div>
+                
             </Form>
          );
     }

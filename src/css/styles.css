@@ -73,12 +73,18 @@
   box-shadow: inset 4px 4px 0px 0px #320863;
 }
 
+
 .formulario{
   background-color: #121212;
+  background-image: url(../assets/images/tetris.jpg);
+  background-position: center center;
+  background-size: cover;
+
   border-radius: 2%;
   width: 50%;
   text-align: center;
-  border: 1px white solid;
+  border: 5px white dashed;
+  padding-top: 2%;
   padding-left: 1%;
   padding-right: 1%;
 
