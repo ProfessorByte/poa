@@ -3,7 +3,7 @@
   background-position: center center;
   background-size: cover;
   padding-bottom: 10%;
-  position:absolute;
+  position: absolute;
   width: 100%;
 }
 
@@ -17,7 +17,7 @@
   padding: 10px;
   border-radius: 25px;
   overflow: auto;
-  margin-bottom:5rem ;
+  margin-bottom: 5rem;
 }
 
 .videos-scroll {
