@@ -1,9 +1,9 @@
 import React from "react";
-import "../css/ButtonIni.css"
+import "../App.css";
 const ButtonIni = () => {
   return (
-  <div className="ContenedorB">
-  <button type="button" class="btn btn-light float-sm-right">Iniciar Sesion</button>
+  <div className="contenedorb">
+  <button type="button" class="btn btn-light">Iniciar Sesion</button>
   </div>
   );
 };
