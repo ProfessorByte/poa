@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/HeaderComponent"
-import Cards from "../components/Cards";
+import Cards from "../components/CardsMainPage";
 
 export default function PaginaPrincipalPage() {
     return (
@@ -9,28 +9,19 @@ export default function PaginaPrincipalPage() {
         <Header/>
     </div>
 
-           <div className="wrapper-grid">
+           <div className="grid-Main-Page">
      <div className="container_cards">
         <Cards
-            tituloReferncia="Programación orientada a objetos con java usando BlueJ"
-            autor_NombrePagina= "David J. Barnes, Michael Kölling"
-            temas ="Todos los temas"
-            tipo ="PDF"
-
-            link ="https://drive.google.com/file/d/1XScVL00fLkHn7mgmLxiU3-UP8NQvNhGc/view?usp=sharing"
-
+            title="Historia"
+            descripcion="aqui podras explorar los diferentes niveles que tenemos listos para ti para que puedas aprender los temas "
         />
     </div>
 
 
     <div className="container_cards">
         <Cards
-            tituloReferncia="Estructuras de Control Iterativas"
-            autor_NombrePagina= "Grupo Docente ISCyP"
-            temas ="While,Do-While,For"
-            tipo ="Página Web"
-            link ="https://webs.um.es/ldaniel/iscyp17-18/13-estructuraRepetitiva.html"
-
+            title="Repositorio"
+            descripcion="algo"
         />
     </div>
 </div>

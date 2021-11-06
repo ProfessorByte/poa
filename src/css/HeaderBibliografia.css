@@ -37,6 +37,16 @@
 
 
 }
+.grid-Main-Page{
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(25rem,30rem));
+    justify-content: center;
+    color: black;
+    margin-top: 290px;
+
+
+}
 .container_cards{
     margin: 10px;
 }
