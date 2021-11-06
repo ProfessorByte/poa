@@ -1,7 +1,8 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { FacebookLoginButton } from "react-social-login-buttons";
-import "../css/LogIn.css"
+import Header from "../components/HeaderComponent";
+import "../css/LogIn.css";
 import LogInComponent from "../components/LogInComponent";
 
 class LogIn extends React.Component {
@@ -11,8 +12,11 @@ class LogIn extends React.Component {
     }
     render() {
         return (
-            <div className="contenedor ">
-                <LogInComponent/>
+            <div>
+                <Header />
+                <div className="contenedor ">
+                    <LogInComponent />
+                </div>
             </div>
         );
     }
