@@ -4,17 +4,13 @@ import '../css/PaginaPrincipal.css'
 const Cards =(props)=>{
     const {title,descripcion}=props
     return(
-        <div className="wrapper">
 
-
-            <div className="card">
-                <div className="card-bodyCard">
-                    <h5 className="card-title">{title}</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">{descripcion}</h6>
-                </div>
-            </div>
+    <div className="card text-black bg-secondary mb-3" >
+        <div className="card-body">
+            <h5 className="card-title  text-center text">{title}</h5>
+            <p className="card-text text-center">{descripcion}</p>
         </div>
-
+    </div>
     )
 }
 export default Cards
