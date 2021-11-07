@@ -1,5 +1,5 @@
 import React from "react";
-import '../css/Cards.css'
+import '../css/PaginaPrincipal.css'
 
 const Cards =(props)=>{
     const {title,descripcion}=props
