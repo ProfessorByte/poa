@@ -4,6 +4,7 @@ import Header from "../components/HeaderComponent";
 import Videos from "../components/VideosComponent";
 import { VIDEOS } from "../consts/videos";
 import "../css/VideoPageStyles.css";
+import Footer from "../components/FooterMainPage";
 
 export default class VideosPage extends Component {
   render() {
@@ -37,7 +38,8 @@ export default class VideosPage extends Component {
             </div>
           </div>
         </div>
-      </>
+        <Footer/>
+        </>
     );
   }
 }
