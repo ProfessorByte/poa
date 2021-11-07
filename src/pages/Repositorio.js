@@ -1,7 +1,8 @@
 import React from "react";
 import "../css/Repositorio.css"
 import ButtonsOfRepo from "../components/ButtonsOfRepo";
-import HeaderRepositorio from "../components/HeaderRepositorio"
+import HeaderRepositorio from "../components/HeaderMainPage"
+import FooterRepositorio from "../components/FooterMainPage"
 
 function Repositorio() {
   return (    
@@ -23,8 +24,11 @@ function Repositorio() {
      </div>
      <div className="Botones" style={{marginTop: -150}}>
        <ButtonsOfRepo/> 
-    </div>
       </div>
+      </div>
+      <div>
+        <FooterRepositorio/>
+        </div>
     </div>      
   );
 }
