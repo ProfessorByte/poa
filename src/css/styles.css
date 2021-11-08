@@ -109,17 +109,23 @@
 .input-password{
   display: flex;
   align-items: center;
+
 }
 
 .icon{
   padding-left: 1%;
 }
 
-.white-eye{
-  color: white;
+.open-eye{
+  color: gray;
 }
 
 .mensaje-error{
   color: red;
   font-size: medium;
+}
+
+.wrong-input{
+  border-radius: 20%;
+  border: 2px red solid;
 }
