@@ -4,12 +4,24 @@ import { FacebookLoginButton } from "react-social-login-buttons";
 import Imagen from "../assets/images/start.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+
 class LogInComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
+
+    state = {
+        showPassword : false
+    }
+
+    togglePasswordVisibility =() =>{
+        const {showPassword} = this.state;
+        this.setState({ showPassword : !showPassword});
+    }
     render() {
+        const { showPassword} = this.state;
+        const ojo= {faEye};
         return (
             <Form className="form-group formulario row">
                 <h1 className="form-title"> LogIn</h1>
@@ -26,11 +38,11 @@ class LogInComponent extends React.Component {
                         <Label> Contraseña :</Label>
                         <div className="input-password">
                             <Input
-                                type="password"
+                                type= {(showPassword) ? "text" : "password"}
                                 placeholder="Contraseña"
                                 className="rounded-pill"
                             />
-                            <FontAwesomeIcon icon={faEye} size="2x" className="icon" />
+                            <FontAwesomeIcon icon={faEye} size="2x" className={(showPassword) ? "icon white-eye" : "icon"} onClick={this.togglePasswordVisibility} />
                         </div>
                     </FormGroup>
                     <div className="label form-btn">
