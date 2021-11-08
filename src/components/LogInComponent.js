@@ -33,6 +33,9 @@ class LogInComponent extends React.Component {
                             placeholder="Email"
                             className="rounded-pill"
                         />
+                        <div className="mensaje-error">
+                            mensaje de error correo 
+                        </div>
                     </FormGroup>
                     <FormGroup className=" label">
                         <Label> Contraseña :</Label>
@@ -43,6 +46,9 @@ class LogInComponent extends React.Component {
                                 className="rounded-pill"
                             />
                             <FontAwesomeIcon icon={faEye} size="2x" className={(showPassword) ? "icon white-eye" : "icon"} onClick={this.togglePasswordVisibility} />
+                        </div>
+                        <div className="mensaje-error">
+                            mensaje de error contrasena
                         </div>
                     </FormGroup>
                     <div className="label form-btn">

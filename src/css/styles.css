@@ -118,3 +118,8 @@
 .white-eye{
   color: white;
 }
+
+.mensaje-error{
+  color: red;
+  font-size: medium;
+}
