@@ -1,7 +1,5 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { FacebookLoginButton } from "react-social-login-buttons";
-import Imagen from "../assets/images/start.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
@@ -25,6 +23,18 @@ class LogInComponent extends React.Component {
 
     validate =() =>{
         let emailError="";
+
+        if(!this.state.email.includes("@")){
+            emailError = "email invalido, no contiene @"
+        }
+
+        if(emailError){
+            this.setState({emailError});
+            return false;
+        }
+
+        return true;
+
     }
 
     handleChangeEmail = event => {
@@ -33,23 +43,27 @@ class LogInComponent extends React.Component {
     handleChangePassword = event => {
         this.setState({ password : event.target.value})
     }
-
-    render() {
-        const { showPassword} = this.state;
+    handleSubmit = event =>{
+        event.preventDefault();
         const isValid = this.validate();
         console.log(this.state);
         if(isValid){
             console.log(this.state);
         }
+    }
+
+    render() {
+        const { showPassword} = this.state;
+        
         const ojo= {faEye};
         return (
-            <Form className="form-group formulario row">
+            <Form className="form-group formulario row" onSubmit={this.handleSubmit}>
                 <h1 className="form-title"> LogIn</h1>
                 <div className="col">
                     <FormGroup className=" label">
                         <Label>Correo Electronico</Label>
                         <Input
-                            type="email"
+                            type="text"
                             placeholder="Email"
                             className="rounded-pill"
                             onChange={this.handleChangeEmail}
@@ -74,7 +88,7 @@ class LogInComponent extends React.Component {
                         </div>
                     </FormGroup>
                     <div className="label form-btn">
-                        <Button className="btn btn-light btn-lg rounded-pill">
+                        <Button type="submit" className="btn btn-light btn-lg rounded-pill" >
                             Ingresar
                         </Button>
                     </div>
