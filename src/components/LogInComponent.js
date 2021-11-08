@@ -3,6 +3,13 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
+const iniState = {
+        email : "",
+        password : "",
+        emailError : "",
+        passwordError : ""
+}
+
 class LogInComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -49,7 +56,10 @@ class LogInComponent extends React.Component {
         console.log(this.state);
         if(isValid){
             console.log(this.state);
+            //limpiar el form
+            this.setState(iniState);
         }
+
     }
 
     render() {
