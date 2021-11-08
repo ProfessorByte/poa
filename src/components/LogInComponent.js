@@ -106,7 +106,7 @@ class LogInComponent extends React.Component {
 
                     <FormGroup className=" label">
                         <Label> Contraseña :</Label>
-                        <div className="input-password rounded-pill">
+                        <div className="input-password">
                             <div
                                 className={
                                     this.state.passwordError
