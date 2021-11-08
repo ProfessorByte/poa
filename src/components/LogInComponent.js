@@ -10,8 +10,9 @@ class LogInComponent extends React.Component {
     render() {
         return (
             <Form className="form-group formulario row">
-                <h1> LogIn</h1>
+                <h1 className="form-title"> LogIn</h1>
                 <div className="col">
+
                     <FormGroup className=" label">
                         <Label>Correo Electronico</Label>
                         <Input type="email" placeholder="Email" className="rounded-pill"/>

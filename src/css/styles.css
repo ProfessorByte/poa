@@ -79,7 +79,7 @@
   background-size: cover;
   background-color: rgba(116, 240, 240, 0.801);
   border-radius: 2%;
-  width: 50%;
+  width: 30%;
   text-align: center;
   padding-top: 2%;
   padding-left: 3%;
@@ -94,4 +94,8 @@
 
 .label Label{
   border-radius: 40%;
+}
+
+.form-title{
+  padding-bottom: 20%;
 }

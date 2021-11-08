@@ -2,8 +2,9 @@
     background-image: url(../assets/images/fondo_inicio_sesion.gif);
     background-position: center center;
     background-size: cover;
-    padding-bottom: 10%;
+    padding-bottom: 3%;
     height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
