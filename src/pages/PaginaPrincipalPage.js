@@ -2,7 +2,8 @@ import React from "react";
 import Header from "../components/HeaderComponent"
 import Cards from "../components/CardsMainPage";
 import "../css/PaginaPrincipal.css";
-
+import imagenEspada from "../assets/images/espadas.png";
+import imagenLibro from "../assets/images/libro (200 x 200 px).png";
 export default function PaginaPrincipalPage() {
     return (
         <div className="fondoPaginaPrincipal">
@@ -17,7 +18,10 @@ export default function PaginaPrincipalPage() {
 
                             <Cards
                                 title="Historia"
+                                imagen={imagenEspada}
                                 descripcion="¡Entra qui para explorar los diferentes niveles que tenemos listos para ti para que puedas aprender los temas !"
+
+
                             />
                         </div>
                         <div className="col-6">
@@ -25,6 +29,7 @@ export default function PaginaPrincipalPage() {
                             <Cards
                                 title="Repositorio"
                                 descripcion="¡Entra aquí para poder reforzar todos los conocimentos que aprenderas en la historia!"
+                                imagen={imagenLibro}
                             />
 
                         </div>

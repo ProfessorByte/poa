@@ -9,7 +9,14 @@
     overflow: hidden;
 }
 .card{
-max-width: 18rem;
+max-width: 20rem;
+height: 25rem;
+
+}
+.card_main_imagen{
+    height: 10rem;
+    width: 12rem;
+    margin:auto;
 
 }
 
