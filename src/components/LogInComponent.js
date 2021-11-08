@@ -30,16 +30,24 @@ class LogInComponent extends React.Component {
 
     validate =() =>{
         let emailError="";
+        let passwordError="";
 
-        if(!this.state.email.includes("@")){
-            emailError = "email invalido, no contiene @"
+        if(!this.state.email){
+            emailError="debe ingresar un email"
+        }else{
+            if(!this.state.email.includes("@")){
+                emailError = "correo invalido, no contiene @"
+            }
+
+            
+    
         }
-
         if(emailError){
             this.setState({emailError});
             return false;
         }
 
+        
         return true;
 
     }
