@@ -27,16 +27,11 @@ class LogInComponent extends React.Component {
         let emailError="";
     }
 
-    emailChange(e){
-        this.setState({
-            email : e.target.value
-        });
+    handleChangeEmail = event => {
+        this.setState({ email : event.target.value})
     }
-
-    passwordChange(e){
-        this.setState({
-            password: e.target.value
-        });
+    handleChangePassword = event => {
+        this.setState({ password : event.target.value})
     }
 
     render() {
@@ -57,6 +52,7 @@ class LogInComponent extends React.Component {
                             type="email"
                             placeholder="Email"
                             className="rounded-pill"
+                            onChange={this.handleChangeEmail}
                         />
                         <div className="mensaje-error">
                             {this.state.emailError}
@@ -69,6 +65,7 @@ class LogInComponent extends React.Component {
                                 type= {(showPassword) ? "text" : "password"}
                                 placeholder="Contraseña"
                                 className="rounded-pill"
+                                onChange={this.handleChangePassword}
                             />
                             <FontAwesomeIcon icon={faEye} size="2x" className={(showPassword) ? "icon white-eye" : "icon"} onClick={this.togglePasswordVisibility} />
                         </div>
