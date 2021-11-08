@@ -10,20 +10,19 @@ class LogInComponent extends React.Component {
     render() {
         return (
             <Form className="form-group formulario row">
-                <h1> LOGIN PAGE</h1>
-                <h2>Bienvenido de Vuelta</h2>
+                <h1> LogIn</h1>
                 <div className="col">
                     <FormGroup className=" label">
-                        <Label>EMAIL</Label>
-                        <Input type="email" placeholder="Email" />
+                        <Label>Correo Electronico</Label>
+                        <Input type="email" placeholder="Email" className="rounded-pill"/>
                     </FormGroup>
                     <FormGroup className=" label">
-                        <Label> CONTRASEÑA</Label>
-                        <Input type="password" placeholder="Contraseña" />
+                        <Label> Contraseña</Label>
+                        <Input type="password" placeholder="Contraseña" className="rounded-pill"/>
                     </FormGroup>
                     <div className="label">
-                        <Button className="eightbit-btn eightbit-btn--proceed ">
-                            Log In
+                        <Button className="btn btn-info btn-lg rounded-pill">
+                            Ingresar
                         </Button>
                     </div>
                     <div className="text-center pt-3 label">
@@ -33,9 +32,7 @@ class LogInComponent extends React.Component {
                         <FacebookLoginButton className="mt-3 mb-3" />
                     </div>
                 </div>
-                <div className="col">
-                    <img src={Imagen} alt="error"></img>
-                </div>
+
             </Form>
         );
     }

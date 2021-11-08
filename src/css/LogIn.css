@@ -1,10 +1,9 @@
-.contenedor{
-    background-image: url("../assets/images/fondon.jpg");
+.contenedor-log-in{
+    background-image: url(../assets/images/fondo_inicio_sesion.gif);
     background-position: center center;
     background-size: cover;
     padding-bottom: 10%;
     height: 100vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
