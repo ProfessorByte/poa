@@ -8,19 +8,29 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 class LogInComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
     }
 
     state = {
-        showPassword : false
+        showPassword : false,
+        emailError : "",
+        passwordError : ""
     }
 
     togglePasswordVisibility =() =>{
         const {showPassword} = this.state;
         this.setState({ showPassword : !showPassword});
     }
+
+    validate =() =>{
+
+    }
+
     render() {
         const { showPassword} = this.state;
+        const isValid = this.validate();
+        if(isValid){
+            console.log(this.state);
+        }
         const ojo= {faEye};
         return (
             <Form className="form-group formulario row">
@@ -34,7 +44,7 @@ class LogInComponent extends React.Component {
                             className="rounded-pill"
                         />
                         <div className="mensaje-error">
-                            mensaje de error correo 
+                            {this.state.emailError}
                         </div>
                     </FormGroup>
                     <FormGroup className=" label">
@@ -48,7 +58,7 @@ class LogInComponent extends React.Component {
                             <FontAwesomeIcon icon={faEye} size="2x" className={(showPassword) ? "icon white-eye" : "icon"} onClick={this.togglePasswordVisibility} />
                         </div>
                         <div className="mensaje-error">
-                            mensaje de error contrasena
+                            {this.state.passwordError}
                         </div>
                     </FormGroup>
                     <div className="label form-btn">
