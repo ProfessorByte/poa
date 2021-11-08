@@ -3,11 +3,13 @@ import HeaderBibliografia from '../components/HeaderBibliografia'
 import "../css/HeaderBibliografia.css";
 import Cards from "../components/Cards.js";
 import Header from "../components/HeaderComponent"
+import Footer from '../components/FooterMainPage';
 
 
 
 export default function BibliografiaPage() {
     return (
+        <>
         <div className="fondoBibliografia">
             <div>
                 <Header/>
@@ -154,10 +156,10 @@ export default function BibliografiaPage() {
                     </div>
 
                 </div>
-
+                
         </div>
-
-
+        <Footer/>
+</>
 
 
 

@@ -30,7 +30,7 @@ function Repositorio() {
     </div>  
     <div>
     <FooterRepositorio/>
-    </div>   
+    </div>  
     </> 
   );
 }
