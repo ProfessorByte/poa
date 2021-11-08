@@ -90,6 +90,7 @@ class LogInComponent extends React.Component {
                             type="text"
                             placeholder="Email"
                             className="rounded-pill"
+                            value={this.state.email}
                             onChange={this.handleChangeEmail}
                         />
                         <div className="mensaje-error">
@@ -103,6 +104,7 @@ class LogInComponent extends React.Component {
                                 type= {(showPassword) ? "text" : "password"}
                                 placeholder="Contraseña"
                                 className="rounded-pill"
+                                value={this.state.password}
                                 onChange={this.handleChangePassword}
                             />
                             <FontAwesomeIcon icon={faEye} size="2x" className={(showPassword) ? "icon white-eye" : "icon"} onClick={this.togglePasswordVisibility} />
