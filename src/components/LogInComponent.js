@@ -37,13 +37,19 @@ class LogInComponent extends React.Component {
         }else{
             if(!this.state.email.includes("@")){
                 emailError = "correo invalido, no contiene @"
+            }else{
+                if(!this.state.password){
+                    passwordError="debe ingresar una contraseña"
+                }else{
+                    if(this.state.password < 8){
+                        passwordError="la contraseña es muy corta"
+                    }
+                }
             }
-
-            
     
         }
-        if(emailError){
-            this.setState({emailError});
+        if(emailError || passwordError){
+            this.setState({emailError,passwordError});
             return false;
         }
 
