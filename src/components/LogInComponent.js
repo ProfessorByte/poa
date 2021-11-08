@@ -12,6 +12,8 @@ class LogInComponent extends React.Component {
 
     state = {
         showPassword : false,
+        email : "",
+        password : "",
         emailError : "",
         passwordError : ""
     }
@@ -22,12 +24,25 @@ class LogInComponent extends React.Component {
     }
 
     validate =() =>{
+        let emailError="";
+    }
 
+    emailChange(e){
+        this.setState({
+            email : e.target.value
+        });
+    }
+
+    passwordChange(e){
+        this.setState({
+            password: e.target.value
+        });
     }
 
     render() {
         const { showPassword} = this.state;
         const isValid = this.validate();
+        console.log(this.state);
         if(isValid){
             console.log(this.state);
         }
