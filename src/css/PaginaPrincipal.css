@@ -16,8 +16,11 @@ height: 25rem;
 .card_main_imagen{
     height: 10rem;
     width: 12rem;
-    margin:auto;
+    margin: 10px auto;
 
+}
+.tamaño{
+font-size: 1.8rem;
 }
 
 
