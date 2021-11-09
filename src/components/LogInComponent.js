@@ -140,7 +140,7 @@ class LogInComponent extends React.Component {
                     <div className="label form-btn">
                         <Button
                             type="submit"
-                            className="btn btn-light btn-lg rounded-pill"
+                            className="btn btn-light btn-lg rounded-pill no-shadow"
                         >
                             Ingresar
                         </Button>
