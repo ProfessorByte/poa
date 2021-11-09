@@ -1,27 +1,33 @@
 import React, { Component } from "react";
 import Footer from "../components/FooterMainPage";
+import Header from "../components/HeaderMainPage";
+import "../css/Prueba.css"
 
 export default class PruebaPage extends Component {
   render() {
     return (
       <>
-        
+          <Header/>
+          <div className="page-container">
+          <div className="content-wrap">
           <div className="container">
             <div className="row mt-3">
               <div className="col">
-                <h1>Videos</h1>
+                <h1>Pagina xd</h1>
               </div>
             </div>
             <div className="row">
               <div className="col">
                 <p>
-                  Aquí podrás ver los vídeos ordenados por temas, desde el más
-                  básico al más complicado
+                  Aquí podrás ver una pagina con cards
                 </p>
               </div>
             </div>
         </div>
-        <Footer/>
+        
+        </div>
+          </div>
+          <Footer/>
         </>
     );
   }

@@ -6,7 +6,7 @@ export default class Footer extends Component {
       <>
         <footer className="page-footer font-small special-color-dark pt-4">
        
-          <div className="container-fluid ">
+          <div className="container-fluid mt-4">
           <div className="row">
               <p className="col-sm d-flex justify-content-center">
                 &copy;{new Date().getFullYear()} Fundamentals | Todos los Derechos Reservados

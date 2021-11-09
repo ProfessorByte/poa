@@ -12,6 +12,7 @@ export default class VideosPage extends Component {
       <>
         <Header />
         <div className="video-background">
+          <div className="content-wrap">
           <div className="container">
             <div className="row mt-3">
               <div className="col">
@@ -26,7 +27,7 @@ export default class VideosPage extends Component {
                 </p>
               </div>
             </div>
-            <div className="row mt-5">
+            <div className="row mt-5 mb-3">
               <div className="col-lg-4 accordion-scroll">
                 <Accordion accordionId="videos-accordion" />
               </div>
@@ -36,6 +37,7 @@ export default class VideosPage extends Component {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
         <Footer/>

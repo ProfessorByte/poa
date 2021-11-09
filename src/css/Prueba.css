@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "VCR_OSD_MONO_1";
+  src: url("../assets/fonts/VCR_OSD_MONO_1.001.ttf");
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: rgb(255, 4, 4);
+}
+.content-wrap {
+  flex: 1;
+}

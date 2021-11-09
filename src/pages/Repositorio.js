@@ -1,16 +1,14 @@
 import React from "react";
 import "../css/Repositorio.css"
 import ButtonsOfRepo from "../components/ButtonsOfRepo";
-import HeaderMainPage from "../components/HeaderMainPage"
+import HeaderMainPage from "../components/HeaderComponent"
 import FooterRepositorio from "../components/FooterMainPage"
 
 function Repositorio() {
   return (    
     <>
     <div className="contenedor">
-    <div>
-      <HeaderMainPage/>
-     </div>  
+      <HeaderMainPage/> 
      <div>    
      <div className="bienvenida">
      <p>REPOSITORIO</p>
@@ -29,8 +27,9 @@ function Repositorio() {
       
     </div>  
     <div>
-    <FooterRepositorio/>
+    
     </div>  
+    <FooterRepositorio/>
     </> 
   );
 }
