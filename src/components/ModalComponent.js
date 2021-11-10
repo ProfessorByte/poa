@@ -1,14 +1,14 @@
 import React from "react";
-import { Modal } from "reactstrap";
+import { Button, Modal } from "reactstrap";
 
-class ModalComponent extends Component {
+class ModalComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {  }
     }
     render() { 
         return ( <div>
-            <Modal>
+            <Modal show= {true}>
                 <Modal.Header>
                     Modal Header
                 </Modal.Header>
@@ -16,7 +16,9 @@ class ModalComponent extends Component {
 
                 </Modal.Body>
                 <Modal.Footer>
-                    
+                    <Button>
+                        Siguiente
+                    </Button>
                 </Modal.Footer>
             </Modal>
         </div> );

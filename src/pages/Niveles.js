@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "reactstrap";
+import ModalComponent from "../components/ModalComponent";
 
 class Niveles extends React.Component {
     constructor(props) {
@@ -10,6 +11,7 @@ class Niveles extends React.Component {
         return ( 
         <div>
             <Button> Mostrar Modal</Button>
+            <ModalComponent/>
         </div> );
     }
 }
