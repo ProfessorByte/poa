@@ -8,17 +8,25 @@
     position: relative;
     overflow: hidden;
 }
-.card{
+.tamaño_card{
 max-width: 20rem;
-height: 25rem;
+min-height: 26rem;
 
 }
 .card_main_imagen{
     height: 10rem;
     width: 12rem;
     margin: 10px auto;
+    transition: width 1s, height 1s;
 
 }
+.card_main_imagen:hover{
+    width: 13rem;
+    height: 13rem;
+}
+
+
+
 .tamaño{
 font-size: 1.8rem;
 }
