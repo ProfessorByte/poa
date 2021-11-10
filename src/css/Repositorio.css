@@ -1,11 +1,8 @@
-
-
 .contenedor {
   background-image: url("../assets/images/fondon.jpg");
   background-position: center center;
   background-size: cover;
   padding-bottom: 10%;
-  height: 100vh;
 }
 
 .bienvenida {
@@ -14,7 +11,6 @@
   margin-top: 100px;
   font-family: "VCR_OSD_MONO_1";
   padding: 20px;
- 
 }
 
 .texto {
@@ -52,6 +48,12 @@
     margin-top: 20px;
     padding: 20px;
     font-size: large;
+  }
+  .contenedor {
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    /*height: 100vh;*/
   }
 }
 

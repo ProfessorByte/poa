@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ButtonBack } from "./ButtonBackComponent";
 import "../App.css";
+import BotonIcono from "./BotonIcono";
 export default class Header extends Component {
   render() {
     return (
@@ -10,10 +11,15 @@ export default class Header extends Component {
             <ButtonBack dir="/poa" />
             <strong>
               <h1>POA</h1>
-            </strong>              
-            <div className="offset-lg-1 offset-3"></div>
-          </div>
-        </nav>
+            </strong>                                   
+            <div className="offset-lg-1 offset-3"></div>   
+          </div>         
+        </nav> 
+        <nav className="navbar navbar-light navbar-expand-sm navbar-styles">   
+        <div className="BotonIcon">
+            <BotonIcono/>  
+        </div> 
+        </nav>      
       </>
     );
   }

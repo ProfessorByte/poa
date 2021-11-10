@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 import ButtonIni from "./ButtonIni";
+import "../css/ButtonsUser.css"
 export default class Header extends Component {
   render() {
     return (
