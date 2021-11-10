@@ -7,7 +7,7 @@ export default class Header extends Component {
       <>
         <nav className="navbar navbar-light navbar-expand-sm navbar-styles">
           <div className="container-fluid d-flex justify-content-between">
-            <ButtonBack dir="/poa" />
+            <ButtonBack dir="/" />
             <strong>
               <h1>POA</h1>
             </strong>
