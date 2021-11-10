@@ -2,6 +2,8 @@ import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../server/firebaseConfig";
 
 const iniState = {
   email: "",
@@ -11,13 +13,17 @@ const iniState = {
 };
 
 class LogInComponent extends React.Component {
-  state = {
-    showPassword: false,
-    email: "",
-    password: "",
-    emailError: "",
-    passwordError: "",
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showPassword: false,
+      email: "",
+      password: "",
+      emailError: "",
+      passwordError: "",
+    };
+  }
 
   togglePasswordVisibility = () => {
     const { showPassword } = this.state;
@@ -63,6 +69,15 @@ class LogInComponent extends React.Component {
     console.log(this.state);
     if (isValid) {
       console.log(this.state);
+      signInWithEmailAndPassword(auth, this.state.email, this.state.password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(`Current user: ${user}`);
+          window.location.assign("/");
+        })
+        .catch((error) => {
+          alert("Datos inválidos");
+        });
       //limpiar el form
       this.setState(iniState);
     }
@@ -70,6 +85,7 @@ class LogInComponent extends React.Component {
 
   render() {
     const { showPassword } = this.state;
+
     return (
       <Form className="form-group formulario row" onSubmit={this.handleSubmit}>
         <h1 className="form-title"> LogIn</h1>
