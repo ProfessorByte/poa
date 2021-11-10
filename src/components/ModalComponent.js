@@ -1,25 +1,34 @@
 import React from "react";
-import { Button, Modal } from "reactstrap";
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 
 class ModalComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+            showModal: false
+         }
     }
+
+    handleModal(){
+        this.setState({showModal: !this.state.showModal})
+    }
+
     render() { 
         return ( <div>
-            <Modal show= {true}>
-                <Modal.Header>
+            <Button onClick={() => this.handleModal()}> abrir </Button>
+            <Modal isOpen= {this.state.showModal} onHide={() => this.handleModal()} fade= {false}>
+                <ModalHeader closeButton>
                     Modal Header
-                </Modal.Header>
-                <Modal.Body>
-
-                </Modal.Body>
-                <Modal.Footer>
+                </ModalHeader>
+                <ModalBody>
+                    <img src="../assets/images/start.jpg" />
+                </ModalBody>
+                <ModalFooter>
                     <Button>
                         Siguiente
                     </Button>
-                </Modal.Footer>
+                    <Button onClick= {() => this.handleModal()}> Cancelar</Button>
+                </ModalFooter>
             </Modal>
         </div> );
     }

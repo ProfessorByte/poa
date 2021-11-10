@@ -1,5 +1,6 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router";
+import ModalComponent from "../components/ModalComponent";
 import BibliografiaPage from "../pages/BibliografiaPage";
 import LogIn from "../pages/LogIn";
 import Niveles from "../pages/Niveles";
@@ -14,7 +15,7 @@ export default function AppRouter() {
         <Route exact path="/poa" component={Repositorio} />
         <Route exact path="/poa/videos" component={VideosPage} />
         <Route exact path="/login" component={LogIn} />
-        <Route exact path="/niveles" component={Niveles} />
+        <Route exact path="/niveles" component={ModalComponent} />
         <Route exact path="/poa/bibliografia" component={BibliografiaPage} />
         <Redirect to="/poa" />
       </Switch>
