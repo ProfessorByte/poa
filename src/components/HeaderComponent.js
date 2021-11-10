@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { ButtonBack } from "./ButtonBackComponent";
 import "../App.css";
 export default class Header extends Component {
   render() {
@@ -7,11 +6,12 @@ export default class Header extends Component {
       <>
         <nav className="navbar navbar-light navbar-expand-sm navbar-styles">
           <div className="container-fluid d-flex justify-content-between">
-            <ButtonBack dir="/" />
             <strong>
               <h1>POA</h1>
             </strong>
-            <div className="offset-lg-1 offset-3"></div>
+            <a href="/login" className="col-auto btn btn-warning m-2">
+              Iniciar sesión
+            </a>
           </div>
         </nav>
       </>
