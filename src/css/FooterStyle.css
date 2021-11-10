@@ -4,10 +4,10 @@
   font-style: normal;
   font-weight: normal;
 }
-.fotter-styles {
-  background-color: #121212;
+.fotter-stylemain {
+  background-color: #012340;
 }
 
-.fixed-bottom {
+.fotter-stylerepo {
   background-color: #121212;
 }

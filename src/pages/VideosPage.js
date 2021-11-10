@@ -4,7 +4,7 @@ import Header from "../components/HeaderComponent";
 import Videos from "../components/VideosComponent";
 import { VIDEOS } from "../consts/videos";
 import "../css/VideoPageStyles.css";
-import Footer from "../components/FooterMainPage";
+import Footer from "../components/FooterRepositorio";
 
 export default class VideosPage extends Component {
   render() {

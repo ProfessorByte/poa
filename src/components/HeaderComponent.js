@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { ButtonBack } from "./ButtonBackComponent";
-import "../App.css";
+import "../css/HeaderMain.css";
 export default class Header extends Component {
   render() {
     return (
       <>
-        <nav className="navbar navbar-light navbar-expand-sm navbar-styles">
+        <nav className="navbar navbar-light navbar-expand-sm navbar-stylerepo">
           <div className="container-fluid d-flex justify-content-between">
             <ButtonBack dir="/poa" />
             <strong>
