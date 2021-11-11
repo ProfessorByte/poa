@@ -7,16 +7,13 @@ export default class Header extends Component {
     return (
       <>
         <nav className="navbar navbar-light navbar-expand-sm navbar-styles">
-          <div className="container-fluid d-flex justify-content-start">
-        <div className="navbar-brand">
-        <a href="/poa">
-        <img id="logo" src={Logo} width="150px" alt=""></img>   
-    </a>
-    </div>
-      <div className="container-fluid d-flex justify-content-end mb-2">
-        <ButtonBack/>
+          <div className="container-fluid d-flex justify-content-between me-1 ms-1">
+          <a href="/poa">
+          <img id="logo" src={Logo} width="150px" alt=""></img>   
+          </a>
+          <h1>Historia</h1>
+          <ButtonBack/>
         </div>
-          </div>
         </nav>
       </>
     );
