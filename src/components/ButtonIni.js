@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css";
+import "../css/ButtonsUser.css";
 const ButtonIni = () => {
   return (
   <div className="contenedorb">

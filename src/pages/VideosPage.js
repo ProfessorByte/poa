@@ -13,7 +13,7 @@ export default class VideosPage extends Component {
         <Header />
         <div className="video-background">
           <div className="content-wrap">
-          <div className="container">
+          <div className="container-fluid">
             <div className="row mt-3">
               <div className="col">
                 <h1>Videos</h1>

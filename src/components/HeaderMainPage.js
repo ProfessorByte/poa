@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import  "../css/HeaderMain.css"
 import Logo from "../assets/images/logo1.png"
-import { ButtonBack } from "./ButtonBackComponent";
+import ButtonIni from "./ButtonIni";
 export default class Header extends Component {
   render() {
     return (
@@ -11,8 +11,8 @@ export default class Header extends Component {
           <a href="/poa">
           <img id="logo" src={Logo} width="150px" alt=""></img>   
           </a>
-          <h1>Historia</h1>
-          <ButtonBack/>
+          <h1 id="titulo">Historia</h1>
+          <ButtonIni/>
         </div>
         </nav>
       </>
