@@ -1,0 +1,30 @@
+.contenedorb {
+  padding: 0px 10px 0px 10px;
+}
+.contenedori {
+  position: fixed;
+  color: #ffffff;
+  padding: 0px 10px 0px 10px;
+}
+@media screen and (max-width: 700px) {
+  .contenedorb {
+    text-indent: 70px;
+    margin-top: -40px;
+    /*text-align: left;*/
+    padding: 0px 0px 0px 250px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .contenedorb {
+    text-indent: -10px;
+    text-align: left;
+  }
+}
+.dropdown {
+  background-color: #121212;
+  text-indent: 0px;
+}
+.BotonIcon {
+  background-color: #121212;
+  text-indent: 0px;
+}

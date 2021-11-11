@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { ButtonBack } from "./ButtonBackComponent";
 import "../css/HeaderMain.css";
+import BotonIcono from "./BotonIcono";
+import "../css/ButtonsUser.css"
 export default class Header extends Component {
   render() {
     return (
@@ -10,10 +12,13 @@ export default class Header extends Component {
             <ButtonBack dir="/poa" />
             <strong>
               <h1>POA</h1>
-            </strong>
-            <div className="offset-lg-1 offset-3"></div>
-          </div>
-        </nav>
+            </strong>                                   
+            <div className="offset-lg-1 offset-3"></div> 
+          </div>  
+          <div className="BotonIcon">
+            <BotonIcono/>  
+        </div>         
+        </nav>   
       </>
     );
   }
