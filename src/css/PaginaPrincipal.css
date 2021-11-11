@@ -6,18 +6,18 @@
     padding: 0;
 }
 .fondoPaginaPrincipal{
-   background-image: url("../assets/images/fondopagianPrincipal.jpg");
+    background-image: url("../assets/images/fondopagianPrincipal.jpg");
+    background-position: center center;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-    overflow: hidden;
+    padding-bottom: 10%;
+    position:absolute;
+    width: 100%;
+    height: 100%;
 }
 .tamaño_card{
 max-width: 20rem;
 min-height: 27rem;
+
 
 }
 .card_main_imagen{
@@ -29,8 +29,8 @@ min-height: 27rem;
 }
 .card_main_imagen:hover{
     width: 13rem;
-    height: 13rem;
-    object-fit: cover;
+    height: 12rem;
+
 }
 
 .tamaño{

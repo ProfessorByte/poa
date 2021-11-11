@@ -1,16 +1,16 @@
 import React from "react";
-import Header from "../components/HeaderComponent"
 import Cards from "../components/CardsMainPage";
 import "../css/PaginaPrincipal.css";
 import imagenEspada from "../assets/images/espadas.png";
-import imagenLibro from "../assets/images/libro (200 x 200 px).png";
-import { Link } from "react-router-dom";
+import imagenLibro from "../assets/images/librol.png";
+
 
 function pressFirstImage(e) {
-    alert("Inicie seción si desea guardar los cambios de historia ");
+    alert("Inicie seción si desea  que los cambios se guarden ");
+        window.location.href = ("/poa");
 }
 function pressSecondImage(e) {
-    window.open("/poa" );
+    window.location.href =("/poa" );
 
 }
 export default function PaginaPrincipalPage() {
