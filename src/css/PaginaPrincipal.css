@@ -1,3 +1,10 @@
+*,
+* ::before,
+* ::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 .fondoPaginaPrincipal{
    background-image: url("../assets/images/fondopagianPrincipal.jpg");
     background-size: cover;
@@ -10,7 +17,7 @@
 }
 .tamaño_card{
 max-width: 20rem;
-min-height: 26rem;
+min-height: 27rem;
 
 }
 .card_main_imagen{
@@ -23,12 +30,17 @@ min-height: 26rem;
 .card_main_imagen:hover{
     width: 13rem;
     height: 13rem;
+    object-fit: cover;
 }
-
-
 
 .tamaño{
 font-size: 1.8rem;
 }
+.card-bodyMain{
+    margin :1 rem;
+}
+.titulo{
+    line-height: 1.5 rem;
 
+}
 
