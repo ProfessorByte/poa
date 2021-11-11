@@ -134,3 +134,14 @@
 .no-shadow{
   box-shadow: none;
 }
+
+.myModal{
+  background-image: url("../assets/images/start.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.myModalimg{
+  width: 50%;
+}
