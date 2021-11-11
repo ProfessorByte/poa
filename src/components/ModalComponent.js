@@ -1,5 +1,7 @@
 import React from "react";
-import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+
+import Figura from '../assets/images/start.jpg';
+
 
 class ModalComponent extends React.Component {
     constructor(props) {
@@ -15,21 +17,30 @@ class ModalComponent extends React.Component {
 
     render() { 
         return ( <div>
-            <Button onClick={() => this.handleModal()}> abrir </Button>
-            <Modal isOpen= {this.state.showModal} onHide={() => this.handleModal()} fade= {false}>
-                <ModalHeader closeButton>
-                    Modal Header
-                </ModalHeader>
-                <ModalBody>
-                    <img src="../assets/images/start.jpg" />
-                </ModalBody>
-                <ModalFooter>
-                    <Button>
-                        Siguiente
-                    </Button>
-                    <Button onClick= {() => this.handleModal()}> Cancelar</Button>
-                </ModalFooter>
-            </Modal>
+            <div className="modal-content" style={{color:"black"}}>
+                <div className="modal-header">
+                    Titulo del Modal
+                    <button className="close btn-warning" data-dismiss="modal" aria-label="cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div className="modal-body">
+                    <div className="alert alert-success">
+                        <h4> Cuerpo del modal</h4>
+                        <div>
+                            e
+                        </div>
+                    </div>
+                </div>
+                <div className="modal-footer">
+                    <button className="btn btn-warning" type="button" data-dismiss="modal">
+                        Cerrar
+                    </button>
+                    <button className="btn btn-succesa" type="button">
+                        Aceptar
+                    </button> 
+                </div>
+            </div>
         </div> );
     }
 }
