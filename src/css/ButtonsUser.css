@@ -22,13 +22,9 @@
 }
 .dropdown {
   background-color: #121212;
-  color: rgb(253, 253, 253);
-  border-left: 100px;
-  text-indent: 1000px;
-  margin-top: 0px;
+  text-indent: 0px;
 }
 .BotonIcon {
   background-color: #121212;
-  color: rgb(253, 253, 253);
-  text-align: right;
+  text-indent: 0px;
 }
