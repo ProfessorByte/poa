@@ -3,18 +3,21 @@ import Cards from "../components/CardsMainPage";
 import "../css/PaginaPrincipal.css";
 import imagenEspada from "../assets/images/espadas.png";
 import imagenLibro from "../assets/images/librol.png";
-
+import Header from "../components/HeaderMainPage";
+import Footer from "../components/FooterMainPage";
 
 function pressFirstImage(e) {
     alert("Inicie seción si desea  que los cambios se guarden ");
         window.location.href = ("/poa");
 }
 function pressSecondImage(e) {
-    window.location.href =("/poa" );
+    window.location.href =("/poa/repositorio" );
 
 }
 export default function PaginaPrincipalPage() {
     return (
+        <>
+        <Header/>
         <div className="fondoPaginaPrincipal">
             <div>
 
@@ -41,11 +44,12 @@ export default function PaginaPrincipalPage() {
                     </div>
                 </div>
             </div>
+             <Footer/>
         </div>
+       
 
 
-
-
+        </>
     );
 
 }
