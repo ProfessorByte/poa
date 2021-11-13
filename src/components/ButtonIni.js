@@ -3,7 +3,7 @@ import "../css/ButtonsUser.css";
 const ButtonIni = () => {
   return (
   <div className="contenedorb">
-  <button type="button" class="btn btn-light">Iniciar Sesion</button>
+  <button type="button" class="btn btn-secondary">Iniciar Sesion</button>
   </div>
   );
 };

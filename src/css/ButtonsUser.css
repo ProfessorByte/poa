@@ -1,6 +1,7 @@
 .contenedorb {
-  width: 170px;
+  font-family: "VCR_OSD_MONO_1";
 }
+
 @media screen and (max-width: 1024px) {
   .contenedorb {
     width: 160px;
@@ -20,6 +21,6 @@
   background-color: #121212;
 }
 .BotonIcon {
-  background-color: #121212;
+  background-color: #131212;
   text-indent: 0px;
 }
