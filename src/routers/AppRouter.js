@@ -13,7 +13,7 @@ export default function AppRouter() {
         <Route exact path="/poa" component={Repositorio} />
         <Route exact path="/poa/videos" component={VideosPage} />
         <Route exact path="/poa/bibliografia" component={BibliografiaPage} />
-        <Route exact path="/poa/Historia" component={Historia}/>
+        <Route exact path="/poa/historia" component={Historia}/>
         <Redirect to="/poa" />
       </Switch>
     </>

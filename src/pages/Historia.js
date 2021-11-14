@@ -21,7 +21,7 @@ export default function Historia (){
       bgImage={img1}
       strength={500}
       bgImageStyle={{height:'100%',width:'100%'}}
-     
+      style={{height:800}}
      >
 
      </Parallax>
