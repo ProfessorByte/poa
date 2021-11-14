@@ -1,12 +1,102 @@
+import { auto } from "@popperjs/core";
 import React from "react";
 import { render } from "react-dom";
 import { Parallax, Background } from "react-parallax";
 
+//Escenas//
+import img1 from "../assets/escenas/img1.png";
+import img2 from "../assets/escenas/img2.png";
+import img3 from "../assets/escenas/img3.png";
+import img4 from "../assets/escenas/img4.png";
+import img5 from "../assets/escenas/img5.png";
+import img6 from "../assets/escenas/img6.png";
+import img7 from "../assets/escenas/img7.png";
+import img8 from "../assets/escenas/img8.png";
+
 export default function Historia (){
   return( 
-  <div>
-    <h1>Hola</h1>
-  </div>
+   <div className="Historia"> 
+     <Parallax
+      bgImage={img1}
+      strength={500}
+      bgImageStyle={{height:'100%',width:'100%'}}
+     >
+
+       <div style={{height:700}}>
+       </div>
+
+     </Parallax>
+     <Parallax
+      bgImage={img2}
+      strength={500}
+      bgImageStyle={{height:'100%',width:'100%'}}
+      style={{height:700}}
+     >
+       
+   
+
+     </Parallax>
+     <Parallax
+      bgImage={img3}
+      strength={500}
+      bgImageStyle={{height:'100%',width:'100%'}}
+     >
+       
+       <div style={{height:'100%'}}>
+       </div>
+
+     </Parallax>
+     <Parallax
+      bgImage={img4}
+      strength={500}
+      bgImageStyle={{height:'100%',width:'100%'}}
+     >
+       
+       <div style={{height:'100%'}}>
+       </div>
+
+     </Parallax>
+     <Parallax
+      bgImage={img5}
+      strength={500}
+      bgImageStyle={{height:'100%',width:'100%'}}
+     >
+       
+       <div style={{height:'100%'}}>
+       </div>
+
+     </Parallax>
+     <Parallax
+      bgImage={img6}
+      strength={500}
+      bgImageStyle={{height:'100%',width:'100%'}}
+     >
+       
+       <div style={{height:'100%'}}>
+       </div>
+
+     </Parallax>
+     <Parallax
+      bgImage={img7}
+      strength={500}
+      bgImageStyle={{height:'100%',width:'100%'}}
+     >
+       
+       <div style={{height:'100%'}}>
+       </div>
+
+     </Parallax>
+     <Parallax
+      bgImage={img8}
+      strength={500}
+      bgImageStyle={{height:'100%',width:'100%'}}
+     >
+       
+       <div style={{height:'100%'}}>
+       </div>
+
+     </Parallax>
+   </div>
 
   )
 }
