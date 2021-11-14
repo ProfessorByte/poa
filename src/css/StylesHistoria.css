@@ -1,23 +1,25 @@
 Parallax {
   min-height: auto;
   position: relative;
-  opacity: 1;
+  opacity: 0.75;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-size: cover;
   height: 100%;
   width: 100%;
 }
-@media (max-width: 768px) {
+@media only screen and (min-width: 768px) {
   Parallax {
-    font-size: 250%;
+    height: 0px;
+    width: 0px;
     background-size: contain;
   }
 }
-@media (max-heigth: 768px) {
+@media only screen and (min-height: 768px) {
   Parallax {
-    font-size: 250%;
+    height: 0px;
+    width: 0px;
     background-size: contain;
   }
 }
