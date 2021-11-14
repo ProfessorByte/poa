@@ -17,8 +17,17 @@ import img8 from "../assets/escenas/img8.png";
 export default function Historia (){
   return( 
    <div className="Historia"> 
-     <Parallax 
+     <Parallax  
       bgImage={img1}
+      strength={500}
+      bgImageStyle={{height:'100%',width:'100%'}}
+      
+     >
+
+     </Parallax>
+
+     <Parallax className="parallax1"
+      bgImage={img2}
       strength={500}
       bgImageStyle={{height:'100%',width:'100%'}}
       style={{height:800}}
@@ -27,19 +36,10 @@ export default function Historia (){
      </Parallax>
 
      <Parallax
-      bgImage={img2}
-      strength={500}
-      bgImageStyle={{height:'100%',width:'100%'}}
-      style={{height:700}}
-     >
-
-     </Parallax>
-
-     <Parallax
       bgImage={img3}
       strength={500}
       bgImageStyle={{height:'100%',width:'100%'}}
-      style={{height:700}}
+      style={{height:800}}
      >
 
      </Parallax>
@@ -48,16 +48,16 @@ export default function Historia (){
       bgImage={img4}
       strength={500}
       bgImageStyle={{height:'100%',width:'100%'}}
-      style={{height:700}}
+      style={{height:800}}
      >
 
      </Parallax>
 
-     <Parallax
+     <Parallax className="parallax1"
       bgImage={img5}
       strength={500}
       bgImageStyle={{height:'100%',width:'100%'}}
-      style={{height:700}}
+      style={{height:800}}
      >
 
      </Parallax>
@@ -66,7 +66,7 @@ export default function Historia (){
       bgImage={img6}
       strength={500}
       bgImageStyle={{height:'100%',width:'100%'}}
-      style={{height:700}}
+      style={{height:800}}
      >
 
      </Parallax>
@@ -75,7 +75,7 @@ export default function Historia (){
       bgImage={img7}
       strength={500}
       bgImageStyle={{height:'100%',width:'100%'}}
-      style={{height:700}}
+      style={{height:800}}
      >
 
      </Parallax>
@@ -84,7 +84,7 @@ export default function Historia (){
       bgImage={img8}
       strength={500}
       bgImageStyle={{height:'100%',width:'100%'}}
-      style={{height:700}}
+      style={{height:800}}
      >
 
      </Parallax>

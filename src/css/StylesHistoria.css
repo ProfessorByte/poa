@@ -9,14 +9,25 @@ Parallax {
   height: 100%;
   width: 100%;
 }
-@media only screen and (min-width: 768px) {
+.parallax1 {
+  min-height: auto;
+  position: relative;
+  opacity: 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+@media (min-width: 768px) {
   Parallax {
     height: 0px;
     width: 0px;
     background-size: contain;
   }
 }
-@media only screen and (min-height: 768px) {
+@media (min-height: 768px) {
   Parallax {
     height: 0px;
     width: 0px;
