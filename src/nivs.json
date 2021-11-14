@@ -30,35 +30,30 @@
     "estado" : -1
   }, 
   {
-    "id" : 6,
+    "id" : 7,
     "titulo" : "Variables locales y globales",
     "estado" : -1
   }, 
   {
-    "id" : 7,
+    "id" : 8,
     "titulo" : "Interacción de Objetos",
     "estado" : -1
   }, 
   {
-    "id" : 8,
+    "id" : 9,
     "titulo" : "Arreglos y Matrices",
     "estado" : -1
   }, 
   {
-    "id" : 9,
-    "titulo" : "Ciclo while y for",
-    "estado" : -1
-  }, 
-  {
     "id" : 10,
-    "titulo" : "If-Else",
+    "titulo" : "Ciclo while y for",
     "estado" : -1
   }, 
   {
     "id" : 11,
     "titulo" : "If-Else",
     "estado" : -1
-  }, 
+  },
   {
     "id" : 12,
     "titulo" : "Herencia",
