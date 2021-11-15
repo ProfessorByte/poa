@@ -1,22 +1,22 @@
 import React from 'react'
 
-export default function CardNivel({ estado, titulo, desc, num }) {
-  const getColor = (n) => {
-      var color = "";
-      if( estado === -1 ){
-        color = "card text-white bg-secondary mb-3 card-nivel";
-      }else if(estado === 0){
-        color = "card text-white bg-warning mb-3 card-nivel";
+export default function CardNivel({ estado, titulo, num }) {
+  const getBackground = (n) => {
+    var bg = "";
+      if( n === -1 ){
+        bg = "card-body card-nivel-c";
+      }else if(n === 0){
+        bg = "card-body card-nivel-b";
       }else{
-        color = "card text-white bg-success mb-3 card-nivel";
+        bg = "card-body card-nivel-a";
       }
-      return color;
-    }
+      return bg;
+  }
   return (
     <div >
-      <div className={getColor(estado)}>
+      <div className="card text-white mb-3 card-nivel">
         {/*<div className="card-header text-center">{titulo}</div>*/}
-        <div className="card-body">
+        <div className={getBackground(estado)}>
           <div className="card-header">{num}</div>
           <h6 className="card-text">{titulo}</h6>
           <button type="button" className="btn btn-light btn-sm btn-block" onClick={() => alert("Hello from here")}>start</button>

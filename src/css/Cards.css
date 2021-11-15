@@ -5,11 +5,6 @@
   margin: 0;
   padding: 0;
 }
-.wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .card-bibliografia {
   height: 15rem;
@@ -19,6 +14,15 @@
 .card-nivel {
   height: 11rem;
   display: flex;
+}
+.card-nivel-a {
+  background-color: #668c4a;
+}
+.card-nivel-b {
+  background-color: #f2c53d;
+}
+.card-nivel-c {
+  background-color: #f28c0f;
 }
 .card-bodyCard {
   background-color: #faf4f6;
