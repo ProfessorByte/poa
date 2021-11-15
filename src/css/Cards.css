@@ -1,29 +1,35 @@
 *,
 * ::before,
-* ::after{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.card{
-    height: 15rem;
-    box-shadow: 0 0 10px 5px;
-    display: flex;
+.card-bibliografia {
+  height: 15rem;
+  box-shadow: 0 0 10px 5px;
+  display: flex;
 }
-.card-bodyCard{
-     background-color:#FAF4F6;
-     border:#FAF4F6;
-     height: 15rem;
-     margin: 1rem;
-     text-align: center;
-     border: 3px solid black;
-    font-size: large;
- }
-
-
-
-
-
-
-
+.card-nivel {
+  height: 11rem;
+  display: flex;
+}
+.card-nivel-a {
+  background-color: #2fb555;
+}
+.card-nivel-b {
+  background-color: #f2c53d;
+}
+.card-nivel-c {
+  background-color: #f28c0f;
+}
+.card-bodyCard {
+  background-color: #faf4f6;
+  border: #faf4f6;
+  height: 15rem;
+  margin: 1rem;
+  text-align: center;
+  border: 3px solid black;
+  font-size: large;
+}
