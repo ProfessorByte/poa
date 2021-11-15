@@ -3,7 +3,7 @@ import React from "react";
 import { render } from "react-dom";
 import { Parallax, Background } from "react-parallax";
 import "../css/StylesHistoria.css";
-
+import CardsNivel from "../components/CardsNivel";
 //Escenas//
 import img1 from "../assets/escenas/img1.png";
 import img2 from "../assets/escenas/img2.png";
