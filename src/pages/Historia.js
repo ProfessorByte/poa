@@ -25,69 +25,90 @@ export default function Historia (){
      >
 
      </Parallax>
-
-     <Parallax className="parallax1"
+    <div className="parallax1">
+     <Parallax 
       bgImage={img2}
       strength={500}
-      bgImageStyle={{height:'100%',width:'100%'}}
-      style={{height:800}}
+      bgImageStyle={{height:'100%'}}
+      //style={{height:850}}
      >
-
+      <div style={{ height: 800 }}>
+      </div>
      </Parallax>
-
+     </div>
+     <div className="parallax1">
      <Parallax
       bgImage={img3}
       strength={500}
-      bgImageStyle={{height:'100%',width:'100%'}}
-      style={{height:800}}
+      bgImageStyle={{height:'100%'}}
+      //style={{height:800}}
+      
      >
+          <div style={{ height: 800 }}>
+          </div>
 
-     </Parallax>
+     </Parallax>     
+     </div>
 
+     <div className="parallax1">
      <Parallax
       bgImage={img4}
       strength={500}
-      bgImageStyle={{height:'100%',width:'100%'}}
-      style={{height:800}}
+      bgImageStyle={{height:'100%'}}
+      // style={{height:800}}
      >
-
+       <div style={{ height: 800 }}>
+       </div>
      </Parallax>
+     </div>
 
-     <Parallax className="parallax1"
+     <div className="parallax1">
+     <Parallax 
       bgImage={img5}
       strength={500}
-      bgImageStyle={{height:'100%',width:'100%'}}
-      style={{height:800}}
+      bgImageStyle={{height:'100%'}}
+      //style={{height:800}}
      >
-
+       <div style={{ height: 800 }}>
+       </div>
      </Parallax>
+     </div>
 
+     <div className="parallax1">
      <Parallax
       bgImage={img6}
       strength={500}
-      bgImageStyle={{height:'100%',width:'100%'}}
-      style={{height:800}}
+      bgImageStyle={{height:'100%'}}
+      //style={{height:800}}
      >
-
+      <div style={{ height: 800 }}>
+      </div>
      </Parallax>
+     </div>
 
+     <div className="parallax1"> 
      <Parallax
       bgImage={img7}
       strength={500}
-      bgImageStyle={{height:'100%',width:'100%'}}
-      style={{height:800}}
+      bgImageStyle={{height:'100%'}}
+      //style={{height:800}}
      >
-
+      <div style={{ height: 800 }}>
+      </div>
      </Parallax>
+     </div>
 
+     <div className="parallax1"> 
      <Parallax
       bgImage={img8}
       strength={500}
-      bgImageStyle={{height:'100%',width:'100%'}}
-      style={{height:800}}
+      bgImageStyle={{height:'100%'}}
+      //style={{height:800}}
      >
-
+      <div style={{ height: 800 }}>
+      </div>
      </Parallax>
+     </div>
    </div>
 
   )
