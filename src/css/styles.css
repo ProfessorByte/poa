@@ -73,8 +73,7 @@
   box-shadow: inset 4px 4px 0px 0px #320863;
 }
 
-
-.formulario{
+.formulario {
   background-position: center center;
   background-size: cover;
   background-color: rgba(116, 240, 240, 0.801);
@@ -85,63 +84,65 @@
   padding-left: 3%;
   padding-right: 3%;
   color: black;
-
 }
 
-.label{
-  text-align:left;
+.label {
+  text-align: left;
 }
 
-.label Label{
+.label Label {
   border-radius: 40%;
 }
 
-.form-title{
+.form-title {
   padding-bottom: 20%;
 }
 
-.form-btn{
+.form-btn {
   padding-top: 8%;
   text-align: center;
   padding-bottom: 20%;
 }
 
-.input-password{
+.input-password {
   display: grid;
   grid-template-columns: 90% 30%;
   align-items: center;
-
 }
 
-.icon{
+.icon {
   padding-left: 1%;
 }
 
-.open-eye{
+.open-eye {
   color: gray;
 }
 
-.mensaje-error{
+.mensaje-error {
   color: red;
   font-size: medium;
 }
 
-.wrong-input{
+.wrong-input {
   border-radius: 20%;
   border: 2px red solid;
 }
 
-.no-shadow{
+.no-shadow {
   box-shadow: none;
 }
 
-.myModal{
-  background-image: url("../assets/images/start.jpg");
+.myModal {
+  /*background-image: url("../assets/images/start.jpg");*/
+  background-color: forestgreen;
   background-size: cover;
   background-repeat: no-repeat;
-
 }
 
-.myModalimg{
+.myModalimg {
   width: 50%;
+}
+
+.carousel-item {
+  margin: 1% 10% 1% 10%;
 }
