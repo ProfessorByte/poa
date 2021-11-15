@@ -33,7 +33,12 @@ export default function Historia (){
       //style={{height:850}}
      >
       <div style={{ height: 800 }}>
-        
+        <h2>Objetos y Clases:</h2>
+        <CardsNivel minId={1} maxId={2}></CardsNivel>
+        <h2>Encapsulamiento:</h2>
+        <CardsNivel minId={3} maxId={3}></CardsNivel>
+        <h2>Definiciones de Clases:</h2>
+        <CardsNivel minId={4} maxId={7}></CardsNivel>
       </div>
      </Parallax>
      </div>
@@ -46,6 +51,12 @@ export default function Historia (){
       
      >
           <div style={{ height: 800 }}>
+          <h2>Estructuras de Control:</h2>
+          <CardsNivel minId={11} maxId={11}></CardsNivel>
+          <h2>Interaccion de objetos:</h2>
+          <CardsNivel minId={8} maxId={8}></CardsNivel>
+          <h2>Arreglos y Matrices:</h2>
+          <CardsNivel minId={9} maxId={9}></CardsNivel>
           </div>
 
      </Parallax>     
@@ -59,6 +70,12 @@ export default function Historia (){
       // style={{height:800}}
      >
        <div style={{ height: 800 }}>
+        <h2>Estructuras de control iterativas:</h2>
+        <CardsNivel minId={10} maxId={10}></CardsNivel>
+        <h2>Herencia:</h2>
+        <CardsNivel minId={12} maxId={15}></CardsNivel>
+        <h2>Polimorfismo:</h2>
+        <CardsNivel minId={16} maxId={17}></CardsNivel>
        </div>
      </Parallax>
      </div>
