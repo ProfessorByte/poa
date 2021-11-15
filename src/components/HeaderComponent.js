@@ -1,26 +1,38 @@
-import React, { Component } from "react";
-import { ButtonBack } from "./ButtonBackComponent";
-import "../css/HeaderMain.css";
-import BotonIcono from "./BotonIcono";
-import "../css/ButtonsUser.css"
-import Logo from "../assets/images/logo1.png"
-export default class Header extends Component {
-  render() {
-    return (
-      <>
-        <nav className="navbar navbar-light navbar-expand-sm navbar-stylerepo">
-          <div className="container-fluid d-flex justify-content-between">
-            <ButtonBack dir="/poa/repositorio" />
-            <a href="/poa">
-          <img id="logo" src={Logo} width="150px" alt=""></img>   
-          </a>                                   
-            <div className="BotonIcon">
-            <BotonIcono/>  
-        </div>    
-          </div>  
-     
-        </nav>   
-      </>
-    );
-  }
-}
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import React, { useState } from "react";
+import { auth } from "../server/firebaseConfig";
+
+const Header = () => {
+  const [globalUser, setGlobalUser] = useState(null);
+
+  onAuthStateChanged(auth, (userFirebase) => {
+    setGlobalUser(userFirebase);
+  });
+
+  return (
+    <>
+      <nav className="navbar navbar-light navbar-expand-sm navbar-styles">
+        <div className="container-fluid d-flex justify-content-between">
+          <strong>
+            <h1>POA</h1>
+          </strong>
+          <a
+            href="/login"
+            className={`col-auto btn ${
+              globalUser ? "btn-danger" : "btn-warning"
+            } m-2`}
+            onClick={() => {
+              if (globalUser) {
+                signOut(auth);
+              }
+            }}
+          >
+            {globalUser ? "Cerrar sesión" : "Iniciar sesión"}
+          </a>
+        </div>
+      </nav>
+    </>
+  );
+};
+
+export default Header;

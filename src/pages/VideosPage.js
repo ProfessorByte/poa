@@ -2,11 +2,33 @@ import React, { Component } from "react";
 import { Accordion } from "../components/AccordionComponent";
 import Header from "../components/HeaderComponent";
 import Videos from "../components/VideosComponent";
-import { VIDEOS } from "../consts/videos";
 import "../css/VideoPageStyles.css";
-import Footer from "../components/FooterRepositorio";
+import { getVideos } from "../server/api";
 
 export default class VideosPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      listVideos: [],
+    };
+
+    this.getVideosData = this.getVideosData.bind(this);
+  }
+
+  componentDidMount() {
+    this.getVideosData();
+  }
+
+  async getVideosData() {
+    const querySnapshot = await getVideos();
+    let videos = [];
+    querySnapshot.forEach((video) => {
+      videos.push(video.data());
+    });
+    this.setState({ listVideos: videos });
+  }
+
   render() {
     return (
       <>
@@ -33,7 +55,7 @@ export default class VideosPage extends Component {
               </div>
               <div className="col-lg-8">
                 <div className="ratio ratio-16x9 videos-scroll">
-                  <Videos listId={1} listVideos={VIDEOS} />
+                  <Videos listId={1} listVideos={this.state.listVideos} />
                 </div>
               </div>
             </div>

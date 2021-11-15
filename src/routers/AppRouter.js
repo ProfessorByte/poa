@@ -1,14 +1,19 @@
-import React from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import React, { useState } from "react";
 import { Redirect, Route, Switch } from "react-router";
 import BibliografiaPage from "../pages/BibliografiaPage";
+import LogIn from "../pages/LogIn";
 import Repositorio from "../pages/Repositorio";
 import VideosPage from "../pages/VideosPage";
-import PruebaPage from "../pages/Prueba";
-import PaginaPrincipalPage from "../pages/PaginaPrincipalPage";
-import Historia from "../pages/Historia";
-
+import { auth } from "../server/firebaseConfig";
 
 export default function AppRouter() {
+  const [globalUser, setGlobalUser] = useState(null);
+
+  onAuthStateChanged(auth, (userFirebase) => {
+    setGlobalUser(userFirebase);
+  });
+
   return (
     <>
       <Switch>

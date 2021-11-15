@@ -1,4 +1,3 @@
-
 import "../css/styles.css";
 import { Link } from "react-router-dom";
 
@@ -12,7 +11,6 @@ const ButtonsOfRepo = () => {
         >
           Videos
         </Link>
-        
       </div>
 
       <div className="row justify-content-end">
