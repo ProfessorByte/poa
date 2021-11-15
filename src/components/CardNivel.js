@@ -14,7 +14,7 @@ export default function CardNivel({ estado, titulo, num }) {
   }
   return (
     <div >
-      <div className="card text-white mb-3 card-nivel">
+      <div className="card mb-3 card-nivel">
         {/*<div className="card-header text-center">{titulo}</div>*/}
         <div className={getBackground(estado)}>
           <div className="card-header">{num}</div>
