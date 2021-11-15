@@ -33,6 +33,7 @@ export default function Historia (){
       //style={{height:850}}
      >
       <div style={{ height: 800 }}>
+        
       </div>
      </Parallax>
      </div>
