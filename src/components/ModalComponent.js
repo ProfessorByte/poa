@@ -22,13 +22,6 @@ class ModalComponent extends React.Component {
   render() {
     return (
       <>
-        <button
-          className="btn btn-success"
-          data-bs-toggle="modal"
-          data-bs-target="#ventanaModal"
-        >
-          Abrir Modal
-        </button>
         <div
           className="modal fade"
           id="ventanaModal"

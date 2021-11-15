@@ -4,6 +4,7 @@ import { render } from "react-dom";
 import { Parallax, Background } from "react-parallax";
 import "../css/StylesHistoria.css";
 import CardsNivel from "../components/CardsNivel";
+import Header from "../components/HeaderMainPage";
 //Escenas//
 import img1 from "../assets/escenas/img1.png";
 import img2 from "../assets/escenas/img2.png";
@@ -15,8 +16,11 @@ import img7 from "../assets/escenas/img7.png";
 import img8 from "../assets/escenas/img8.png";
 
 export default function Historia (){
-  return( 
+  return(
+    <> 
+    <Header/>
    <div className="Historia"> 
+     
      <Parallax  
       bgImage={img1}
       strength={500}
@@ -27,7 +31,7 @@ export default function Historia (){
      </Parallax>
     <div className="parallax1">
      <Parallax 
-      bgImage={img2}
+      bgImage={img3}
       strength={500}
       bgImageStyle={{height:'100%'}}
       //style={{height:850}}
@@ -44,7 +48,7 @@ export default function Historia (){
      </div>
      <div className="parallax1">
      <Parallax
-      bgImage={img3}
+      bgImage={img4}
       strength={500}
       bgImageStyle={{height:'100%'}}
       //style={{height:800}}
@@ -59,12 +63,18 @@ export default function Historia (){
           <CardsNivel minId={9} maxId={9}></CardsNivel>
           </div>
 
-     </Parallax>     
+     </Parallax>  
+
+        
      </div>
 
+
+    
      <div className="parallax1">
+
+     
      <Parallax
-      bgImage={img4}
+      bgImage={img5}
       strength={500}
       bgImageStyle={{height:'100%'}}
       // style={{height:800}}
@@ -79,7 +89,8 @@ export default function Historia (){
        </div>
      </Parallax>
      </div>
-
+     
+ {/*
      <div className="parallax1">
      <Parallax 
       bgImage={img5}
@@ -127,8 +138,11 @@ export default function Historia (){
       </div>
      </Parallax>
      </div>
-   </div>
+     */}
 
+
+   </div>
+   </>
   )
 }
 

@@ -7,11 +7,11 @@ import Header from "../components/HeaderMainPage";
 import Footer from "../components/FooterMainPage";
 
 function pressFirstImage(e) {
-    alert("Inicie seción si desea  que los cambios se guarden ");
-        window.location.href = ("/poa");
+    alert("Inicie sesión si desea  que los cambios se guarden ");
+        window.location.assign("/poa/historia");
 }
 function pressSecondImage(e) {
-    window.location.href =("/poa/repositorio" );
+    window.location.assign("/poa/repositorio" );
 
 }
 export default function PaginaPrincipalPage() {

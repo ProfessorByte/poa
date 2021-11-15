@@ -2,7 +2,7 @@ import React from 'react'
 import HeaderBibliografia from '../components/HeaderBibliografia'
 import "../css/HeaderBibliografia.css";
 import Cards from "../components/CardsBibliografia.js";
-import Header from "../components/HeaderComponent"
+import Header from "../components/HeaderRepositorio"
 import Footer from '../components/FooterRepositorio';
 
 

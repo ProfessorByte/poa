@@ -1,5 +1,5 @@
 import React from 'react'
-
+import ModalComponent from './ModalComponent';
 export default function CardNivel({ estado, titulo, num }) {
   const getBackground = (n) => {
     var bg = "";
@@ -14,12 +14,13 @@ export default function CardNivel({ estado, titulo, num }) {
   }
   return (
     <div >
+      <ModalComponent/>
       <div className="card mb-3 card-nivel">
         {/*<div className="card-header text-center">{titulo}</div>*/}
         <div className={getBackground(estado)}>
           <div className="card-header">{num}</div>
           <h6 className="card-text">{titulo}</h6>
-          <button type="button" className="btn btn-light btn-sm btn-block" onClick={() => alert("Hello from here")}>start</button>
+          <button type="button" className="btn btn-light btn-sm btn-block" data-bs-toggle="modal" data-bs-target="#ventanaModal">start</button>
         </div>
       </div>
     </div>
