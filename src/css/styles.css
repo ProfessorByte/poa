@@ -134,7 +134,7 @@
 
 .myModal {
   /*background-image: url("../assets/images/start.jpg");*/
-  background-color: forestgreen;
+  background-color: rgb(201, 135, 74);
   background-size: cover;
   background-repeat: no-repeat;
 }

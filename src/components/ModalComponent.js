@@ -3,17 +3,20 @@ import React from "react";
 import startImage from "../assets/images/start.jpg";
 import { stories } from "../consts/stories";
 import DialogBox from "./DialogBox";
+import { FormGame } from "./FormGame";
 
 class ModalComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false,
+      showForm: false,
     };
+
+    this.handleForm = this.handleForm.bind(this);
   }
 
-  handleModal() {
-    this.setState({ showModal: !this.state.showModal });
+  handleForm() {
+    this.setState({ showForm: !this.state.showForm });
   }
 
   render() {
@@ -36,7 +39,7 @@ class ModalComponent extends React.Component {
         >
           <div className="modal-dialog modal-xl" role="document">
             <div className="modal-content " style={{ color: "black" }}>
-              <div className="modal-header">
+              <div className="modal-header myModal">
                 <h1 id="tituloVentanta">{stories[0].title}</h1>
                 <button
                   type="button"
@@ -54,7 +57,21 @@ class ModalComponent extends React.Component {
                   ></img>
                 </div>
                 <hr />
-                <DialogBox messages={stories[0].paragraphs} />
+                {!this.state.showForm ? (
+                  <DialogBox
+                    handleForm={this.handleForm}
+                    messages={stories[0].paragraphs}
+                  />
+                ) : (
+                  <FormGame
+                    idForm={1}
+                    question={stories[0].question}
+                    options={stories[0].options}
+                    idxCorrect={stories[0].idxCorrect}
+                    endGood={stories[0].ifCorrect}
+                    endWrong={stories[0].ifWrong}
+                  />
+                )}
               </div>
             </div>
           </div>
