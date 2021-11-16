@@ -29,14 +29,14 @@ export default function PaginaPrincipalPage() {
                                 title="Historia"
                                 imagen={imagenEspada}
                                 funcion={pressFirstImage}
-                                descripcion="¡Entra aquí para explorar los diferentes niveles que tenemos listos para ti para que puedas aprender los temas !"
+                                descripcion="¡Entra aquí para explorar los diferentes niveles que tenemos listos para ti para que puedas aprender los temas!"
                             />
                         </div>
                         <div className="col-6">
 
                             <Cards
                                 title="Repositorio"
-                                descripcion="¡Entra aquí para poder reforzar todos los conocimentos que aprenderas en la historia!"
+                                descripcion="¡Entra aquí para poder reforzar todos los conocimientos que aprenderás en la historia!"
                                 imagen={imagenLibro}
                                 funcion={pressSecondImage}
                             />
