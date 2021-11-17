@@ -1,45 +1,37 @@
-.fondoBibliografia{
-    background-image: url(../assets/images/fondoBibliografia.png);
-    background-position: center center;
-    background-size: cover;
-    padding-bottom: 10%;
- 
-  }
-  
-  .titulo-de-bibliografia{
-    color:white;
-    text-align: start;
-    font-family: 'Pixel';
-    padding-top: 3%;
-  }
+.fondoBibliografia {
+  background-image: url(../assets/images/fondoBibliografia.png);
+  background-position: center center;
+  background-size: cover;
+  padding-bottom: 10%;
+}
 
-  
-  
-  @font-face {
-    font-family: "Pixel";
-    src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
-    font-style: normal;
-    font-weight: normal;
-  }
-  
-  .descripcion-de-bibliografia{
-    color:white;
-    font-family: 'Pixel';
-    padding-top: 3%;
-  }
+.titulo-de-bibliografia {
+  color: white;
+  text-align: start;
+  font-family: "Pixel";
+  padding-top: 3%;
+}
+
+@font-face {
+  font-family: "Pixel";
+  src: url(../assets/fonts/VCR_OSD_MONO_1.001.ttf);
+  font-style: normal;
+  font-weight: normal;
+}
+
+.descripcion-de-bibliografia {
+  color: white;
+  font-family: "Pixel";
+  padding-top: 3%;
+}
 
 .wrapper-grid {
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(25rem,30rem));
-    justify-content: center;
-    color: black;
-
-
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 30rem));
+  justify-content: center;
+  color: black;
 }
 
-.container_cards{
-    margin: 10px;
+.container_cards {
+  margin: 10px;
 }
-
-

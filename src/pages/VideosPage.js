@@ -36,35 +36,35 @@ export default class VideosPage extends Component {
         <Header />
         <div className="video-background">
           <div className="content-wrap">
-          <div className="container-fluid">
-            <div className="row mt-3">
-              <div className="col">
-                <h1>Videos</h1>
+            <div className="container-fluid">
+              <div className="row mt-3">
+                <div className="col">
+                  <h1>Videos</h1>
+                </div>
               </div>
-            </div>
-            <div className="row">
-              <div className="col">
-                <p>
-                  Aquí podrás ver los vídeos ordenados por temas, desde el más
-                  básico al más complicado
-                </p>
+              <div className="row">
+                <div className="col">
+                  <p>
+                    Aquí podrás ver los vídeos ordenados por temas, desde el más
+                    básico al más complicado
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="row mt-5 mb-3">
-              <div className="col-lg-4 accordion-scroll">
-                <Accordion accordionId="videos-accordion" />
-              </div>
-              <div className="col-lg-8">
-                <div className="ratio ratio-16x9 videos-scroll">
-                  <Videos listId={1} listVideos={this.state.listVideos} />
+              <div className="row mt-5 mb-3">
+                <div className="col-lg-4 accordion-scroll">
+                  <Accordion accordionId="videos-accordion" />
+                </div>
+                <div className="col-lg-8">
+                  <div className="ratio ratio-16x9 videos-scroll">
+                    <Videos listId={1} listVideos={this.state.listVideos} />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          </div>
         </div>
-        <Footer/>
-        </>
+        <Footer />
+      </>
     );
   }
 }
