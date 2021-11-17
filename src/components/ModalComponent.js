@@ -23,14 +23,15 @@ class ModalComponent extends React.Component {
     return (
       <>
         <div
-          className="modal fade"
+          className="modal fade" 
+          data-bs-backdrop="static"
           id="ventanaModal"
           tabIndex={-1}
           role="dialog"
           aria-labelledby="tituloVentana"
           arial-hidden={true}
         >
-          <div className="modal-dialog modal-xl" role="document">
+          <div className="modal-dialog modal-xl " role="document">
             <div className="modal-content " style={{ color: "black" }}>
               <div className="modal-header myModal">
                 <h1 id="tituloVentanta">{stories[0].title}</h1>
