@@ -45,9 +45,15 @@ export const FormGame = ({
               </div>
             ))}
           </div>
-          <button type="submit" className="btn btn-danger mt-2">
-            Enviar
-          </button>
+          {optionSelected !== -1 ? (
+            <button type="submit" className="btn btn-danger mt-2">
+              Enviar
+            </button>
+          ) : (
+            <button type="submit" className="btn btn-danger mt-2" disabled>
+              Enviar
+            </button>
+          )}
         </form>
       </div>
     );
