@@ -88,7 +88,7 @@ class LogInComponent extends React.Component {
 
     return (
       <Form className="form-group formulario row" onSubmit={this.handleSubmit}>
-        <h1 className="form-title"> LogIn</h1>
+        <h1 className="form-title"> Iniciar sesión</h1>
         <div className="col">
           <FormGroup className=" label">
             <Label>Correo electrónico:</Label>
@@ -101,7 +101,7 @@ class LogInComponent extends React.Component {
             >
               <Input
                 type="text"
-                placeholder="Email"
+                placeholder="Correo electrónico"
                 className="rounded-pill"
                 value={this.state.email}
                 onChange={this.handleChangeEmail}
