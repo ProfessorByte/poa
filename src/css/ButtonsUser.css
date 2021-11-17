@@ -1,7 +1,9 @@
 .contenedorb {
   font-family: "VCR_OSD_MONO_1";
 }
-
+#iconu {
+  width: 50px;
+}
 @media screen and (max-width: 1024px) {
   .contenedorb {
     width: 160px;
