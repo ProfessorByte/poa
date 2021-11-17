@@ -2,7 +2,8 @@ import React from "react";
 import { Parallax, Background } from "react-parallax";
 import "../css/StylesHistoria.css";
 import CardsNivel from "../components/CardsNivel";
-import Header from "../components/HeaderMainPage";
+import Header from "../components/HeaderHistoria";
+import Footer from "../components/FooterMainPage"
 //Escenas//
 import img1 from "../assets/escenas/img1.png";
 import img2 from "../assets/escenas/img2.png";
@@ -126,6 +127,7 @@ export default function Historia() {
      </div>
      */}
       </div>
+      <Footer/>
     </>
   );
 }
