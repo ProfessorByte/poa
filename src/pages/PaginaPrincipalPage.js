@@ -5,14 +5,15 @@ import imagenEspada from "../assets/images/espadas.png";
 import imagenLibro from "../assets/images/librol.png";
 import Header from "../components/HeaderMainPage";
 import Footer from "../components/FooterMainPage";
-import ButtonIni from "./ButtonIni";
 
 function pressFirstImage(e) {
-        { if(!globalUser){
+    {
+        if (!globalUser) {
             alert("Inicie sesión si desea  que los cambios se guarden ");
         }
-            window.location.assign("/poa/historia");
+        window.location.assign("/poa/historia");
 
+    }
 }
 
 function pressSecondImage(e) {
