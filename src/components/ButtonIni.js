@@ -4,7 +4,6 @@ import { auth } from "../server/firebaseConfig";
 
 const ButtonIni = () => {
   const [globalUser, setGlobalUser] = useState(null);
-
   onAuthStateChanged(auth, (userFirebase) => {
     setGlobalUser(userFirebase);
   });
