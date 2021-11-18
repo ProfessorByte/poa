@@ -1,30 +1,43 @@
+
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../server/firebaseConfig";
-import { Link } from "react-router-dom";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import Footer from "../components/FooterRepositorio";
+import Header from "./HeaderLogIn";
 
 const iniState = {
   email: "",
-  password: "",
   emailError: "",
-  passwordError: "",
 };
+function alert(e) {
+  alert("Inicie sesión si desea  que los cambios se guarden ");
 
-class LogInComponent extends React.Component {
+}
+const auth = getAuth();
+
+class RecuperarComponent extends React.Component{
   constructor(props) {
     super(props);
 
     this.state = {
-      showPassword: false,
       email: "",
-      password: "",
       emailError: "",
-      passwordError: "",
     };
   }
+  
+  forgotPassword = (email) => {
+    sendPasswordResetEmail(auth,email)
+    .then(() => {
+      
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    })
+  }
+  
 
   togglePasswordVisibility = () => {
     const { showPassword } = this.state;
@@ -36,16 +49,16 @@ class LogInComponent extends React.Component {
     let passwordError = "";
 
     if (!this.state.email) {
-      emailError = "debe ingresar un email";
+      emailError = "Debe ingresar un email";
     } else {
       if (!this.state.email.includes("@")) {
-        emailError = "correo invalido, no contiene @";
+        emailError = "Correo invalido, no contiene @";
       } else {
         if (!this.state.password) {
-          passwordError = "debe ingresar una contraseña";
+          passwordError = "Debe ingresar una contraseña";
         } else {
           if (this.state.password.length < 8) {
-            passwordError = "la contraseña es muy corta";
+            passwordError = "La contraseña es muy corta";
           }
         }
       }
@@ -61,9 +74,7 @@ class LogInComponent extends React.Component {
   handleChangeEmail = (event) => {
     this.setState({ email: event.target.value });
   };
-  handleChangePassword = (event) => {
-    this.setState({ password: event.target.value });
-  };
+
   handleSubmit = (event) => {
     event.preventDefault();
     const isValid = this.validate();
@@ -84,12 +95,12 @@ class LogInComponent extends React.Component {
     }
   };
 
-  render() {
-    const { showPassword } = this.state;
-
-    return (
-      <Form className="form-group formulario row" onSubmit={this.handleSubmit}>
-        <h1 className="form-title"> LogIn</h1>
+render() {
+  return (
+    <>
+   
+        <Form className="form-group formulario row" onSubmit={this.handleSubmit}>
+        <h1 className="form-title">Recuperar contraseña</h1>
         <div className="col">
           <FormGroup className=" label">
             <Label>Correo Electronico</Label>
@@ -110,52 +121,19 @@ class LogInComponent extends React.Component {
             </div>
             <div className="mensaje-error">{this.state.emailError}</div>
           </FormGroup>
-
-          <FormGroup className=" label">
-            <Label> Contraseña :</Label>
-            <div className="input-password">
-              <div
-                className={
-                  this.state.passwordError
-                    ? "rounded-pill wrong-input"
-                    : "rounded-pill"
-                }
-              >
-                <Input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Contraseña"
-                  className="rounded-pill"
-                  value={this.state.password}
-                  onChange={this.handleChangePassword}
-                />
-              </div>
-              <FontAwesomeIcon
-                icon={faEye}
-                size="2x"
-                className={
-                  showPassword
-                    ? "icon open-eye rounded-pill"
-                    : "icon rounded-pill"
-                }
-                onClick={this.togglePasswordVisibility}
-              />
-            </div>
-            <div className="mensaje-error">{this.state.passwordError}</div>
-          </FormGroup>
-          <a href="/recuperar">Recuperar Contraseña</a>
           <div className="label form-btn">
-
             <Button
-              type="submit"
               className="btn btn-light btn-lg rounded-pill no-shadow"
+              type="submit"
+              funcion={this.forgotPassword(this.state.email)}
             >
-              Ingresar
+              Recuperar Contraseña
             </Button>
           </div>
         </div>
       </Form>
-    );
+    </>
+   );
   }
 }
-
-export default LogInComponent;
+export default RecuperarComponent;

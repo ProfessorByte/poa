@@ -9,6 +9,7 @@ import PaginaPrincipalPage from "../pages/PaginaPrincipalPage";
 import Repositorio from "../pages/Repositorio";
 import VideosPage from "../pages/VideosPage";
 import { auth } from "../server/firebaseConfig";
+import RecuperarContraPage from "../pages/RecuperarContraPage";
 
 export default function AppRouter() {
   const [globalUser, setGlobalUser] = useState(null);
@@ -41,6 +42,9 @@ export default function AppRouter() {
           path="/PaginaPrincipalPage"
           component={PaginaPrincipalPage}
         />
+        <Route exact path="/recuperar">
+          {globalUser ? <Redirect to="/" /> : <RecuperarContraPage />}
+        </Route>
         <Redirect to="/poa" />
       </Switch>
     </>
