@@ -19,6 +19,13 @@
   text-align: end;
 }
 
+.DialogFooterStart {
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 15px;
+  text-align: start;
+}
+
 .SocialShilling {
   color: white;
   font-size: 0.8rem;

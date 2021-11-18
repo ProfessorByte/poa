@@ -9,7 +9,7 @@ const Cards = (props) => {
       <img
         src={imagen}
         onClick={funcion}
-        className="card_main_imagen  p-3  "
+        className="card_main_imagen  p-3"
         alt="..."
       ></img>
       <div className="card-body card-bodyMain">

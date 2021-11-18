@@ -1,5 +1,6 @@
 import React from "react";
-import ModalComponent from "./ModalComponent";
+import { stories } from "../consts/stories";
+import ModalGame from "./ModalGame";
 export default function CardNivel({ estado, titulo, num }) {
   const getBackground = (n) => {
     var bg = "";
@@ -12,9 +13,12 @@ export default function CardNivel({ estado, titulo, num }) {
     }
     return bg;
   };
+
+  const modalId = "modalGame";
+
   return (
     <div>
-      <ModalComponent />
+      <ModalGame modalId={modalId} story={stories[0]} title={titulo} />
       <div className="card mb-3 card-nivel">
         {/*<div className="card-header text-center">{titulo}</div>*/}
         <div className={getBackground(estado)}>
@@ -24,7 +28,7 @@ export default function CardNivel({ estado, titulo, num }) {
             type="button"
             className="btn btn-light btn-sm btn-block"
             data-bs-toggle="modal"
-            data-bs-target="#ventanaModal"
+            data-bs-target={`#${modalId}`}
           >
             start
           </button>

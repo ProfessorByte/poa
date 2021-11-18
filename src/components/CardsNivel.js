@@ -17,7 +17,7 @@ export default function CardsNivel({ minId, maxId }) {
                 estado={post.estado}
                 titulo={post.titulo}
                 num={post.id}
-              ></CardNivel>
+              />
             </div>
           );
         })}
