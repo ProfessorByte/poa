@@ -11,6 +11,7 @@ import Repositorio from "../pages/Repositorio";
 import VideosPage from "../pages/VideosPage";
 import { auth } from "../server/firebaseConfig";
 
+
 export default function AppRouter() {
   const [globalUser, setGlobalUser] = useState(null);
 
@@ -34,6 +35,7 @@ export default function AppRouter() {
         <Route exact path="/poa/bibliografia" component={BibliografiaPage} />
         <Route exact path="/poa/Historia" component={Historia}/>
         <Route exact path="/PaginaPrincipalPage" component={PaginaPrincipalPage}/>
+       
         <Redirect to="/poa" />
       </Switch>
     </>

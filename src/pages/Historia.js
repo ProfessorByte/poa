@@ -5,15 +5,15 @@ import { Parallax, Background } from "react-parallax";
 import "../css/StylesHistoria.css";
 import CardsNivel from "../components/CardsNivel";
 import Header from "../components/HeaderMainPage";
-//Escenas//
-import img1 from "../assets/escenas/img1.png";
-import img2 from "../assets/escenas/img2.png";
-import img3 from "../assets/escenas/img3.png";
-import img4 from "../assets/escenas/img4.png";
-import img5 from "../assets/escenas/img5.png";
-import img6 from "../assets/escenas/img6.png";
-import img7 from "../assets/escenas/img7.png";
-import img8 from "../assets/escenas/img8.png";
+
+
+
+//Escenas1// 
+import imagen1 from "../assets/escenas1/arbol.jpg";
+import imagen2 from "../assets/escenas1/city.jpg";
+import imagen4 from "../assets/escenas1/oly.jpg"; 
+import imagen5 from "../assets/escenas1/isla.jpg";
+import imagen3 from "../assets/escenas1/oly1.jpg";
 
 export default function Historia (){
   return(
@@ -21,34 +21,28 @@ export default function Historia (){
     <Header/>
    <div className="Historia"> 
      
-     <Parallax  
-      bgImage={img1}
-      strength={500}
-      bgImageStyle={{height:'100%',width:'100%'}}
-      
-     >
-
-     </Parallax>
     <div className="parallax1">
-     <Parallax 
-      bgImage={img3}
-      strength={500}
-      bgImageStyle={{height:'100%'}}
-      //style={{height:850}}
-     >
-      <div style={{ height: 800 }}>
-        <h2>Objetos y Clases:</h2>
-        <CardsNivel minId={1} maxId={2}></CardsNivel>
-        <h2>Encapsulamiento:</h2>
-        <CardsNivel minId={3} maxId={3}></CardsNivel>
-        <h2>Definiciones de Clases:</h2>
-        <CardsNivel minId={4} maxId={7}></CardsNivel>
-      </div>
-     </Parallax>
+      <Parallax 
+        bgImage={imagen1}
+        strength={500}
+        bgImageStyle={{height:'100%'}}
+        //style={{height:850}}
+          >
+          <div style={{ height: 800 }}>
+          <h2>Objetos y Clases:</h2>
+          <CardsNivel minId={1} maxId={2}></CardsNivel>
+          <h2>Encapsulamiento:</h2>
+          <CardsNivel minId={3} maxId={3}></CardsNivel>
+          <h2>Definiciones de Clases:</h2>
+          <CardsNivel minId={4} maxId={7}></CardsNivel>
+          </div>
+      </Parallax>
      </div>
+
+
      <div className="parallax1">
      <Parallax
-      bgImage={img4}
+      bgImage={imagen2}
       strength={500}
       bgImageStyle={{height:'100%'}}
       //style={{height:800}}
@@ -63,18 +57,14 @@ export default function Historia (){
           <CardsNivel minId={9} maxId={9}></CardsNivel>
           </div>
 
-     </Parallax>  
-
-        
+     </Parallax>     
      </div>
 
 
     
      <div className="parallax1">
-
-     
      <Parallax
-      bgImage={img5}
+      bgImage={imagen3}
       strength={500}
       bgImageStyle={{height:'100%'}}
       // style={{height:800}}
@@ -89,6 +79,9 @@ export default function Historia (){
        </div>
      </Parallax>
      </div>
+
+    
+
      
  {/*
      <div className="parallax1">
