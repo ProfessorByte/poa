@@ -11,7 +11,7 @@ const ButtonIni = () => {
   return (
     <div className="contenedorb">
       <a
-        href="/login"
+        href={globalUser ? "/poa" : "/login"}
         className={`col-auto btn ${
           globalUser ? "btn-danger" : "btn-warning"
         } m-2`}

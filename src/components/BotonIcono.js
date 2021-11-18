@@ -24,7 +24,7 @@ const BotonIcono = () => {
           Darse de baja
         </a>
         <a class="dropdown-item" href="#">
-          Cerrar Sesion{" "}
+          Cerrar Sesion
         </a>
       </div>
     </div>
