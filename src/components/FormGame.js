@@ -27,34 +27,36 @@ export const FormGame = ({
   if (finalStory === "form") {
     return (
       <div className="container">
-        <h6>{question}</h6>
-        <form onSubmit={handleSubmit}>
-          <div onChange={handleChange}>
-            {options.map((option, index) => (
-              <div key={`option${index}`} class="form-check">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name={`formCheck${idForm}`}
-                  id={`option${index}`}
-                  value={index + 1}
-                />
-                <label className="form-check-label" for={`option${index}`}>
-                  {option}
-                </label>
-              </div>
-            ))}
-          </div>
-          {optionSelected !== -1 ? (
-            <button type="submit" className="btn btn-danger mt-2">
-              Enviar
-            </button>
-          ) : (
-            <button type="submit" className="btn btn-danger mt-2" disabled>
-              Enviar
-            </button>
-          )}
-        </form>
+        <div className="radio-box">
+          <h6>{question}</h6>
+          <form onSubmit={handleSubmit}>
+            <div onChange={handleChange}>
+              {options.map((option, index) => (
+                <div key={`option${index}`} class="form-check">
+                  <input
+                    className="form-check-input"
+                    type="radio"
+                    name={`formCheck${idForm}`}
+                    id={`option${index}`}
+                    value={index + 1}
+                  />
+                  <label className="form-check-label" for={`option${index}`}>
+                    {option}
+                  </label>
+                </div>
+              ))}
+            </div>
+            {optionSelected !== -1 ? (
+              <button type="submit" className="btn btn-danger mt-2">
+                Enviar
+              </button>
+            ) : (
+              <button type="submit" className="btn btn-danger mt-2" disabled>
+                Enviar
+              </button>
+            )}
+          </form>
+        </div>
       </div>
     );
   } else if (finalStory === "good") {

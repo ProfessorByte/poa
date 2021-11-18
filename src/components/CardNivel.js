@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { stories } from "../consts/stories";
 import ModalGame from "./ModalGame";
 export default function CardNivel({ estado, titulo, num }) {
+  const [currentStory, setCurrentStory] = useState(stories[0]);
+
   const getBackground = (n) => {
     var bg = "";
     if (n === -1) {
@@ -18,7 +20,7 @@ export default function CardNivel({ estado, titulo, num }) {
 
   return (
     <div>
-      <ModalGame modalId={modalId} story={stories[0]} title={titulo} />
+      <ModalGame modalId={modalId} story={currentStory} />
       <div className="card mb-3 card-nivel">
         {/*<div className="card-header text-center">{titulo}</div>*/}
         <div className={getBackground(estado)}>

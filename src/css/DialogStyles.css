@@ -37,3 +37,20 @@
   color: rgb(138, 212, 236);
   text-decoration: none;
 }
+
+.radio-box {
+  position: relative;
+  width: 100%;
+  margin: 25px auto;
+  padding: 10px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  background-color: #c59c67;
+}

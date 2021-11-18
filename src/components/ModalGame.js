@@ -3,7 +3,7 @@ import startImage from "../assets/images/start.jpg";
 import DialogBox from "./DialogBox";
 import { FormGame } from "./FormGame";
 
-const ModalGame = ({ modalId, story, title }) => {
+const ModalGame = ({ modalId, story }) => {
   const [showForm, setShowForm] = useState(false);
 
   const handleForm = () => {
@@ -24,7 +24,7 @@ const ModalGame = ({ modalId, story, title }) => {
         <div className="modal-dialog modal-xl" role="document">
           <div className="modal-content " style={{ color: "black" }}>
             <div className="modal-header myModal">
-              <h1 id="tituloVentanta">{title}</h1>
+              <h1 id="tituloVentanta">{story.title}</h1>
               <button
                 type="button"
                 class="btn-close"
