@@ -14,6 +14,7 @@ import Submarino from "../assets/Avatars_poa/submarino.PNG"
 import TocaDiscos from "../assets/Avatars_poa/TocaDiscos.PNG"
 import Torre from "../assets/Avatars_poa/Torre.PNG"
 import Rafael from "../assets/Avatars_poa/Tortuguita.PNG"
+import Platano from "../assets/images/platano.png"
 /*import cambiar from "./CambioIconos"*/
 const BotonIcono = () => {
   const [icono, setIcono] = useState(Abeja)
@@ -31,13 +32,14 @@ const BotonIcono = () => {
     url [9]= TocaDiscos;
     url [10]= Torre;
     url [11]= Rafael;
+    url [12]= Platano
     var azar = Math.floor(Math.random() * url.length);
     return url[azar];
   }
   return (
     <div class="dropdown dropstart">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <img id="iconu" src={icono} width="150px" alt=""></img> 
+     <img id="iconu" src={icono} width="150px" border="800px" border="2px" alt=""></img> 
     </button>
   <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
   <a class="dropdown-item" href="#" onClick={()=>{
