@@ -6,6 +6,7 @@ import imagenLibro from "../assets/images/librol.png";
 import Header from "../components/HeaderMainPage";
 import Footer from "../components/FooterMainPage";
 
+
 function pressFirstImage(e) {
   alert("Inicie sesión si desea  que los cambios se guarden ");
   window.location.assign("/poa/historia");
@@ -18,6 +19,7 @@ export default function PaginaPrincipalPage() {
     <>
       <Header />
       <div className="fondoPaginaPrincipal">
+      <h1 className="estilo"> Programación Orientada a la Aventura </h1>
         <div>
           <div className="container d-flex align-items-center justify-content-center vh-100 vw-100 ">
             <div className="row">
