@@ -1,26 +1,34 @@
-import React from "react";
+import React, {useState} from "react";
 import Cards from "../components/CardsMainPage";
 import "../css/PaginaPrincipal.css";
 import imagenEspada from "../assets/images/espadas.png";
 import imagenLibro from "../assets/images/librol.png";
 import Header from "../components/HeaderMainPage";
 import Footer from "../components/FooterMainPage";
+import {onAuthStateChanged} from "firebase/auth";
+import {auth} from "../server/firebaseConfig";
 
-function pressFirstImage(e) {
-    {
-        if (!globalUser) {
-            alert("Inicie sesión si desea  que los cambios se guarden ");
-        }
-        window.location.assign("/poa/historia");
-
-    }
-}
-
-function pressSecondImage(e) {
-    window.location.assign("/poa/repositorio" );
-
-}
 export default function PaginaPrincipalPage() {
+    const [globalUser, setGlobalUser] = useState(null);
+
+    onAuthStateChanged(auth, (userFirebase) => {
+        setGlobalUser(userFirebase);
+    });
+    function pressFirstImage(e) {
+        {
+            if (!globalUser) {
+                alert("Inicie sesión si desea  que los cambios se guarden ");
+            }
+            window.location.assign("/poa/historia");
+
+        }
+    }
+
+    function pressSecondImage(e) {
+        window.location.assign("/poa/repositorio" );
+
+}
+
     return (
         <>
         <Header/>
