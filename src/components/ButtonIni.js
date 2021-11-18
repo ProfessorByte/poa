@@ -1,27 +1,29 @@
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import React, { useState } from "react";
+import { signOut } from "firebase/auth";
+import React from "react";
+import { useSigninCheck } from "reactfire";
 import { auth } from "../server/firebaseConfig";
 
 const ButtonIni = () => {
-  const [globalUser, setGlobalUser] = useState(null);
+  const { status, data } = useSigninCheck();
 
-  onAuthStateChanged(auth, (userFirebase) => {
-    setGlobalUser(userFirebase);
-  });
   return (
     <div className="contenedorb">
       <a
-        href={globalUser ? "/poa" : "/login"}
+        href={status !== "loading" && data.signedIn ? "/poa" : "/login"}
         className={`col-auto btn ${
-          globalUser ? "btn-danger" : "btn-warning"
-        } m-2`}
+          status !== "loading" && data.signedIn ? "btn-danger" : "btn-warning"
+        } me-2`}
         onClick={() => {
-          if (globalUser) {
+          if (status !== "loading" && data.signedIn) {
             signOut(auth);
           }
         }}
       >
-        {globalUser ? "Cerrar sesión" : "Iniciar sesión"}
+        {status === "loading"
+          ? "..."
+          : data.signedIn
+          ? "Cerrar sesión"
+          : "Iniciar sesión"}
       </a>
     </div>
   );

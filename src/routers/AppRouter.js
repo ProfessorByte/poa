@@ -1,21 +1,16 @@
-import { onAuthStateChanged } from "firebase/auth";
-import React, { useState } from "react";
+import React from "react";
 import { Redirect, Route, Switch } from "react-router";
+import { useSigninCheck } from "reactfire";
 import ModalComponent from "../components/ModalComponent";
 import BibliografiaPage from "../pages/BibliografiaPage";
 import Historia from "../pages/Historia";
 import LogIn from "../pages/LogIn";
 import PaginaPrincipalPage from "../pages/PaginaPrincipalPage";
 import Repositorio from "../pages/Repositorio";
-import VideosPage from "../pages/VideosPage";
-import { auth } from "../server/firebaseConfig";
+import { VideosPage } from "../pages/VideosPage";
 
 export default function AppRouter() {
-  const [globalUser, setGlobalUser] = useState(null);
-
-  onAuthStateChanged(auth, (userFirebase) => {
-    setGlobalUser(userFirebase);
-  });
+  const { status, data } = useSigninCheck();
 
   return (
     <>
@@ -31,7 +26,13 @@ export default function AppRouter() {
         <Route exact path="/poa" component={Repositorio} />
         <Route exact path="/poa/videos" component={VideosPage} />
         <Route exact path="/login">
-          {globalUser ? <Redirect to="/" /> : <LogIn />}
+          {status === "loading" ? (
+            <div>Loading...</div>
+          ) : data.signedIn ? (
+            <Redirect to="/poa" />
+          ) : (
+            <LogIn />
+          )}
         </Route>
         <Route exact path="/niveles" component={ModalComponent} />
         <Route exact path="/poa/bibliografia" component={BibliografiaPage} />

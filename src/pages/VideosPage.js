@@ -1,70 +1,55 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
+import { useFirestoreCollectionData } from "reactfire";
 import { Accordion } from "../components/AccordionComponent";
 import Footer from "../components/FooterRepositorio";
 import Header from "../components/HeaderVideos&Biblio";
 import Videos from "../components/VideosComponent";
 import "../css/VideoPageStyles.css";
-import { getVideos } from "../server/api";
+import { getVideosQuery } from "../server/api";
 
-export default class VideosPage extends Component {
-  constructor(props) {
-    super(props);
+export const VideosPage = () => {
+  const [listVideos, setListVideos] = useState([]);
+  const { status, data } = useFirestoreCollectionData(getVideosQuery());
 
-    this.state = {
-      listVideos: [],
-    };
+  useEffect(() => {
+    if (status !== "loading") {
+      setListVideos(data);
+    }
+  }, [data, status]);
 
-    this.getVideosData = this.getVideosData.bind(this);
-  }
-
-  componentDidMount() {
-    this.getVideosData();
-  }
-
-  async getVideosData() {
-    const querySnapshot = await getVideos();
-    let videos = [];
-    querySnapshot.forEach((video) => {
-      videos.push(video.data());
-    });
-    this.setState({ listVideos: videos });
-  }
-
-  render() {
-    return (
-      <>
-        <Header />
-        <div className="video-background">
-          <div className="content-wrap">
-            <div className="container-fluid">
-              <div className="row mt-3">
-                <div className="col">
-                  <h1>Videos</h1>
-                </div>
+  return (
+    <>
+      <Header />
+      <div className="video-background">
+        <div className="content-wrap">
+          <div className="container">
+            <div className="row mt-3">
+              <div className="col">
+                <h1>Videos</h1>
               </div>
-              <div className="row">
-                <div className="col">
-                  <p>
-                    Aquí podrás ver los vídeos ordenados por temas, desde el más
-                    básico al más complicado
-                  </p>
-                </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <p>
+                  Aquí podrás ver los vídeos ordenados por temas, desde el más
+                  básico al más complicado
+                </p>
               </div>
-              <div className="row mt-5 mb-3">
-                <div className="col-lg-4 accordion-scroll">
-                  <Accordion accordionId="videos-accordion" />
-                </div>
-                <div className="col-lg-8">
-                  <div className="ratio ratio-16x9 videos-scroll">
-                    <Videos listId={1} listVideos={this.state.listVideos} />
-                  </div>
+            </div>
+            <div className="row mt-5 mb-3">
+              <div className="col-lg-4 accordion-scroll">
+                <Accordion accordionId="videos-accordion" />
+              </div>
+              <div className="col-lg-8">
+                <div className="ratio ratio-16x9 videos-scroll">
+                  <Videos listId={1} listVideos={listVideos} />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <Footer />
-      </>
-    );
-  }
-}
+      </div>
+      <Footer />
+    </>
+  );
+};

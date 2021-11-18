@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { getVideos } from "../server/api";
+import { useFirestoreCollectionData } from "reactfire";
+import { getVideosQuery } from "../server/api";
 import { AccordionItem } from "./AccordionItemComponent";
 
 export const Accordion = ({ accordionId }) => {
   const [listVideos, setListVideos] = useState([]);
-
-  const getVideosData = async () => {
-    const querySnapshot = await getVideos();
-    let videos = [];
-    querySnapshot.forEach((video) => {
-      videos.push(video.data());
-    });
-    setListVideos(videos);
-  };
 
   const closedIntervalVideos = (listVideos, minId, maxId) => {
     return listVideos.filter(
@@ -20,9 +12,12 @@ export const Accordion = ({ accordionId }) => {
     );
   };
 
+  const { status, data } = useFirestoreCollectionData(getVideosQuery());
   useEffect(() => {
-    getVideosData();
-  }, []);
+    if (status !== "loading") {
+      setListVideos(data);
+    }
+  }, [data, status]);
 
   return (
     <div className="accordion" id={accordionId}>

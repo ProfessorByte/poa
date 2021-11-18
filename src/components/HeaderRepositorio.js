@@ -9,7 +9,7 @@ export default class Header extends Component {
     return (
       <>
         <nav className="navbar navbar-light navbar-expand-sm navbar-stylerepo">
-          <div className="container-fluid d-flex justify-content-between me-1 ms-1">
+          <div className="container-fluid d-flex justify-content-between">
             <ButtonBack dir="/poa" />
             <a href="/poa">
               <img id="logo" src={Logo} width="150px" alt=""></img>
