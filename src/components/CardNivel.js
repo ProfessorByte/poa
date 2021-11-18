@@ -1,5 +1,7 @@
 import React from "react";
+import {useState} from "react";
 import ModalComponent from "./ModalComponent";
+
 export default function CardNivel({ estado, titulo, num }) {
   const getBackground = (n) => {
     var bg = "";
@@ -12,6 +14,8 @@ export default function CardNivel({ estado, titulo, num }) {
     }
     return bg;
   };
+
+  const [botonActivo,setBotonActivo]=useState(estado===-1); //o sea solo los bloqueados
   return (
     <div>
       <ModalComponent />
@@ -25,8 +29,9 @@ export default function CardNivel({ estado, titulo, num }) {
             className="btn btn-light btn-sm btn-block"
             data-bs-toggle="modal"
             data-bs-target="#ventanaModal"
+            disabled={botonActivo}
           >
-            start
+            comenzar
           </button>
         </div>
       </div>
