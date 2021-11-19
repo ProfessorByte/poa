@@ -31,7 +31,7 @@
 .wrapper-grid {
 
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(25rem,30rem));
+    grid-template-columns: repeat(auto-fit,minmax(20rem,30rem));
     justify-content: center;
     color: black;
 

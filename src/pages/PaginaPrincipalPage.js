@@ -33,20 +33,18 @@ export default function PaginaPrincipalPage() {
         <>
         <Header/>
         <div className="fondoPaginaPrincipal">
-            <div>
+            
 
-                <div className="container d-flex align-items-center justify-content-center vh-100 vw-100 ">
-                    <div className="row">
-                        <div className="col-6">
-
-                            <Cards
+            <div className="wrapper-grid">
+                        <div className="container_cards">
+                        <Cards
                                 title="Historia"
                                 imagen={imagenEspada}
                                 funcion={pressFirstImage}
                                 descripcion="¡Entra aquí para explorar los diferentes niveles que tenemos listos para ti para que puedas aprender los temas!"
                             />
                         </div>
-                        <div className="col-6">
+                        <div className="container_cards">
 
                             <Cards
                                 title="Repositorio"
@@ -55,13 +53,16 @@ export default function PaginaPrincipalPage() {
                                 funcion={pressSecondImage}
                             />
                         </div>
-                    </div>
-                </div>
+                    
             </div>
-             <Footer/>
+              
+                 
         </div>
+               
+        <Footer/> 
        
-
+            
+            
 
         </>
     );
