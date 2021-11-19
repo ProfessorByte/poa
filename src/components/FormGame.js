@@ -8,6 +8,7 @@ export const FormGame = ({
   idxCorrect,
   endGood,
   endWrong,
+  handleForm,
 }) => {
   const [optionSelected, setOptionSelected] = useState(-1);
   const [finalStory, setFinalStory] = useState("form");
@@ -63,8 +64,20 @@ export const FormGame = ({
       </div>
     );
   } else if (finalStory === "good") {
-    return <DialogBox storyteller="Respuesta correcta" end={endGood} />;
+    return (
+      <DialogBox
+        handleForm={handleForm}
+        storyteller="Respuesta correcta"
+        end={endGood}
+      />
+    );
   } else if (finalStory === "wrong") {
-    return <DialogBox storyteller="Respuesta incorrecta" end={endWrong} />;
+    return (
+      <DialogBox
+        handleForm={handleForm}
+        storyteller="Respuesta incorrecta"
+        end={endWrong}
+      />
+    );
   }
 };

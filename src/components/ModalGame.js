@@ -8,6 +8,7 @@ const ModalGame = ({ modalId, story }) => {
 
   const handleForm = () => {
     setShowForm(!showForm);
+    console.log(showForm);
   };
 
   return (
@@ -29,6 +30,15 @@ const ModalGame = ({ modalId, story }) => {
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                onClick={() => {
+                  /*setTimeout(() => {
+                    setShowForm(!showForm);
+                  }, 150);
+                  setTimeout(() => {
+                    setShowForm(false);
+                  }, 200);*/
+                  setShowForm(false);
+                }}
               ></button>
             </div>
             <div className="modal-body myModal">
@@ -53,6 +63,7 @@ const ModalGame = ({ modalId, story }) => {
                   idxCorrect={story.idxCorrect}
                   endGood={story.ifCorrect}
                   endWrong={story.ifWrong}
+                  handleForm={handleForm}
                 />
               )}
             </div>

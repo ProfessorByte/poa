@@ -9,7 +9,7 @@ const DialogBox = ({ handleForm, messages, storyteller, end }) => {
     setCurrentMessage(currentMessage + 1);
     setTimeout(() => {
       setCurrentMessage(0);
-    }, 100);
+    }, 1);
   }, [messages]);
 
   const handleClickRight = () => {
@@ -29,7 +29,7 @@ const DialogBox = ({ handleForm, messages, storyteller, end }) => {
   return (
     <div className="DialogWindow">
       <div className="DialogTitle">{storyteller}</div>
-      {messages && (
+      {currentMessage < messages.length && messages && (
         <>
           <Message message={messages[currentMessage]} key={currentMessage} />
           <div className="row d-flex justify-content-between">
@@ -58,7 +58,11 @@ const DialogBox = ({ handleForm, messages, storyteller, end }) => {
       {!messages && end && (
         <>
           <Message message={end} key={0} />
-          <div data-bs-dismiss="modal" className="DialogFooter">
+          <div
+            data-bs-dismiss="modal"
+            className="DialogFooter"
+            onClick={handleForm}
+          >
             Cerrar
           </div>
         </>
