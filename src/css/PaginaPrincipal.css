@@ -22,12 +22,11 @@
     margin: 10px auto;
     transition: width 1s, height 1s;
 
-.tamaño {
-  font-size: 1.8rem;
+
 }
 .card-bodyMain {
-  margin: 1 rem;
-}
+    margin: 1 rem;
+  }
 
 .wrapper-grid {
 
@@ -48,6 +47,7 @@
 }
 .tamaño{
 font-size: 1.8rem;
+}
 .titulo {
   line-height: 1.5 rem;
 }

@@ -34,7 +34,7 @@
     grid-template-columns: repeat(auto-fit,minmax(20rem,30rem));
     justify-content: center;
     color: black;
-
+}
 .titulo-de-bibliografia {
   color: white;
   text-align: start;
