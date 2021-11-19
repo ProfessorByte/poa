@@ -29,7 +29,7 @@ const DialogBox = ({ handleForm, messages, storyteller, end }) => {
   return (
     <div className="DialogWindow">
       <div className="DialogTitle">{storyteller}</div>
-      {currentMessage < messages.length && messages && (
+      {messages && currentMessage < messages.length && (
         <>
           <Message message={messages[currentMessage]} key={currentMessage} />
           <div className="row d-flex justify-content-between">
