@@ -33,7 +33,7 @@ export default function PaginaPrincipalPage() {
         <>
         <Header/>
         <div className="fondoPaginaPrincipal">
-        <h1 className="estilo text-center"> Programación Orientada a la Aventura </h1>
+        <h1 className="estilo"> Programación Orientada a la Aventura </h1>
 
             <div className="wrapper-grid">
                         <div className="container_cards">
@@ -56,10 +56,10 @@ export default function PaginaPrincipalPage() {
                     
             </div>
               
-                 
+               
         </div>
                
-        <Footer/> 
+        <Footer/>   
        
             
             

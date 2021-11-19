@@ -12,13 +12,12 @@
     padding-bottom: 10%;
     position:absolute;
     width: 100%;
-    
+    text-align: center;
 }
 
 .card_main_imagen{
     height: 10rem;
     width: 12rem;
-   
     margin: 10px auto;
     transition: width 1s, height 1s;
 
@@ -34,8 +33,6 @@
     grid-template-columns: repeat(auto-fit,minmax(15rem,22rem));
     justify-content: center;
     color: black;
-    
-
 
 }
 .tamaño_card{
