@@ -30,7 +30,7 @@ export default function Historia() {
   const getEstadosNivsData = async () => {
     if (globalUser !== null) {
       let userid = await globalUser.uid;
-      console.log("#########", globalUser);
+    
       const querySnapshot = await getEstadosNivs(userid);
       let estados = [];
       await querySnapshot.forEach((estado) => {
