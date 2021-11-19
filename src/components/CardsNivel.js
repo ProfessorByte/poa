@@ -5,8 +5,8 @@ import CardNivel from "./CardNivel";
 import Nivs from "../nivs.json";
 import { getEstadosNivs } from "../server/api";
 
-export default function CardsNivel({ minId, maxId }) {
-  const [globalUser, setGlobalUser] = useState(null);
+export default function CardsNivel({ minId, maxId , estados}) {
+  /*const [globalUser, setGlobalUser] = useState(null);
   const [listEstadosNivs, setListEstadosNivs] = useState([]);
 
   onAuthStateChanged(auth, (userFirebase) => {
@@ -20,13 +20,13 @@ export default function CardsNivel({ minId, maxId }) {
       estados.push(estado.data()["levels"]);
     });
     setListEstadosNivs(estados); 
-  };
+  };*/
 
   const closedIntervalNivs = (listNivs, minId, maxId) => {
     let a = listNivs.filter((nivel) => nivel.id >= minId && nivel.id <= maxId);
     let res = [];
-    if (listEstadosNivs.length !== 0){
-      let auxList = listEstadosNivs[0];
+    if (estados.length !== 0){
+      let auxList = estados[0];
       a.forEach(element => {
           var myObj = {
             "id": element["id"],
@@ -40,20 +40,6 @@ export default function CardsNivel({ minId, maxId }) {
     }
     return res;
   };
-
-  var userid = null;
-  
-  if (globalUser !== null){
-    console.log(userid);
-    userid = globalUser.uid;
-    if(listEstadosNivs.length===0){
-      getEstadosNivsData();
-    }
-  }
-
-  useEffect(() => {
-    getEstadosNivsData();
-  }, []);
   
   return (
     <div className="container flex-container">
