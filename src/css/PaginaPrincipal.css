@@ -34,6 +34,7 @@
     grid-template-columns: repeat(auto-fit,minmax(15rem,22rem));
     justify-content: center;
     color: black;
+    
 
 
 }
@@ -50,6 +51,7 @@ font-size: 1.8rem;
 }
 .titulo {
   line-height: 1.5 rem;
+  text-align: start;
 }
 .estilo {
   display: inline-block;
