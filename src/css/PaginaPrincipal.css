@@ -22,11 +22,11 @@
     margin: 10px auto;
     transition: width 1s, height 1s;
 
+.tamaño {
+  font-size: 1.8rem;
 }
-.card_main_imagen:hover{
-    width: 13rem;
-    height: 12rem;
-
+.card-bodyMain {
+  margin: 1 rem;
 }
 
 .wrapper-grid {
@@ -48,12 +48,11 @@
 }
 .tamaño{
 font-size: 1.8rem;
+.titulo {
+  line-height: 1.5 rem;
 }
-.card-bodyMain{
-    margin :1 rem;
+.estilo {
+  display: inline-block;
+  background-color: transparent;
+  margin-top: 5%;
 }
-.titulo{
-    line-height: 1.5 rem;
-
-}
-

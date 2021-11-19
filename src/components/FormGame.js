@@ -13,7 +13,7 @@ export const FormGame = ({
   const [finalStory, setFinalStory] = useState("form");
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (idxCorrect == optionSelected) {
+    if (idxCorrect === optionSelected) {
       setFinalStory("good");
     } else {
       setFinalStory("wrong");

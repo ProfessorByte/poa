@@ -8,17 +8,21 @@ const ButtonIni = () => {
     setGlobalUser(userFirebase);
   });
   return (
-  <div className="contenedorb">
-<a href="/login" className={`col-auto btn ${globalUser ? "btn-danger" : "btn-warning"} m-2`}
-             onClick={() => {
-              if (globalUser) {
-                signOut(auth);
-              }
-            }}
-          >
-            {globalUser ? "Cerrar sesión" : "Iniciar sesión"}
-          </a>
-  </div>
+    <div className="contenedorb">
+      <a
+        href="/login"
+        className={`col-auto btn ${
+          globalUser ? "btn-danger" : "btn-warning"
+        } m-2`}
+        onClick={() => {
+          if (globalUser) {
+            signOut(auth);
+          }
+        }}
+      >
+        {globalUser ? "Cerrar sesión" : "Iniciar sesión"}
+      </a>
+    </div>
   );
 };
 export default ButtonIni;
