@@ -1,50 +1,45 @@
 *,
 * ::before,
-* ::after{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.fondoPaginaPrincipal{
-    background-image: url("../assets/images/fondopagianPrincipal.jpg");
-    background-position: center center;
-    background-size: cover;
-    padding-bottom: 10%;
-    position:absolute;
-    width: 100%;
-    text-align: center;
+.fondoPaginaPrincipal {
+  background-image: url("../assets/images/fondopagianPrincipal.jpg");
+  background-position: center center;
+  background-size: cover;
+  padding-bottom: 10%;
+  width: 100%;
+  text-align: center;
 }
 
-.card_main_imagen{
-    height: 10rem;
-    width: 12rem;
-    margin: 10px auto;
-    transition: width 1s, height 1s;
-
-
+.card_main_imagen {
+  height: 10rem;
+  width: 12rem;
+  margin: 10px auto;
+  transition: width 1s, height 1s;
 }
 .card-bodyMain {
-    margin: 1 rem;
-  }
+  margin: 1 rem;
+}
 
 .wrapper-grid {
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(15rem,22rem));
-    justify-content: center;
-    color: black;
-
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 22rem));
+  justify-content: center;
+  color: black;
 }
-.tamaño_card{
-    max-width: 20rem;
-    min-height: 27rem;
+.tamaño_card {
+  max-width: 20rem;
+  min-height: 27rem;
 }
 
-.container_cards{
-    margin-top: 30px;
+.container_cards {
+  margin-top: 30px;
 }
-.tamaño{
-font-size: 1.8rem;
+.tamaño {
+  font-size: 1.8rem;
 }
 .titulo {
   line-height: 1.5 rem;
