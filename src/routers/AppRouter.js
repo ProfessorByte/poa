@@ -10,6 +10,7 @@ import Repositorio from "../pages/Repositorio";
 import VideosPage from "../pages/VideosPage";
 import { auth } from "../server/firebaseConfig";
 
+
 export default function AppRouter() {
   const [globalUser, setGlobalUser] = useState(null);
 

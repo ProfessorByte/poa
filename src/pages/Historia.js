@@ -4,41 +4,40 @@ import "../css/StylesHistoria.css";
 import CardsNivel from "../components/CardsNivel";
 import Header from "../components/HeaderMainPage";
 
-//Escenas//
-import img1 from "../assets/escenas/img1.png";
-import img2 from "../assets/escenas/img2.png";
-import img3 from "../assets/escenas/img3.png";
-import img4 from "../assets/escenas/img4.png";
-import img5 from "../assets/escenas/img5.png";
-import img6 from "../assets/escenas/img6.png";
-import img7 from "../assets/escenas/img7.png";
-import img8 from "../assets/escenas/img8.png";
+
+
+//Escenas1// 
+import imagen1 from "../assets/escenas1/arbol.jpg";
+import imagen2 from "../assets/escenas1/city.jpg";
+import imagen4 from "../assets/escenas1/oly.jpg"; 
+import imagen5 from "../assets/escenas1/isla.jpg";
+import imagen3 from "../assets/escenas1/oly1.jpg";
 
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../server/firebaseConfig";
 import { getEstadosNivs } from "../server/api";
 
-export default function Historia() {
-  //Para obtener el estado de un usuario//
-  const [globalUser, setGlobalUser] = useState(null);
-  const [listEstadosNivs, setListEstadosNivs] = useState([]);
-
-  onAuthStateChanged(auth, (userFirebase) => {
-    setGlobalUser(userFirebase);
-  });
-
-  const getEstadosNivsData = async () => {
-    if (globalUser !== null) {
-      let userid = await globalUser.uid;
-    
-      const querySnapshot = await getEstadosNivs(userid);
-      let estados = [];
-      await querySnapshot.forEach((estado) => {
-        estados.push(estado.data()["levels"]);
-      });
-      setListEstadosNivs(estados);
-    }
-  };
+export default function Historia (){
+    //Para obtener el estado de un usuario//
+    const [globalUser, setGlobalUser] = useState(null);
+    const [listEstadosNivs, setListEstadosNivs] = useState([]);
+  
+    onAuthStateChanged(auth, (userFirebase) => {
+      setGlobalUser(userFirebase);
+    });
+  
+    const getEstadosNivsData = async () => {
+      if (globalUser !== null) {
+        let userid = await globalUser.uid;
+      
+        const querySnapshot = await getEstadosNivs(userid);
+        let estados = [];
+        await querySnapshot.forEach((estado) => {
+          estados.push(estado.data()["levels"]);
+        });
+        setListEstadosNivs(estados);
+      }
+    };
 
   useEffect(() => {
     getEstadosNivsData();
@@ -47,14 +46,10 @@ export default function Historia() {
     <>
       <Header />
       <div className="Historia">
-        <Parallax
-          bgImage={img1}
-          strength={500}
-          bgImageStyle={{ height: "100%", width: "100%" }}
-        ></Parallax>
+    
         <div className="parallax1">
           <Parallax
-            bgImage={img3}
+            bgImage={imagen1}
             strength={500}
             bgImageStyle={{ height: "100%" }}
             //style={{height:850}}
@@ -83,7 +78,7 @@ export default function Historia() {
         </div>
         <div className="parallax1">
           <Parallax
-            bgImage={img4}
+            bgImage={imagen2}
             strength={500}
             bgImageStyle={{ height: "100%" }}
             //style={{height:800}}
@@ -113,9 +108,9 @@ export default function Historia() {
 
         <div className="parallax1">
           <Parallax
-            bgImage={img5}
+            bgImage={imagen3}
             strength={500}
-            bgImageStyle={{ height: "100%" }}
+            bgImageStyle={{height:'100%'}}
             // style={{height:800}}
           >
             <div style={{ height: 800 }}>
