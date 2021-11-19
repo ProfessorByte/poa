@@ -13,7 +13,7 @@ class RecuperarContraPage extends React.Component {
     return (
       <div>
         <Header />
-        <div className="contenedor-log-in ">
+        <div className="contenedor-Recuperar">
           <RecuperarComponent/>
         </div>
       </div>
