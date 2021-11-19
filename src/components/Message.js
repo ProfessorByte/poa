@@ -10,11 +10,13 @@ const Message = ({ message }) => {
       })),
     [message]
   );
+
   const transitions = useTransition(items, (item) => item.key, {
     trail: 35,
     from: { display: "none" },
     enter: { display: "" },
   });
+
   return (
     <div className="DialogMessage">
       {transitions.map(({ item, props, key }) => {

@@ -16,10 +16,9 @@ const ModalGame = ({ modalId, story }) => {
         className="modal fade"
         id={modalId}
         data-bs-backdrop="static"
-        data-bs-keyboard="false"
+        data-bs-keyboard={false}
         tabIndex={-1}
         role="dialog"
-        arial-hidden={true}
       >
         <div className="modal-dialog modal-xl" role="document">
           <div className="modal-content " style={{ color: "black" }}>
@@ -27,7 +26,7 @@ const ModalGame = ({ modalId, story }) => {
               <h1 id="tituloVentanta">{story.title}</h1>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>

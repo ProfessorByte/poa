@@ -5,25 +5,25 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 const BotonIcono = () => {
   <link rel="stylesheet" href="css/font-awesome.min.css"></link>;
   return (
-    <div class="dropdown">
+    <div className="dropdown">
       <button
-        class="btn btn-secondary dropdown-toggle"
+        className="btn btn-secondary dropdown-toggle"
         type="button"
         id="dropdownMenuButton"
         data-bs-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
+        aria-haspopup={true}
+        aria-expanded={false}
       >
         <FontAwesomeIcon icon={faUser} size="2.5x" />
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">
+      <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a className="dropdown-item" href="#">
           Portugal
         </a>
-        <a class="dropdown-item" href="#">
+        <a className="dropdown-item" href="#">
           Darse de baja
         </a>
-        <a class="dropdown-item" href="#">
+        <a className="dropdown-item" href="#">
           Cerrar Sesion
         </a>
       </div>

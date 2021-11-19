@@ -331,7 +331,7 @@ export const stories = [
     endWrong: "",
   },
   {
-    id: 4,
+    id: 17,
     title: "Enlace Dinámico y Estático",
     paragraphs: [
       "Larry el Dinamico es una persona que utiliza muchas herramientas, a Larry le afecto la vejez, le dio demencial senil y olvido para que sirven sus herramientas, solo sabe que puede manejar una herramienta, en una ocasion, Larry recogio una herramienta y esta resulto ser un hacha y el quiere recoger sus cultivos, el usa su herramienta y resulta que no le sirvio para recoger sus cultivos, los perdio o al menos la mayor parte, luego quiso cortar madera pero en su mano traia una azada de herramienta, esta demas decir que no pudo prender su fogata…",

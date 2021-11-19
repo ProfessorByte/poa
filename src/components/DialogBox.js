@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Message from "./Message";
 import "../css/DialogStyles.css";
 
 const DialogBox = ({ handleForm, messages, storyteller, end }) => {
   const [currentMessage, setCurrentMessage] = useState(0);
+
+  useEffect(() => {
+    setCurrentMessage(currentMessage + 1);
+    setTimeout(() => {
+      setCurrentMessage(0);
+    }, 100);
+  }, [messages]);
+
   const handleClickRight = () => {
     if (currentMessage < messages.length - 1) {
       setCurrentMessage(currentMessage + 1);
@@ -11,6 +19,13 @@ const DialogBox = ({ handleForm, messages, storyteller, end }) => {
       setCurrentMessage(0);
     }
   };
+
+  const handleClickLeft = () => {
+    if (currentMessage > 0) {
+      setCurrentMessage(currentMessage - 1);
+    }
+  };
+
   return (
     <div className="DialogWindow">
       <div className="DialogTitle">{storyteller}</div>
@@ -20,15 +35,7 @@ const DialogBox = ({ handleForm, messages, storyteller, end }) => {
           <div className="row d-flex justify-content-between">
             <div className="DialogFooterStart col-auto">
               {currentMessage > 0 && (
-                <div
-                  onClick={() => {
-                    if (currentMessage > 0) {
-                      setCurrentMessage(currentMessage - 1);
-                    }
-                  }}
-                >
-                  Anterior
-                </div>
+                <div onClick={handleClickLeft}>Anterior</div>
               )}
             </div>
             <div className="col-auto row">

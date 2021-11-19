@@ -13,7 +13,7 @@ export const FormGame = ({
   const [finalStory, setFinalStory] = useState("form");
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (idxCorrect === optionSelected) {
+    if (Number(idxCorrect) === Number(optionSelected)) {
       setFinalStory("good");
     } else {
       setFinalStory("wrong");
@@ -30,22 +30,25 @@ export const FormGame = ({
         <div className="radio-box">
           <h6>{question}</h6>
           <form onSubmit={handleSubmit}>
-            <div onChange={handleChange}>
-              {options.map((option, index) => (
-                <div key={`option${index}`} class="form-check">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name={`formCheck${idForm}`}
-                    id={`option${index}`}
-                    value={index + 1}
-                  />
-                  <label className="form-check-label" for={`option${index}`}>
-                    {option}
-                  </label>
-                </div>
-              ))}
-            </div>
+            {options.map((option, index) => (
+              <div
+                key={`option${index}`}
+                className="form-check"
+                onChange={handleChange}
+              >
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name={`formCheck${idForm}`}
+                  id={`option${index}`}
+                  value={index + 1}
+                />
+                <label className="form-check-label" htmlFor={`option${index}`}>
+                  {option}
+                </label>
+              </div>
+            ))}
+
             {optionSelected !== -1 ? (
               <button type="submit" className="btn btn-danger mt-2">
                 Enviar
