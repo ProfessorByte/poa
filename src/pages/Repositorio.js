@@ -18,7 +18,7 @@ function Repositorio() {
           </div>
           <div className="texto">
             <p>Tenemos diferentes opciones para que puedas</p>
-            <p>reforzar tus conocimientos dentro de la pagina</p>
+            <p>reforzar tus conocimientos dentro de la página</p>
           </div>
           <div className="Botones" style={{ marginTop: -150 }}>
             <ButtonsOfRepo />
