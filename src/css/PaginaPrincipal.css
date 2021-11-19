@@ -20,6 +20,11 @@
   margin: 10px auto;
   transition: width 1s, height 1s;
 }
+.card_main_imagen:hover{
+  width: 13rem;
+  height: 12rem;
+
+}
 .card-bodyMain {
   margin: 1 rem;
 }
