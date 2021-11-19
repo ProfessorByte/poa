@@ -1,16 +1,15 @@
 import React from "react";
 import {useState} from "react";
 import ModalComponent from "./ModalComponent";
-
-export default function CardNivel({ estado, titulo, num }) {
+export default function CardNivel({ estado, titulo, id }) {
   const getBackground = (n) => {
     var bg = "";
-    if (n === -1) {
-      bg = "card-body card-nivel-c";
+    if (n === 1) {
+      bg = "card-body card-nivel-a";
     } else if (n === 0) {
       bg = "card-body card-nivel-b";
     } else {
-      bg = "card-body card-nivel-a";
+      bg = "card-body card-nivel-c";
     }
     return bg;
   };
@@ -22,7 +21,7 @@ export default function CardNivel({ estado, titulo, num }) {
       <div className="card mb-3 card-nivel">
         {/*<div className="card-header text-center">{titulo}</div>*/}
         <div className={getBackground(estado)}>
-          <div className="card-header">{num}</div>
+          <div className="card-header">{id}</div>
           <h6 className="card-text">{titulo}</h6>
           <button
             type="button"
