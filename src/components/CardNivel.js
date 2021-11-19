@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { stories } from "../consts/stories";
+
 export default function CardNivel({
   estado,
   titulo,
@@ -9,15 +10,25 @@ export default function CardNivel({
 }) {
   const getBackground = (n) => {
     var bg = "";
-    if (n === -1) {
-      bg = "card-body card-nivel-c";
+    if (n === 1) {
+      bg = "card-body card-nivel-a";
     } else if (n === 0) {
       bg = "card-body card-nivel-b";
     } else {
-      bg = "card-body card-nivel-a";
+      bg = "card-body card-nivel-c";
     }
     return bg;
   };
+
+  const [botonActivo, setBotonActivo] = useState(true); //o sea solo los bloqueados
+
+  useEffect(() => {
+    if (estado === -1) {
+      setBotonActivo(true);
+    } else {
+      setBotonActivo(false);
+    }
+  });
 
   return (
     <div>
@@ -34,8 +45,9 @@ export default function CardNivel({
             onClick={() => {
               functionChange(stories[num - 1]);
             }}
+            disabled={botonActivo}
           >
-            start
+            comenzar
           </button>
         </div>
       </div>

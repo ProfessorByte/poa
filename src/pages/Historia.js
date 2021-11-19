@@ -1,37 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Parallax } from "react-parallax";
 import "../css/StylesHistoria.css";
 import CardsNivel from "../components/CardsNivel";
 import Header from "../components/HeaderMainPage";
 import ModalGame from "../components/ModalGame";
+
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../server/firebaseConfig";
+import { getEstadosNivs } from "../server/api";
+
 import { stories } from "../consts/stories";
-//Escenas//
-import img1 from "../assets/escenas/img1.png";
-import img2 from "../assets/escenas/img2.png";
-import img3 from "../assets/escenas/img3.png";
-import img4 from "../assets/escenas/img4.png";
-import img5 from "../assets/escenas/img5.png";
-import img6 from "../assets/escenas/img6.png";
-import img7 from "../assets/escenas/img7.png";
-import img8 from "../assets/escenas/img8.png";
+
+//Escenas1//
+import imagen1 from "../assets/escenas1/arbol.jpg";
+import imagen2 from "../assets/escenas1/city.jpg";
+import imagen3 from "../assets/escenas1/oly1.jpg";
 
 export default function Historia() {
+  //Para obtener el estado de un usuario//
+  const [globalUser, setGlobalUser] = useState(null);
+  const [listEstadosNivs, setListEstadosNivs] = useState([]);
   const [currentStory, setCurrentStory] = useState(stories[0]);
   const modalId = "modalGame";
 
+  onAuthStateChanged(auth, (userFirebase) => {
+    setGlobalUser(userFirebase);
+  });
+
+  const getEstadosNivsData = async () => {
+    if (globalUser !== null) {
+      let userid = await globalUser.uid;
+
+      const querySnapshot = await getEstadosNivs(userid);
+      let estados = [];
+      await querySnapshot.forEach((estado) => {
+        estados.push(estado.data()["levels"]);
+      });
+      setListEstadosNivs(estados);
+    }
+  };
+
+  useEffect(() => {
+    getEstadosNivsData();
+  }, [globalUser]);
   return (
     <>
       <ModalGame modalId={modalId} story={currentStory} />
       <Header />
       <div className="Historia">
-        <Parallax
-          bgImage={img1}
-          strength={500}
-          bgImageStyle={{ height: "100%", width: "100%" }}
-        ></Parallax>
         <div className="parallax1">
           <Parallax
-            bgImage={img3}
+            bgImage={imagen1}
             strength={500}
             bgImageStyle={{ height: "100%" }}
             //style={{height:850}}
@@ -43,6 +62,7 @@ export default function Historia() {
                 maxId={2}
                 modalId={modalId}
                 functionChange={setCurrentStory}
+                estados={listEstadosNivs}
               />
               <h2>Encapsulamiento:</h2>
               <CardsNivel
@@ -50,20 +70,23 @@ export default function Historia() {
                 maxId={3}
                 modalId={modalId}
                 functionChange={setCurrentStory}
+                estados={listEstadosNivs}
               />
+
               <h2>Definiciones de Clases:</h2>
               <CardsNivel
                 minId={4}
                 maxId={7}
                 modalId={modalId}
                 functionChange={setCurrentStory}
+                estados={listEstadosNivs}
               />
             </div>
           </Parallax>
         </div>
         <div className="parallax1">
           <Parallax
-            bgImage={img4}
+            bgImage={imagen2}
             strength={500}
             bgImageStyle={{ height: "100%" }}
             //style={{height:800}}
@@ -71,32 +94,35 @@ export default function Historia() {
             <div style={{ height: 800 }}>
               <h2>Estructuras de Control:</h2>
               <CardsNivel
-                minId={11}
-                maxId={11}
-                modalId={modalId}
-                functionChange={setCurrentStory}
-              />
-              <h2>Interaccion de objetos:</h2>
-              <CardsNivel
                 minId={8}
                 maxId={8}
                 modalId={modalId}
                 functionChange={setCurrentStory}
-              />
-              <h2>Arreglos y Matrices:</h2>
+                estados={listEstadosNivs}
+              ></CardsNivel>
+              <h2>Interaccion de objetos:</h2>
               <CardsNivel
                 minId={9}
                 maxId={9}
                 modalId={modalId}
                 functionChange={setCurrentStory}
-              />
+                estados={listEstadosNivs}
+              ></CardsNivel>
+              <h2>Arreglos y Matrices:</h2>
+              <CardsNivel
+                minId={10}
+                maxId={10}
+                modalId={modalId}
+                functionChange={setCurrentStory}
+                estados={listEstadosNivs}
+              ></CardsNivel>
             </div>
           </Parallax>
         </div>
 
         <div className="parallax1">
           <Parallax
-            bgImage={img5}
+            bgImage={imagen3}
             strength={500}
             bgImageStyle={{ height: "100%" }}
             // style={{height:800}}
@@ -108,6 +134,7 @@ export default function Historia() {
                 maxId={10}
                 modalId={modalId}
                 functionChange={setCurrentStory}
+                estados={listEstadosNivs}
               />
               <h2>Herencia:</h2>
               <CardsNivel
@@ -115,6 +142,7 @@ export default function Historia() {
                 maxId={15}
                 modalId={modalId}
                 functionChange={setCurrentStory}
+                estados={listEstadosNivs}
               />
               <h2>Polimorfismo:</h2>
               <CardsNivel
@@ -122,6 +150,7 @@ export default function Historia() {
                 maxId={17}
                 modalId={modalId}
                 functionChange={setCurrentStory}
+                estados={listEstadosNivs}
               />
             </div>
           </Parallax>
