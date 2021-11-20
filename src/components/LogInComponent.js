@@ -35,16 +35,16 @@ class LogInComponent extends React.Component {
     let passwordError = "";
 
     if (!this.state.email) {
-      emailError = "debe ingresar un email";
+      emailError = "Debe ingresar un email.";
     } else {
       if (!this.state.email.includes("@")) {
-        emailError = "correo invalido, no contiene @";
+        emailError = "Correo inválido, no contiene @.";
       } else {
         if (!this.state.password) {
-          passwordError = "debe ingresar una contraseña";
+          passwordError = "Debe ingresar una contraseña.";
         } else {
           if (this.state.password.length < 8) {
-            passwordError = "la contraseña es muy corta";
+            passwordError = "La contraseña es muy corta.";
           }
         }
       }
@@ -76,7 +76,7 @@ class LogInComponent extends React.Component {
           window.location.assign("/");
         })
         .catch((error) => {
-          alert("Datos inválidos");
+          alert("Datos inválidos.");
         });
       //limpiar el form
       this.setState(iniState);
@@ -88,10 +88,10 @@ class LogInComponent extends React.Component {
 
     return (
       <Form className="form-group formulario row" onSubmit={this.handleSubmit}>
-        <h1 className="form-title"> LogIn</h1>
+        <h1 className="form-title"> Iniciar sesión</h1>
         <div className="col">
           <FormGroup className=" label">
-            <Label>Correo Electronico</Label>
+            <Label>Correo electrónico:</Label>
             <div
               className={
                 this.state.emailError
@@ -101,7 +101,7 @@ class LogInComponent extends React.Component {
             >
               <Input
                 type="text"
-                placeholder="Email"
+                placeholder="Correo electrónico"
                 className="rounded-pill"
                 value={this.state.email}
                 onChange={this.handleChangeEmail}
@@ -111,7 +111,7 @@ class LogInComponent extends React.Component {
           </FormGroup>
 
           <FormGroup className=" label">
-            <Label> Contraseña :</Label>
+            <Label> Contraseña:</Label>
             <div className="input-password">
               <div
                 className={
