@@ -37,9 +37,9 @@ const BotonIcono = ({ cerrarSesion }) => {
     return url[azar];
   };
   return (
-    <div class="dropdown dropstart">
+    <div className="dropdown dropstart">
       <button
-        class="btn btn-secondary dropdown-toggle"
+        className="btn btn-secondary dropdown-toggle"
         type="button"
         id="dropdownMenuButton1"
         data-bs-toggle="dropdown"
@@ -56,11 +56,11 @@ const BotonIcono = ({ cerrarSesion }) => {
         ></img>
       </button>
       <div
-        class="dropdown-menu dropdown-menu-dark"
+        className="dropdown-menu dropdown-menu-dark"
         aria-labelledby="dropdownMenuButton"
       >
         <a
-          class="dropdown-item"
+          className="dropdown-item"
           href="#"
           onClick={() => {
             setIcono(imagenAleatoria());
@@ -68,7 +68,7 @@ const BotonIcono = ({ cerrarSesion }) => {
         >
           Cambiar Icono
         </a>
-        <a class="dropdown-item" href="/poa" onClick={cerrarSesion}>
+        <a className="dropdown-item" href="/poa" onClick={cerrarSesion}>
           Cerrar Sesion
         </a>
       </div>
