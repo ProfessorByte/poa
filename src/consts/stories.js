@@ -17,7 +17,7 @@ export const stories = [
       "Evidentemente, el aprendiz estuvo usando los frascos equivocados. Por suerte, el mago valoró mucho la capacidad de preparación de su pupilo que no le regaño, si no le mostró su error.",
     ifWrong:
       "El mago se enfadó por que su aprendiz hizo la preparación de pociones sin su permiso, por lo que tendrá que estar castigado leyendo todos los libros de la biblioteca de magia.",
-    idxCorrect: 1,
+    idxCorrect: 2,
     endCorrect:
       "Para poder entender la relación toma la poción como un valor, ejemplo la cadena “Hola”. Este valor solo puede ser almacenado en variables con tipos especifico. Para nuestra cadena “Hola mundo” podría almacenarse en un variable (tomado como frasco) de tipo String. Si intentáramos colocar un valor booleano como true(poción), sería un error, y no podríamos usarlo. Es importante aprender a diferenciarlos para poder dominar el manejo de tipos de dato.",
     endWrong: "",
@@ -69,7 +69,7 @@ export const stories = [
       "El mago felicita por la manera en que sugirió etiquetar las pociones. Gracias a las etiquetas se podrá identificar fácilmente cuáles no.",
     ifWrong:
       "El mago empieza a reconsiderar la inteligencia de su aprendiz, aunque en parte se sintió culpable por no ayudarle.",
-    idxCorrect: 1,
+    idxCorrect: 3,
     endCorrect:
       "Las etiquetas en las pociones, en realidad, son palabras reservadas (palabras propias de lenguaje de programación) que sirven para darle este mismo uso. Las clases pueden tener atributos o métodos con estas palabras que denotan su uso, en el sentido de quienes pueden usarlo. En el caso de ser privado, solo la clase puede usarlo(el mago),protegido (en el sentido que solo puede usarlo el mago y su aprendiz, esto se aclarará después), y público, que pueden usarlo todos.",
     endWrong: "",

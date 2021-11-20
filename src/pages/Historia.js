@@ -8,7 +8,7 @@ import ModalGame from "../components/ModalGame";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../server/firebaseConfig";
 import { getEstadosNivs } from "../server/api";
-
+import Footer from "../components/FooterMainPage";
 import { stories } from "../consts/stories";
 
 //Escenas1//
