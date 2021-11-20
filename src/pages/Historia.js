@@ -7,7 +7,7 @@ import ModalGame from "../components/ModalGame";
 
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../server/firebaseConfig";
-import { getEstadosNivs } from "../server/api";
+import { getEstadosNivs, setEstadosNivs } from "../server/api";
 import Footer from "../components/FooterMainPage";
 import { stories } from "../consts/stories";
 
@@ -23,6 +23,7 @@ export default function Historia() {
   //Para obtener el estado de un usuario//
   const [globalUser, setGlobalUser] = useState(null);
   const [listEstadosNivs, setListEstadosNivs] = useState([]);
+  const [idUsuario, setIdUsuario] = useState(null);
   const [currentStory, setCurrentStory] = useState(stories[0]);
   const modalId = "modalGame";
 
@@ -32,13 +33,16 @@ export default function Historia() {
 
   const getEstadosNivsData = async () => {
     if (globalUser !== null) {
+      let usuarioId = null;
       const userid = await globalUser.uid;
       const querySnapshot = await getEstadosNivs(userid);
       let estados = [];
       await querySnapshot.forEach((estado) => {
+        usuarioId = estado.id;
         estados.push(estado.data()["levels"]);
       });
       setListEstadosNivs(estados);
+      await setIdUsuario(usuarioId);
     } else {
       if (localStorage.getItem("levels")) {
         setListEstadosNivs(JSON.parse(localStorage.getItem("levels")));
@@ -62,8 +66,10 @@ export default function Historia() {
     setListEstadosNivs([level]);
     if (globalUser !== null) {
       // Save data to firebase
+      let arr = listEstadosNivs[0];
+      await setEstadosNivs(idUsuario, arr);
     } else {
-      console.log(levelsIni)
+      console.log(levelsIni);
       localStorage.setItem("levels", JSON.stringify([level]));
       setListEstadosNivs([level]);
     }
@@ -157,7 +163,9 @@ export default function Historia() {
             // style={{height:800}}
           >
             <div style={{ height: 800 }}>
-              <h2 className="titulosTema" >Estructuras de control iterativas:</h2>
+              <h2 className="titulosTema">
+                Estructuras de control iterativas:
+              </h2>
               <CardsNivel
                 minId={11}
                 maxId={11}
@@ -235,7 +243,7 @@ export default function Historia() {
      </div>
      */}
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
