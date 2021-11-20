@@ -20,14 +20,15 @@ import { useSigninCheck } from "reactfire";
 
 export default function Historia() {
   //Para obtener el estado de un usuario//
-  const { status, data } = useSigninCheck();
+  const { status, data: signInCheckResult } = useSigninCheck();
+
   const [listEstadosNivs, setListEstadosNivs] = useState(levelsIni);
   const [currentStory, setCurrentStory] = useState(stories[0]);
   const modalId = "modalGame";
 
   const getEstadosNivsData = async () => {
-    if (status !== "loading" && data.signedIn) {
-      const querySnapshot = await getEstadosNivs(data.user.uid);
+    if (status !== "loading" && signInCheckResult.signedIn) {
+      const querySnapshot = await getEstadosNivs(signInCheckResult.user.uid);
       let estados = [];
       await querySnapshot.forEach((estado) => {
         estados.push(estado.data()["levels"]);
@@ -54,7 +55,7 @@ export default function Historia() {
       level[currentStory.id].estado = 0;
     }
     setListEstadosNivs([level]);
-    if (status !== "loading" && data.signedIn) {
+    if (status !== "loading" && signInCheckResult.signedIn) {
       // Save data to firebase
     } else {
       localStorage.setItem("levels", JSON.stringify([level]));
