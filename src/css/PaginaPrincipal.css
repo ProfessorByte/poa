@@ -10,31 +10,48 @@
   background-position: center center;
   background-size: cover;
   padding-bottom: 10%;
-  position: absolute;
   width: 100%;
-  height: 100%;
+  text-align: center;
 }
-.tamaño_card {
-  max-width: 20rem;
-  min-height: 27rem;
-}
+
 .card_main_imagen {
   height: 10rem;
   width: 12rem;
   margin: 10px auto;
   transition: width 1s, height 1s;
 }
-.card_main_imagen:hover {
+.card_main_imagen:hover{
   width: 13rem;
   height: 12rem;
-}
 
-.tamaño {
-  font-size: 1.8rem;
 }
 .card-bodyMain {
   margin: 1 rem;
 }
+
+.wrapper-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 22rem));
+  justify-content: center;
+  color: black;
+}
+.tamaño_card {
+  max-width: 20rem;
+  min-height: 27rem;
+}
+
+.container_cards {
+  margin-top: 30px;
+}
+.tamaño {
+  font-size: 1.8rem;
+}
 .titulo {
   line-height: 1.5 rem;
+  text-align: start;
+}
+.estilo {
+  display: inline-block;
+  background-color: transparent;
+  margin-top: 5%;
 }
