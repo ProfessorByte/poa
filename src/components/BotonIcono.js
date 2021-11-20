@@ -19,20 +19,21 @@ import Platano from "../assets/images/platano.png";
 const BotonIcono = ({ cerrarSesion }) => {
   const [icono, setIcono] = useState(Abeja);
   const imagenAleatoria = () => {
-    var url = new Array();
-    url[0] = Abeja;
-    url[1] = Ballena;
-    url[2] = Lampara;
-    url[3] = Librito;
-    url[4] = Mariposa;
-    url[5] = Mochila;
-    url[6] = Poscion;
-    url[7] = Prt;
-    url[8] = Submarino;
-    url[9] = TocaDiscos;
-    url[10] = Torre;
-    url[11] = Rafael;
-    url[12] = Platano;
+    var url = [
+      Abeja,
+      Ballena,
+      Lampara,
+      Librito,
+      Mariposa,
+      Mochila,
+      Poscion,
+      Prt,
+      Submarino,
+      TocaDiscos,
+      Torre,
+      Rafael,
+      Platano,
+    ];
     var azar = Math.floor(Math.random() * url.length);
     return url[azar];
   };
@@ -46,14 +47,7 @@ const BotonIcono = ({ cerrarSesion }) => {
         aria-haspopup="true"
         aria-expanded="false"
       >
-        <img
-          id="iconu"
-          src={icono}
-          width="150px"
-          border="800px"
-          border="2px"
-          alt=""
-        ></img>
+        <img id="iconu" src={icono} width="150px" alt="Imágen de usuario"></img>
       </button>
       <div
         className="dropdown-menu dropdown-menu-dark"

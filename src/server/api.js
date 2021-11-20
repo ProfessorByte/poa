@@ -4,7 +4,6 @@ import {
   query,
   orderBy,
   where,
-  doc,
   updateDoc,
 } from "firebase/firestore";
 import { db } from "./firebaseConfig";

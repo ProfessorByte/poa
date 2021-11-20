@@ -10,21 +10,22 @@ import Footer from "../components/FooterMainPage";
 import { stories } from "../consts/stories";
 import { levelsIni } from "../consts/levels";
 import { useSigninCheck } from "reactfire";
-import { updateDoc } from "@firebase/firestore";
 
 //Escenas1//
 import imagen1 from "../assets/escenas1/arbol.jpg";
 import imagen2 from "../assets/escenas1/city.jpg";
-import imagen3 from "../assets/escenas1/oly1.jpg";
-import imagen4 from "../assets/escenas/img6.png";
-import imagen5 from "../assets/escenas/img5.png";
+import imagen3 from "../assets/escenas/img6.png";
 
 export default function Historia() {
   //Para obtener el estado de un usuario//
   const { status, data: signInCheckResult } = useSigninCheck();
-
   const [listEstadosNivs, setListEstadosNivs] = useState(levelsIni);
   const [currentStory, setCurrentStory] = useState(stories[0]);
+
+  useEffect(() => {
+    getEstadosNivsData();
+  }, [status]);
+
   const modalId = "modalGame";
 
   const getEstadosNivsData = async () => {
@@ -45,10 +46,6 @@ export default function Historia() {
     }
   };
 
-  useEffect(() => {
-    getEstadosNivsData();
-  }, [status]);
-
   const unblockLevel = async () => {
     let level = listEstadosNivs[0];
     level[currentStory.id - 1].estado = 1;
@@ -66,6 +63,7 @@ export default function Historia() {
       setListEstadosNivs([level]);
     }
   };
+
   return (
     <>
       <ModalGame
@@ -149,7 +147,7 @@ export default function Historia() {
 
         <div className="parallax1">
           <Parallax
-            bgImage={imagen4}
+            bgImage={imagen3}
             strength={500}
             bgImageStyle={{ height: "100%" }}
             // style={{height:800}}

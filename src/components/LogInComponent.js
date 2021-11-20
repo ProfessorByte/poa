@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../server/firebaseConfig";
-import { Link } from "react-router-dom";
 
 const iniState = {
   email: "",
@@ -144,7 +143,6 @@ class LogInComponent extends React.Component {
           </FormGroup>
           <a href="/recuperar">Recuperar Contraseña</a>
           <div className="label form-btn">
-
             <Button
               type="submit"
               className="btn btn-light btn-lg rounded-pill no-shadow"

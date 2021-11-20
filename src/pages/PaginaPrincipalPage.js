@@ -11,12 +11,10 @@ export default function PaginaPrincipalPage() {
   const { status, data: signInCheckResult } = useSigninCheck();
 
   function pressFirstImage(e) {
-    {
-      if (status !== "loading" && !signInCheckResult.signedIn) {
-        alert("Inicie sesión si desea  que los cambios se guarden ");
-      }
-      window.location.assign("/poa/historia");
+    if (status !== "loading" && !signInCheckResult.signedIn) {
+      alert("Inicie sesión si desea  que los cambios se guarden ");
     }
+    window.location.assign("/poa/historia");
   }
 
   function pressSecondImage(e) {

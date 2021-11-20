@@ -1,10 +1,7 @@
-
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
-import Footer from "../components/FooterRepositorio";
-import Header from "./HeaderLogIn";
 
 const iniState = {
   email: "",
@@ -13,29 +10,28 @@ const iniState = {
 
 const auth = getAuth();
 
-class RecuperarComponent extends React.Component{
+class RecuperarComponent extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       email: "",
       emailError: "",
-
     };
   }
 
   forgotPassword = (email) => {
-    sendPasswordResetEmail(auth,email)
-    .then(() => {
-      this.alertEnviado()
-      return;
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    })
-  }
-  
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        this.alertEnviado();
+        return;
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("Error " + errorCode + ": " + errorMessage);
+      });
+  };
 
   togglePasswordVisibility = () => {
     const { showPassword } = this.state;
@@ -77,7 +73,7 @@ class RecuperarComponent extends React.Component{
     alert("Ya se envió un correo para su recuperación");
     return;
   }
-  
+
   handleSubmit = (event) => {
     event.preventDefault();
     const isValid = this.validate();
@@ -98,45 +94,47 @@ class RecuperarComponent extends React.Component{
     }
   };
 
-render() {
-  return (
-    <>
-   
-        <Form className="form-group formulario row" onSubmit={this.handleSubmit}>
-        <h1 className="form-title">Recuperar contraseña</h1>
-        <div className="col">
-          <FormGroup className=" label">
-            <Label>Correo Electronico</Label>
-            <div
-              className={
-                this.state.emailError
-                  ? "rounded-pill wrong-input"
-                  : "rounded-pill"
-              }
-            >
-              <Input
-                type="text"
-                placeholder="Email"
-                className="rounded-pill"
-                value={this.state.email}
-                onChange={this.handleChangeEmail}
-              />
+  render() {
+    return (
+      <>
+        <Form
+          className="form-group formulario row"
+          onSubmit={this.handleSubmit}
+        >
+          <h1 className="form-title">Recuperar contraseña</h1>
+          <div className="col">
+            <FormGroup className=" label">
+              <Label>Correo Electronico</Label>
+              <div
+                className={
+                  this.state.emailError
+                    ? "rounded-pill wrong-input"
+                    : "rounded-pill"
+                }
+              >
+                <Input
+                  type="text"
+                  placeholder="Email"
+                  className="rounded-pill"
+                  value={this.state.email}
+                  onChange={this.handleChangeEmail}
+                />
+              </div>
+              <div className="mensaje-error">{this.state.emailError}</div>
+            </FormGroup>
+            <div className="label form-btn">
+              <Button
+                className="btn btn-light btn-lg rounded-pill no-shadow"
+                type="submit"
+                onClick={() => this.forgotPassword(this.state.email)}
+              >
+                Recuperar Contraseña
+              </Button>
             </div>
-            <div className="mensaje-error">{this.state.emailError}</div>
-          </FormGroup>
-          <div className="label form-btn">
-            <Button
-              className="btn btn-light btn-lg rounded-pill no-shadow"
-              type = "submit"
-              onClick={()=>this.forgotPassword(this.state.email)}
-            >
-              Recuperar Contraseña
-            </Button>
           </div>
-        </div>
-      </Form>
-    </>
-   );
+        </Form>
+      </>
+    );
   }
 }
 export default RecuperarComponent;
