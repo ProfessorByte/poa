@@ -10,10 +10,7 @@ const iniState = {
   email: "",
   emailError: "",
 };
-function alert(e) {
-  alert("Inicie sesión si desea  que los cambios se guarden ");
 
-}
 const auth = getAuth();
 
 class RecuperarComponent extends React.Component{
@@ -23,18 +20,19 @@ class RecuperarComponent extends React.Component{
     this.state = {
       email: "",
       emailError: "",
+
     };
   }
-  
+
   forgotPassword = (email) => {
     sendPasswordResetEmail(auth,email)
     .then(() => {
-      
+      this.alertEnviado()
+      return;
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      // ..
     })
   }
   
@@ -75,6 +73,11 @@ class RecuperarComponent extends React.Component{
     this.setState({ email: event.target.value });
   };
 
+  alertEnviado() {
+    alert("Ya se envió un correo para su recuperación");
+    return;
+  }
+  
   handleSubmit = (event) => {
     event.preventDefault();
     const isValid = this.validate();
@@ -124,8 +127,8 @@ render() {
           <div className="label form-btn">
             <Button
               className="btn btn-light btn-lg rounded-pill no-shadow"
-              type="submit"
-              funcion={this.forgotPassword(this.state.email)}
+              type = "submit"
+              onClick={()=>this.forgotPassword(this.state.email)}
             >
               Recuperar Contraseña
             </Button>

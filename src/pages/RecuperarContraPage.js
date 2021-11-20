@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/LogIn.css";
+import "../css/Recuperar.css";
 import RecuperarComponent from "../components/RecuperarContraseña";
 import Header from "../components/HeaderLogIn";
 
