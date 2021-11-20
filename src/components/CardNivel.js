@@ -47,7 +47,7 @@ export default function CardNivel({
             }}
             disabled={botonActivo}
           >
-            comenzar
+            Comenzar
           </button>
         </div>
       </div>

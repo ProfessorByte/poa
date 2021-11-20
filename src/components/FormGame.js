@@ -9,6 +9,7 @@ export const FormGame = ({
   endGood,
   endWrong,
   handleForm,
+  unblockLevel,
 }) => {
   const [optionSelected, setOptionSelected] = useState(-1);
   const [finalStory, setFinalStory] = useState("form");
@@ -16,6 +17,7 @@ export const FormGame = ({
     e.preventDefault();
     if (Number(idxCorrect) === Number(optionSelected)) {
       setFinalStory("good");
+      unblockLevel();
     } else {
       setFinalStory("wrong");
     }

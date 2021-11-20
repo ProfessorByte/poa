@@ -156,6 +156,26 @@ export const stories = [
   },
   {
     id: 8,
+    title: "If-Else",
+    paragraphs: [
+      "Marcianalandia es el planeta vecino de marte  donde viven los parientes de los marcianitos ellos también vienen de la descendencia de los marcianos con la pequeña diferencia que ellos tienen la sangre azul y se podría decir que al tener este color de sangre estos marcianos se caracterizan por ser muy indecisos es por eso que crearon otra herramienta.",
+      "Esta herramienta tiene la forma de un cubo rojo y te ayuda a tomar decisiones  lo único que los marcianos tiene que hacer es gritar “iftalky iftalky ” y mandarl una condición  esta herramienta es la salvación para los marcianos de este planeta ya que si no tuvieran esta herramienta es muy probable que también explotarian por tanta ansiedad de no poder tomar una decisión.",
+    ],
+    question: "¿Cuál es la forma de la herramienta if-talky?",
+    options: [
+      "Forma de un pokemon",
+      "Forma de un cubo rojo.",
+      "Forma de cono rojo.",
+    ],
+    ifCorrect:
+      "Las estructuras de control if-else  (la herramienta if-talky) evalúa una condición en paréntesis si el resultado es verdadero ejecuta un bloque de código pero si esta condición es falsa ejecuta el bloque de código de la parte else ",
+    ifWrong: "¡Noooooooooo!, te equivocaste...",
+    idxCorrect: 2,
+    endCorrect: "",
+    endWrong: "",
+  },
+  {
+    id: 9,
     title: "Interacción de Objetos",
     paragraphs: [
       "El año 2445 la civilización de la Tierra tuvo suficientes avances tecnológicos para hacer viajes intergalácticos. Es así como un grupo de humanos se enfrascó en un objetivo, el cuál fue expandir su vasto imperio por los confines del universo. Sin embargo se encontraron con un sin fin de razas bélicas de alienígenas que buscaban exactamente lo mismo, es así como durante siglos la raza humana formó parte de está enorme guerra interplanetaria.",
@@ -178,7 +198,7 @@ export const stories = [
     endWrong: "",
   },
   {
-    id: 9,
+    id: 10,
     title: "Arreglos y Matrices",
     paragraphs: [
       "Para llegar a las tierras Baldías, se debe de cruzar dos laberintos, en el cual esta ocasión se enfrentaba Dixie y Luis, de manera que solo se le permitía entrar una persona por laberinto, había un cartel que les alertaba de que debían de pensar bien cuál laberinto deben escoger, ya que el que llegaba primero a la meta ganaría una recompensa y el perdedor deberá pagarla, uno era largo y el otro era corto, pero más confuso de encontrar la salida, Dixie se decidió por el primer laberinto largo  y Luis por el segundo, Luis no contaba que este laberinto no era un camino recto sino que era bidimensional, había bajadas y subidas, lo cual estaba resignado de que el ganara la recompensa. pero aun así siguió y encontró más atajos.",
@@ -198,7 +218,7 @@ export const stories = [
     endWrong: "",
   },
   {
-    id: 10,
+    id: 11,
     title: "Ciclo while y for",
     paragraphs: [
       "En un lugar no muy lejano del planeta tierra Marte es el hogar de los marcianos ellos son seres muy peculiares ya que no les gusta hacer la misma tarea muchas veces cuando lo hacen se enojan muchísimo tanto que pueden llegar a explotar y no queras que un marciano explote eso haría que todos los marcianitos se extinguieran de Marte , es  por eso que crearon una herramienta la cual les ayude a hacer una tarea repetitiva n veces ,esto les hace extremadamente felices.",
@@ -214,26 +234,6 @@ export const stories = [
       "Cuando programamos muchas veces es necesario utilizar estructuras de control iterativas (ciclo for y while) estas estructuras hacen que un bloque de código se pueda ejecutar n veces.",
     ifWrong: "¡Noooooooooo!, te equivocaste...",
     idxCorrect: 3,
-    endCorrect: "",
-    endWrong: "",
-  },
-  {
-    id: 11,
-    title: "If-Else",
-    paragraphs: [
-      "Marcianalandia es el planeta vecino de marte  donde viven los parientes de los marcianitos ellos también vienen de la descendencia de los marcianos con la pequeña diferencia que ellos tienen la sangre azul y se podría decir que al tener este color de sangre estos marcianos se caracterizan por ser muy indecisos es por eso que crearon otra herramienta.",
-      "Esta herramienta tiene la forma de un cubo rojo y te ayuda a tomar decisiones  lo único que los marcianos tiene que hacer es gritar “iftalky iftalky ” y mandarl una condición  esta herramienta es la salvación para los marcianos de este planeta ya que si no tuvieran esta herramienta es muy probable que también explotarian por tanta ansiedad de no poder tomar una decisión.",
-    ],
-    question: "¿Cuál es la forma de la herramienta if-talky?",
-    options: [
-      "Forma de un pokemon",
-      "Forma de un cubo rojo.",
-      "Forma de cono rojo.",
-    ],
-    ifCorrect:
-      "Las estructuras de control if-else  (la herramienta if-talky) evalúa una condición en paréntesis si el resultado es verdadero ejecuta un bloque de código pero si esta condición es falsa ejecuta el bloque de código de la parte else ",
-    ifWrong: "¡Noooooooooo!, te equivocaste...",
-    idxCorrect: 2,
     endCorrect: "",
     endWrong: "",
   },

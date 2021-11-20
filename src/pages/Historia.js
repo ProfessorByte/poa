@@ -15,6 +15,7 @@ import { stories } from "../consts/stories";
 import imagen1 from "../assets/escenas1/arbol.jpg";
 import imagen2 from "../assets/escenas1/city.jpg";
 import imagen3 from "../assets/escenas1/oly1.jpg";
+import { levelsIni } from "../consts/levels";
 
 export default function Historia() {
   //Para obtener el estado de un usuario//
@@ -29,23 +30,49 @@ export default function Historia() {
 
   const getEstadosNivsData = async () => {
     if (globalUser !== null) {
-      let userid = await globalUser.uid;
-
+      const userid = await globalUser.uid;
       const querySnapshot = await getEstadosNivs(userid);
       let estados = [];
       await querySnapshot.forEach((estado) => {
         estados.push(estado.data()["levels"]);
       });
       setListEstadosNivs(estados);
+    } else {
+      if (localStorage.getItem("levels")) {
+        setListEstadosNivs(JSON.parse(localStorage.getItem("levels")));
+      } else {
+        localStorage.setItem("levels", JSON.stringify(levelsIni));
+        setListEstadosNivs(levelsIni);
+      }
     }
   };
 
   useEffect(() => {
     getEstadosNivsData();
   }, [globalUser]);
+
+  const unblockLevel = async () => {
+    let level = listEstadosNivs[0];
+    level[currentStory.id - 1].estado = 1;
+    if (level[currentStory.id] && level[currentStory.id].estado === -1) {
+      level[currentStory.id].estado = 0;
+    }
+    setListEstadosNivs([level]);
+    if (globalUser !== null) {
+      // Save data to firebase
+    } else {
+      localStorage.setItem("levels", JSON.stringify(levelsIni));
+      setListEstadosNivs([level]);
+    }
+  };
+
   return (
     <>
-      <ModalGame modalId={modalId} story={currentStory} />
+      <ModalGame
+        modalId={modalId}
+        story={currentStory}
+        unblockLevel={unblockLevel}
+      />
       <Header />
       <div className="Historia">
         <div className="parallax1">
@@ -130,8 +157,8 @@ export default function Historia() {
             <div style={{ height: 800 }}>
               <h2>Estructuras de control iterativas:</h2>
               <CardsNivel
-                minId={10}
-                maxId={10}
+                minId={11}
+                maxId={11}
                 modalId={modalId}
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}

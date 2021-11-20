@@ -3,7 +3,7 @@ import startImage from "../assets/images/start.jpg";
 import DialogBox from "./DialogBox";
 import { FormGame } from "./FormGame";
 
-const ModalGame = ({ modalId, story }) => {
+const ModalGame = ({ modalId, story, unblockLevel }) => {
   const [showForm, setShowForm] = useState(false);
 
   const handleForm = () => {
@@ -64,6 +64,7 @@ const ModalGame = ({ modalId, story }) => {
                   endGood={story.ifCorrect}
                   endWrong={story.ifWrong}
                   handleForm={handleForm}
+                  unblockLevel={unblockLevel}
                 />
               )}
             </div>
