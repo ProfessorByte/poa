@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Parallax } from "react-parallax";
 import "../css/StylesHistoria.css";
 import CardsNivel from "../components/CardsNivel";
-import Header from "../components/HeaderMainPage";
+import Header from "../components/HeaderHistoria";
 import ModalGame from "../components/ModalGame";
 
 import { onAuthStateChanged } from "firebase/auth";

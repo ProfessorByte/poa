@@ -8,9 +8,8 @@
   border: 3px solid rgb(229, 243, 31);
 }
 #dropdownMenuButton1 {
-  background-color: #000;
-  border: #000;
-  border-color: #000;
+  background-color: Transparent;
+
 }
 @media screen and (max-width: 1024px) {
   .contenedorb {
