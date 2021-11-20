@@ -5,8 +5,6 @@ import CardsNivel from "../components/CardsNivel";
 import Header from "../components/HeaderHistoria";
 import ModalGame from "../components/ModalGame";
 
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../server/firebaseConfig";
 import { getEstadosNivs } from "../server/api";
 import Footer from "../components/FooterMainPage";
 import { stories } from "../consts/stories";
@@ -18,28 +16,24 @@ import imagen3 from "../assets/escenas1/oly1.jpg";
 import imagen4 from "../assets/escenas/img6.png";
 import imagen5 from "../assets/escenas/img5.png";
 import { levelsIni } from "../consts/levels";
+import { useSigninCheck } from "reactfire";
 
 export default function Historia() {
   //Para obtener el estado de un usuario//
-  const [globalUser, setGlobalUser] = useState(null);
-  const [listEstadosNivs, setListEstadosNivs] = useState([]);
+  const { status, data } = useSigninCheck();
+  const [listEstadosNivs, setListEstadosNivs] = useState(levelsIni);
   const [currentStory, setCurrentStory] = useState(stories[0]);
   const modalId = "modalGame";
 
-  onAuthStateChanged(auth, (userFirebase) => {
-    setGlobalUser(userFirebase);
-  });
-
   const getEstadosNivsData = async () => {
-    if (globalUser !== null) {
-      const userid = await globalUser.uid;
-      const querySnapshot = await getEstadosNivs(userid);
+    if (status !== "loading" && data.signedIn) {
+      const querySnapshot = await getEstadosNivs(data.user.uid);
       let estados = [];
       await querySnapshot.forEach((estado) => {
         estados.push(estado.data()["levels"]);
       });
       setListEstadosNivs(estados);
-    } else {
+    } else if (status !== "loading") {
       if (localStorage.getItem("levels")) {
         setListEstadosNivs(JSON.parse(localStorage.getItem("levels")));
       } else {
@@ -51,7 +45,7 @@ export default function Historia() {
 
   useEffect(() => {
     getEstadosNivsData();
-  }, [globalUser]);
+  }, [status]);
 
   const unblockLevel = async () => {
     let level = listEstadosNivs[0];
@@ -60,10 +54,9 @@ export default function Historia() {
       level[currentStory.id].estado = 0;
     }
     setListEstadosNivs([level]);
-    if (globalUser !== null) {
+    if (status !== "loading" && data.signedIn) {
       // Save data to firebase
     } else {
-      console.log(levelsIni)
       localStorage.setItem("levels", JSON.stringify([level]));
       setListEstadosNivs([level]);
     }
@@ -157,7 +150,9 @@ export default function Historia() {
             // style={{height:800}}
           >
             <div style={{ height: 800 }}>
-              <h2 className="titulosTema" >Estructuras de control iterativas:</h2>
+              <h2 className="titulosTema">
+                Estructuras de control iterativas:
+              </h2>
               <CardsNivel
                 minId={11}
                 maxId={11}
@@ -235,7 +230,7 @@ export default function Historia() {
      </div>
      */}
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
