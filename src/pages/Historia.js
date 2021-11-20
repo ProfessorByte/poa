@@ -15,6 +15,8 @@ import { stories } from "../consts/stories";
 import imagen1 from "../assets/escenas1/arbol.jpg";
 import imagen2 from "../assets/escenas1/city.jpg";
 import imagen3 from "../assets/escenas1/oly1.jpg";
+import imagen4 from "../assets/escenas/img6.png";
+import imagen5 from "../assets/escenas/img5.png";
 import { levelsIni } from "../consts/levels";
 
 export default function Historia() {
@@ -61,11 +63,11 @@ export default function Historia() {
     if (globalUser !== null) {
       // Save data to firebase
     } else {
-      localStorage.setItem("levels", JSON.stringify(levelsIni));
+      console.log(levelsIni)
+      localStorage.setItem("levels", JSON.stringify([level]));
       setListEstadosNivs([level]);
     }
   };
-
   return (
     <>
       <ModalGame
@@ -83,7 +85,7 @@ export default function Historia() {
             //style={{height:850}}
           >
             <div style={{ height: 800 }}>
-              <h2>Objetos y Clases:</h2>
+              <h2 className="titulosTema">Objetos y Clases:</h2>
               <CardsNivel
                 minId={1}
                 maxId={2}
@@ -91,7 +93,7 @@ export default function Historia() {
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}
               />
-              <h2>Encapsulamiento:</h2>
+              <h2 className="titulosTema">Encapsulamiento:</h2>
               <CardsNivel
                 minId={3}
                 maxId={3}
@@ -100,7 +102,7 @@ export default function Historia() {
                 estados={listEstadosNivs}
               />
 
-              <h2>Definiciones de Clases:</h2>
+              <h2 className="titulosTema">Definiciones de Clases:</h2>
               <CardsNivel
                 minId={4}
                 maxId={7}
@@ -119,7 +121,7 @@ export default function Historia() {
             //style={{height:800}}
           >
             <div style={{ height: 800 }}>
-              <h2>Estructuras de Control:</h2>
+              <h2 className="titulosTema">Estructuras de Control:</h2>
               <CardsNivel
                 minId={8}
                 maxId={8}
@@ -127,7 +129,7 @@ export default function Historia() {
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}
               ></CardsNivel>
-              <h2>Interaccion de objetos:</h2>
+              <h2 className="titulosTema">Interaccion de objetos:</h2>
               <CardsNivel
                 minId={9}
                 maxId={9}
@@ -135,7 +137,7 @@ export default function Historia() {
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}
               ></CardsNivel>
-              <h2>Arreglos y Matrices:</h2>
+              <h2 className="titulosTema">Arreglos y Matrices:</h2>
               <CardsNivel
                 minId={10}
                 maxId={10}
@@ -149,13 +151,13 @@ export default function Historia() {
 
         <div className="parallax1">
           <Parallax
-            bgImage={imagen3}
+            bgImage={imagen4}
             strength={500}
             bgImageStyle={{ height: "100%" }}
             // style={{height:800}}
           >
             <div style={{ height: 800 }}>
-              <h2>Estructuras de control iterativas:</h2>
+              <h2 className="titulosTema" >Estructuras de control iterativas:</h2>
               <CardsNivel
                 minId={11}
                 maxId={11}
@@ -163,7 +165,7 @@ export default function Historia() {
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}
               />
-              <h2>Herencia:</h2>
+              <h2 className="titulosTema">Herencia:</h2>
               <CardsNivel
                 minId={12}
                 maxId={15}
@@ -171,7 +173,7 @@ export default function Historia() {
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}
               />
-              <h2>Polimorfismo:</h2>
+              <h2 className="titulosTema">Polimorfismo:</h2>
               <CardsNivel
                 minId={16}
                 maxId={17}

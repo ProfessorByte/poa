@@ -16,7 +16,7 @@ import Torre from "../assets/Avatars_poa/Torre.PNG"
 import Rafael from "../assets/Avatars_poa/Tortuguita.PNG"
 import Platano from "../assets/images/platano.png"
 /*import cambiar from "./CambioIconos"*/
-const BotonIcono = () => {
+const BotonIcono = ({cerrarSesion}) => {
   const [icono, setIcono] = useState(Abeja)
   const imagenAleatoria=()=>{
     var url = new Array();
@@ -45,7 +45,7 @@ const BotonIcono = () => {
   <a class="dropdown-item" href="#" onClick={()=>{
     setIcono(imagenAleatoria());
   }} >Cambiar Icono</a>
-    <a class="dropdown-item" href="#">Cerrar Sesion</a>
+    <a class="dropdown-item" href="#" onClick={cerrarSesion}>Cerrar Sesion</a>
   </div>
 </div>
   );

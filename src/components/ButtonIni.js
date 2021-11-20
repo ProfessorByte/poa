@@ -2,14 +2,16 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { useSigninCheck } from "reactfire";
 import { auth } from "../server/firebaseConfig";
-
+import BotonIcono from "./BotonIcono";
 const ButtonIni = () => {
   const { status, data } = useSigninCheck();
-
+  const cerrarSesion=()=>{ 
+    if (status !== "loading" && data.signedIn) {
+    signOut(auth);}
+  }
   return (
     <div className="contenedorb">
-      <a
-        href={status !== "loading" && data.signedIn ? "/poa" : "/login"}
+      {status !== "loading" && !data.signedIn ? <a href={status !== "loading" && data.signedIn ? "/poa" : "/login"}
         className={`col-auto btn ${
           status !== "loading" && data.signedIn ? "btn-danger" : "btn-warning"
         } me-2`}
@@ -24,7 +26,7 @@ const ButtonIni = () => {
           : data.signedIn
           ? "Cerrar sesión"
           : "Iniciar sesión"}
-      </a>
+      </a>:<BotonIcono cerrarSesion={cerrarSesion}/>}
     </div>
   );
 };
