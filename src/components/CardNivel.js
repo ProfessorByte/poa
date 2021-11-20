@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSigninCheck } from "reactfire";
 import { stories } from "../consts/stories";
 
 export default function CardNivel({
@@ -8,6 +9,8 @@ export default function CardNivel({
   modalId,
   functionChange,
 }) {
+  const { status, data } = useSigninCheck();
+
   const getBackground = (n) => {
     var bg = "";
     if (n === 1) {
@@ -37,18 +40,22 @@ export default function CardNivel({
         <div className={getBackground(estado)}>
           <div className="card-header">{num}</div>
           <h6 className="card-text">{titulo}</h6>
-          <button
-            type="button"
-            className="btn btn-light btn-sm btn-block"
-            data-bs-toggle="modal"
-            data-bs-target={`#${modalId}`}
-            onClick={() => {
-              functionChange(stories[num - 1]);
-            }}
-            disabled={botonActivo}
-          >
-            Comenzar
-          </button>
+          {status === "loading" ? (
+            <div>Cargando...</div>
+          ) : (
+            <button
+              type="button"
+              className="btn btn-light btn-sm btn-block"
+              data-bs-toggle="modal"
+              data-bs-target={`#${modalId}`}
+              onClick={() => {
+                functionChange(stories[num - 1]);
+              }}
+              disabled={botonActivo}
+            >
+              Comenzar
+            </button>
+          )}
         </div>
       </div>
     </div>

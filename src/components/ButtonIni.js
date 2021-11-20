@@ -5,28 +5,34 @@ import { auth } from "../server/firebaseConfig";
 import BotonIcono from "./BotonIcono";
 const ButtonIni = () => {
   const { status, data } = useSigninCheck();
-  const cerrarSesion=()=>{ 
+  const cerrarSesion = () => {
     if (status !== "loading" && data.signedIn) {
-    signOut(auth);}
-  }
+      signOut(auth);
+    }
+  };
   return (
     <div className="contenedorb">
-      {status !== "loading" && !data.signedIn ? <a href={status !== "loading" && data.signedIn ? "/poa" : "/login"}
-        className={`col-auto btn ${
-          status !== "loading" && data.signedIn ? "btn-danger" : "btn-warning"
-        } me-2`}
-        onClick={() => {
-          if (status !== "loading" && data.signedIn) {
-            signOut(auth);
-          }
-        }}
-      >
-        {status === "loading"
-          ? "..."
-          : data.signedIn
-          ? "Cerrar sesión"
-          : "Iniciar sesión"}
-      </a>:<BotonIcono cerrarSesion={cerrarSesion}/>}
+      {status !== "loading" && !data.signedIn ? (
+        <a
+          href={status !== "loading" && data.signedIn ? "/poa" : "/login"}
+          className={`col-auto btn ${
+            status !== "loading" && data.signedIn ? "btn-danger" : "btn-warning"
+          } me-2`}
+          onClick={() => {
+            if (status !== "loading" && data.signedIn) {
+              signOut(auth);
+            }
+          }}
+        >
+          {status === "loading"
+            ? "..."
+            : data.signedIn
+            ? "Cerrar sesión"
+            : "Iniciar sesión"}
+        </a>
+      ) : (
+        <BotonIcono cerrarSesion={cerrarSesion} />
+      )}
     </div>
   );
 };

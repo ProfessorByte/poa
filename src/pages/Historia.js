@@ -5,11 +5,12 @@ import CardsNivel from "../components/CardsNivel";
 import Header from "../components/HeaderHistoria";
 import ModalGame from "../components/ModalGame";
 
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../server/firebaseConfig";
 import { getEstadosNivs, setEstadosNivs } from "../server/api";
 import Footer from "../components/FooterMainPage";
 import { stories } from "../consts/stories";
+import { levelsIni } from "../consts/levels";
+import { useSigninCheck } from "reactfire";
+import { updateDoc } from "@firebase/firestore";
 
 //Escenas1//
 import imagen1 from "../assets/escenas1/arbol.jpg";
@@ -17,33 +18,24 @@ import imagen2 from "../assets/escenas1/city.jpg";
 import imagen3 from "../assets/escenas1/oly1.jpg";
 import imagen4 from "../assets/escenas/img6.png";
 import imagen5 from "../assets/escenas/img5.png";
-import { levelsIni } from "../consts/levels";
 
 export default function Historia() {
   //Para obtener el estado de un usuario//
-  const [globalUser, setGlobalUser] = useState(null);
-  const [listEstadosNivs, setListEstadosNivs] = useState([]);
-  const [idUsuario, setIdUsuario] = useState(null);
+  const { status, data: signInCheckResult } = useSigninCheck();
+
+  const [listEstadosNivs, setListEstadosNivs] = useState(levelsIni);
   const [currentStory, setCurrentStory] = useState(stories[0]);
   const modalId = "modalGame";
 
-  onAuthStateChanged(auth, (userFirebase) => {
-    setGlobalUser(userFirebase);
-  });
-
   const getEstadosNivsData = async () => {
-    if (globalUser !== null) {
-      let usuarioId = null;
-      const userid = await globalUser.uid;
-      const querySnapshot = await getEstadosNivs(userid);
+    if (status !== "loading" && signInCheckResult.signedIn) {
+      const querySnapshot = await getEstadosNivs(signInCheckResult.user.uid);
       let estados = [];
       await querySnapshot.forEach((estado) => {
-        usuarioId = estado.id;
         estados.push(estado.data()["levels"]);
       });
       setListEstadosNivs(estados);
-      await setIdUsuario(usuarioId);
-    } else {
+    } else if (status !== "loading") {
       if (localStorage.getItem("levels")) {
         setListEstadosNivs(JSON.parse(localStorage.getItem("levels")));
       } else {
@@ -55,7 +47,7 @@ export default function Historia() {
 
   useEffect(() => {
     getEstadosNivsData();
-  }, [globalUser]);
+  }, [status]);
 
   const unblockLevel = async () => {
     let level = listEstadosNivs[0];
@@ -64,12 +56,12 @@ export default function Historia() {
       level[currentStory.id].estado = 0;
     }
     setListEstadosNivs([level]);
-    if (globalUser !== null) {
-      // Save data to firebase
-      let arr = listEstadosNivs[0];
-      await setEstadosNivs(idUsuario, arr);
+    if (status !== "loading" && signInCheckResult.signedIn) {
+      const usersData = await getEstadosNivs(signInCheckResult.user.uid);
+      usersData.forEach(async (userD) => {
+        setEstadosNivs(userD.ref, level);
+      });
     } else {
-      console.log(levelsIni);
       localStorage.setItem("levels", JSON.stringify([level]));
       setListEstadosNivs([level]);
     }
