@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Cards from "../components/CardsMainPage";
 import "../css/PaginaPrincipal.css";
 import imagenEspada from "../assets/images/espadas.png";
 import imagenLibro from "../assets/images/librol.png";
 import Header from "../components/HeaderMainPage";
 import Footer from "../components/FooterMainPage";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../server/firebaseConfig";
 import { useSigninCheck } from "reactfire";
 
 export default function PaginaPrincipalPage() {
