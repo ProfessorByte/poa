@@ -19,9 +19,8 @@ export const getEstadosNivs = async (userid) => {
   );
   return listEstadosNivs;
 };
-export const setEstadosNivs = async (idUsuario, niveles) => {
-  const xd = doc(db, "users", idUsuario);
-  await updateDoc(xd, {
+export const updateEstadosNivs = async (userRef, niveles) => {
+  await updateDoc(userRef, {
     levels: niveles,
   });
 };

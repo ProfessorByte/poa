@@ -5,7 +5,7 @@ import CardsNivel from "../components/CardsNivel";
 import Header from "../components/HeaderHistoria";
 import ModalGame from "../components/ModalGame";
 
-import { getEstadosNivs, setEstadosNivs } from "../server/api";
+import { getEstadosNivs, updateEstadosNivs } from "../server/api";
 import Footer from "../components/FooterMainPage";
 import { stories } from "../consts/stories";
 import { levelsIni } from "../consts/levels";
@@ -59,7 +59,7 @@ export default function Historia() {
     if (status !== "loading" && signInCheckResult.signedIn) {
       const usersData = await getEstadosNivs(signInCheckResult.user.uid);
       usersData.forEach(async (userD) => {
-        setEstadosNivs(userD.ref, level);
+        updateEstadosNivs(userD.ref, level);
       });
     } else {
       localStorage.setItem("levels", JSON.stringify([level]));
