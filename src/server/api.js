@@ -7,3 +7,7 @@ export const getVideos = async () => {
   );
   return listVideos;
 };
+
+export const getBibliographyQuery = () => {
+  return query(collection(db, "bibliografia"), orderBy("id"));
+};
