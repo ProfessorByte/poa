@@ -24,22 +24,14 @@ class RecuperarComponent extends React.Component {
 
   validate = () => {
     let emailError = "";
-    let passwordError = "";
-    let seEnvioMensaje ="";
     let regex= /^(?:[^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*|"[^\n"]+")@(?:[^<>()[\].,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,63}$/i ;
     if (!regex.test(this.state.email)) {
       emailError = "Debe ingresar un email válido";
-    } else {
-      if (!this.state.email.includes("@")) {
-        emailError = "Correo inválido, no contiene @";
-      } 
     }
-
-    if (emailError || passwordError|| seEnvioMensaje) {
-      this.setState({ emailError, passwordError,seEnvioMensaje });
+    if (emailError) {
+      this.setState({ emailError });
       return false;
     }
-
     return true;
   };
 
