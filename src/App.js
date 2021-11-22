@@ -11,6 +11,7 @@ function App() {
       url.assign(url);
     }
   };
+ 
   return (
     <div className="game-styles">
       <Router>
