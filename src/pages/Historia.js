@@ -101,7 +101,7 @@ export default function Historia() {
               <h2 className="titulosTema">Definiciones de Clases:</h2>
               <CardsNivel
                 minId={4}
-                maxId={7}
+                maxId={6}
                 modalId={modalId}
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}
@@ -119,24 +119,24 @@ export default function Historia() {
             <div style={{ height: 800 }}>
               <h2 className="titulosTema">Estructuras de Control:</h2>
               <CardsNivel
-                minId={8}
-                maxId={8}
+                minId={7}
+                maxId={7}
                 modalId={modalId}
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}
               ></CardsNivel>
               <h2 className="titulosTema">Interaccion de objetos:</h2>
               <CardsNivel
-                minId={9}
-                maxId={9}
+                minId={8}
+                maxId={8}
                 modalId={modalId}
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}
               ></CardsNivel>
               <h2 className="titulosTema">Arreglos y Matrices:</h2>
               <CardsNivel
-                minId={10}
-                maxId={10}
+                minId={9}
+                maxId={9}
                 modalId={modalId}
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}
@@ -157,24 +157,24 @@ export default function Historia() {
                 Estructuras de control iterativas:
               </h2>
               <CardsNivel
-                minId={11}
-                maxId={11}
+                minId={10}
+                maxId={10}
                 modalId={modalId}
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}
               />
               <h2 className="titulosTema">Herencia:</h2>
               <CardsNivel
-                minId={12}
-                maxId={15}
+                minId={11}
+                maxId={14}
                 modalId={modalId}
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}
               />
               <h2 className="titulosTema">Polimorfismo:</h2>
               <CardsNivel
-                minId={16}
-                maxId={17}
+                minId={15}
+                maxId={16}
                 modalId={modalId}
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}
