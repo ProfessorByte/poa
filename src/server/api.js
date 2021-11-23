@@ -23,3 +23,7 @@ export const updateEstadosNivs = async (userRef, niveles) => {
     levels: niveles,
   });
 };
+
+export const getBibliographyQuery = () => {
+  return query(collection(db, "bibliografia"), orderBy("id"));
+};
