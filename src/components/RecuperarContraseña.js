@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
-import { signInWithEmailAndPassword } from "firebase/auth";
+
 const auth = getAuth();
 const iniState = {
   email: "",
