@@ -64,9 +64,5 @@ export const levelsIni = [
       estado: -1,
       id: 16,
     },
-    {
-      id: 17,
-      estado: -1,
-    },
   ],
 ];

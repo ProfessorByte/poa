@@ -144,18 +144,6 @@ export const stories = [
   },
   {
     id: 7,
-    title: "Variables locales y globales",
-    paragraphs: [""],
-    question: "",
-    options: [""],
-    ifCorrect: "",
-    ifWrong: "",
-    idxCorrect: 3,
-    endCorrect: "",
-    endWrong: "",
-  },
-  {
-    id: 8,
     title: "If-Else",
     paragraphs: [
       "Marcianalandia es el planeta vecino de marte  donde viven los parientes de los marcianitos ellos también vienen de la descendencia de los marcianos con la pequeña diferencia que ellos tienen la sangre azul y se podría decir que al tener este color de sangre estos marcianos se caracterizan por ser muy indecisos es por eso que crearon otra herramienta.",
@@ -175,8 +163,8 @@ export const stories = [
     endWrong: "",
   },
   {
-    id: 9,
-    title: "Interacción de Objetos",
+    id: 8,
+    title: "Interacción con Objetos",
     paragraphs: [
       "El año 2445 la civilización de la Tierra tuvo suficientes avances tecnológicos para hacer viajes intergalácticos. Es así como un grupo de humanos se enfrascó en un objetivo, el cuál fue expandir su vasto imperio por los confines del universo. Sin embargo se encontraron con un sin fin de razas bélicas de alienígenas que buscaban exactamente lo mismo, es así como durante siglos la raza humana formó parte de está enorme guerra interplanetaria.",
       "Después de tanto tiempo todos perdieron las esperanzas sobre lograr su objetivo inicial y decepcionados muchos decidieron acabar con sus vidas y los que no lo hicieron se condenaron a sobrevivir el resto de su vida escapando y ocultándose en diferentes zonas de la galaxia.",
@@ -198,7 +186,7 @@ export const stories = [
     endWrong: "",
   },
   {
-    id: 10,
+    id: 9,
     title: "Arreglos y Matrices",
     paragraphs: [
       "Para llegar a las tierras Baldías, se debe de cruzar dos laberintos, en el cual esta ocasión se enfrentaba Dixie y Luis, de manera que solo se le permitía entrar una persona por laberinto, había un cartel que les alertaba de que debían de pensar bien cuál laberinto deben escoger, ya que el que llegaba primero a la meta ganaría una recompensa y el perdedor deberá pagarla, uno era largo y el otro era corto, pero más confuso de encontrar la salida, Dixie se decidió por el primer laberinto largo  y Luis por el segundo, Luis no contaba que este laberinto no era un camino recto sino que era bidimensional, había bajadas y subidas, lo cual estaba resignado de que el ganara la recompensa. pero aun así siguió y encontró más atajos.",
@@ -218,7 +206,7 @@ export const stories = [
     endWrong: "",
   },
   {
-    id: 11,
+    id: 10,
     title: "Ciclo while y for",
     paragraphs: [
       "En un lugar no muy lejano del planeta tierra Marte es el hogar de los marcianos ellos son seres muy peculiares ya que no les gusta hacer la misma tarea muchas veces cuando lo hacen se enojan muchísimo tanto que pueden llegar a explotar y no queras que un marciano explote eso haría que todos los marcianitos se extinguieran de Marte , es  por eso que crearon una herramienta la cual les ayude a hacer una tarea repetitiva n veces ,esto les hace extremadamente felices.",
@@ -238,7 +226,7 @@ export const stories = [
     endWrong: "",
   },
   {
-    id: 12,
+    id: 11,
     title: "Herencia",
     paragraphs: [""],
     question: "",
@@ -250,7 +238,7 @@ export const stories = [
     endWrong: "",
   },
   {
-    id: 13,
+    id: 12,
     title: "Herencia Múltiple",
     paragraphs: [
       "A veces se encuentran situaciones un tanto especiales por las cuales un aprendiz de héroe debe pasar, tal que, este pueda heredar/aprender habilidades de este tales como Inteligencia, Agilidad o Fuerza. Todo esto depende del tipo de tutor que uno tenga.",
@@ -272,7 +260,7 @@ export const stories = [
     endWrong: "",
   },
   {
-    id: 14,
+    id: 13,
     title: "Clases Abstractas",
     paragraphs: [
       "Existen varios tipos de héroes los cuales tienen objetivos en común como  ayudar a los demás, brindar seguridad para todos, etc. Pero existen diferentes tipos de héroes los cuales ayudan en diferentes situaciones que ameriten, unos salvan personas, otros salvan animales, otros construyen hogares para aquellos que lo necesitan y así, cada uno de estos héroes se comporta de manera distinta.",
@@ -288,7 +276,7 @@ export const stories = [
     endWrong: "",
   },
   {
-    id: 15,
+    id: 14,
     title: "Interface",
     paragraphs: [
       "Un héroe tiene obligaciones las cuales debe seguir, como se explicó anteriormente un héroe tiene diferentes tipos de habilidades y características que lo diferencia de los demás, sin embargo, estos tienen métodos que los hacen iguales en cierto modo.",
@@ -310,7 +298,7 @@ export const stories = [
     endWrong: "",
   },
   {
-    id: 16,
+    id: 15,
     title: "Polimorfismo",
     paragraphs: [
       "Si los cuentos pudieran traer amor, esperanza y salvación al mundo, entonces, ¿cómo es que todavía hay almas heridas que persisten? Cuenta la leyenda que en lo profundo de las tierras Baldías se encontraba Terrizla en una celda llamada la puerta del amanecer se esconde la oscura y secreta historia del imperio.",
@@ -331,7 +319,7 @@ export const stories = [
     endWrong: "",
   },
   {
-    id: 17,
+    id: 16,
     title: "Enlace Dinámico y Estático",
     paragraphs: [
       "Larry el Dinamico es una persona que utiliza muchas herramientas, a Larry le afecto la vejez, le dio demencial senil y olvido para que sirven sus herramientas, solo sabe que puede manejar una herramienta, en una ocasion, Larry recogio una herramienta y esta resulto ser un hacha y el quiere recoger sus cultivos, el usa su herramienta y resulta que no le sirvio para recoger sus cultivos, los perdio o al menos la mayor parte, luego quiso cortar madera pero en su mano traia una azada de herramienta, esta demas decir que no pudo prender su fogata…",
