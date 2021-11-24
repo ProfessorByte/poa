@@ -1,6 +1,6 @@
 .video-background {
   display: flex;
-  background-image: url("../assets/img/Am0rbSB.jpg");
+  background-image: url("../assets/images/Am0rbSB.jpg");
   background-size: cover;
   flex-direction: column;
   min-height: 100vh;
