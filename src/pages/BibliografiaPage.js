@@ -1,7 +1,7 @@
 import HeaderBibliografia from "../components/HeaderBibliografia";
 import "../css/HeaderBibliografia.css";
 import Cards from "../components/CardsBibliografia.js";
-import Header from "../components/HeaderComponent";
+import Header from "../components/HeaderVideos&Biblio";
 import React, { useState, useEffect } from "react";
 import { getBibliographyQuery } from "../server/api";
 import { useFirestoreCollectionData } from "reactfire";
