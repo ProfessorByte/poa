@@ -5,8 +5,8 @@ class RegistroComponente extends React.Component {
 render(){
 return(
 <Form className="form-group formulario row">
-  <h1 className="titulo">Registrarse</h1>
-  <div className="contenedors">
+  <h1 className="titulo">Comienza La Aventura</h1>
+  <div className="content">
     <FormGroup className="label">
       <label>Nickname</label>
       <Input
@@ -38,13 +38,16 @@ return(
       placeholder="Repita la Contraseña Registrada"
       className="rounder-pill"
       />
+
     </FormGroup>
+    <div className="registroboton form-btn">
     <Button
     type="submit"
-    className="btn btn-light btn-lg rounded-pill"
+    className="btn btn-light btn-lg rounded-pill" id="botonregistro"
     >
     Registrarse
     </Button>
+    </div>
   </div>
 </Form>
 
