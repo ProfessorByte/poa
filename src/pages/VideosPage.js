@@ -6,6 +6,8 @@ import Header from "../components/HeaderVideos&Biblio";
 import Videos from "../components/VideosComponent";
 import "../css/VideoPageStyles.css";
 import { getVideosQuery } from "../server/api";
+import ButtonAdministrar from "../components/ButtonAdministrar";
+import { auto } from "@popperjs/core";
 
 export const VideosPage = () => {
   const [listVideos, setListVideos] = useState([]);
@@ -20,14 +22,16 @@ export const VideosPage = () => {
   return (
     <>
       <Header />
+     
       <div className="video-background">
         <div className="content-wrap">
           <div className="container">
             <div className="row mt-3">
+            
               <div className="col">
                 <h1>Videos</h1>
-              </div>
             </div>
+            
             <div className="row">
               <div className="col">
                 <p>
@@ -35,6 +39,11 @@ export const VideosPage = () => {
                   básico al más complicado
                 </p>
               </div>
+              </div>
+              <div className="Botones" style={{ marginTop: -90 , marginBottom: 10}}>
+               <ButtonAdministrar />
+            </div>
+              
             </div>
             <div className="row mt-5 mb-3">
               <div className="col-lg-4 accordion-scroll">
