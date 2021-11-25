@@ -9,10 +9,10 @@ export default function CardNivel({
   modalId,
   functionChange,
 }) {
-  const { status, data } = useSigninCheck();
+  const { status } = useSigninCheck();
 
   const getBackground = (n) => {
-    var bg = "";
+    var bg;
     if (n === 1) {
       bg = "card-body card-nivel-a";
     } else if (n === 0) {
@@ -31,7 +31,7 @@ export default function CardNivel({
     } else {
       setBotonActivo(false);
     }
-  });
+  }, [estado]);
 
   return (
     <div>

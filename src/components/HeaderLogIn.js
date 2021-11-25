@@ -9,7 +9,7 @@ export default class Header extends Component {
         <nav className="navbar navbar-light navbar-expand-sm navLogIn">
           <div className="container-fluid d-flex justify-content-between">
             <a href="/poa">
-              <img id="logo2" src={Logo} width="150px" alt=""></img>
+              <img id="logo2" src={Logo} width="150px" alt="" />
             </a>
           </div>
         </nav>

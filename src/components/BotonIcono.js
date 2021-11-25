@@ -47,7 +47,7 @@ const BotonIcono = ({ cerrarSesion }) => {
         aria-haspopup="true"
         aria-expanded="false"
       >
-        <img id="iconu" src={icono} width="150px" alt="Imágen de usuario"></img>
+        <img id="iconu" src={icono} width="150px" alt="Imágen de usuario" />
       </button>
       <div
         className="dropdown-menu dropdown-menu-dark"

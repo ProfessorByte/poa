@@ -12,7 +12,7 @@ export default class Header extends Component {
           <div className="container-fluid d-flex justify-content-between">
             <ButtonBack dir="/poa" />
             <a href="/poa">
-              <img id="logo" src={Logo} width="150px" alt=""></img>
+              <img id="logo" src={Logo} width="150px" alt="" />
             </a>
             <ButtonIni />
           </div>

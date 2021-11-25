@@ -53,7 +53,7 @@ const ModalGame = ({ modalId, story, unblockLevel }) => {
                   ) : (
                     story.listImages.map((image, index) => (
                       <div
-                        className={`carousel-item ms-0 ps-5 pe-5 ${
+                        className={`carousel-item ms-0 ps-md-5 pe-md-5 ${
                           index === 0 ? "active" : ""
                         }`}
                         key={index}
