@@ -13,6 +13,7 @@ return(
       type="text"
       placeholder="Registre su Nombre o Nickname"
       className="rounder-pill"
+      id="llenado"
       />
     </FormGroup>
     <FormGroup className="label">
@@ -21,6 +22,7 @@ return(
       type="text"
       placeholder="Registre su Correo"
       className="rounder-pill"
+      id="llenado"
       />
     </FormGroup>
     <FormGroup className="label">
@@ -29,6 +31,7 @@ return(
       type="text"
       placeholder="Registre su Contraseña"
       className="rounder-pill"
+      id="llenado"
       />
     </FormGroup>
     <FormGroup className="label">
@@ -37,6 +40,7 @@ return(
       type="text"
       placeholder="Repita la Contraseña Registrada"
       className="rounder-pill"
+      id="llenado"
       />
 
     </FormGroup>

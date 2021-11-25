@@ -11,5 +11,20 @@
 }
 #botonregistro {
   color: rgb(255, 255, 255);
-  background-color: black;
+  background-color: rgb(17, 255, 164);
+}
+#llenado {
+  background-color: rgb(17, 255, 164);
+}
+#place {
+  color: aliceblue;
+}
+.label {
+  color: rgb(255, 255, 255);
+}
+.titulo {
+  color: aliceblue;
+}
+.rounder-pill {
+  color: antiquewhite;
 }
