@@ -1,0 +1,11 @@
+.contenedor-registro {
+  background-image: url(../assets/images/fondo_inicio_sesion.gif);
+  background-position: center center;
+  background-size: cover;
+  padding-bottom: 5%;
+  height: 100vh;
+  font-size: large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
