@@ -25,7 +25,6 @@ function Repositorio() {
           </div>
         </div>
       </div>
-      <div></div>
       <FooterRepositorio />
     </>
   );

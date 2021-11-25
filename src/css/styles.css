@@ -9,7 +9,7 @@
   font-family: "Press Start 2P", cursive;
   text-decoration: none;
   color: rgb(255, 255, 255);
-  box-shadow: inset -4px -4px 0px 0px #7209b7;
+  box-shadow: inset -4px -4px 0 0 #7209b7;
 }
 
 .eightbit-btn:hover {
@@ -19,11 +19,11 @@
 
 .eightbit-btn:focus {
   background: #750491 !important;
-  box-shadow: inset -6px -6px 0px 0px #4c19ac;
+  box-shadow: inset -6px -6px 0 0 #4c19ac;
 }
 
 .eightbit-btn:active {
-  box-shadow: inset 4px 4px 0px 0px #b5179e;
+  box-shadow: inset 4px 4px 0 0 #b5179e;
 }
 .eightbit-btn:before,
 .eightbit-btn:after {
@@ -47,16 +47,16 @@
 }
 .eightbit-btn--reset {
   background: #ce41ce;
-  box-shadow: inset -4px -4px 0px 0px #9c52a3;
+  box-shadow: inset -4px -4px 0 0 #9c52a3;
 }
 .eightbit-btn--reset:hover,
 .eightbit-btn--reset:focus {
   background: #ce2b85;
-  box-shadow: inset -6px -6px 0px 0px #3d1642;
+  box-shadow: inset -6px -6px 0 0 #3d1642;
 }
 
 .eightbit-btn--reset:active {
-  box-shadow: inset 6px 6px 0px 0px #504a52;
+  box-shadow: inset 6px 6px 0 0 #504a52;
 }
 
 @media screen and (max-width: 1000px) {
@@ -67,10 +67,10 @@
 .eightbit-btn--proceed:hover,
 .eightbit-btn--proceed:focus {
   background: #4c3ce0;
-  box-shadow: inset -6px -6px 0px 0px #450bb3;
+  box-shadow: inset -6px -6px 0 0 #450bb3;
 }
 .eightbit-btn--proceed:active {
-  box-shadow: inset 4px 4px 0px 0px #320863;
+  box-shadow: inset 4px 4px 0 0 #320863;
 }
 
 .formulario {

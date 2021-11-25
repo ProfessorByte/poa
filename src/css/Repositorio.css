@@ -1,8 +1,9 @@
 .contenedor {
+  display: flex;
   background-image: url("../assets/images/fondon.jpg");
-  background-position: center center;
   background-size: cover;
-
+  flex-direction: column;
+  min-height: 100vh;
   padding-bottom: 10%;
 }
 
@@ -17,7 +18,7 @@
 .texto {
   color: rgb(235, 228, 228);
   text-indent: 100px;
-  margin-top: 0px;
+  margin-top: 0;
   font-family: "VCR_OSD_MONO_1";
   padding: 20px;
   font-size: larger;
@@ -38,14 +39,14 @@
 @media screen and (max-width: 700px) {
   .bienvenida {
     color: rgb(255, 255, 255);
-    text-indent: 0px;
+    text-indent: 0;
     margin-top: 50px;
     padding: 20px;
     font-size: large;
   }
   .texto {
     color: rgb(255, 255, 255);
-    text-indent: 0px;
+    text-indent: 0;
     margin-top: 20px;
     padding: 20px;
     font-size: large;
@@ -60,13 +61,13 @@
 
 @media screen and (max-width: 1000px) {
   .Botones {
-    text-indent: 0px;
+    text-indent: 0;
     margin-top: 200px;
-    padding: 150px 30px 0px 30px;
+    padding: 150px 30px 0 30px;
   }
   .texto {
     color: rgb(255, 255, 255);
-    text-indent: 0px;
+    text-indent: 0;
     margin-top: 20px;
     padding: 20px;
     font-size: larger;
