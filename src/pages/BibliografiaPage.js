@@ -5,6 +5,9 @@ import Header from "../components/HeaderComponent";
 import React, { useState, useEffect } from "react";
 import { getBibliographyQuery } from "../server/api";
 import { useFirestoreCollectionData } from "reactfire";
+import ButtonAdministrar from "../components/ButtonAdministrar";
+import { auto } from "@popperjs/core";
+import ModalAdministrar from "../components/ModalAdministrar";
 
 export default function BibliografiaPage() {
   const [listCards, setListCards] = useState([]);
@@ -19,10 +22,18 @@ export default function BibliografiaPage() {
   }, [status, cards]);
 
   return (
+    <>
+    <ModalAdministrar
+    />
     <div className="fondoBibliografia">
-      <Header />
+      
+      <Header /> 
       <HeaderBibliografia />
-
+      <button className="mt-5 mx-5  btn btn-primary"
+       data-bs-toggle="modal" 
+       data-bs-target= "#ModalBibliografia"> 
+       Administrar</button>
+      
       <div className="wrapper-grid">
         {status === "loading" ? (
           <div className="container_cards">
@@ -43,5 +54,6 @@ export default function BibliografiaPage() {
         )}
       </div>
     </div>
+  </>
   );
 }
