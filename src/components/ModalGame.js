@@ -31,23 +31,66 @@ const ModalGame = ({ modalId, story, unblockLevel }) => {
                 data-bs-dismiss="modal"
                 aria-label="Close"
                 onClick={() => {
-                  /*setTimeout(() => {
-                    setShowForm(!showForm);
-                  }, 150);
-                  setTimeout(() => {
-                    setShowForm(false);
-                  }, 200);*/
                   setShowForm(false);
                 }}
-              ></button>
+              />
             </div>
             <div className="modal-body myModal">
-              <div className="text-center">
-                <img
-                  src={startImage}
-                  alt="Imágen de inicio"
-                  className="rounded"
-                ></img>
+              <div
+                id="carouselGame"
+                className="carousel slide carousel-fade"
+                data-ride="carousel"
+              >
+                <div className="carousel-inner">
+                  {story.listImages.length === 0 ? (
+                    <div className="carousel-item ms-0 active">
+                      <img
+                        className="rounded d-block w-25 mx-auto"
+                        src={startImage}
+                        alt="Imágen predeterminada"
+                      />
+                    </div>
+                  ) : (
+                    story.listImages.map((image, index) => (
+                      <div
+                        className={`carousel-item ms-0 ${
+                          index === 0 ? "active" : ""
+                        }`}
+                        key={index}
+                      >
+                        <img
+                          className="rounded d-block w-100 mx-auto ps-5 pe-5"
+                          src={image}
+                          alt="Imágen de la Historia"
+                        />
+                      </div>
+                    ))
+                  )}
+                </div>
+                <button
+                  className="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#carouselGame"
+                  data-bs-slide="prev"
+                >
+                  <span
+                    className="carousel-control-prev-icon"
+                    aria-hidden={true}
+                  />
+                  <span className="visually-hidden">Anterior</span>
+                </button>
+                <button
+                  className="carousel-control-next"
+                  type="button"
+                  data-bs-target="#carouselGame"
+                  data-bs-slide="next"
+                >
+                  <span
+                    className="carousel-control-next-icon"
+                    aria-hidden={true}
+                  />
+                  <span className="visually-hidden">Siguiente</span>
+                </button>
               </div>
               <hr />
               {!showForm ? (
