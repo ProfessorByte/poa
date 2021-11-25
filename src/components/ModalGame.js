@@ -45,7 +45,7 @@ const ModalGame = ({ modalId, story, unblockLevel }) => {
                   {story.listImages.length === 0 ? (
                     <div className="carousel-item ms-0 active">
                       <img
-                        className="rounded d-block w-25 mx-auto"
+                        className="rounded mx-auto d-block w-25"
                         src={startImage}
                         alt="Imágen predeterminada"
                       />
@@ -53,13 +53,13 @@ const ModalGame = ({ modalId, story, unblockLevel }) => {
                   ) : (
                     story.listImages.map((image, index) => (
                       <div
-                        className={`carousel-item ms-0 ${
+                        className={`carousel-item ms-0 ps-5 pe-5 ${
                           index === 0 ? "active" : ""
                         }`}
                         key={index}
                       >
                         <img
-                          className="rounded d-block w-100 mx-auto ps-5 pe-5"
+                          className="rounded mx-auto d-block w-100"
                           src={image}
                           alt="Imágen de la Historia"
                         />

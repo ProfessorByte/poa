@@ -101,9 +101,17 @@ import story11Image4 from "../assets/images/gameImg/Story11/4.png";
 import story11Image5 from "../assets/images/gameImg/Story11/5.png";
 import story11Image6 from "../assets/images/gameImg/Story11/6.png";
 import story11Image7 from "../assets/images/gameImg/Story11/7.png";
-import story11Image8 from "../assets/images/gameImg/Story11/8.png";
-import story11Image9 from "../assets/images/gameImg/Story11/9.png";
-import story11Image10 from "../assets/images/gameImg/Story11/10.png";
+
+import story12Image1 from "../assets/images/gameImg/Story12/1.png";
+import story12Image2 from "../assets/images/gameImg/Story12/2.png";
+import story12Image3 from "../assets/images/gameImg/Story12/3.png";
+import story12Image4 from "../assets/images/gameImg/Story12/4.png";
+import story12Image5 from "../assets/images/gameImg/Story12/5.png";
+import story12Image6 from "../assets/images/gameImg/Story12/6.png";
+import story12Image7 from "../assets/images/gameImg/Story12/7.png";
+import story12Image8 from "../assets/images/gameImg/Story12/8.png";
+import story12Image9 from "../assets/images/gameImg/Story12/9.png";
+import story12Image10 from "../assets/images/gameImg/Story12/10.png";
 
 import story13Image1 from "../assets/images/gameImg/Story13/1.png";
 import story13Image2 from "../assets/images/gameImg/Story13/2.png";
@@ -119,6 +127,18 @@ import story14Image4 from "../assets/images/gameImg/Story14/4.png";
 import story14Image5 from "../assets/images/gameImg/Story14/5.png";
 import story14Image6 from "../assets/images/gameImg/Story14/6.png";
 import story14Image7 from "../assets/images/gameImg/Story14/7.png";
+
+import story15Image1 from "../assets/images/gameImg/Story15/1.png";
+import story15Image2 from "../assets/images/gameImg/Story15/2.png";
+import story15Image3 from "../assets/images/gameImg/Story15/3.png";
+import story15Image4 from "../assets/images/gameImg/Story15/4.png";
+import story15Image5 from "../assets/images/gameImg/Story15/5.png";
+import story15Image6 from "../assets/images/gameImg/Story15/6.png";
+import story15Image7 from "../assets/images/gameImg/Story15/7.png";
+import story15Image8 from "../assets/images/gameImg/Story15/8.png";
+import story15Image9 from "../assets/images/gameImg/Story15/9.png";
+import story15Image10 from "../assets/images/gameImg/Story15/10.png";
+import story15Image11 from "../assets/images/gameImg/Story15/11.png";
 
 import story16Image1 from "../assets/images/gameImg/Story16/1.png";
 import story16Image2 from "../assets/images/gameImg/Story16/2.png";
@@ -477,9 +497,6 @@ export const stories = [
       story11Image5,
       story11Image6,
       story11Image7,
-      story11Image8,
-      story11Image9,
-      story11Image10,
     ],
   },
   {
@@ -503,7 +520,18 @@ export const stories = [
     idxCorrect: 3,
     endCorrect: "",
     endWrong: "",
-    listImages: [],
+    listImages: [
+      story12Image1,
+      story12Image2,
+      story12Image3,
+      story12Image4,
+      story12Image5,
+      story12Image6,
+      story12Image7,
+      story12Image8,
+      story12Image9,
+      story12Image10,
+    ],
   },
   {
     id: 13,
@@ -580,7 +608,19 @@ export const stories = [
     idxCorrect: 1,
     endCorrect: "",
     endWrong: "",
-    listImages: [],
+    listImages: [
+      story15Image1,
+      story15Image2,
+      story15Image3,
+      story15Image4,
+      story15Image5,
+      story15Image6,
+      story15Image7,
+      story15Image8,
+      story15Image9,
+      story15Image10,
+      story15Image11,
+    ],
   },
   {
     id: 16,
