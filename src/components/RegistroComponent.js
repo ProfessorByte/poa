@@ -1,10 +1,11 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import "../css/RegistroUsuarios.css";
 class RegistroComponente extends React.Component {
 
 render(){
 return(
-<Form className="form-group formulario row">
+<Form className="form-group formularior row" >
   <h1 className="titulo">Comienza La Aventura</h1>
   <div className="content">
     <FormGroup className="label">
