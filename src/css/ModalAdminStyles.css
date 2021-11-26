@@ -1,46 +1,11 @@
-.model-content {
-  color: black;
-}
-.modal {
-  will-change: visibility, opacity;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  top: 10;
-  left: 20;
-  right: 20;
-}
-
-* {
-  box-sizing: content-box;
-}
-.modal-title {
-  color: rgb(0, 0, 0);
+.title-administration {
   /*font-family: "Poppins", sans-serif;*/
   font-family: "VT323", monospace;
   font-size: 40px;
 }
-.modal-ku {
-  width: 750px;
-  margin: auto;
-}
 
-.modal-body {
-  color: black;
-  text-align: left;
-}
-.dropdown {
-  background-color: blue;
-}
-.dropdown-toggle {
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-.dropdown-menu {
-  max-width: 100% !important;
+.header-administration,
+.body-administration,
+.footer-administration {
+  background-color: #202124;
 }
