@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Footer from "../components/FooterMainPage";
 import Header from "../components/HeaderMainPage";
 import "../css/Prueba.css";
+import FrameVocabulario from "../components/Frame_Vocabulario";
 
 export default class PruebaPage extends Component {
   render() {
@@ -22,6 +23,7 @@ export default class PruebaPage extends Component {
                 </div>
               </div>
             </div>
+            <FrameVocabulario/>
           </div>
         </div>
         <Footer />
