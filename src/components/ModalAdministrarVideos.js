@@ -33,17 +33,17 @@ export const ModalAdministrarVideos = ({ modalId }) => {
                   </button>
                   <ul className="dropdown-menu col-12">
                     <li>
-                      <button type="button" class="dropdown-item">
+                      <button type="button" className="dropdown-item">
                         vídeo1
                       </button>
                     </li>
                     <li>
-                      <button type="button" class="dropdown-item">
+                      <button type="button" className="dropdown-item">
                         vídeo2
                       </button>
                     </li>
                     <li>
-                      <button type="button" class="dropdown-item">
+                      <button type="button" className="dropdown-item">
                         vídeo3
                       </button>
                     </li>

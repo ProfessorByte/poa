@@ -1,9 +1,96 @@
-import React from "react";
+import { addDoc, collection, deleteDoc, updateDoc } from "@firebase/firestore";
+import React, { useState } from "react";
+import { useUser } from "reactfire";
 import "../css/ModalAdminStyles.css";
+import {
+  getCountBibliography,
+  getDocBibliography,
+  getEstadosNivs,
+} from "../server/api";
+import { db } from "../server/firebaseConfig";
 
-export const ModalAdministrarBibliografia = ({ modalId }) => {
+export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
+  const defaultFormValues = {
+    id: -1,
+    tituloReferncia: "",
+    temas: "",
+    autor_NombrePagina: "",
+    tipo: "",
+    link: "",
+    lastUser: "",
+  };
+  const [formValues, setFormValues] = useState(defaultFormValues);
+  const [action, setAction] = useState("");
+  const { data: user } = useUser();
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+
+  const handleUpdate = async () => {
+    const lastId = await getCountBibliography();
+    if (formValues.id < 1 || formValues.id > lastId) {
+      alert("No se puede actualizar una referencia sin identificarla primero");
+      return;
+    } else {
+      let userName = "";
+      const users = await getEstadosNivs(user.uid);
+      users.forEach((user) => {
+        userName = user.data().name;
+      });
+      setFormValues({ ...formValues, lastUser: userName });
+      const listDocs = await getDocBibliography(formValues.id);
+      listDocs.forEach((doc) => {
+        updateDoc(doc.ref, formValues);
+      });
+    }
+    alert("Se actualizó el recurso bibliográfico seleccionado");
+  };
+
+  const handleAdd = async () => {
+    let userName = "";
+    const users = await getEstadosNivs(user.uid);
+    users.forEach((user) => {
+      userName = user.data().name;
+    });
+    const lastId = await getCountBibliography();
+    setFormValues({ ...formValues, id: lastId + 1, lastUser: userName });
+    addDoc(collection(db, "bibliografia"), {
+      ...formValues,
+      id: lastId + 1,
+      lastUser: userName,
+    });
+    alert("Se agregó el recurso bibliográfico");
+  };
+
+  const handleDelete = async () => {
+    const lastId = await getCountBibliography();
+    if (formValues.id < 1 || formValues.id > lastId) {
+      alert("No se puede eliminar una referencia sin identificarla primero");
+      return;
+    } else {
+      const listDocs = await getDocBibliography(formValues.id);
+      listDocs.forEach((doc) => {
+        deleteDoc(doc.ref);
+      });
+      alert("Se eliminó el recurso bibliográfico seleccionado");
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (action === "update") {
+      handleUpdate();
+    } else if (action === "add") {
+      handleAdd();
+    } else if (action === "delete") {
+      handleDelete();
+    }
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="modal fade" id={modalId} tabindex={-1} aria-hidden={true}>
         <div className="modal-dialog modal-lg">
           <div className="modal-content">
@@ -32,21 +119,27 @@ export const ModalAdministrarBibliografia = ({ modalId }) => {
                     Selecciona un recurso bibliográfico
                   </button>
                   <ul className="dropdown-menu col-12">
-                    <li>
-                      <button type="button" class="dropdown-item">
-                        bibliografía1
-                      </button>
-                    </li>
-                    <li>
-                      <button type="button" class="dropdown-item">
-                        bibliografía2
-                      </button>
-                    </li>
-                    <li>
-                      <button type="button" class="dropdown-item">
-                        bibliografía3
-                      </button>
-                    </li>
+                    {listCards.map((card) => (
+                      <li key={card.id}>
+                        <button
+                          type="button"
+                          className="dropdown-item"
+                          onClick={() => {
+                            setFormValues({
+                              id: card.id,
+                              tituloReferncia: card.tituloReferncia,
+                              temas: card.temas,
+                              autor_NombrePagina: card.autor_NombrePagina,
+                              tipo: card.tipo,
+                              link: card.link,
+                              lastUser: card.lastUser,
+                            });
+                          }}
+                        >
+                          {card.tituloReferncia}
+                        </button>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -59,8 +152,10 @@ export const ModalAdministrarBibliografia = ({ modalId }) => {
                     type="text"
                     className="form-control"
                     id="title-bibliography"
-                    name="title-bibliography"
+                    name="tituloReferncia"
                     placeholder="Título de referencia"
+                    value={formValues.tituloReferncia}
+                    onChange={handleInputChange}
                     required
                   />
                 </div>
@@ -74,8 +169,10 @@ export const ModalAdministrarBibliografia = ({ modalId }) => {
                     type="text"
                     className="form-control"
                     id="topics-bibliography"
-                    name="topics-bibliography"
+                    name="temas"
                     placeholder="Temas citados en el recurso bibliográfico"
+                    value={formValues.temas}
+                    onChange={handleInputChange}
                     required
                   />
                 </div>
@@ -89,8 +186,10 @@ export const ModalAdministrarBibliografia = ({ modalId }) => {
                     type="text"
                     className="form-control"
                     id="author-bibliography"
-                    name="author-bibliography"
+                    name="autor_NombrePagina"
                     placeholder="Autor/Nombre de la página"
+                    value={formValues.autor_NombrePagina}
+                    onChange={handleInputChange}
                     required
                   />
                 </div>
@@ -104,6 +203,10 @@ export const ModalAdministrarBibliografia = ({ modalId }) => {
                     name="type-bibliography"
                     id="type-bibliography"
                     className="form-select"
+                    value={formValues.tipo}
+                    onChange={(e) => {
+                      setFormValues({ ...formValues, tipo: e.target.value });
+                    }}
                   >
                     <option selected value="">
                       Selecciona el tipo del recurso
@@ -117,8 +220,10 @@ export const ModalAdministrarBibliografia = ({ modalId }) => {
                     type="text"
                     className="form-control"
                     id="type-bibliography"
-                    name="type-bibliography"
+                    name="tipo"
                     placeholder="Otro tipo de recurso"
+                    value={formValues.tipo}
+                    onChange={handleInputChange}
                     required
                   />
                 </div>
@@ -132,8 +237,10 @@ export const ModalAdministrarBibliografia = ({ modalId }) => {
                     type="url"
                     className="form-control"
                     id="link-bibliography"
-                    name="link-bibliography"
+                    name="link"
                     placeholder="Enlace del recurso bibliográfico"
+                    value={formValues.link}
+                    onChange={handleInputChange}
                     required
                   />
                 </div>
@@ -144,22 +251,43 @@ export const ModalAdministrarBibliografia = ({ modalId }) => {
                 </label>
                 <div className="col-md-10">
                   <h3>
-                    <span className="badge bg-success">UsuarioX</span>
+                    <span className="badge bg-success">
+                      {formValues.lastUser}
+                    </span>
                   </h3>
                   <span className="text-muted">
-                    Si actualiza el recurso, su nombre se verá en este campo
+                    Si actualiza o agrega un recurso, su nombre se verá en este
+                    campo
                   </span>
                 </div>
               </div>
             </div>
             <div className="modal-footer footer-administration">
-              <button type="submit" className="btn btn-success">
+              <button
+                type="submit"
+                className="btn btn-success"
+                onClick={() => {
+                  setAction("update");
+                }}
+              >
                 Actualizar
               </button>
-              <button type="submit" className="btn btn-secondary">
+              <button
+                type="submit"
+                className="btn btn-secondary"
+                onClick={() => {
+                  setAction("add");
+                }}
+              >
                 Agregar
               </button>
-              <button type="submit" className="btn btn-danger">
+              <button
+                type="submit"
+                className="btn btn-danger"
+                onClick={() => {
+                  setAction("delete");
+                }}
+              >
                 Eliminar
               </button>
             </div>

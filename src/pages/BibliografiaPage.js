@@ -23,7 +23,7 @@ export default function BibliografiaPage() {
 
   return (
     <>
-      <ModalAdministrarBibliografia modalId={modalId} />
+      <ModalAdministrarBibliografia modalId={modalId} listCards={listCards} />
       <div className="fondoBibliografia">
         <Header />
         <HeaderBibliografia />
