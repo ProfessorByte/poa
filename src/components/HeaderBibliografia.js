@@ -1,7 +1,21 @@
-import React, { Component } from "react";
-import "../css/HeaderBibliografia.css";
-
+import React, { Component } from 'react'
+import '../css/DropdownVoca.css'
+import DropdownVocabulario from './DropdowOrden';
 export default class HeaderBibliografia extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      dropdownOpen: false
+    };
+  }
+
+  toggle() {
+    this.setState(prevState => ({
+      dropdownOpen: !prevState.dropdownOpen
+    }));
+  }
   render() {
     return (
       <>
@@ -16,11 +30,12 @@ export default class HeaderBibliografia extends Component {
                   Aquí podrás encontrar referencias del contenido <br />
                   que existe en esta página
                 </h4>
+                <DropdownVocabulario/>
               </div>
             </div>
           </div>
         </div>
       </>
-    );
+    )
   }
 }
