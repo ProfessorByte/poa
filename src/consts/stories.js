@@ -1,3 +1,154 @@
+import story1Image1 from "../assets/images/gameImg/Story01/1.png";
+import story1Image2 from "../assets/images/gameImg/Story01/2.png";
+import story1Image3 from "../assets/images/gameImg/Story01/3.png";
+import story1Image4 from "../assets/images/gameImg/Story01/4.png";
+import story1Image5 from "../assets/images/gameImg/Story01/5.png";
+import story1Image6 from "../assets/images/gameImg/Story01/6.png";
+import story1Image7 from "../assets/images/gameImg/Story01/7.png";
+import story1Image8 from "../assets/images/gameImg/Story01/8.png";
+import story1Image9 from "../assets/images/gameImg/Story01/9.png";
+
+import story2Image1 from "../assets/images/gameImg/Story02/1.png";
+import story2Image2 from "../assets/images/gameImg/Story02/2.png";
+import story2Image3 from "../assets/images/gameImg/Story02/3.png";
+import story2Image4 from "../assets/images/gameImg/Story02/4.png";
+import story2Image5 from "../assets/images/gameImg/Story02/5.png";
+import story2Image6 from "../assets/images/gameImg/Story02/6.png";
+import story2Image7 from "../assets/images/gameImg/Story02/7.png";
+import story2Image8 from "../assets/images/gameImg/Story02/8.png";
+import story2Image9 from "../assets/images/gameImg/Story02/9.png";
+import story2Image10 from "../assets/images/gameImg/Story02/10.png";
+
+import story3Image1 from "../assets/images/gameImg/Story03/1.png";
+import story3Image2 from "../assets/images/gameImg/Story03/2.png";
+import story3Image3 from "../assets/images/gameImg/Story03/3.png";
+import story3Image4 from "../assets/images/gameImg/Story03/4.png";
+import story3Image5 from "../assets/images/gameImg/Story03/5.png";
+import story3Image6 from "../assets/images/gameImg/Story03/6.png";
+import story3Image7 from "../assets/images/gameImg/Story03/7.png";
+import story3Image8 from "../assets/images/gameImg/Story03/8.png";
+import story3Image9 from "../assets/images/gameImg/Story03/9.png";
+import story3Image10 from "../assets/images/gameImg/Story03/10.png";
+import story3Image11 from "../assets/images/gameImg/Story03/11.png";
+import story3Image12 from "../assets/images/gameImg/Story03/12.png";
+import story3Image13 from "../assets/images/gameImg/Story03/13.png";
+
+import story4Image1 from "../assets/images/gameImg/Story04/1.png";
+import story4Image2 from "../assets/images/gameImg/Story04/2.png";
+import story4Image3 from "../assets/images/gameImg/Story04/3.png";
+import story4Image4 from "../assets/images/gameImg/Story04/4.png";
+
+import story5Image1 from "../assets/images/gameImg/Story05/1.png";
+import story5Image2 from "../assets/images/gameImg/Story05/2.png";
+import story5Image3 from "../assets/images/gameImg/Story05/3.png";
+import story5Image4 from "../assets/images/gameImg/Story05/4.png";
+import story5Image5 from "../assets/images/gameImg/Story05/5.png";
+import story5Image6 from "../assets/images/gameImg/Story05/6.png";
+import story5Image7 from "../assets/images/gameImg/Story05/7.png";
+import story5Image8 from "../assets/images/gameImg/Story05/8.png";
+
+import story6Image1 from "../assets/images/gameImg/Story06/1.png";
+import story6Image2 from "../assets/images/gameImg/Story06/2.png";
+import story6Image3 from "../assets/images/gameImg/Story06/3.png";
+import story6Image4 from "../assets/images/gameImg/Story06/4.png";
+import story6Image5 from "../assets/images/gameImg/Story06/5.png";
+import story6Image6 from "../assets/images/gameImg/Story06/6.png";
+import story6Image7 from "../assets/images/gameImg/Story06/7.png";
+import story6Image8 from "../assets/images/gameImg/Story06/8.png";
+
+import story7Image1 from "../assets/images/gameImg/Story07/1.png";
+import story7Image2 from "../assets/images/gameImg/Story07/2.png";
+import story7Image3 from "../assets/images/gameImg/Story07/3.png";
+import story7Image4 from "../assets/images/gameImg/Story07/4.png";
+
+import story8Image1 from "../assets/images/gameImg/Story08/1.png";
+import story8Image2 from "../assets/images/gameImg/Story08/2.png";
+import story8Image3 from "../assets/images/gameImg/Story08/3.png";
+import story8Image4 from "../assets/images/gameImg/Story08/4.png";
+import story8Image5 from "../assets/images/gameImg/Story08/5.png";
+import story8Image6 from "../assets/images/gameImg/Story08/6.png";
+import story8Image7 from "../assets/images/gameImg/Story08/7.png";
+import story8Image8 from "../assets/images/gameImg/Story08/8.png";
+import story8Image9 from "../assets/images/gameImg/Story08/9.png";
+import story8Image10 from "../assets/images/gameImg/Story08/10.png";
+import story8Image11 from "../assets/images/gameImg/Story08/11.png";
+import story8Image12 from "../assets/images/gameImg/Story08/12.png";
+import story8Image13 from "../assets/images/gameImg/Story08/13.png";
+import story8Image14 from "../assets/images/gameImg/Story08/14.png";
+import story8Image15 from "../assets/images/gameImg/Story08/15.png";
+
+import story9Image1 from "../assets/images/gameImg/Story09/1.png";
+import story9Image2 from "../assets/images/gameImg/Story09/2.png";
+import story9Image3 from "../assets/images/gameImg/Story09/3.png";
+import story9Image4 from "../assets/images/gameImg/Story09/4.png";
+import story9Image5 from "../assets/images/gameImg/Story09/5.png";
+import story9Image6 from "../assets/images/gameImg/Story09/6.png";
+import story9Image7 from "../assets/images/gameImg/Story09/7.png";
+
+import story10Image1 from "../assets/images/gameImg/Story10/1.png";
+import story10Image2 from "../assets/images/gameImg/Story10/2.png";
+import story10Image3 from "../assets/images/gameImg/Story10/3.png";
+import story10Image4 from "../assets/images/gameImg/Story10/4.png";
+import story10Image5 from "../assets/images/gameImg/Story10/5.png";
+import story10Image6 from "../assets/images/gameImg/Story10/6.png";
+import story10Image7 from "../assets/images/gameImg/Story10/7.png";
+import story10Image8 from "../assets/images/gameImg/Story10/8.png";
+
+import story11Image1 from "../assets/images/gameImg/Story11/1.png";
+import story11Image2 from "../assets/images/gameImg/Story11/2.png";
+import story11Image3 from "../assets/images/gameImg/Story11/3.png";
+import story11Image4 from "../assets/images/gameImg/Story11/4.png";
+import story11Image5 from "../assets/images/gameImg/Story11/5.png";
+import story11Image6 from "../assets/images/gameImg/Story11/6.png";
+import story11Image7 from "../assets/images/gameImg/Story11/7.png";
+
+import story12Image1 from "../assets/images/gameImg/Story12/1.png";
+import story12Image2 from "../assets/images/gameImg/Story12/2.png";
+import story12Image3 from "../assets/images/gameImg/Story12/3.png";
+import story12Image4 from "../assets/images/gameImg/Story12/4.png";
+import story12Image5 from "../assets/images/gameImg/Story12/5.png";
+import story12Image6 from "../assets/images/gameImg/Story12/6.png";
+import story12Image7 from "../assets/images/gameImg/Story12/7.png";
+import story12Image8 from "../assets/images/gameImg/Story12/8.png";
+import story12Image9 from "../assets/images/gameImg/Story12/9.png";
+import story12Image10 from "../assets/images/gameImg/Story12/10.png";
+
+import story13Image1 from "../assets/images/gameImg/Story13/1.png";
+import story13Image2 from "../assets/images/gameImg/Story13/2.png";
+import story13Image3 from "../assets/images/gameImg/Story13/3.png";
+import story13Image4 from "../assets/images/gameImg/Story13/4.png";
+import story13Image5 from "../assets/images/gameImg/Story13/5.png";
+import story13Image6 from "../assets/images/gameImg/Story13/6.png";
+
+import story14Image1 from "../assets/images/gameImg/Story14/1.png";
+import story14Image2 from "../assets/images/gameImg/Story14/2.png";
+import story14Image3 from "../assets/images/gameImg/Story14/3.png";
+import story14Image4 from "../assets/images/gameImg/Story14/4.png";
+import story14Image5 from "../assets/images/gameImg/Story14/5.png";
+import story14Image6 from "../assets/images/gameImg/Story14/6.png";
+import story14Image7 from "../assets/images/gameImg/Story14/7.png";
+
+import story15Image1 from "../assets/images/gameImg/Story15/1.png";
+import story15Image2 from "../assets/images/gameImg/Story15/2.png";
+import story15Image3 from "../assets/images/gameImg/Story15/3.png";
+import story15Image4 from "../assets/images/gameImg/Story15/4.png";
+import story15Image5 from "../assets/images/gameImg/Story15/5.png";
+import story15Image6 from "../assets/images/gameImg/Story15/6.png";
+import story15Image7 from "../assets/images/gameImg/Story15/7.png";
+import story15Image8 from "../assets/images/gameImg/Story15/8.png";
+import story15Image9 from "../assets/images/gameImg/Story15/9.png";
+import story15Image10 from "../assets/images/gameImg/Story15/10.png";
+import story15Image11 from "../assets/images/gameImg/Story15/11.png";
+
+import story16Image1 from "../assets/images/gameImg/Story16/1.png";
+import story16Image2 from "../assets/images/gameImg/Story16/2.png";
+import story16Image3 from "../assets/images/gameImg/Story16/3.png";
+import story16Image4 from "../assets/images/gameImg/Story16/4.png";
+import story16Image5 from "../assets/images/gameImg/Story16/5.png";
+import story16Image6 from "../assets/images/gameImg/Story16/6.png";
+import story16Image7 from "../assets/images/gameImg/Story16/7.png";
+import story16Image8 from "../assets/images/gameImg/Story16/8.png";
+
 export const stories = [
   {
     id: 1,
@@ -21,6 +172,17 @@ export const stories = [
     endCorrect:
       "Para poder entender la relación toma la poción como un valor, ejemplo la cadena “Hola”. Este valor solo puede ser almacenado en variables con tipos especifico. Para nuestra cadena “Hola mundo” podría almacenarse en un variable (tomado como frasco) de tipo String. Si intentáramos colocar un valor booleano como true(poción), sería un error, y no podríamos usarlo. Es importante aprender a diferenciarlos para poder dominar el manejo de tipos de dato.",
     endWrong: "",
+    listImages: [
+      story1Image1,
+      story1Image2,
+      story1Image3,
+      story1Image4,
+      story1Image5,
+      story1Image6,
+      story1Image7,
+      story1Image8,
+      story1Image9,
+    ],
   },
   {
     id: 2,
@@ -47,6 +209,18 @@ export const stories = [
     endCorrect:
       "Dentro de la historia , para poder crear exitosamente una clase en Programación orientada a objetos, debemos tomar en cuenta la abstracción, que es llevar cosas del mundo real identificando los atributos  más importantes que podríamos necesitar dentro de un contexto, en este caso, elegir que materiales(diamante y acero), alto(proporcional), ancho(adecuado al cuerpo), grosor(lo suficiente para no hacerlos pesado) y forma(circular) de ese escudo , sería asignar valores a estos atributos, para poder crear un escudo que nos sirva. Podemos hacer infinidad de nuevos escudos solo dando nuevos valores a estos atributos.",
     endWrong: "",
+    listImages: [
+      story2Image1,
+      story2Image2,
+      story2Image3,
+      story2Image4,
+      story2Image5,
+      story2Image6,
+      story2Image7,
+      story2Image8,
+      story2Image9,
+      story2Image10,
+    ],
   },
   {
     id: 3,
@@ -73,12 +247,27 @@ export const stories = [
     endCorrect:
       "Las etiquetas en las pociones, en realidad, son palabras reservadas (palabras propias de lenguaje de programación) que sirven para darle este mismo uso. Las clases pueden tener atributos o métodos con estas palabras que denotan su uso, en el sentido de quienes pueden usarlo. En el caso de ser privado, solo la clase puede usarlo(el mago),protegido (en el sentido que solo puede usarlo el mago y su aprendiz, esto se aclarará después), y público, que pueden usarlo todos.",
     endWrong: "",
+    listImages: [
+      story3Image1,
+      story3Image2,
+      story3Image3,
+      story3Image4,
+      story3Image5,
+      story3Image6,
+      story3Image7,
+      story3Image8,
+      story3Image9,
+      story3Image10,
+      story3Image11,
+      story3Image12,
+      story3Image13,
+    ],
   },
   {
     id: 4,
     title: "Objeto y Clase",
     paragraphs: [
-      "Otro de los artefactos más importantes que utilizaban los magos eran las recetas.Para poder crearlas se tiene que dominar el arte de abstracción, cosa que ya dominaba el aprendiz. Se usaban estas recetas para crear los objetos, por lo que era importante aprender su diferencia.",
+      "Otro de los artefactos más importantes que utilizaban los magos eran las recetas. Para poder crearlas se tiene que dominar el arte de abstracción, cosa que ya dominaba el aprendiz. Se usaban estas recetas para crear los objetos, por lo que era importante aprender su diferencia.",
       "Por sorprendente que parezca , los magos novatos solían valorar mucho más a los objetos , pues dejaban de lado las recetas. Incluso creían que un objeto debía ser más valorado que la receta.",
     ],
     question: "¿Cual crees que es mas importante, el objeto o la receta?",
@@ -96,14 +285,15 @@ export const stories = [
     endCorrect:
       "Como se pudo ver, la receta(clase) es vital para crear nuevas clases, pues estas una vez instanciadas se convierten en objetos. Es decir, los objetos nacen desde las clases. Mientras mejor se definan las clases mejor será el objeto que tengas.",
     endWrong: "",
+    listImages: [story4Image1, story4Image2, story4Image3, story4Image4],
   },
   {
     id: 5,
     title: "Constructores",
     paragraphs: [
       "Ya vimos que las recetas eran muy importantes para los magos. Estas contenían los atributos, y la descripción de todo lo que podía hacer el objeto que ahí se describe. Claramente el mago podía modificar estos valores en un futuro. Lo importante es el contenido que tenía cada receta.",
-      "También se sabe que cada receta podía crear una cantidad infinita de los mismos objetos,siempre y cuando se cumpla con los requisitos de la misma claramente. Jamás se puede crear un objeto con atributos distintos a los que pida la receta.",
-      "El mago le da una receta de un cetro a su aprendiz, en esta receta dice que se necesita una piedra preciosa,un material de la barra, un alto definido, un radio definido y un tipo de encantamiento.",
+      "También se sabe que cada receta podía crear una cantidad infinita de los mismos objetos, siempre y cuando se cumpla con los requisitos de la misma claramente. Jamás se puede crear un objeto con atributos distintos a los que pida la receta.",
+      "El mago le da una receta de un cetro a su aprendiz, en esta receta dice que se necesita una piedra preciosa, un material de la barra, un alto definido, un radio definido y un tipo de encantamiento.",
     ],
     question: "¿Cuáles serían los valores adecuados para este?",
     options: [
@@ -119,6 +309,16 @@ export const stories = [
     endCorrect:
       "Los constructores son métodos que sirven para instanciar una clase, es decir, para crear un objeto. Este objeto se diferencia de otros por su estado , en este caso, por los valores dentro de los atributos que llega  a tener.",
     endWrong: "",
+    listImages: [
+      story5Image1,
+      story5Image2,
+      story5Image3,
+      story5Image4,
+      story5Image5,
+      story5Image6,
+      story5Image7,
+      story5Image8,
+    ],
   },
   {
     id: 6,
@@ -141,6 +341,16 @@ export const stories = [
     endCorrect:
       "Como se puede ver , dentro de la clase se definen los métodos, los cuales muestran los comportamientos que tendrán los objetos instanciados. Es muy importante que cada método tenga mucha coherencia, pues sino, será error de parte de una mala abstracción.",
     endWrong: "",
+    listImages: [
+      story6Image1,
+      story6Image2,
+      story6Image3,
+      story6Image4,
+      story6Image5,
+      story6Image6,
+      story6Image7,
+      story6Image8,
+    ],
   },
   {
     id: 7,
@@ -161,6 +371,7 @@ export const stories = [
     idxCorrect: 2,
     endCorrect: "",
     endWrong: "",
+    listImages: [story7Image1, story7Image2, story7Image3, story7Image4],
   },
   {
     id: 8,
@@ -184,6 +395,23 @@ export const stories = [
     idxCorrect: 3,
     endCorrect: "",
     endWrong: "",
+    listImages: [
+      story8Image1,
+      story8Image2,
+      story8Image3,
+      story8Image4,
+      story8Image5,
+      story8Image6,
+      story8Image7,
+      story8Image8,
+      story8Image9,
+      story8Image10,
+      story8Image11,
+      story8Image12,
+      story8Image13,
+      story8Image14,
+      story8Image15,
+    ],
   },
   {
     id: 9,
@@ -204,6 +432,15 @@ export const stories = [
     idxCorrect: 2,
     endCorrect: "",
     endWrong: "",
+    listImages: [
+      story9Image1,
+      story9Image2,
+      story9Image3,
+      story9Image4,
+      story9Image5,
+      story9Image6,
+      story9Image7,
+    ],
   },
   {
     id: 10,
@@ -224,6 +461,16 @@ export const stories = [
     idxCorrect: 3,
     endCorrect: "",
     endWrong: "",
+    listImages: [
+      story10Image1,
+      story10Image2,
+      story10Image3,
+      story10Image4,
+      story10Image5,
+      story10Image6,
+      story10Image7,
+      story10Image8,
+    ],
   },
   {
     id: 11,
@@ -242,6 +489,15 @@ export const stories = [
     idxCorrect: 2,
     endCorrect: "",
     endWrong: "",
+    listImages: [
+      story11Image1,
+      story11Image2,
+      story11Image3,
+      story11Image4,
+      story11Image5,
+      story11Image6,
+      story11Image7,
+    ],
   },
   {
     id: 12,
@@ -264,6 +520,18 @@ export const stories = [
     idxCorrect: 3,
     endCorrect: "",
     endWrong: "",
+    listImages: [
+      story12Image1,
+      story12Image2,
+      story12Image3,
+      story12Image4,
+      story12Image5,
+      story12Image6,
+      story12Image7,
+      story12Image8,
+      story12Image9,
+      story12Image10,
+    ],
   },
   {
     id: 13,
@@ -280,6 +548,14 @@ export const stories = [
     idxCorrect: 1,
     endCorrect: "",
     endWrong: "",
+    listImages: [
+      story13Image1,
+      story13Image2,
+      story13Image3,
+      story13Image4,
+      story13Image5,
+      story13Image6,
+    ],
   },
   {
     id: 14,
@@ -302,6 +578,15 @@ export const stories = [
     idxCorrect: 1,
     endCorrect: "",
     endWrong: "",
+    listImages: [
+      story14Image1,
+      story14Image2,
+      story14Image3,
+      story14Image4,
+      story14Image5,
+      story14Image6,
+      story14Image7,
+    ],
   },
   {
     id: 15,
@@ -323,6 +608,19 @@ export const stories = [
     idxCorrect: 1,
     endCorrect: "",
     endWrong: "",
+    listImages: [
+      story15Image1,
+      story15Image2,
+      story15Image3,
+      story15Image4,
+      story15Image5,
+      story15Image6,
+      story15Image7,
+      story15Image8,
+      story15Image9,
+      story15Image10,
+      story15Image11,
+    ],
   },
   {
     id: 16,
@@ -339,5 +637,15 @@ export const stories = [
     idxCorrect: 1,
     endCorrect: "",
     endWrong: "",
+    listImages: [
+      story16Image1,
+      story16Image2,
+      story16Image3,
+      story16Image4,
+      story16Image5,
+      story16Image6,
+      story16Image7,
+      story16Image8,
+    ],
   },
 ];

@@ -7,7 +7,7 @@ const iniState = {
   email: "",
   emailError: "",
   seEnvio: false,
-  seEnvioMensaje:""
+  seEnvioMensaje: "",
 };
 class RecuperarComponent extends React.Component {
   constructor(props) {
@@ -17,14 +17,14 @@ class RecuperarComponent extends React.Component {
       email: "",
       emailError: "",
       seEnvio: false,
-      seEnvioMensaje:""
+      seEnvioMensaje: "",
     };
   }
 
-
   validate = () => {
     let emailError = "";
-    let regex= /^(?:[^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*|"[^\n"]+")@(?:[^<>()[\].,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,63}$/i ;
+    let regex =
+      /^(?:[^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*|"[^\n"]+")@(?:[^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,63}$/i;
     if (!regex.test(this.state.email)) {
       emailError = "Debe ingresar un email válido";
     }
@@ -35,17 +35,15 @@ class RecuperarComponent extends React.Component {
     return true;
   };
 
-  seEnvio = (seEnvio) =>{
-    let seEnvioMensaje="";
-    if(!seEnvio){
-      seEnvioMensaje= "Este correo no esta vinculado con ninguna cuenta.";
-     }else{
-      seEnvioMensaje= "Ya se envió un correo para su recuperación."
-     }
-      this.setState({seEnvioMensaje});
-   }
-  
-  
+  seEnvio = (seEnvio) => {
+    let seEnvioMensaje;
+    if (!seEnvio) {
+      seEnvioMensaje = "Este correo no esta vinculado con ninguna cuenta.";
+    } else {
+      seEnvioMensaje = "Ya se envió un correo para su recuperación.";
+    }
+    this.setState({ seEnvioMensaje });
+  };
 
   handleChangeEmail = (event) => {
     this.setState({ email: event.target.value });
@@ -58,19 +56,18 @@ class RecuperarComponent extends React.Component {
     let seEnvio = false;
     if (isValid) {
       console.log(this.state);
-        sendPasswordResetEmail(auth, this.state.email)
-          .then(() => {
-            let seEnvio=true;
-            this.seEnvio(seEnvio);
-          })
-          .catch((error) => {
-            this.seEnvio(seEnvio);
-          });
+      sendPasswordResetEmail(auth, this.state.email)
+        .then(() => {
+          let seEnvio = true;
+          this.seEnvio(seEnvio);
+        })
+        .catch((error) => {
+          this.seEnvio(seEnvio);
+        });
       //limpiar el form
       this.setState(iniState);
     }
   };
-
 
   render() {
     return (
@@ -82,7 +79,10 @@ class RecuperarComponent extends React.Component {
           <h1 className="form-title">Recuperar Contraseña</h1>
           <div className="col">
             <FormGroup className=" label">
-              <p className="parrafoCorreo text-center ">Por favor, introduce tu email donde enviaremos las instrucciones para que reestablezcas tu contraseña.</p>
+              <p className="parrafoCorreo text-center ">
+                Por favor, introduce tu email donde enviaremos las instrucciones
+                para que reestablezcas tu contraseña.
+              </p>
               <Label className="IntroduceCorreo">Introduce tu correo: </Label>
               <div
                 className={
@@ -106,11 +106,9 @@ class RecuperarComponent extends React.Component {
               <Button
                 className="btn btn-light btn-lg rounded-pill no-shadow"
                 type="submit"
-               
               >
                 Recuperar Contraseña
               </Button>
-              
             </div>
           </div>
         </Form>

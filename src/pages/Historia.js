@@ -124,7 +124,7 @@ export default function Historia() {
                 modalId={modalId}
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}
-              ></CardsNivel>
+              />
               <h2 className="titulosTema">Interaccion de objetos:</h2>
               <CardsNivel
                 minId={8}
@@ -132,7 +132,7 @@ export default function Historia() {
                 modalId={modalId}
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}
-              ></CardsNivel>
+              />
               <h2 className="titulosTema">Arreglos y Matrices:</h2>
               <CardsNivel
                 minId={9}
@@ -140,7 +140,7 @@ export default function Historia() {
                 modalId={modalId}
                 functionChange={setCurrentStory}
                 estados={listEstadosNivs}
-              ></CardsNivel>
+              />
             </div>
           </Parallax>
         </div>

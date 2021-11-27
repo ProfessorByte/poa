@@ -33,15 +33,16 @@ class LogInComponent extends React.Component {
   validate = () => {
     let emailError = "";
     let passwordError = "";
-    let regex= /^(?:[^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*|"[^\n"]+")@(?:[^<>()[\].,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,63}$/i ;
+    let regex =
+      /^(?:[^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*|"[^\n"]+")@(?:[^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,63}$/i;
     if (!regex.test(this.state.email)) {
       emailError = "Debe ingresar un email válido";
-    } 
+    }
     if (!this.state.password) {
-          passwordError = "Debe ingresar una contraseña.";
-    } 
+      passwordError = "Debe ingresar una contraseña.";
+    }
     if (this.state.password.length < 8) {
-            passwordError = "La contraseña es muy corta.";
+      passwordError = "La contraseña es muy corta.";
     }
     if (emailError || passwordError) {
       this.setState({ emailError, passwordError });
