@@ -10,7 +10,7 @@ export default function Vocabulario() {
     <div>
       <Header />
       <div className="fondoVocabulario">
-        <div className="page-container">
+        
           <div className="content-wrap mb-3">
             <div className="container">
               <div className="row mt-3">
@@ -22,7 +22,7 @@ export default function Vocabulario() {
             <FrameVocabulario />
           </div>
           <FooterVocabulario />
-        </div>
+       
 
 
         </div>
