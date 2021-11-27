@@ -1,21 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Card_Vocabulario from "./Card_Vocabulario";
+import { getVocabularioQuery } from "../server/api";
+import { useFirestoreCollectionData } from "reactfire";
 export default function FrameVocabulario(){
+  const [listVocabulario, setListVocabulario] = useState([]);
+  const { status, data: cards } = useFirestoreCollectionData(
+    getVocabularioQuery()
+  );
+
+  useEffect(() => {
+    if (status !== "loading") {
+      setListVocabulario(cards);
+    }
+  }, [status, cards]);
+
           return(
-            <div className="container bg-black ">
+            <>
+            {status === "loading" ? (
+          <div className="container ">
+            <Card_Vocabulario titulo="Cargando..." descripcion="Cargando..." />
+          </div>
+        ) : (
+            listVocabulario.map((card) => (
+              <div key={card.id} className="container">
               <Card_Vocabulario
-                titulo="Palabra 1"
-                descripcion="Esta Palabra significa algo 1"
-              />
-              <Card_Vocabulario
-                titulo="Palabra 2"
-                descripcion="Esta Palabra significa algo 2"
-              />
-              <Card_Vocabulario
-                titulo="Palabra 3"
-                descripcion="Esta Palabra significa algo 3"
+                titulo={card.titulo}
+                descripcion={card.descripcion}
               />
             </div>
+            ))
+        )}
+            </ >
+
           );
 
 }

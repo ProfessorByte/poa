@@ -10,7 +10,7 @@ export default class PruebaPage extends Component {
       <>
         <Header />
         <div className="page-container">
-          <div className="content-wrap">
+          <div className="content-wrap mb-3">
             <div className="container">
               <div className="row mt-3">
                 <div className="col">

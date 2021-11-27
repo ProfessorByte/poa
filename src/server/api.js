@@ -27,3 +27,8 @@ export const updateEstadosNivs = async (userRef, niveles) => {
 export const getBibliographyQuery = () => {
   return query(collection(db, "bibliografia"), orderBy("id"));
 };
+
+
+export const getVocabularioQuery = () => {
+  return query(collection(db, "vocabulario"), orderBy("id"));
+};
