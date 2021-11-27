@@ -17,12 +17,12 @@ export default function FrameVocabulario(){
           return(
             <>
             {status === "loading" ? (
-          <div className="container ">
+          <div className="container-fluid ">
             <Card_Vocabulario titulo="Cargando..." descripcion="Cargando..." />
           </div>
         ) : (
             listVocabulario.map((card) => (
-              <div key={card.id} className="container">
+              <div key={card.id} className="container-fluid">
               <Card_Vocabulario
                 titulo={card.titulo}
                 descripcion={card.descripcion}
