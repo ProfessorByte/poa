@@ -6,6 +6,9 @@ import {
   where,
   updateDoc,
 } from "firebase/firestore";
+
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 import { db } from "./firebaseConfig";
 
 export const getVideosQuery = () => {
@@ -26,4 +29,18 @@ export const updateEstadosNivs = async (userRef, niveles) => {
 
 export const getBibliographyQuery = () => {
   return query(collection(db, "bibliografia"), orderBy("id"));
+};
+
+export const createNewUser = (correo, contra, nombre) => {
+  const auth = getAuth();
+  createUserWithEmailAndPassword(auth, correo, contra)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      console.log(user);
+      console.log(user.uid);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
 };
