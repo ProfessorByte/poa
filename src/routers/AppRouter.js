@@ -8,7 +8,7 @@ import PaginaPrincipalPage from "../pages/PaginaPrincipalPage";
 import Repositorio from "../pages/Repositorio";
 import { VideosPage } from "../pages/VideosPage";
 import RecuperarContraPage from "../pages/RecuperarContraPage";
-import PruebaPage from "../pages/Prueba";
+import Vocabulario from "../pages/Vocabulario";
 
 export default function AppRouter() {
   const { status, data } = useSigninCheck();
@@ -17,9 +17,9 @@ export default function AppRouter() {
     <>
       <Switch>
         <Route exact path="/poa" component={PaginaPrincipalPage} />
-        <Route exact path="/poa/prueba" component={PruebaPage} />
         <Route exact path="/poa/repositorio" component={Repositorio} />
         <Route exact path="/poa/repositorio/videos" component={VideosPage} />
+        <Route exact path="/poa/repositorio/vocabulario" component={Vocabulario} />
         <Route
           exact
           path="/poa/repositorio/bibliografia"
