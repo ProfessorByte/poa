@@ -36,8 +36,9 @@ export default function Vocabulario() {
             
           </div>
         </div>
-        <FooterVocabulario />
+       
     </div>
+    <FooterVocabulario />
     </div>
         );
 }

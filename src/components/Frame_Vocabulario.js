@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card_Vocabulario from "./Card_Vocabulario";
 import { getVocabularioQuery } from "../server/api";
 import { useFirestoreCollectionData } from "reactfire";
+import "../css/Vocabulario.css"
 export default function FrameVocabulario(){
   const [listVocabulario, setListVocabulario] = useState([]);
   const { status, data: cards } = useFirestoreCollectionData(
