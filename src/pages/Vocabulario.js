@@ -19,14 +19,14 @@ export default function Vocabulario() {
               </div>
             </div>
             <div class ="row mb-5">
-              <MDBCol md="6">
+              <MDBCol md="12">
                 <div className="input-group md-form form-sm form-lg form-1 pl-0 ancho">
                   <div className="input-group-prepend">
                     <span className="input-group-text purple " id="basic-text1">
                       <MDBIcon className="text-white" icon="search" />
                     </span>
                   </div>
-                  <input className="form-control form-control-lg " type="text" placeholder="Buscar" aria-label="Search" />
+                  <input className="form-control form-control-lg " type="text" id="inputID" placeholder="Buscar"  aria-label="Search" />
                 </div>
               </MDBCol>
               </div>

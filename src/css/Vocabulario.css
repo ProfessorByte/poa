@@ -24,3 +24,14 @@
 .ancho{
   width: 80vw;
 }  
+#inputID::placeholder {
+  color:white;
+  opacity: 1;
+}
+.form-control:not(active){
+  color:white;
+}
+
+.form-control:focus{
+  color:black;
+}
