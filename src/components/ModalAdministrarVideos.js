@@ -83,6 +83,7 @@ export const ModalAdministrarVideos = ({ modalId }) => {
                     <option></option>
                   </select>
                 </div>
+              </div>
               <div className="form-group row mb-3">
                 <label for="enlace-video" className="form-label">
                   Enlace de YouTube:
@@ -116,7 +117,7 @@ export const ModalAdministrarVideos = ({ modalId }) => {
               </div>
             
 
-            </div>
+            
             <div className="modal-footer footer-administration">
               <button type="submit" className="btn btn-success">
                 Actualizar
