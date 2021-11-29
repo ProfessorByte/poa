@@ -16,7 +16,9 @@ export const ModalAdministrarVideos = ({ modalId }) => {
                 className="btn btn-dark"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-              />
+              >
+                
+              </button> 
             </div>
             <div className="modal-body p-3 p-md-5 body-administration">
               <div className="row">
