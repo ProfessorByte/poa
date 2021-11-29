@@ -38,11 +38,11 @@ class LogInComponent extends React.Component {
     if (!regex.test(this.state.email)) {
       emailError = "Debe ingresar un email válido";
     }
-    if (!this.state.password) {
-      passwordError = "Debe ingresar una contraseña.";
-    }
     if (this.state.password.length < 8) {
       passwordError = "La contraseña es muy corta.";
+    }
+    if (!this.state.password) {
+      passwordError = "Debe ingresar una contraseña.";
     }
     if (emailError || passwordError) {
       this.setState({ emailError, passwordError });
