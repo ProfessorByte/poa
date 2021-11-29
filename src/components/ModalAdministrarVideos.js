@@ -16,9 +16,7 @@ export const ModalAdministrarVideos = ({ modalId }) => {
                 className="btn btn-dark"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-              >
-                X
-              </button>
+              />
             </div>
             <div className="modal-body p-3 p-md-5 body-administration">
               <div className="row">
@@ -66,7 +64,7 @@ export const ModalAdministrarVideos = ({ modalId }) => {
                 </div>
               </div>
               <div className="form-group row mb-3">
-                <label for="type-bibliography" className="form-label">
+                <label for="tema-videos" className="form-label">
                   Tema:
                 </label>
                 <div className="col-md-10">
@@ -84,7 +82,7 @@ export const ModalAdministrarVideos = ({ modalId }) => {
                   </select>
                 </div>
               <div className="form-group row mb-3">
-                <label for="title-videos" className="form-label">
+                <label for="enlace-video" className="form-label">
                   Enlace de YouTube:
                 </label>
                 <div className="col-md-10">
@@ -99,7 +97,7 @@ export const ModalAdministrarVideos = ({ modalId }) => {
                 </div>
               </div>
               <div className="form-group row mb-3">
-                <label for="user-bibliography" className="form-label">
+                <label for="user" className="form-label">
                   Último usuario que actualizó el recurso:
                 </label>
                 <div className="col-md-10">
