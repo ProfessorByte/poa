@@ -1,5 +1,7 @@
 .contenedorb {
   font-family: "VCR_OSD_MONO_1";
+  position: relative;
+  margin-left: 900px;
 }
 #iconu {
   width: 50px;
@@ -9,16 +11,17 @@
 }
 #dropdownMenuButton1 {
   background-color: Transparent;
-
 }
 @media screen and (max-width: 1024px) {
   .contenedorb {
     width: 160px;
+    margin-left: 100px;
   }
 }
 @media screen and (max-width: 768px) {
   .contenedorb {
     width: 120px;
+    margin-left: 10px;
   }
 }
 @media screen and (max-width: 425px) {
