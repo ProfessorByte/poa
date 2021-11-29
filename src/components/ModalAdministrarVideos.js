@@ -65,6 +65,57 @@ export const ModalAdministrarVideos = ({ modalId }) => {
                   />
                 </div>
               </div>
+              <div className="form-group row mb-3">
+                <label for="type-bibliography" className="form-label">
+                  Tema:
+                </label>
+                <div className="col-md-10">
+                  <select
+                    name="tema-videos"
+                    id="tema-videos"
+                    className="form-select"
+                    
+                  >
+                    <option selected value="">
+                      Selecciona el tema
+                    </option>
+                    <option></option>
+                    <option></option>
+                  </select>
+                </div>
+              <div className="form-group row mb-3">
+                <label for="title-videos" className="form-label">
+                  Enlace de YouTube:
+                </label>
+                <div className="col-md-10">
+                  <input
+                    type="url"
+                    className="form-control"
+                    id="enlace-video"
+                    name="enlace-video"
+                    placeholder="Enlace del vídeo"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="form-group row mb-3">
+                <label for="user-bibliography" className="form-label">
+                  Último usuario que actualizó el recurso:
+                </label>
+                <div className="col-md-10">
+                  <h3>
+                    <span className="badge bg-success">
+                      
+                    </span>
+                  </h3>
+                  <span className="text-muted">
+                    Si actualiza o agrega un recurso, su nombre se verá en este
+                    campo
+                  </span>
+                </div>
+              </div>
+            
+
             </div>
             <div className="modal-footer footer-administration">
               <button type="submit" className="btn btn-success">
@@ -79,6 +130,7 @@ export const ModalAdministrarVideos = ({ modalId }) => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </form>
   );
