@@ -8,10 +8,10 @@ import {
   doc,
   setDoc,
 } from "firebase/firestore";
-
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 import { db } from "./firebaseConfig";
+import { levelsIni } from "../consts/levels";
 
 export const getVideosQuery = () => {
   return query(collection(db, "videos"), orderBy("videoId"));
@@ -38,7 +38,7 @@ export const setUsers = async (nombre, idUsuario) => {
   await setDoc(doc(db, "users", idUsuario), {
     name: nombre,
     userId: idUsuario,
-    levels: [{ id: 1, estado: 0 }],
+    levels: levelsIni[0],
   });
 };
 
