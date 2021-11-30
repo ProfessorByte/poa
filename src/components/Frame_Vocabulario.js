@@ -4,6 +4,7 @@ import { getVocabularioQuery } from "../server/api";
 import { useFirestoreCollectionData } from "reactfire";
 export default function FrameVocabulario(){
   const [listVocabulario, setListVocabulario] = useState([]);
+  const [searchItem, setSearchItem] = useState('')
   const { status, data: cards } = useFirestoreCollectionData(
     getVocabularioQuery()
   );
