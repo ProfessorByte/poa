@@ -9,7 +9,7 @@ import {
 import { db } from "./firebaseConfig";
 
 export const getVideosQuery = () => {
-  return query(collection(db, "videos"), orderBy("videoId"));
+  return query(collection(db, "orderedVideos"), orderBy("sectionId"));
 };
 
 export const getEstadosNivs = async (userid) => {
