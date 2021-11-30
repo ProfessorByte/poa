@@ -45,7 +45,7 @@ export default function Vocabulario() {
                             </MDBCol>
                         </div>
                         <div>
-                            <FrameVocabulario />
+                            <FrameVocabulario searchTerm={searchItem} />
                         </div>
                     </div>
                 </div>

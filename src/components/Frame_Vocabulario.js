@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import Card_Vocabulario from "./Card_Vocabulario";
 import { getVocabularioQuery } from "../server/api";
 import { useFirestoreCollectionData } from "reactfire";
-export default function FrameVocabulario(){
+export default function FrameVocabulario(props){
   const [listVocabulario, setListVocabulario] = useState([]);
-  const [searchItem, setSearchItem] = useState('')
   const { status, data: cards } = useFirestoreCollectionData(
     getVocabularioQuery()
   );
+
 
   useEffect(() => {
     if (status !== "loading") {
@@ -25,7 +25,7 @@ export default function FrameVocabulario(){
             listVocabulario.map((card) => (
               <div key={card.id} className="container-fluid">
               <Card_Vocabulario
-                titulo={card.titulo}
+                titulo={props.searchTerm}
                 descripcion={card.descripcion}
               />
             </div>
