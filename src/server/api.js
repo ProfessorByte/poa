@@ -5,6 +5,8 @@ import {
   orderBy,
   where,
   updateDoc,
+  doc,
+  setDoc,
 } from "firebase/firestore";
 
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -31,6 +33,15 @@ export const getBibliographyQuery = () => {
   return query(collection(db, "bibliografia"), orderBy("id"));
 };
 
+export const setUsers = async (nombre, idUsuario) => {
+  console.log("nombre:", nombre, "id:", idUsuario);
+  await setDoc(doc(db, "users", idUsuario), {
+    name: nombre,
+    userId: idUsuario,
+    levels: [{ id: 1, estado: 0 }],
+  });
+};
+
 export const createNewUser = (correo, contra, nombre) => {
   const auth = getAuth();
   createUserWithEmailAndPassword(auth, correo, contra)
@@ -38,6 +49,7 @@ export const createNewUser = (correo, contra, nombre) => {
       const user = userCredential.user;
       console.log(user);
       console.log(user.uid);
+      setUsers(nombre, user.uid);
     })
     .catch((error) => {
       const errorCode = error.code;
