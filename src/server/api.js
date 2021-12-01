@@ -43,6 +43,7 @@ export const setUsers = async (nombre, idUsuario) => {
 };
 
 export const createNewUser = (correo, contra, nombre) => {
+  let res = false;
   const auth = getAuth();
   createUserWithEmailAndPassword(auth, correo, contra)
     .then((userCredential) => {
