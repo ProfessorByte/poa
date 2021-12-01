@@ -87,6 +87,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
     } else if (action === "delete") {
       handleDelete();
     }
+    
   };
 
   return (
