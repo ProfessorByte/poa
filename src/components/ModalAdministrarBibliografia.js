@@ -1,6 +1,7 @@
 import { addDoc, collection, deleteDoc, updateDoc } from "@firebase/firestore";
 import React, { useState } from "react";
 import { useUser } from "reactfire";
+import { Formik } from "formik";
 import "../css/ModalAdminStyles.css";
 import {
   getCountBibliography,
@@ -91,8 +92,9 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="modal fade" id={modalId} tabindex={-1} aria-hidden={true}>
+    <Formik>
+     <form onSubmit={handleSubmit} >
+     <div className="modal fade" id={modalId} tabindex={-1} aria-hidden={true}>
         <div className="modal-dialog modal-lg">
           <div className="modal-content">
             <div className="modal-header header-administration">
@@ -104,9 +106,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                 className="btn btn-dark"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-              >
-                X
-              </button>
+              />  
             </div>
             <div className="modal-body p-3 p-md-5 body-administration">
               <div className="row">
@@ -295,6 +295,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
           </div>
         </div>
       </div>
-    </form>
+     </form>
+    </Formik> 
   );
 };
