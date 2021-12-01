@@ -48,12 +48,13 @@ export const createNewUser = (correo, contra, nombre) => {
   createUserWithEmailAndPassword(auth, correo, contra)
     .then((userCredential) => {
       const user = userCredential.user;
-      console.log(user);
-      console.log(user.uid);
       setUsers(nombre, user.uid);
+      res = true;
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      res = false;
     });
+  return res;
 };
