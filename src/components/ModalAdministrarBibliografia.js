@@ -74,6 +74,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
       listDocs.forEach((doc) => {
         deleteDoc(doc.ref);
       });
+      setFormValues(defaultFormValues);
       alert("Se eliminó el recurso bibliográfico seleccionado");
     }
   };
@@ -118,7 +119,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                   >
                     Selecciona un recurso bibliográfico
                   </button>
-                  <ul className="dropdown-menu col-12">
+                  <ul className="dropdown-menu col-12 selector-administration">
                     {listCards.map((card) => (
                       <li key={card.id}>
                         <button
@@ -144,7 +145,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                 </div>
               </div>
               <div className="form-group row mb-3">
-                <label for="title-bibliography" className="form-label">
+                <label htmlFor="title-bibliography" className="form-label">
                   Título de referencia:
                 </label>
                 <div className="col-md-10">
@@ -161,7 +162,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                 </div>
               </div>
               <div className="form-group row mb-3">
-                <label for="topics-bibliography" className="form-label">
+                <label htmlFor="topics-bibliography" className="form-label">
                   Temas:
                 </label>
                 <div className="col-md-10">
@@ -178,7 +179,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                 </div>
               </div>
               <div className="form-group row mb-3">
-                <label for="author-bibliography" className="form-label">
+                <label htmlFor="author-bibliography" className="form-label">
                   Autor/Nombre de la página:
                 </label>
                 <div className="col-md-10">
@@ -195,7 +196,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                 </div>
               </div>
               <div className="form-group row mb-3">
-                <label for="type-bibliography" className="form-label">
+                <label htmlFor="type-bibliography" className="form-label">
                   Tipo:
                 </label>
                 <div className="col-6 col-md-6">
@@ -229,7 +230,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                 </div>
               </div>
               <div className="form-group row mb-3">
-                <label for="link-bibliography" className="form-label">
+                <label htmlFor="link-bibliography" className="form-label">
                   Enlace:
                 </label>
                 <div className="col-md-10">
@@ -246,7 +247,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                 </div>
               </div>
               <div className="form-group row mb-3">
-                <label for="user-bibliography" className="form-label">
+                <label htmlFor="user-bibliography" className="form-label">
                   Último usuario que actualizó el recurso:
                 </label>
                 <div className="col-md-10">

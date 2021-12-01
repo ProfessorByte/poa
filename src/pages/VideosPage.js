@@ -17,7 +17,9 @@ export const VideosPage = () => {
 
   return (
     <>
-      <ModalAdministrarVideos modalId={modalId} />
+      {status !== "loading" && (
+        <ModalAdministrarVideos modalId={modalId} listSections={listSections} />
+      )}
       <Header />
       <div className="video-background">
         <div className="content-wrap">
@@ -35,15 +37,17 @@ export const VideosPage = () => {
                   </p>
                 </div>
               </div>
-              <div className="row">
-                <button
-                  className="col-auto m-3 btn btn-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target={`#${modalId}`}
-                >
-                  Administrar
-                </button>
-              </div>
+              {status !== "loading" && (
+                <div className="row">
+                  <button
+                    className="col-auto m-3 btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target={`#${modalId}`}
+                  >
+                    Administrar
+                  </button>
+                </div>
+              )}
             </div>
             {status === "loading" ? (
               <div>Cargando...</div>

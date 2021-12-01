@@ -46,7 +46,10 @@ export const FormGame = ({
                   id={`option${index}`}
                   value={index + 1}
                 />
-                <label className="form-check-label" htmlFor={`option${index}`}>
+                <label
+                  className="form-check-label"
+                  htmlhtmlFor={`option${index}`}
+                >
                   {option}
                 </label>
               </div>

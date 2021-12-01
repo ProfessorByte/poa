@@ -29,13 +29,20 @@ export const getBibliographyQuery = () => {
 };
 
 export const getDocBibliography = async (id) => {
-  const doc = await getDocs(
+  const docs = await getDocs(
     query(collection(db, "bibliografia"), where("id", "==", id))
   );
-  return doc;
+  return docs;
 };
 
 export const getCountBibliography = async () => {
   const count = await getDocs(query(collection(db, "bibliografia")));
   return count.size;
+};
+
+export const getSectionsQuery = async (id) => {
+  const docs = await getDocs(
+    query(collection(db, "orderedVideos"), where("sectionId", "==", id))
+  );
+  return docs;
 };

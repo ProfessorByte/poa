@@ -16,9 +16,7 @@ export const ModalAdministrarVideos = ({ modalId }) => {
                 className="btn btn-dark"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-              >
-                
-              </button> 
+              ></button>
             </div>
             <div className="modal-body p-3 p-md-5 body-administration">
               <div className="row">
@@ -51,7 +49,7 @@ export const ModalAdministrarVideos = ({ modalId }) => {
                 </div>
               </div>
               <div className="form-group row mb-3">
-                <label for="palabra" className="form-label">
+                <label htmlFor="palabra" className="form-label">
                   Palabra:
                 </label>
                 <div className="col-md-10">
@@ -65,9 +63,9 @@ export const ModalAdministrarVideos = ({ modalId }) => {
                   />
                 </div>
               </div>
-            
+
               <div className="form-group row mb-3">
-                <label for="Descripcion-palabra" className="form-label">
+                <label htmlFor="Descripcion-palabra" className="form-label">
                   Descripción:
                 </label>
                 <div className="col-md-10">
@@ -83,7 +81,7 @@ export const ModalAdministrarVideos = ({ modalId }) => {
               </div>
 
               <div className="form-group row mb-3">
-                <label for="tema-vocabulario" className="form-label">
+                <label htmlFor="tema-vocabulario" className="form-label">
                   Tema:
                 </label>
                 <div className="col-md-10">
@@ -91,7 +89,6 @@ export const ModalAdministrarVideos = ({ modalId }) => {
                     name="tema-vocabulario"
                     id="tema-vocabulario"
                     className="form-select"
-                    
                   >
                     <option selected value="">
                       Selecciona el tema
@@ -102,14 +99,12 @@ export const ModalAdministrarVideos = ({ modalId }) => {
                 </div>
               </div>
               <div className="form-group row mb-3">
-                <label for="user" className="form-label">
+                <label htmlFor="user" className="form-label">
                   Último usuario que actualizó el recurso:
                 </label>
                 <div className="col-md-10">
                   <h3>
-                    <span className="badge bg-success">
-                      
-                    </span>
+                    <span className="badge bg-success"></span>
                   </h3>
                   <span className="text-muted">
                     Si actualiza o agrega un recurso, su nombre se verá en este
@@ -117,23 +112,21 @@ export const ModalAdministrarVideos = ({ modalId }) => {
                   </span>
                 </div>
               </div>
-            
 
-              
               <div className="modal-footer footer-administration">
-               <button type="submit" className="btn btn-success">
-                Actualizar
-               </button>
-               <button type="submit" className="btn btn-secondary">
-                Agregar
-               </button>
-               <button type="submit" className="btn btn-danger">
-                Eliminar
-               </button>
+                <button type="submit" className="btn btn-success">
+                  Actualizar
+                </button>
+                <button type="submit" className="btn btn-secondary">
+                  Agregar
+                </button>
+                <button type="submit" className="btn btn-danger">
+                  Eliminar
+                </button>
               </div>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </form>
   );
