@@ -10,8 +10,6 @@ import { VideosPage } from "../pages/VideosPage";
 import RecuperarContraPage from "../pages/RecuperarContraPage";
 import RegistroUsuarios from "../pages/RegistroUsuarios";
 
-import RegistroPrueba from "../pages/RegistroPrueba";
-
 export default function AppRouter() {
   const { status, data } = useSigninCheck();
 
@@ -37,10 +35,9 @@ export default function AppRouter() {
             <LogIn />
           )}
         </Route>
-        <Route exact path="/Registro" component={RegistroUsuarios} />
+        <Route exact path="/registro" component={RegistroUsuarios} />
         <Route exact path="/poa/bibliografia" component={BibliografiaPage} />
         <Route exact path="/poa/Historia" component={Historia} />
-        <Route exact path="/poa/registro" component={RegistroPrueba} />
         <Route
           exact
           path="/PaginaPrincipalPage"
