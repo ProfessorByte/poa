@@ -35,7 +35,8 @@ export default function AppRouter() {
             <LogIn />
           )}
         </Route>
-        <Route exact path="/registro" component={RegistroUsuarios} />
+        <Route exact path="/registro" component={RegistroUsuarios}> 
+        </Route>
         <Route exact path="/poa/bibliografia" component={BibliografiaPage} />
         <Route exact path="/poa/Historia" component={Historia} />
         <Route

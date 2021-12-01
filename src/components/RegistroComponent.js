@@ -26,6 +26,10 @@ class RegistroComponente extends React.Component {
     const { showPassword } = this.state;
     this.setState({ showPassword: !showPassword });
   };
+  togglePasswordVisibility1 = () => {
+    const { showPassword1 } = this.state;
+    this.setState({ showPassword1: !showPassword1 });
+  };
   handleChangePassword = (event) => {
     this.setState({ password: event.target.value });
   };
@@ -37,6 +41,7 @@ class RegistroComponente extends React.Component {
   };
   render() {
     const { showPassword } = this.state;
+    const { showPassword1 } = this.state;
     return (
       <Form className="form-group formularior row" onSubmit={this.handleSubmit}>
         <h1 className="titulo">Comienza La Aventura</h1>
@@ -74,7 +79,7 @@ class RegistroComponente extends React.Component {
                 <Input
                   type={showPassword ? "text" : "password"}
                   placeholder="Registre su Contraseña"
-                  className="rounder-pill1"
+                  className="rounder-pill"
                   value={this.state.password}
                   onChange={this.handleChangePassword}
                   id="llenadoContra"
@@ -99,25 +104,25 @@ class RegistroComponente extends React.Component {
                 className={
                   this.state.passwordError
                     ? "rounded-pill wrong-input"
-                    : "rounded-pill"
+                    : "rounded-pill1"
                 }
               >
                 <Input
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword1 ? "text" : "password"}
                   placeholder="Verifique Su Contraseña"
-                  className="rounder-pill"
-                  id="llenado"
+                  className="rounder-pill1"
+                  id="llenadoConfir"
                 />
               </div>
               <FontAwesomeIcon
                 icon={faEye}
                 size="2x"
                 className={
-                  showPassword
+                  showPassword1
                     ? "icon open-eye rounded-pill"
                     : "icon rounded-pill"
                 }
-                onClick={this.togglePasswordVisibility}
+                onClick={this.togglePasswordVisibility1}
               />
             </div>
           </FormGroup>
