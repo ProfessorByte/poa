@@ -1,4 +1,5 @@
-import { deleteDoc, updateDoc } from "@firebase/firestore";
+import { updateDoc } from "@firebase/firestore";
+import { Formik } from "formik";
 import React, { useState } from "react";
 import { useUser } from "reactfire";
 import "../css/ModalAdminStyles.css";
@@ -19,11 +20,6 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
   const removeItemFromArr = (arr, item) => {
     var i = arr.indexOf(item);
     arr.splice(i, 1);
-  };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormValues({ ...formValues, [name]: value });
   };
 
   const handleUpdate = async () => {
@@ -104,8 +100,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
     }
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = () => {
     if (action === "update") {
       handleUpdate();
     } else if (action === "add") {
@@ -115,173 +110,235 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
     }
   };
 
+  const validateYouTubeUrl = (url) => {
+    if (url) {
+      var regExp =
+        /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+      if (url.match(regExp)) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  const handleValidations = (values) => {
+    let errors = {};
+    if (!values.titleVideo) {
+      errors.titleVideo = "El título es requerido";
+    }
+
+    if (Number(values.sectionId) === -1) {
+      errors.sectionId = "La sección es requerida";
+    }
+
+    if (!values.linkVideo) {
+      errors.linkVideo = "El link es requerido";
+    } else if (!validateYouTubeUrl(values.linkVideo)) {
+      errors.linkVideo = "Debe ingresar un link de YouTube válido";
+    }
+    return errors;
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="modal fade" id={modalId} tabindex={-1} aria-hidden={true}>
-        <div className="modal-dialog modal-lg">
-          <div className="modal-content">
-            <div className="modal-header header-administration">
-              <h5 className="modal-title title-administration">
-                Actualizar contenido de vídeos
-              </h5>
-              <button
-                type="button"
-                className="btn btn-dark"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              >
-                X
-              </button>
-            </div>
-            <div className="modal-body p-3 p-md-5 body-administration">
-              <div className="row">
-                <div className="dropdown d-grid gap-2 col-10 mb-3">
+    <Formik
+      initialValues={formValues}
+      onSubmit={handleSubmit}
+      validate={handleValidations}
+      enableReinitialize={true}
+    >
+      {({
+        handleSubmit,
+        handleChange,
+        handleBlur,
+        values,
+        errors,
+        touched,
+      }) => (
+        <form onSubmit={handleSubmit}>
+          <div
+            className="modal fade"
+            id={modalId}
+            tabIndex={-1}
+            aria-hidden={true}
+          >
+            <div className="modal-dialog modal-lg">
+              <div className="modal-content">
+                <div className="modal-header header-administration">
+                  <h5 className="modal-title title-administration">
+                    Actualizar contenido de vídeos
+                  </h5>
                   <button
                     type="button"
-                    className="btn btn-primary dropdown-toggle"
-                    data-bs-toggle="dropdown"
-                    aria-expanded={false}
+                    className="btn btn-dark"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
                   >
-                    Selecciona un vídeo
+                    X
                   </button>
-                  <ul className="dropdown-menu col-12 selector-administration">
-                    {listSections.map((section) => (
-                      <div key={section.sectionId}>
-                        {section.topics.map((topic, index) => (
-                          <li key={index}>
-                            <button
-                              type="button"
-                              className="dropdown-item"
-                              onClick={() => {
-                                setFormValues({
-                                  titleVideo: topic.title,
-                                  sectionId: section.sectionId,
-                                  indexVideo: index,
-                                  linkVideo: topic.videoLink,
-                                  userName: topic.userName,
-                                });
-                              }}
-                            >
-                              {topic.title}
-                            </button>
-                          </li>
+                </div>
+                <div className="modal-body p-3 p-md-5 body-administration">
+                  <div className="row">
+                    <div className="dropdown d-grid gap-2 col-10 mb-3">
+                      <button
+                        type="button"
+                        className="btn btn-primary dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded={false}
+                      >
+                        Selecciona un vídeo
+                      </button>
+                      <ul className="dropdown-menu col-12 selector-administration">
+                        {listSections.map((section) => (
+                          <div key={section.sectionId}>
+                            {section.topics.map((topic, index) => (
+                              <li key={index}>
+                                <button
+                                  type="button"
+                                  className="dropdown-item"
+                                  onClick={() => {
+                                    setFormValues({
+                                      titleVideo: topic.title,
+                                      sectionId: section.sectionId,
+                                      indexVideo: index,
+                                      linkVideo: topic.videoLink,
+                                      userName: topic.userName,
+                                    });
+                                  }}
+                                >
+                                  {topic.title}
+                                </button>
+                              </li>
+                            ))}
+                          </div>
                         ))}
-                      </div>
-                    ))}
-                  </ul>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="form-group row mb-3">
+                    <label htmlFor="title-videos" className="form-label">
+                      Título del vídeo:
+                    </label>
+                    <div className="col-md-10">
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="title-videos"
+                        name="titleVideo"
+                        placeholder="Título de referencia"
+                        value={values.titleVideo}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        required
+                      />
+                    </div>
+                    {touched.titleVideo && errors.titleVideo && (
+                      <div className="text-danger">{errors.titleVideo}</div>
+                    )}
+                  </div>
+                  <div className="form-group row mb-3">
+                    <label htmlFor="tema-videos" className="form-label">
+                      Sección del vídeo:
+                    </label>
+                    <div className="col-md-10">
+                      <select
+                        name="sectionId"
+                        id="tema-videos"
+                        className="form-select"
+                        value={values.sectionId}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        required
+                      >
+                        <option defaultValue={-1}>Selecciona el tema</option>
+                        {listSections.map((section) => (
+                          <option
+                            key={section.sectionId}
+                            value={section.sectionId}
+                          >
+                            {section.title}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    {touched.sectionId && errors.sectionId && (
+                      <div className="text-danger">{errors.sectionId}</div>
+                    )}
+                  </div>
+                  <div className="form-group row mb-3">
+                    <label htmlFor="enlace-video" className="form-label">
+                      Enlace de YouTube:
+                    </label>
+                    <div className="col-md-10">
+                      <input
+                        type="url"
+                        className="form-control"
+                        id="enlace-video"
+                        name="linkVideo"
+                        placeholder="Enlace del vídeo"
+                        value={values.linkVideo}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        required
+                      />
+                    </div>
+                    {touched.linkVideo && errors.linkVideo && (
+                      <div className="text-danger">{errors.linkVideo}</div>
+                    )}
+                  </div>
+                  <div className="form-group row mb-3">
+                    <label htmlFor="user" className="form-label">
+                      Último usuario que actualizó el recurso:
+                    </label>
+                    <div className="col-md-10">
+                      <h3>
+                        <span className="badge bg-success">
+                          {values.userName}
+                        </span>
+                      </h3>
+                      <span className="text-muted">
+                        Si actualiza o agrega un recurso, su nombre se verá en
+                        este campo
+                      </span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="form-group row mb-3">
-                <label htmlFor="title-videos" className="form-label">
-                  Título del vídeo:
-                </label>
-                <div className="col-md-10">
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="title-videos"
-                    name="titleVideo"
-                    placeholder="Título de referencia"
-                    value={formValues.titleVideo}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </div>
-              <div className="form-group row mb-3">
-                <label htmlFor="tema-videos" className="form-label">
-                  Sección del vídeo:
-                </label>
-                <div className="col-md-10">
-                  <select
-                    name="sectionId"
-                    id="tema-videos"
-                    className="form-select"
-                    value={formValues.sectionId}
-                    onChange={(e) => {
-                      setFormValues({
-                        ...formValues,
-                        sectionId: Number(e.target.value),
-                      });
+                <div className="modal-footer footer-administration">
+                  <button
+                    type="submit"
+                    className="btn btn-success"
+                    onClick={() => {
+                      setFormValues(values);
+                      setAction("update");
                     }}
                   >
-                    <option selected value={-1}>
-                      Selecciona el tema
-                    </option>
-                    {listSections.map((section) => (
-                      <option key={section.sectionId} value={section.sectionId}>
-                        {section.title}
-                      </option>
-                    ))}
-                  </select>
+                    Actualizar
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-secondary"
+                    onClick={() => {
+                      setFormValues(values);
+                      setAction("add");
+                    }}
+                  >
+                    Agregar
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-danger"
+                    onClick={() => {
+                      setFormValues(values);
+                      setAction("delete");
+                    }}
+                  >
+                    Eliminar
+                  </button>
                 </div>
               </div>
-              <div className="form-group row mb-3">
-                <label htmlFor="enlace-video" className="form-label">
-                  Enlace de YouTube:
-                </label>
-                <div className="col-md-10">
-                  <input
-                    type="url"
-                    className="form-control"
-                    id="enlace-video"
-                    name="linkVideo"
-                    placeholder="Enlace del vídeo"
-                    value={formValues.linkVideo}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </div>
-              <div className="form-group row mb-3">
-                <label htmlFor="user" className="form-label">
-                  Último usuario que actualizó el recurso:
-                </label>
-                <div className="col-md-10">
-                  <h3>
-                    <span className="badge bg-success">
-                      {formValues.userName}
-                    </span>
-                  </h3>
-                  <span className="text-muted">
-                    Si actualiza o agrega un recurso, su nombre se verá en este
-                    campo
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="modal-footer footer-administration">
-              <button
-                type="submit"
-                className="btn btn-success"
-                onClick={() => {
-                  setAction("update");
-                }}
-              >
-                Actualizar
-              </button>
-              <button
-                type="submit"
-                className="btn btn-secondary"
-                onClick={() => {
-                  setAction("add");
-                }}
-              >
-                Agregar
-              </button>
-              <button
-                type="submit"
-                className="btn btn-danger"
-                onClick={() => {
-                  setAction("delete");
-                }}
-              >
-                Eliminar
-              </button>
             </div>
           </div>
-        </div>
-      </div>
-    </form>
+        </form>
+      )}
+    </Formik>
   );
 };
