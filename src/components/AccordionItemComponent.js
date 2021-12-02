@@ -9,6 +9,7 @@ export const AccordionItem = ({
   listItemActive,
 }) => {
   const [currentVideo, setCurrentVideo] = useState(listItemActive);
+
   return (
     <div className="accordion-item">
       <h2 className="accordion-header" id={`item-${itemId}`}>
@@ -22,7 +23,7 @@ export const AccordionItem = ({
           aria-expanded={expanded}
           aria-controls={`collapse${itemId}`}
           onClick={() => {
-            window.location.assign(`#list-video-${currentVideo}`);
+            window.location.assign(`#list-video-${currentVideo}-${itemId}`);
           }}
         >
           {title}
@@ -40,14 +41,14 @@ export const AccordionItem = ({
       >
         <div className="accordion-body lessons-content-titles">
           <div id={`list-${itemId}`} className="list-group">
-            {listTitles.map((titleId) => (
+            {listTitles.map((titleId, index) => (
               <a
                 className={`list-group-item list-group-item-action ${
-                  titleId.videoId === currentVideo ? "active" : ""
+                  index === currentVideo ? "active" : ""
                 }`}
-                key={`list-key-${titleId.videoId}`}
-                href={`#list-video-${titleId.videoId}`}
-                onClick={() => setCurrentVideo(titleId.videoId)}
+                key={`list-key-${index}`}
+                href={`#list-video-${index}-${itemId}`}
+                onClick={() => setCurrentVideo(index)}
               >
                 {titleId.title}
               </a>

@@ -9,3 +9,8 @@
 .footer-administration {
   background-color: #202124;
 }
+
+.selector-administration {
+  height: 560px;
+  overflow: auto;
+}

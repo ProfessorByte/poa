@@ -28,15 +28,17 @@ export default function BibliografiaPage() {
         <Header />
         <HeaderBibliografia />
         <div className="container">
-          <div className="row">
-            <button
-              className="col-auto m-3 btn btn-primary"
-              data-bs-toggle="modal"
-              data-bs-target={`#${modalId}`}
-            >
-              Administrar
-            </button>
-          </div>
+          {status !== "loading" && (
+            <div className="row">
+              <button
+                className="col-auto m-3 btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target={`#${modalId}`}
+              >
+                Administrar
+              </button>
+            </div>
+          )}
         </div>
 
         <div className="wrapper-grid">
