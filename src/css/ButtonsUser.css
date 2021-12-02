@@ -1,7 +1,10 @@
 .contenedorb {
   font-family: "VCR_OSD_MONO_1";
   position: relative;
-  margin-left: 900px;
+  margin-left: 850px;
+}
+.contenedorbr {
+  padding-right: 0px;
 }
 #iconu {
   width: 50px;

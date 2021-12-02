@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import "../css/RegistroUsuarios.css";
 import { createNewUser } from "../server/api";
 
@@ -135,7 +136,7 @@ class RegistroComponente extends React.Component {
                 this.state.email,
                 this.state.password,
                 this.state.nombre
-              )}
+              ), <Link to="/poa" />}
             >
               Registrarse
             </Button>

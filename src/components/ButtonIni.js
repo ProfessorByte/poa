@@ -2,7 +2,6 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { useSigninCheck } from "reactfire";
 import { auth } from "../server/firebaseConfig";
-import BotonIcono from "./BotonIcono";
 const ButtonIni = () => {
   const { status, data } = useSigninCheck();
   const cerrarSesion = () => {
@@ -31,7 +30,7 @@ const ButtonIni = () => {
             : "Iniciar sesión"}
         </a>
       ) : (
-        <BotonIcono cerrarSesion={cerrarSesion} />
+        <div/>
       )}
     </div>
   );
