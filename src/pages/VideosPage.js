@@ -1,19 +1,38 @@
-import React from "react";
-import { useFirestoreCollectionData } from "reactfire";
+import React, { useState, useEffect } from "react";
+import { useFirestoreCollectionData, useSigninCheck } from "reactfire";
 import { Accordion } from "../components/AccordionComponent";
 import Footer from "../components/FooterRepositorio";
 import Header from "../components/HeaderVideos&Biblio";
 import { ModalAdministrarVideos } from "../components/ModalAdministrarVideos";
 import Videos from "../components/VideosComponent";
 import "../css/VideoPageStyles.css";
-import { getVideosQuery } from "../server/api";
+import { getEstadosNivs, getVideosQuery } from "../server/api";
 
 export const VideosPage = () => {
+  const [allowManage, setAllowManage] = useState(false);
+
   const { status, data: listSections } = useFirestoreCollectionData(
     getVideosQuery()
   );
 
   const modalId = "modal-videos";
+
+  const { status: statusUser, data: signInCheckResult } = useSigninCheck();
+
+  const getUserData = async () => {
+    if (statusUser !== "loading" && signInCheckResult.signedIn) {
+      const userDataQuery = await getEstadosNivs(signInCheckResult.user.uid);
+      userDataQuery.forEach((doc) => {
+        if (doc.data().role === "admin") {
+          setAllowManage(true);
+        }
+      });
+    }
+  };
+
+  useEffect(() => {
+    getUserData();
+  }, [statusUser]);
 
   return (
     <>
@@ -37,7 +56,7 @@ export const VideosPage = () => {
                   </p>
                 </div>
               </div>
-              {status !== "loading" && (
+              {status !== "loading" && allowManage && (
                 <div className="row">
                   <button
                     className="col-auto m-3 btn btn-primary"
