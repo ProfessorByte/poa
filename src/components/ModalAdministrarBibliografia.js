@@ -1,7 +1,7 @@
 import { addDoc, collection, deleteDoc, updateDoc } from "@firebase/firestore";
 import React, { useState } from "react";
 import { useUser } from "reactfire";
-import { Formik } from "formik";
+import { ErrorMessage, Formik } from "formik";
 import "../css/ModalAdminStyles.css";
 import {
   getCountBibliography,
@@ -13,7 +13,7 @@ import { db } from "../server/firebaseConfig";
 export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
   const defaultFormValues = {
     id: -1,
-    tituloReferncia: "",
+    tituloReferencia: "",
     temas: "",
     autor_NombrePagina: "",
     tipo: "",
@@ -92,8 +92,22 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
   };
 
   return (
-    <Formik>
+    <Formik> 
+     validate= {(formValues) =>{
+      let  errores = {};
+      if(!formValues.tituloReferencia){ 
+        errores.tituloReferencia = 'Porfavor ingrese el titúlo'
+      }
+       return errores;  
+      }}
+
+      onSubmit = {(valores) =>{
+        console.log('ya enviado');
+      }}
+ 
+    {( errors, handleBlur,handleChange) => ( 
      <form onSubmit={handleSubmit} >
+    
      <div className="modal fade" id={modalId} tabindex={-1} aria-hidden={true}>
         <div className="modal-dialog modal-lg">
           <div className="modal-content">
@@ -155,10 +169,12 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     id="title-bibliography"
                     name="tituloReferncia"
                     placeholder="Título de referencia"
-                    value={formValues.tituloReferncia}
-                    onChange={handleInputChange}
+                    value={formValues.tituloReferencia}
+                    onChange={handleChange} 
+                    onBlur={handleBlur}
                     required
                   />
+                  
                 </div>
               </div>
               <div className="form-group row mb-3">
@@ -174,6 +190,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     placeholder="Temas citados en el recurso bibliográfico"
                     value={formValues.temas}
                     onChange={handleInputChange}
+                    onBlur={handleBlur}
                     required
                   />
                 </div>
@@ -191,6 +208,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     placeholder="Autor/Nombre de la página"
                     value={formValues.autor_NombrePagina}
                     onChange={handleInputChange}
+                    onBlur={handleBlur}
                     required
                   />
                 </div>
@@ -205,6 +223,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     id="type-bibliography"
                     className="form-select"
                     value={formValues.tipo}
+                    onBlur={handleBlur}
                     onChange={(e) => {
                       setFormValues({ ...formValues, tipo: e.target.value });
                     }}
@@ -225,6 +244,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     placeholder="Otro tipo de recurso"
                     value={formValues.tipo}
                     onChange={handleInputChange}
+                    onBlur={handleBlur}
                     required
                   />
                 </div>
@@ -242,6 +262,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     placeholder="Enlace del recurso bibliográfico"
                     value={formValues.link}
                     onChange={handleInputChange}
+                    onBlur={handleBlur}
                     required
                   />
                 </div>
@@ -296,6 +317,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
         </div>
       </div>
      </form>
+     )}
     </Formik> 
   );
 };
