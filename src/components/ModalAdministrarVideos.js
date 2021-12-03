@@ -249,7 +249,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                         onBlur={handleBlur}
                         required
                       >
-                        <option defaultValue={-1}>Selecciona el tema</option>
+                        <option value={-1}>Selecciona el tema</option>
                         {listSections.map((section) => (
                           <option
                             key={section.sectionId}
