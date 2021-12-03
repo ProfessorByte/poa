@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import "../css/ButtonsUser.css";
+import { getEstadosNivs} from "../server/api";
+import { useSigninCheck } from "reactfire";
+
 /*import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";*/
 import Abeja from "../assets/Avatars_poa/abejitas.PNG";
@@ -15,7 +18,9 @@ import TocaDiscos from "../assets/Avatars_poa/TocaDiscos.PNG";
 import Torre from "../assets/Avatars_poa/Torre.PNG";
 import Rafael from "../assets/Avatars_poa/Tortuguita.PNG";
 import Platano from "../assets/images/platano.png";
+
 /*import cambiar from "./CambioIconos"*/
+
 const BotonIcono = ({ cerrarSesion }) => {
   const [icono, setIcono] = useState(Abeja);
   const imagenAleatoria = () => {
@@ -37,6 +42,26 @@ const BotonIcono = ({ cerrarSesion }) => {
     var azar = Math.floor(Math.random() * url.length);
     return url[azar];
   };
+  
+  const { status, data: signInCheckResult } = useSigninCheck();
+
+  const [userName, setUserName] = useState(""); 
+
+  const obtNameUsuario = async () => {
+    if (status !== "loading" && signInCheckResult.signedIn) {
+      const querySnapshot = await getEstadosNivs(signInCheckResult.user.uid);
+      let userName = "";
+      querySnapshot.forEach((estado) => {
+        userName = estado.data().name
+      });
+      setUserName(userName);
+    }
+  }
+
+  useEffect(() => {
+   obtNameUsuario();
+  }, [])
+
   return (
     <div className="dropdown dropstart">
       <button
@@ -53,6 +78,9 @@ const BotonIcono = ({ cerrarSesion }) => {
         className="dropdown-menu dropdown-menu-dark"
         aria-labelledby="dropdownMenuButton"
       >
+        {status !== "loading" && signInCheckResult.signedIn ? <a className="dropdown-item" >
+          {userName}
+        </a> : <div>Anónimo</div>}
         <a
           className="dropdown-item"
           href="#"
