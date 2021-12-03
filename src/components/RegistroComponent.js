@@ -51,17 +51,17 @@ class RegistroComponente extends React.Component {
             <label>Nombre</label>
             <Input
               type="text"
-              placeholder="Registre su Nombre"
+              placeholder="Registre su nombre"
               className="rounder-pill"
               onChange={this.handleChangeNombre}
               id="llenadoNombre"
             />
           </FormGroup>
           <FormGroup className="label">
-            <label>Correo Electronico</label>
+            <label>Correo electronico</label>
             <Input
               type="text"
-              placeholder="Registre su Correo"
+              placeholder="Registre su correo"
               className="rounder-pill"
               onChange={this.handleChangeEmail}
               id="llenadoCorreo"
@@ -79,7 +79,7 @@ class RegistroComponente extends React.Component {
               >
                 <Input
                   type={showPassword ? "text" : "password"}
-                  placeholder="Registre su Contraseña"
+                  placeholder="Registre su contraseña"
                   className="rounder-pill"
                   value={this.state.password}
                   onChange={this.handleChangePassword}
@@ -99,7 +99,7 @@ class RegistroComponente extends React.Component {
             </div>
           </FormGroup>
           <FormGroup className="label">
-            <label>Confirmar Contraseña:</label>
+            <label>Confirmar contraseña:</label>
             <div className="input-password">
               <div
                 className={
@@ -110,7 +110,7 @@ class RegistroComponente extends React.Component {
               >
                 <Input
                   type={showPassword1 ? "text" : "password"}
-                  placeholder="Verifique Su Contraseña"
+                  placeholder="Verifique su contraseña"
                   className="rounder-pill1"
                   id="llenadoConfir"
                 />
