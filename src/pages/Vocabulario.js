@@ -4,7 +4,43 @@ import "../css/Vocabulario.css"
 import FooterVocabulario from "../components/FooterRepositorio";
 import FrameVocabulario from "../components/Frame_Vocabulario";
 import { MDBCol, MDBIcon } from "mdbreact";
+import { getVocabularioQuery } from "../server/api";
+import { useFirestoreCollectionData } from "reactfire";
+import  DropdownVocabulario from "../components/DropdowOrden"
+
 export default function Vocabulario() {
+
+  let [listVocabulario, setListVocabulario] = useState([]);
+  const { status, data: cards } = useFirestoreCollectionData(
+    getVocabularioQuery()
+  );
+
+
+  useEffect(() => {
+    if (status !== "loading") {
+      setListVocabulario(cards);
+    }
+  }, [status, cards]);
+
+  function ordenarAlfabeticamente(){
+    if(status!=="loading"){
+      cards.sort((a , b) => {
+        if (a.titulo > b.titulo) return 1
+        if (a.titulo < b.titulo) return -1
+      })
+    }
+  }
+
+  function ordenarAlfabeticamenteDes(){
+    if(status!=="loading"){
+      cards.sort((a , b) => {
+        if (a.titulo < b.titulo) return 1
+        if (a.titulo > b.titulo) return -1
+      })
+    }
+  }
+  
+  
 
   return (
 
@@ -27,11 +63,12 @@ export default function Vocabulario() {
                     </span>
                   </div>
                   <input className="form-control form-control-lg " type="text" id="inputID" placeholder="Buscar"  aria-label="Search" />
+                  <DropdownVocabulario funcionAlfa={ordenarAlfabeticamente} funcionAlfaDes={ordenarAlfabeticamenteDes}/>
                 </div>
               </MDBCol>
               </div>
             <div>
-              <FrameVocabulario />
+              <FrameVocabulario listVocabulario={listVocabulario} status={status}/>
             </div>
             
           </div>
