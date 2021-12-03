@@ -109,9 +109,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
       errors.tituloReferencia = "El título solo puede contener letras, espacios y .,!?";
     }
 
-    if (Number(values.id) === -1) {
-      errors.id = "La sección es requerida";
-    }
+  
      
     if (!values.temas) {
       errors.temas= "El tema es requerido";
@@ -165,7 +163,9 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                 className="btn btn-dark"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-              />  
+              > 
+              X
+              </button> 
             </div>
             <div className="modal-body p-3 p-md-5 body-administration">
               <div className="row">
