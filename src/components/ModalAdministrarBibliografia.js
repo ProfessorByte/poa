@@ -91,22 +91,54 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
     }
     
   };
+  const handleValidations = (values) => {
+    let errors = {};
+    if (!values.tituloReferencia) {
+      errors.tituloReferencia= "El título es requerido";
+    } else if (!/^[a-zA-ZÀ-ÿ\s.,!?]{1,40}$/.test(values.tituloReferencia)){
+      errors.tituloReferencia = "El título solo puede contener letras, espacios y .,!?";
+    }
 
-  return (
-    <Formik> 
-     validate= {(formValues) =>{
-      let  errores = {};
-      if(!formValues.tituloReferencia){ 
-        errores.tituloReferencia = 'Porfavor ingrese el titúlo'
-      }
-       return errores;  
-      }}
-
-      onSubmit = {(valores) =>{
-        console.log('ya enviado');
-      }}
+    if (Number(values.id) === -1) {
+      errors.id = "La sección es requerida";
+    }
+     
+    if (!values.temas) {
+      errors.temas= "El tema es requerido";
+    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.temas)){
+      errors.temas = "El tema solo puede contener letras y espacios";
+    }
  
-    {( errors, handleBlur,handleChange) => ( 
+    if (!values.autor_NombrePagina) {
+      errors.autor_NombrePagina = "El autor/ nombre página es requerido";
+    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.autor_NombrePagina)){
+      errors.autor_NombrePagina = "El autor/ nombre página solo puede contener letras y espacios";
+    }
+
+    if (!/^[a-zA-ZÀ-ÿ]{1,20}$/.test(values.tipo)){
+      errors.autor_NombrePagina = "El tipo solo puede contener letras";
+    }
+     
+    if (!values.link) {
+      errors.link= "El tema es requerido";
+    }
+    return errors;
+  };
+  return (
+    <Formik
+    initialValues={formValues}
+    onSubmit={handleSubmit}
+    validate={handleValidations}
+    enableReinitialize={true}
+  >
+    {({
+      handleSubmit,
+      handleChange,
+      handleBlur,
+      values,
+      errors,
+      touched,
+    })=> ( 
      <form onSubmit={handleSubmit} >
     
      <div className="modal fade" id={modalId} tabindex={-1} aria-hidden={true}>
@@ -168,15 +200,17 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     type="text"
                     className="form-control"
                     id="title-bibliography"
-                    name="tituloReferncia"
+                    name="tituloReferencia"
                     placeholder="Título de referencia"
-                    value={formValues.tituloReferencia}
+                    value={values.tituloReferencia}
                     onChange={handleChange} 
                     onBlur={handleBlur}
                     required
-                  />
-                  
+                  /> 
                 </div>
+                {touched.tituloReferencia && errors.tituloReferencia && (
+                      <div className="text-danger">{errors.tituloReferencia}</div>
+                )}
               </div>
               <div className="form-group row mb-3">
                 <label htmlFor="topics-bibliography" className="form-label">
