@@ -1,6 +1,7 @@
 import { addDoc, collection, deleteDoc, updateDoc } from "@firebase/firestore";
 import React, { useState } from "react";
 import { useUser } from "reactfire";
+import { ErrorMessage, Formik } from "formik";
 import "../css/ModalAdminStyles.css";
 import {
   getCountBibliography,
@@ -12,7 +13,7 @@ import { db } from "../server/firebaseConfig";
 export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
   const defaultFormValues = {
     id: -1,
-    tituloReferncia: "",
+    tituloReferencia: "",
     temas: "",
     autor_NombrePagina: "",
     tipo: "",
@@ -88,11 +89,69 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
     } else if (action === "delete") {
       handleDelete();
     }
+    
   };
+  const validateWebUrl = (url) => {
+    if (url) {
+      var regExp =
+      /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
+      if (url.match(regExp)) {
+        return true;
+      }
+    }
+    return false;
+  };
+  const handleValidations = (values) => {
+    let errors = {};
+    if (!values.tituloReferencia) {
+      errors.tituloReferencia= "El título es requerido";
+    } else if (!/^[a-zA-ZÀ-ÿ\s.,!?]{1,80}$/.test(values.tituloReferencia)){
+      errors.tituloReferencia = "El título solo puede contener letras, espacios y .,!?";
+    }
 
+  
+     
+    if (!values.temas) {
+      errors.temas= "El tema es requerido";
+    } else if (!/^[a-zA-ZÀ-ÿ\s.,]{1,40}$/.test(values.temas)){
+      errors.temas = "El tema solo puede contener letras ,espacios y .,";
+    }
+ 
+    if (!values.autor_NombrePagina) {
+      errors.autor_NombrePagina = "El autor/ nombre página es requerido";
+    } else if (!/^[a-zA-ZÀ-ÿ\s.,]{1,40}$/.test(values.autor_NombrePagina)){
+      errors.autor_NombrePagina = "El autor/ nombre página solo puede contener letras y espacios";
+    }
+
+    if (!/^[a-zA-ZÀ-ÿ]{1,20}$/.test(values.tipo)){
+      errors.tipo = "El tipo solo puede contener letras";
+    }
+     
+    if (!values.link) {
+      errors.link = "El link es requerido";
+    } else if (!validateWebUrl(values.link)) {
+      errors.link = "Debe ingresar un link de sitio válido";
+    }
+    return errors;
+  };
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="modal fade" id={modalId} tabindex={-1} aria-hidden={true}>
+    <Formik
+    initialValues={formValues}
+    onSubmit={handleSubmit}
+    validate={handleValidations}
+    enableReinitialize={true}
+  >
+    {({
+      handleSubmit,
+      handleChange,
+      handleBlur,
+      values,
+      errors,
+      touched,
+    })=> ( 
+     <form onSubmit={handleSubmit} >
+    
+     <div className="modal fade" id={modalId} tabindex={-1} aria-hidden={true}>
         <div className="modal-dialog modal-lg">
           <div className="modal-content">
             <div className="modal-header header-administration">
@@ -104,9 +163,9 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                 className="btn btn-dark"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-              >
-                X
-              </button>
+              > 
+              X
+              </button> 
             </div>
             <div className="modal-body p-3 p-md-5 body-administration">
               <div className="row">
@@ -128,7 +187,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                           onClick={() => {
                             setFormValues({
                               id: card.id,
-                              tituloReferncia: card.tituloReferncia,
+                              tituloReferencia: card.tituloReferncia,
                               temas: card.temas,
                               autor_NombrePagina: card.autor_NombrePagina,
                               tipo: card.tipo,
@@ -153,13 +212,17 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     type="text"
                     className="form-control"
                     id="title-bibliography"
-                    name="tituloReferncia"
+                    name="tituloReferencia"
                     placeholder="Título de referencia"
-                    value={formValues.tituloReferncia}
-                    onChange={handleInputChange}
+                    value={values.tituloReferencia}
+                    onChange={handleChange} 
+                    onBlur={handleBlur}
                     required
-                  />
+                  /> 
                 </div>
+                {touched.tituloReferencia && errors.tituloReferencia && (
+                      <div className="text-danger">{errors.tituloReferencia}</div>
+                )}
               </div>
               <div className="form-group row mb-3">
                 <label htmlFor="topics-bibliography" className="form-label">
@@ -174,9 +237,13 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     placeholder="Temas citados en el recurso bibliográfico"
                     value={formValues.temas}
                     onChange={handleInputChange}
+                    onBlur={handleBlur}
                     required
                   />
                 </div>
+                {touched.temas && errors.temas && (
+                      <div className="text-danger">{errors.temas}</div>
+                )}
               </div>
               <div className="form-group row mb-3">
                 <label htmlFor="author-bibliography" className="form-label">
@@ -191,9 +258,13 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     placeholder="Autor/Nombre de la página"
                     value={formValues.autor_NombrePagina}
                     onChange={handleInputChange}
+                    onBlur={handleBlur}
                     required
                   />
                 </div>
+                {touched.autor_NombrePagina && errors.autor_NombrePagina && (
+                      <div className="text-danger">{errors.autor_NombrePagina}</div>
+                )}
               </div>
               <div className="form-group row mb-3">
                 <label htmlFor="type-bibliography" className="form-label">
@@ -205,6 +276,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     id="type-bibliography"
                     className="form-select"
                     value={formValues.tipo}
+                    onBlur={handleBlur}
                     onChange={(e) => {
                       setFormValues({ ...formValues, tipo: e.target.value });
                     }}
@@ -225,9 +297,13 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     placeholder="Otro tipo de recurso"
                     value={formValues.tipo}
                     onChange={handleInputChange}
+                    onBlur={handleBlur}
                     required
                   />
                 </div>
+                {touched.tipo && errors.tipo && (
+                      <div className="text-danger">{errors.tipo}</div>
+                )}
               </div>
               <div className="form-group row mb-3">
                 <label htmlFor="link-bibliography" className="form-label">
@@ -242,9 +318,13 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     placeholder="Enlace del recurso bibliográfico"
                     value={formValues.link}
                     onChange={handleInputChange}
+                    onBlur={handleBlur}
                     required
                   />
                 </div>
+                {touched.link && errors.link && (
+                      <div className="text-danger">{errors.link}</div>
+                )}
               </div>
               <div className="form-group row mb-3">
                 <label htmlFor="user-bibliography" className="form-label">
@@ -295,6 +375,8 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
           </div>
         </div>
       </div>
-    </form>
+     </form>
+     )}
+    </Formik> 
   );
 };
