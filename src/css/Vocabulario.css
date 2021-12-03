@@ -1,36 +1,40 @@
 .fondoVocabulario {
-   
-    display: flex;
-    background-image: url("../assets/images/fondoVocabulario.jpg");
-    background-size: 100% ;
-    flex-direction: column;
-    min-height: 100vh;
-   
-  }
-  @font-face {
-    font-family: "VCR_OSD_MONO_1";
-    src: url("../assets/fonts/VCR_OSD_MONO_1.001.ttf");
-  }
-  
-  .content-wrap {
-    flex: 1;
-  }
-  .input-group.md-form.form-sm.form-1 input {
-    border: 1px solid #bdbdbd;
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
-  }
-.ancho{
+  display: flex;
+  background-image: url("../assets/images/fondoVocabulario.jpg");
+  background-size: 100%;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@font-face {
+  font-family: "VCR_OSD_MONO_1";
+  src: url("../assets/fonts/VCR_OSD_MONO_1.001.ttf");
+}
+
+.content-wrap {
+  flex: 1;
+}
+
+.input-group.md-form.form-sm.form-1 input {
+  border: 1px solid #bdbdbd;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.ancho {
   width: 80vw;
-}  
+}
+
 #inputID::placeholder {
-  color:white;
+  color: white;
   opacity: 1;
 }
-.form-control:not(active){
+
+/*.form-control:not(active){
   color:white;
 }
 
 .form-control:focus{
   color:black;
 }
+*/
