@@ -46,3 +46,7 @@ export const getSectionsQuery = async (id) => {
   );
   return docs;
 };
+
+export const getVocabularioQuery = () => {
+  return query(collection(db, "vocabulario"), orderBy("id"));
+};
