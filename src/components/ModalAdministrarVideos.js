@@ -125,8 +125,9 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
     let errors = {};
     if (!values.titleVideo) {
       errors.titleVideo = "El título es requerido";
-    } else if (!/^[a-zA-ZÀ-ÿ\s.,!?]{1,40}$/.test(values.titleVideo)){
-      errors.titleVideo = "El título solo puede contener letras, espacios y .,!?";
+    } else if (!/^[a-zA-ZÀ-ÿ\s.,!?]{1,40}$/.test(values.titleVideo)) {
+      errors.titleVideo =
+        "El título solo puede contener letras, espacios y .,!?";
     }
 
     if (Number(values.sectionId) === -1) {
@@ -180,7 +181,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                 </div>
                 <div className="modal-body p-3 p-md-5 body-administration">
                   <div className="row">
-                    <div className="dropdown d-grid gap-2 col-10 mb-3">
+                    <div className="dropdown d-grid gap-2 col-12 mb-3">
                       <button
                         type="button"
                         className="btn btn-primary dropdown-toggle"
@@ -220,7 +221,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                     <label htmlFor="title-videos" className="form-label">
                       Título del vídeo:
                     </label>
-                    <div className="col-md-10">
+                    <div className="col-12">
                       <input
                         type="text"
                         className="form-control"
@@ -241,7 +242,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                     <label htmlFor="tema-videos" className="form-label">
                       Sección del vídeo:
                     </label>
-                    <div className="col-md-10">
+                    <div className="col-12">
                       <select
                         name="sectionId"
                         id="tema-videos"
@@ -270,7 +271,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                     <label htmlFor="enlace-video" className="form-label">
                       Enlace de YouTube:
                     </label>
-                    <div className="col-md-10">
+                    <div className="col-12">
                       <input
                         type="url"
                         className="form-control"
@@ -291,7 +292,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                     <label htmlFor="user" className="form-label">
                       Último usuario que actualizó el recurso:
                     </label>
-                    <div className="col-md-10">
+                    <div className="col-12">
                       <h3>
                         <span className="badge bg-success">
                           {values.userName}

@@ -89,12 +89,11 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
     } else if (action === "delete") {
       handleDelete();
     }
-    
   };
   const validateWebUrl = (url) => {
     if (url) {
       var regExp =
-      /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
+        /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
       if (url.match(regExp)) {
         return true;
       }
@@ -104,29 +103,29 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
   const handleValidations = (values) => {
     let errors = {};
     if (!values.tituloReferencia) {
-      errors.tituloReferencia= "El título es requerido";
-    } else if (!/^[a-zA-ZÀ-ÿ\s.,!?]{1,80}$/.test(values.tituloReferencia)){
-      errors.tituloReferencia = "El título solo puede contener letras, espacios y .,!?";
+      errors.tituloReferencia = "El título es requerido";
+    } else if (!/^[a-zA-ZÀ-ÿ\s.,!?]{1,80}$/.test(values.tituloReferencia)) {
+      errors.tituloReferencia =
+        "El título solo puede contener letras, espacios y .,!?";
     }
 
-  
-     
     if (!values.temas) {
-      errors.temas= "El tema es requerido";
-    } else if (!/^[a-zA-ZÀ-ÿ\s.,]{1,40}$/.test(values.temas)){
+      errors.temas = "El tema es requerido";
+    } else if (!/^[a-zA-ZÀ-ÿ\s.,]{1,40}$/.test(values.temas)) {
       errors.temas = "El tema solo puede contener letras ,espacios y .,";
     }
- 
+
     if (!values.autor_NombrePagina) {
       errors.autor_NombrePagina = "El autor/ nombre página es requerido";
-    } else if (!/^[a-zA-ZÀ-ÿ\s.,]{1,40}$/.test(values.autor_NombrePagina)){
-      errors.autor_NombrePagina = "El autor/ nombre página solo puede contener letras y espacios";
+    } else if (!/^[a-zA-ZÀ-ÿ\s.,]{1,40}$/.test(values.autor_NombrePagina)) {
+      errors.autor_NombrePagina =
+        "El autor/ nombre página solo puede contener letras y espacios";
     }
 
-    if (!/^[a-zA-ZÀ-ÿ]{1,20}$/.test(values.tipo)){
+    if (!/^[a-zA-ZÀ-ÿ]{1,20}$/.test(values.tipo)) {
       errors.tipo = "El tipo solo puede contener letras";
     }
-     
+
     if (!values.link) {
       errors.link = "El link es requerido";
     } else if (!validateWebUrl(values.link)) {
@@ -136,247 +135,257 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
   };
   return (
     <Formik
-    initialValues={formValues}
-    onSubmit={handleSubmit}
-    validate={handleValidations}
-    enableReinitialize={true}
-  >
-    {({
-      handleSubmit,
-      handleChange,
-      handleBlur,
-      values,
-      errors,
-      touched,
-    })=> ( 
-     <form onSubmit={handleSubmit} >
-    
-     <div className="modal fade" id={modalId} tabindex={-1} aria-hidden={true}>
-        <div className="modal-dialog modal-lg">
-          <div className="modal-content">
-            <div className="modal-header header-administration">
-              <h5 className="modal-title title-administration">
-                Actualizar contenido de bibliografía
-              </h5>
-              <button
-                type="button"
-                className="btn btn-dark"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              > 
-              X
-              </button> 
-            </div>
-            <div className="modal-body p-3 p-md-5 body-administration">
-              <div className="row">
-                <div className="dropdown d-grid gap-2 col-10 mb-3">
+      initialValues={formValues}
+      onSubmit={handleSubmit}
+      validate={handleValidations}
+      enableReinitialize={true}
+    >
+      {({
+        handleSubmit,
+        handleChange,
+        handleBlur,
+        values,
+        errors,
+        touched,
+      }) => (
+        <form onSubmit={handleSubmit}>
+          <div
+            className="modal fade"
+            id={modalId}
+            tabIndex={-1}
+            aria-hidden={true}
+          >
+            <div className="modal-dialog modal-lg">
+              <div className="modal-content">
+                <div className="modal-header header-administration">
+                  <h5 className="modal-title title-administration">
+                    Actualizar contenido de bibliografía
+                  </h5>
                   <button
                     type="button"
-                    className="btn btn-primary dropdown-toggle"
-                    data-bs-toggle="dropdown"
-                    aria-expanded={false}
+                    className="btn btn-dark"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
                   >
-                    Selecciona un recurso bibliográfico
+                    X
                   </button>
-                  <ul className="dropdown-menu col-12 selector-administration">
-                    {listCards.map((card) => (
-                      <li key={card.id}>
-                        <button
-                          type="button"
-                          className="dropdown-item"
-                          onClick={() => {
-                            setFormValues({
-                              id: card.id,
-                              tituloReferencia: card.tituloReferncia,
-                              temas: card.temas,
-                              autor_NombrePagina: card.autor_NombrePagina,
-                              tipo: card.tipo,
-                              link: card.link,
-                              lastUser: card.lastUser,
-                            });
-                          }}
-                        >
-                          {card.tituloReferncia}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-              </div>
-              <div className="form-group row mb-3">
-                <label htmlFor="title-bibliography" className="form-label">
-                  Título de referencia:
-                </label>
-                <div className="col-md-10">
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="title-bibliography"
-                    name="tituloReferencia"
-                    placeholder="Título de referencia"
-                    value={values.tituloReferencia}
-                    onChange={handleChange} 
-                    onBlur={handleBlur}
-                    required
-                  /> 
-                </div>
-                {touched.tituloReferencia && errors.tituloReferencia && (
-                      <div className="text-danger">{errors.tituloReferencia}</div>
-                )}
-              </div>
-              <div className="form-group row mb-3">
-                <label htmlFor="topics-bibliography" className="form-label">
-                  Temas:
-                </label>
-                <div className="col-md-10">
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="topics-bibliography"
-                    name="temas"
-                    placeholder="Temas citados en el recurso bibliográfico"
-                    value={formValues.temas}
-                    onChange={handleInputChange}
-                    onBlur={handleBlur}
-                    required
-                  />
-                </div>
-                {touched.temas && errors.temas && (
+                <div className="modal-body p-3 p-md-5 body-administration">
+                  <div className="row">
+                    <div className="dropdown d-grid gap-2 col-12 mb-3">
+                      <button
+                        type="button"
+                        className="btn btn-primary dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded={false}
+                      >
+                        Selecciona un recurso bibliográfico
+                      </button>
+                      <ul className="dropdown-menu col-12 selector-administration">
+                        {listCards.map((card) => (
+                          <li key={card.id}>
+                            <button
+                              type="button"
+                              className="dropdown-item"
+                              onClick={() => {
+                                setFormValues({
+                                  id: card.id,
+                                  tituloReferencia: card.tituloReferncia,
+                                  temas: card.temas,
+                                  autor_NombrePagina: card.autor_NombrePagina,
+                                  tipo: card.tipo,
+                                  link: card.link,
+                                  lastUser: card.lastUser,
+                                });
+                              }}
+                            >
+                              {card.tituloReferncia}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="form-group row mb-3">
+                    <label htmlFor="title-bibliography" className="form-label">
+                      Título de referencia:
+                    </label>
+                    <div className="col-12">
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="title-bibliography"
+                        name="tituloReferencia"
+                        placeholder="Título de referencia"
+                        value={values.tituloReferencia}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        required
+                      />
+                    </div>
+                    {touched.tituloReferencia && errors.tituloReferencia && (
+                      <div className="text-danger">
+                        {errors.tituloReferencia}
+                      </div>
+                    )}
+                  </div>
+                  <div className="form-group row mb-3">
+                    <label htmlFor="topics-bibliography" className="form-label">
+                      Temas:
+                    </label>
+                    <div className="col-12">
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="topics-bibliography"
+                        name="temas"
+                        placeholder="Temas citados en el recurso bibliográfico"
+                        value={formValues.temas}
+                        onChange={handleInputChange}
+                        onBlur={handleBlur}
+                        required
+                      />
+                    </div>
+                    {touched.temas && errors.temas && (
                       <div className="text-danger">{errors.temas}</div>
-                )}
-              </div>
-              <div className="form-group row mb-3">
-                <label htmlFor="author-bibliography" className="form-label">
-                  Autor/Nombre de la página:
-                </label>
-                <div className="col-md-10">
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="author-bibliography"
-                    name="autor_NombrePagina"
-                    placeholder="Autor/Nombre de la página"
-                    value={formValues.autor_NombrePagina}
-                    onChange={handleInputChange}
-                    onBlur={handleBlur}
-                    required
-                  />
+                    )}
+                  </div>
+                  <div className="form-group row mb-3">
+                    <label htmlFor="author-bibliography" className="form-label">
+                      Autor/Nombre de la página:
+                    </label>
+                    <div className="col-12">
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="author-bibliography"
+                        name="autor_NombrePagina"
+                        placeholder="Autor/Nombre de la página"
+                        value={formValues.autor_NombrePagina}
+                        onChange={handleInputChange}
+                        onBlur={handleBlur}
+                        required
+                      />
+                    </div>
+                    {touched.autor_NombrePagina &&
+                      errors.autor_NombrePagina && (
+                        <div className="text-danger">
+                          {errors.autor_NombrePagina}
+                        </div>
+                      )}
+                  </div>
+                  <div className="form-group row mb-3">
+                    <label htmlFor="type-bibliography" className="form-label">
+                      Tipo:
+                    </label>
+                    <div className="col-8">
+                      <select
+                        name="type-bibliography"
+                        id="type-bibliography"
+                        className="form-select"
+                        value={formValues.tipo}
+                        onBlur={handleBlur}
+                        onChange={(e) => {
+                          setFormValues({
+                            ...formValues,
+                            tipo: e.target.value,
+                          });
+                        }}
+                      >
+                        <option value="">Selecciona el tipo del recurso</option>
+                        <option value="PDF">PDF</option>
+                        <option value="Página Web">Página Web</option>
+                      </select>
+                    </div>
+                    <div className="col-4">
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="type-bibliography"
+                        name="tipo"
+                        placeholder="Otro tipo de recurso"
+                        value={formValues.tipo}
+                        onChange={handleInputChange}
+                        onBlur={handleBlur}
+                        required
+                      />
+                    </div>
+                    {touched.tipo && errors.tipo && (
+                      <div className="text-danger">{errors.tipo}</div>
+                    )}
+                  </div>
+                  <div className="form-group row mb-3">
+                    <label htmlFor="link-bibliography" className="form-label">
+                      Enlace:
+                    </label>
+                    <div className="col-12">
+                      <input
+                        type="url"
+                        className="form-control"
+                        id="link-bibliography"
+                        name="link"
+                        placeholder="Enlace del recurso bibliográfico"
+                        value={formValues.link}
+                        onChange={handleInputChange}
+                        onBlur={handleBlur}
+                        required
+                      />
+                    </div>
+                    {touched.link && errors.link && (
+                      <div className="text-danger">{errors.link}</div>
+                    )}
+                  </div>
+                  <div className="form-group row mb-3">
+                    <label htmlFor="user-bibliography" className="form-label">
+                      Último usuario que actualizó el recurso:
+                    </label>
+                    <div className="col-12">
+                      <h3>
+                        <span className="badge bg-success">
+                          {formValues.lastUser}
+                        </span>
+                      </h3>
+                      <span className="text-muted">
+                        Si actualiza o agrega un recurso, su nombre se verá en
+                        este campo
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                {touched.autor_NombrePagina && errors.autor_NombrePagina && (
-                      <div className="text-danger">{errors.autor_NombrePagina}</div>
-                )}
-              </div>
-              <div className="form-group row mb-3">
-                <label htmlFor="type-bibliography" className="form-label">
-                  Tipo:
-                </label>
-                <div className="col-6 col-md-6">
-                  <select
-                    name="type-bibliography"
-                    id="type-bibliography"
-                    className="form-select"
-                    value={formValues.tipo}
-                    onBlur={handleBlur}
-                    onChange={(e) => {
-                      setFormValues({ ...formValues, tipo: e.target.value });
+                <div className="modal-footer footer-administration">
+                  <button
+                    type="submit"
+                    className="btn btn-success"
+                    onClick={() => {
+                      setAction("update");
                     }}
                   >
-                    <option selected value="">
-                      Selecciona el tipo del recurso
-                    </option>
-                    <option value="PDF">PDF</option>
-                    <option value="Página Web">Página Web</option>
-                  </select>
-                </div>
-                <div className="col-6 col-md-4">
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="type-bibliography"
-                    name="tipo"
-                    placeholder="Otro tipo de recurso"
-                    value={formValues.tipo}
-                    onChange={handleInputChange}
-                    onBlur={handleBlur}
-                    required
-                  />
-                </div>
-                {touched.tipo && errors.tipo && (
-                      <div className="text-danger">{errors.tipo}</div>
-                )}
-              </div>
-              <div className="form-group row mb-3">
-                <label htmlFor="link-bibliography" className="form-label">
-                  Enlace:
-                </label>
-                <div className="col-md-10">
-                  <input
-                    type="url"
-                    className="form-control"
-                    id="link-bibliography"
-                    name="link"
-                    placeholder="Enlace del recurso bibliográfico"
-                    value={formValues.link}
-                    onChange={handleInputChange}
-                    onBlur={handleBlur}
-                    required
-                  />
-                </div>
-                {touched.link && errors.link && (
-                      <div className="text-danger">{errors.link}</div>
-                )}
-              </div>
-              <div className="form-group row mb-3">
-                <label htmlFor="user-bibliography" className="form-label">
-                  Último usuario que actualizó el recurso:
-                </label>
-                <div className="col-md-10">
-                  <h3>
-                    <span className="badge bg-success">
-                      {formValues.lastUser}
-                    </span>
-                  </h3>
-                  <span className="text-muted">
-                    Si actualiza o agrega un recurso, su nombre se verá en este
-                    campo
-                  </span>
+                    Actualizar
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-secondary"
+                    onClick={() => {
+                      setAction("add");
+                    }}
+                  >
+                    Agregar
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-danger"
+                    onClick={() => {
+                      setAction("delete");
+                    }}
+                  >
+                    Eliminar
+                  </button>
                 </div>
               </div>
-            </div>
-            <div className="modal-footer footer-administration">
-              <button
-                type="submit"
-                className="btn btn-success"
-                onClick={() => {
-                  setAction("update");
-                }}
-              >
-                Actualizar
-              </button>
-              <button
-                type="submit"
-                className="btn btn-secondary"
-                onClick={() => {
-                  setAction("add");
-                }}
-              >
-                Agregar
-              </button>
-              <button
-                type="submit"
-                className="btn btn-danger"
-                onClick={() => {
-                  setAction("delete");
-                }}
-              >
-                Eliminar
-              </button>
             </div>
           </div>
-        </div>
-      </div>
-     </form>
-     )}
-    </Formik> 
+        </form>
+      )}
+    </Formik>
   );
 };

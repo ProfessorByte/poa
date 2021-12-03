@@ -128,7 +128,7 @@ export const ModalAdministrarVocabulario = ({
                 </div>
                 <div className="modal-body p-3 p-md-5 body-administration">
                   <div className="row">
-                    <div className="dropdown d-grid gap-2 col-10 mb-3">
+                    <div className="dropdown d-grid gap-2 col-12 mb-3">
                       <button
                         type="button"
                         className="btn btn-primary dropdown-toggle"
@@ -164,7 +164,7 @@ export const ModalAdministrarVocabulario = ({
                     <label htmlFor="inputWord" className="form-label">
                       Palabra:
                     </label>
-                    <div className="col-md-10">
+                    <div className="col-12">
                       <input
                         type="text"
                         className="form-control"
@@ -185,7 +185,7 @@ export const ModalAdministrarVocabulario = ({
                     <label htmlFor="wordDescription" className="form-label">
                       Descripción:
                     </label>
-                    <div className="col-md-10">
+                    <div className="col-12">
                       <textarea
                         className="form-control"
                         id="wordDescription"
@@ -208,7 +208,7 @@ export const ModalAdministrarVocabulario = ({
                     <label htmlFor="topicWord" className="form-label">
                       Tema:
                     </label>
-                    <div className="col-md-10">
+                    <div className="col-12">
                       <select
                         id="topicWord"
                         name="topicWord"
@@ -240,7 +240,7 @@ export const ModalAdministrarVocabulario = ({
                     <label htmlFor="user" className="form-label">
                       Último usuario que actualizó el recurso:
                     </label>
-                    <div className="col-md-10">
+                    <div className="col-12">
                       <h3>
                         <span className="badge bg-success">
                           {values.lastUser}
