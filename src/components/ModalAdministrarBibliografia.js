@@ -91,11 +91,21 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
     }
     
   };
+  const validateWebUrl = (url) => {
+    if (url) {
+      var regExp =
+      /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
+      if (url.match(regExp)) {
+        return true;
+      }
+    }
+    return false;
+  };
   const handleValidations = (values) => {
     let errors = {};
     if (!values.tituloReferencia) {
       errors.tituloReferencia= "El título es requerido";
-    } else if (!/^[a-zA-ZÀ-ÿ\s.,!?]{1,40}$/.test(values.tituloReferencia)){
+    } else if (!/^[a-zA-ZÀ-ÿ\s.,!?]{1,80}$/.test(values.tituloReferencia)){
       errors.tituloReferencia = "El título solo puede contener letras, espacios y .,!?";
     }
 
@@ -105,22 +115,24 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
      
     if (!values.temas) {
       errors.temas= "El tema es requerido";
-    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.temas)){
-      errors.temas = "El tema solo puede contener letras y espacios";
+    } else if (!/^[a-zA-ZÀ-ÿ\s.,]{1,40}$/.test(values.temas)){
+      errors.temas = "El tema solo puede contener letras ,espacios y .,";
     }
  
     if (!values.autor_NombrePagina) {
       errors.autor_NombrePagina = "El autor/ nombre página es requerido";
-    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.autor_NombrePagina)){
+    } else if (!/^[a-zA-ZÀ-ÿ\s.,]{1,40}$/.test(values.autor_NombrePagina)){
       errors.autor_NombrePagina = "El autor/ nombre página solo puede contener letras y espacios";
     }
 
     if (!/^[a-zA-ZÀ-ÿ]{1,20}$/.test(values.tipo)){
-      errors.autor_NombrePagina = "El tipo solo puede contener letras";
+      errors.tipo = "El tipo solo puede contener letras";
     }
      
     if (!values.link) {
-      errors.link= "El tema es requerido";
+      errors.link = "El link es requerido";
+    } else if (!validateWebUrl(values.link)) {
+      errors.link = "Debe ingresar un link de sitio válido";
     }
     return errors;
   };
@@ -175,7 +187,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                           onClick={() => {
                             setFormValues({
                               id: card.id,
-                              tituloReferncia: card.tituloReferncia,
+                              tituloReferencia: card.tituloReferncia,
                               temas: card.temas,
                               autor_NombrePagina: card.autor_NombrePagina,
                               tipo: card.tipo,
@@ -229,6 +241,9 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     required
                   />
                 </div>
+                {touched.temas && errors.temas && (
+                      <div className="text-danger">{errors.temas}</div>
+                )}
               </div>
               <div className="form-group row mb-3">
                 <label htmlFor="author-bibliography" className="form-label">
@@ -247,6 +262,9 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     required
                   />
                 </div>
+                {touched.autor_NombrePagina && errors.autor_NombrePagina && (
+                      <div className="text-danger">{errors.autor_NombrePagina}</div>
+                )}
               </div>
               <div className="form-group row mb-3">
                 <label htmlFor="type-bibliography" className="form-label">
@@ -283,6 +301,9 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     required
                   />
                 </div>
+                {touched.tipo && errors.tipo && (
+                      <div className="text-danger">{errors.tipo}</div>
+                )}
               </div>
               <div className="form-group row mb-3">
                 <label htmlFor="link-bibliography" className="form-label">
@@ -301,6 +322,9 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     required
                   />
                 </div>
+                {touched.link && errors.link && (
+                      <div className="text-danger">{errors.link}</div>
+                )}
               </div>
               <div className="form-group row mb-3">
                 <label htmlFor="user-bibliography" className="form-label">
