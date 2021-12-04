@@ -111,7 +111,7 @@ export default function Vocabulario() {
                             <div className="input-group md-form form-sm form-lg form-1 pl-0 ancho">
                                 <div className="input-group-prepend">
                                     <span
-                                        className="input-group-text purple "
+                                        className="input-group-text purple-vocabulario "
                                         id="basic-text1"
                                     >
                                         <MDBIcon
