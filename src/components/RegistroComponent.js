@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import "../css/RegistroUsuarios.css";
-import { createNewUser } from "../server/api";
+import { addUsers } from "../server/api";
 
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 const iniState = {
   password: "",
   passwordError: "",
@@ -20,7 +21,9 @@ class RegistroComponente extends React.Component {
       email: "",
       nombre: "",
       password: "",
+      confirmPassword: "",
       passwordError: "",
+      error: "",
     };
   }
   togglePasswordVisibility = () => {
@@ -34,11 +37,45 @@ class RegistroComponente extends React.Component {
   handleChangePassword = (event) => {
     this.setState({ password: event.target.value });
   };
+  handleChangeConfirmPassword = (event) => {
+    this.setState({ confirmPassword: event.target.value });
+  };
   handleChangeEmail = (event) => {
     this.setState({ email: event.target.value });
   };
   handleChangeNombre = (event) => {
     this.setState({ nombre: event.target.value });
+  };
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    if (this.state.password !== this.state.confirmPassword) {
+      alert("Contraseñas Distintas");
+      //this.state.error = "Contraseñas Distintas";
+    } else if (this.state.password.length < 6) {
+      //this.state.error = "Contraseña demaciado corta";
+      alert("Contraseña demaciado corta");
+    } else {
+      const auth = getAuth();
+      let flag = false;
+      createUserWithEmailAndPassword(
+        auth,
+        this.state.email,
+        this.state.password
+      )
+        .then(async (userCredential) => {
+          flag = true;
+          const user = userCredential.user;
+          await addUsers(this.state.nombre, user.uid);
+          window.location.assign("/poa");
+        })
+        .catch((error) => {
+          //this.state.error = "El correo ya esta registrado, ingresa otro";
+          alert("El correo ya esta registrado, ingresa otro");
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorMessage, errorCode);
+        });
+    }
   };
   render() {
     const { showPassword } = this.state;
@@ -55,6 +92,7 @@ class RegistroComponente extends React.Component {
               className="rounder-pill"
               onChange={this.handleChangeNombre}
               id="llenadoNombre"
+              required
             />
           </FormGroup>
           <FormGroup className="label">
@@ -65,6 +103,7 @@ class RegistroComponente extends React.Component {
               className="rounder-pill"
               onChange={this.handleChangeEmail}
               id="llenadoCorreo"
+              required
             />
           </FormGroup>
           <FormGroup className="label">
@@ -84,6 +123,7 @@ class RegistroComponente extends React.Component {
                   value={this.state.password}
                   onChange={this.handleChangePassword}
                   id="llenadoContra"
+                  required
                 />
               </div>
               <FontAwesomeIcon
@@ -112,7 +152,10 @@ class RegistroComponente extends React.Component {
                   type={showPassword1 ? "text" : "password"}
                   placeholder="Verifique Su Contraseña"
                   className="rounder-pill1"
+                  value={this.state.confirmPassword}
+                  onChange={this.handleChangeConfirmPassword}
                   id="llenadoConfir"
+                  required
                 />
               </div>
               <FontAwesomeIcon
@@ -132,14 +175,10 @@ class RegistroComponente extends React.Component {
               type="submit"
               className="btn btn-light btn-lg rounded-pill"
               id="botonregistro"
-              onClick={createNewUser(
-                this.state.email,
-                this.state.password,
-                this.state.nombre
-              ), <Link to="/poa" />}
             >
               Registrarse
             </Button>
+            <h1>{this.state.error}</h1>
           </div>
         </div>
       </Form>
