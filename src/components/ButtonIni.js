@@ -2,6 +2,7 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { useSigninCheck } from "reactfire";
 import { auth } from "../server/firebaseConfig";
+import "../css/ButtonsUser.css"
 const ButtonIni = () => {
   const { status, data } = useSigninCheck();
   const cerrarSesion = () => {
