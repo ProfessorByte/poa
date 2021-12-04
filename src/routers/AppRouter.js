@@ -9,6 +9,7 @@ import Repositorio from "../pages/Repositorio";
 import { VideosPage } from "../pages/VideosPage";
 import RecuperarContraPage from "../pages/RecuperarContraPage";
 import Vocabulario from "../pages/Vocabulario";
+import RegistroUsuarios from "../pages/RegistroUsuarios";
 
 export default function AppRouter() {
   const { status, data } = useSigninCheck();
@@ -35,6 +36,8 @@ export default function AppRouter() {
           ) : (
             <LogIn />
           )}
+        </Route>
+        <Route exact path="/registro" component={RegistroUsuarios}> 
         </Route>
         <Route exact path="/poa/bibliografia" component={BibliografiaPage} />
         <Route exact path="/poa/Historia" component={Historia} />

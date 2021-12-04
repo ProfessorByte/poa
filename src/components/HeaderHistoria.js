@@ -3,6 +3,7 @@ import "../css/HeaderMain.css";
 import Logo from "../assets/images/logo1.png";
 import ButtonIni from "./ButtonIni";
 import { ButtonBack } from "./ButtonBackComponent";
+import ButtonRegis from "./ButtonRegis";
 export default class Header extends Component {
   render() {
     return (
@@ -14,6 +15,7 @@ export default class Header extends Component {
               <img id="logo" src={Logo} width="150px" alt="" />
             </a>
             <ButtonIni />
+            <ButtonRegis/>
           </div>
         </nav>
       </>
