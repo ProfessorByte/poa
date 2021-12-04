@@ -13,9 +13,16 @@ export default function FrameVocabulario({listVocabulario,status}){
             <Card_Vocabulario titulo="Cargando..." descripcion="Cargando..." />
           </div>
         ) : (
-            listVocabulario.map((card) => (
+            listVocabulario.filter((card) => {
+              if(props.searchTerm ==""){
+                return card
+              }else if (card.titulo.toLowerCase().includes(props.searchTerm.toLowerCase())){
+                return card
+              }
+            }).map((card) => (
               <div key={card.id} className="container-fluid">
               <Card_Vocabulario
+
                 titulo={card.titulo}
                 descripcion={card.descripcion}
               />
