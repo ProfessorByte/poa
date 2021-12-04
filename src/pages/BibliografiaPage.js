@@ -6,6 +6,10 @@ import React, { useState, useEffect } from "react";
 import { getBibliographyQuery, getEstadosNivs } from "../server/api";
 import { useFirestoreCollectionData, useSigninCheck } from "reactfire";
 import { ModalAdministrarBibliografia } from "../components/ModalAdministrarBibliografia";
+import { addDoc, collection } from "@firebase/firestore";
+import { VIDEOS } from "../consts/videosDefault";
+import { db } from "../server/firebaseConfig";
+import { BIBLIOGRAFIA } from "../consts/bibliographyDefault";
 
 export default function BibliografiaPage() {
   const [allowManage, setAllowManage] = useState(false);
@@ -63,13 +67,13 @@ export default function BibliografiaPage() {
         <div className="wrapper-grid">
           {status === "loading" ? (
             <div className="container_cards">
-              <Cards tituloReferncia="Cargando..." link="#" />
+              <Cards tituloReferencia="Cargando..." link="#" />
             </div>
           ) : (
             listCards.map((card) => (
               <div key={card.id} className="container_cards">
                 <Cards
-                  tituloReferncia={card.tituloReferncia}
+                  tituloReferencia={card.tituloReferencia}
                   autor_NombrePagina={card.autor_NombrePagina}
                   temas={card.temas}
                   tipo={card.tipo}

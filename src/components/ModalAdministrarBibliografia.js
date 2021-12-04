@@ -1,7 +1,7 @@
 import { addDoc, collection, deleteDoc, updateDoc } from "@firebase/firestore";
 import React, { useState } from "react";
 import { useUser } from "reactfire";
-import { ErrorMessage, Formik } from "formik";
+import { Formik } from "formik";
 import "../css/ModalAdminStyles.css";
 import {
   getCountBibliography,
@@ -80,8 +80,8 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
     }
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = () => {
+    console.log(action);
     if (action === "update") {
       handleUpdate();
     } else if (action === "add") {
@@ -90,6 +90,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
       handleDelete();
     }
   };
+
   const validateWebUrl = (url) => {
     if (url) {
       var regExp =
@@ -100,6 +101,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
     }
     return false;
   };
+
   const handleValidations = (values) => {
     let errors = {};
     if (!values.tituloReferencia) {
@@ -133,6 +135,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
     }
     return errors;
   };
+
   return (
     <Formik
       initialValues={formValues}
@@ -190,7 +193,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                               onClick={() => {
                                 setFormValues({
                                   id: card.id,
-                                  tituloReferencia: card.tituloReferncia,
+                                  tituloReferencia: card.tituloReferencia,
                                   temas: card.temas,
                                   autor_NombrePagina: card.autor_NombrePagina,
                                   tipo: card.tipo,
@@ -199,7 +202,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                                 });
                               }}
                             >
-                              {card.tituloReferncia}
+                              {card.tituloReferencia}
                             </button>
                           </li>
                         ))}
@@ -240,8 +243,8 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                         id="topics-bibliography"
                         name="temas"
                         placeholder="Temas citados en el recurso bibliográfico"
-                        value={formValues.temas}
-                        onChange={handleInputChange}
+                        value={values.temas}
+                        onChange={handleChange}
                         onBlur={handleBlur}
                         required
                       />
@@ -261,8 +264,8 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                         id="author-bibliography"
                         name="autor_NombrePagina"
                         placeholder="Autor/Nombre de la página"
-                        value={formValues.autor_NombrePagina}
-                        onChange={handleInputChange}
+                        value={values.autor_NombrePagina}
+                        onChange={handleChange}
                         onBlur={handleBlur}
                         required
                       />
@@ -278,16 +281,15 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     <label htmlFor="type-bibliography" className="form-label">
                       Tipo:
                     </label>
-                    <div className="col-8">
+                    <div className="col-7">
                       <select
                         name="type-bibliography"
                         id="type-bibliography"
                         className="form-select"
-                        value={formValues.tipo}
-                        onBlur={handleBlur}
+                        value={values.tipo}
                         onChange={(e) => {
                           setFormValues({
-                            ...formValues,
+                            ...values,
                             tipo: e.target.value,
                           });
                         }}
@@ -297,15 +299,15 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                         <option value="Página Web">Página Web</option>
                       </select>
                     </div>
-                    <div className="col-4">
+                    <div className="col-5">
                       <input
                         type="text"
                         className="form-control"
                         id="type-bibliography"
                         name="tipo"
                         placeholder="Otro tipo de recurso"
-                        value={formValues.tipo}
-                        onChange={handleInputChange}
+                        value={values.tipo}
+                        onChange={handleChange}
                         onBlur={handleBlur}
                         required
                       />
@@ -325,8 +327,8 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                         id="link-bibliography"
                         name="link"
                         placeholder="Enlace del recurso bibliográfico"
-                        value={formValues.link}
-                        onChange={handleInputChange}
+                        value={values.link}
+                        onChange={handleChange}
                         onBlur={handleBlur}
                         required
                       />
@@ -342,7 +344,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     <div className="col-12">
                       <h3>
                         <span className="badge bg-success">
-                          {formValues.lastUser}
+                          {values.lastUser}
                         </span>
                       </h3>
                       <span className="text-muted">
@@ -357,6 +359,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     type="submit"
                     className="btn btn-success"
                     onClick={() => {
+                      setFormValues(values);
                       setAction("update");
                     }}
                   >
@@ -366,6 +369,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     type="submit"
                     className="btn btn-secondary"
                     onClick={() => {
+                      setFormValues(values);
                       setAction("add");
                     }}
                   >
@@ -375,6 +379,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     type="submit"
                     className="btn btn-danger"
                     onClick={() => {
+                      setFormValues(values);
                       setAction("delete");
                     }}
                   >
