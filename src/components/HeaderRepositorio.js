@@ -15,8 +15,7 @@ export default class Header extends Component {
             <a href="/poa">
               <img id="logo" src={Logo} width="150px" alt="" />
             </a>
-            <ButtonIni />
-            <ButtonRegis/>
+            <ButtonIni/>
           </div>
         </nav>
       </>
