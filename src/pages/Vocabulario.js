@@ -7,14 +7,10 @@ import { MDBCol, MDBIcon } from "mdbreact";
 import { ModalAdministrarVocabulario } from "../components/ModalAdministrarVocabulario";
 import { getEstadosNivs, getVocabularioQuery } from "../server/api";
 import { useFirestoreCollectionData, useSigninCheck } from "reactfire";
-
+import DropdownVocabulario from "../components/DropdowOrden";
 export default function Vocabulario() {
   const [searchItem, setSearchItem] = useState("");
   const [allowManage, setAllowManage] = useState(false);
-  const [listVocabulario, setListVocabulario] = useState([]);
-  const { status, data: cards } = useFirestoreCollectionData(
-    getVocabularioQuery()
-  );
   const { status: statusUser, data: signInCheckResult } = useSigninCheck();
   const [ordener, setOrdener] = useState(false)
 
@@ -78,7 +74,7 @@ export default function Vocabulario() {
       }
     }
   }
-    const [searchItem, setSearchItem] = useState("");
+
     return (
       <>
       <ModalAdministrarVocabulario
@@ -143,11 +139,6 @@ export default function Vocabulario() {
                     </div>
                 </div>
             </div>
-            <FrameVocabulario
-              searchTerm={searchItem}
-              listVocabulario={listVocabulario}
-              status={status}
-            />
           </div>
         <FooterVocabulario />
     </>

@@ -38,11 +38,14 @@
   }
 }
 
-.dropstart {
-  background-color: #121212;
+.dropdown {
+  background-color: transparent;
+  color: transparent;
+  text-decoration: transparent;
+  outline: transparent;
 }
-
 .BotonIcon {
   background-color: #131212;
   text-indent: 0px;
 }
+

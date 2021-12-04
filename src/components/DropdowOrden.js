@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-
+import "../css/DropdownVoca.css";
 export default class DropdownVocabulario extends Component {
   constructor(props) {
     super(props)
@@ -50,7 +50,7 @@ export default class DropdownVocabulario extends Component {
             Orden
           </button>
           <ul className="dropdown-menu text-start opciones container-fluid ">
-            <h1 className="SeccionDrop text-center ">Orden</h1>
+            <h1 className="SeccionDrop text-center "> Orden</h1>
             <div id="orden" value={this.state.orden1} onChange={this.handleChange}>
               <div className="row">
                 <div className="col-md-auto">

@@ -29,7 +29,6 @@ export default class HeaderBibliografia extends Component {
                   Aquí podrás encontrar referencias del contenido <br />
                   que existe en esta página
                 </h4>
-                <DropdownVocabulario/>
               </div>
             </div>
           </div>
