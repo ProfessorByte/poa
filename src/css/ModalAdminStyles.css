@@ -1,0 +1,21 @@
+.title-administration {
+  /*font-family: "Poppins", sans-serif;*/
+  font-family: "VT323", monospace;
+  font-size: 40px;
+}
+
+.header-administration,
+.body-administration,
+.footer-administration {
+  background-color: #202124;
+}
+
+.selector-administration {
+  height: 560px;
+  overflow: auto;
+}
+
+.purple-vocabulario {
+  background-color: #9c27b0 !important;
+}
+/*( =ω=)..nyaa*/

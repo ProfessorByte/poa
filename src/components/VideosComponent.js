@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Videos({ listId, listVideos }) {
+export default function Videos({ listId, listSections }) {
   const getParameterByName = (name, url = window.location.href) => {
     name = name.replace(/[[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
@@ -17,27 +17,31 @@ export default function Videos({ listId, listVideos }) {
       data-offset="50"
       className="scrollspy-example"
     >
-      {listVideos.map((video) => (
-        <div
-          id={`list-video-${video.videoId}`}
-          key={`list-video-key-${video.videoId}`}
-        >
-          <div className="pb-5 ms-4 me-4">
-            <div className="row">
-              <h2>{video.title}</h2>
+      {listSections.map((section) => (
+        <div key={`section-${section.sectionId}`}>
+          {section.topics.map((topic, index) => (
+            <div
+              id={`list-video-${index}-${section.sectionId}`}
+              key={`list-video-key-${index}`}
+            >
+              <div className="pb-5 ms-4 me-4">
+                <div className="row">
+                  <h2>{topic.title}</h2>
+                </div>
+                <div className="ratio ratio-16x9">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${getParameterByName(
+                      "v",
+                      topic.videoLink
+                    )}`}
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
             </div>
-            <div className="ratio ratio-16x9">
-              <iframe
-                src={`https://www.youtube.com/embed/${getParameterByName(
-                  "v",
-                  video.videoLink
-                )}`}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </div>
+          ))}
         </div>
       ))}
     </div>

@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
-import '../css/DropdownVoca.css'
-import DropdownVocabulario from './DropdowOrden';
+import React, { Component } from "react";
+import "../css/HeaderBibliografia.css";
 export default class HeaderBibliografia extends Component {
   constructor(props) {
     super(props);
