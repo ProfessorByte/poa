@@ -33,7 +33,10 @@
   }
 }
 .dropdown {
-  background-color: #121212;
+  background-color: transparent;
+  color: transparent;
+  text-decoration: transparent;
+  outline: transparent;
 }
 .BotonIcon {
   background-color: #131212;
