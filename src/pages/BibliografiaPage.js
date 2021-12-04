@@ -6,10 +6,6 @@ import React, { useState, useEffect } from "react";
 import { getBibliographyQuery, getEstadosNivs } from "../server/api";
 import { useFirestoreCollectionData, useSigninCheck } from "reactfire";
 import { ModalAdministrarBibliografia } from "../components/ModalAdministrarBibliografia";
-import { addDoc, collection } from "@firebase/firestore";
-import { VIDEOS } from "../consts/videosDefault";
-import { db } from "../server/firebaseConfig";
-import { BIBLIOGRAFIA } from "../consts/bibliographyDefault";
 
 export default function BibliografiaPage() {
   const [allowManage, setAllowManage] = useState(false);

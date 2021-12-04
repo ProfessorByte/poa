@@ -25,10 +25,12 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
   const [action, setAction] = useState("");
   const { data: user } = useUser();
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
+  const typesForBibliographicResources = [
+    "Página Web",
+    "PDF",
+    "Imágen",
+    "Artículo científico",
+  ];
 
   const handleUpdate = async () => {
     const lastId = await getCountBibliography();
@@ -44,7 +46,18 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
       setFormValues({ ...formValues, lastUser: userName });
       const listDocs = await getDocBibliography(formValues.id);
       listDocs.forEach((doc) => {
-        updateDoc(doc.ref, formValues);
+        updateDoc(doc.ref, {
+          id: formValues.id,
+          tituloReferencia: formValues.tituloReferencia,
+          temas: formValues.temas,
+          autor_NombrePagina: formValues.autor_NombrePagina,
+          tipo:
+            formValues.tipo === "Otro"
+              ? formValues.customTipo
+              : formValues.tipo,
+          link: formValues.link,
+          lastUser: userName,
+        });
       });
     }
     alert("Se actualizó el recurso bibliográfico seleccionado");
@@ -59,8 +72,13 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
     const lastId = await getCountBibliography();
     setFormValues({ ...formValues, id: lastId + 1, lastUser: userName });
     addDoc(collection(db, "bibliografia"), {
-      ...formValues,
       id: lastId + 1,
+      tituloReferencia: formValues.tituloReferencia,
+      temas: formValues.temas,
+      autor_NombrePagina: formValues.autor_NombrePagina,
+      tipo:
+        formValues.tipo === "Otro" ? formValues.customTipo : formValues.tipo,
+      link: formValues.link,
       lastUser: userName,
     });
     alert("Se agregó el recurso bibliográfico");
@@ -129,7 +147,9 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
       errors.tipo = "El tipo es requerido";
     }
 
-    if (!/^[a-zA-ZÀ-ÿ]{1,20}$/.test(values.customTipo)) {
+    if (!values.customTipo) {
+      errors.customTipo = "El tipo es requerido";
+    } else if (!/^[a-zA-ZÀ-ÿ]{1,20}$/.test(values.customTipo)) {
       errors.customTipo = "El tipo solo puede contener letras";
     }
 
@@ -201,7 +221,12 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                                   tituloReferencia: card.tituloReferencia,
                                   temas: card.temas,
                                   autor_NombrePagina: card.autor_NombrePagina,
-                                  tipo: card.tipo,
+                                  tipo: typesForBibliographicResources.includes(
+                                    card.tipo
+                                  )
+                                    ? card.tipo
+                                    : "Otro",
+                                  customTipo: card.tipo,
                                   link: card.link,
                                   lastUser: card.lastUser,
                                 });
@@ -296,12 +321,11 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                         onBlur={handleBlur}
                       >
                         <option value="">Selecciona el tipo del recurso</option>
-                        <option value="Página web">Página web</option>
-                        <option value="PDF">PDF</option>
-                        <option value="Imágen">Imágen</option>
-                        <option value="Artículo científico">
-                          Artículo científico
-                        </option>
+                        {typesForBibliographicResources.map((item, index) => (
+                          <option key={index} value={item}>
+                            {item}
+                          </option>
+                        ))}
                         <option value="Otro">Otro</option>
                       </select>
                     </div>
@@ -323,11 +347,9 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     {touched.tipo && errors.tipo && values.tipo !== "Otro" && (
                       <div className="text-danger">{errors.tipo}</div>
                     )}
-                    {touched.customTipo &&
-                      errors.customTipo &&
-                      values.tipo === "Otro" && (
-                        <div className="text-danger">{errors.customTipo}</div>
-                      )}
+                    {errors.customTipo && values.tipo === "Otro" && (
+                      <div className="text-danger">{errors.customTipo}</div>
+                    )}
                   </div>
                   <div className="form-group row mb-3">
                     <label htmlFor="link-bibliography" className="form-label">
