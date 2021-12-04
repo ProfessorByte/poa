@@ -15,7 +15,6 @@ export default class Header extends Component {
               <img id="logo" src={Logo} width="150px" alt="" />
             </a>
             <ButtonIni />
-            <ButtonRegis/>
           </div>
         </nav>
       </>

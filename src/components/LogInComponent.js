@@ -145,6 +145,10 @@ class LogInComponent extends React.Component {
               Ingresar
             </Button>
           </div>
+          <div className="Registro">
+          <p>No tienes cuenta?</p>
+          <a href="/registro">Registrate</a>
+          </div>
         </div>
       </Form>
     );
