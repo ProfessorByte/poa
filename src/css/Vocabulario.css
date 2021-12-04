@@ -13,6 +13,7 @@
 }
 #dropdownMenuButton1 {
   background-color: purple;
+  border: 6px solid black;
 }
 #bootstrap-overrides-title{
   color:white
