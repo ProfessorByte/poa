@@ -1,9 +1,4 @@
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from 'reactstrap'
+
 import React, { Component } from 'react'
 
 export default class DropdownVocabulario extends Component {
@@ -12,39 +7,30 @@ export default class DropdownVocabulario extends Component {
 
     this.state = {
       dropdownOpen: false,
-      name: '',
-      value: '',
-      orden1: "",
-      orden2: ""
+      orden1: "alfabeticamente",
+      orden2: "ascendente"
     }
   }
-
-  shouldComponentUpdate =()=> {
-    let cambia=true;
-    if(this.state.orden1=="alfabeticamente"&&this.state.orden2=="descendente"){
-      console.log("hola")
-       this.props.funcionAlfaDes()
-    }else{
-      cambia=false;
-    }
-    return cambia;
+  shouldComponentUpdate() {
+    console.log("Se actualizará")
+    this.props.funcionOrden(this.state.orden1,this.state.orden2);
+    return true;
   }
-
-
-
+  
   handleChange = (e) => {
-    let valor=e.target.value;
-    console.log(valor)
-    let esVista=(valor==="descendente")
-    if(esVista){
-      this.setState({ orden2: valor })
-      console.log("siSeAsigno")
+    let valor= e.target.value;
+    let opcion=(valor==="alfabeticamente"||valor==="porTemas")
+    if(opcion){
+      this.setState({ orden1: e.target.value },()=>{
+        console.log("orden1 ac")
+      });
     }else{
-      this.setState({ orden1: valor })
+      this.setState({ orden2: e.target.value },()=>{
+        console.log("orden2 ac")
+      });
     }
-    console.log(this.state.orden1)
-    console.log(this.state.orden2)
   }
+
 
 
   render() {

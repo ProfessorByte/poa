@@ -9,12 +9,12 @@ import { useFirestoreCollectionData } from "reactfire";
 import  DropdownVocabulario from "../components/DropdowOrden"
 
 export default function Vocabulario() {
+  const [ordener, setOrdener] = useState(false)
 
   let [listVocabulario, setListVocabulario] = useState([]);
   const { status, data: cards } = useFirestoreCollectionData(
     getVocabularioQuery()
   );
-
 
   useEffect(() => {
     if (status !== "loading") {
@@ -28,15 +28,30 @@ export default function Vocabulario() {
         if (a.titulo > b.titulo) return 1
         if (a.titulo < b.titulo) return -1
       })
+      setOrdener(!ordener);
     }
   }
 
+  
   function ordenarAlfabeticamenteDes(){
     if(status!=="loading"){
       cards.sort((a , b) => {
         if (a.titulo < b.titulo) return 1
         if (a.titulo > b.titulo) return -1
       })
+      setOrdener(!ordener);
+    }
+  }
+
+
+  function QueOrden(orden1,orden2){
+    console.log(orden1,orden2)
+    if(orden1==="alfabeticamente"){
+      if(orden2==="ascendente"){
+        ordenarAlfabeticamente() 
+      }else{
+        ordenarAlfabeticamenteDes()
+      }
     }
   }
   
@@ -63,7 +78,7 @@ export default function Vocabulario() {
                     </span>
                   </div>
                   <input className="form-control form-control-lg " type="text" id="inputID" placeholder="Buscar"  aria-label="Search" />
-                  <DropdownVocabulario funcionAlfa={ordenarAlfabeticamente} funcionAlfaDes={ordenarAlfabeticamenteDes}/>
+                  <DropdownVocabulario funcionOrden={QueOrden}/>
                 </div>
               </MDBCol>
               </div>
