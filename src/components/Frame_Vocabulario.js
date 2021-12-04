@@ -22,6 +22,7 @@ export default function FrameVocabulario(props) {
           .map((card) => (
             <div key={card.id} className="container-fluid">
               <Card_Vocabulario
+                tema={card.tema}
                 titulo={card.titulo}
                 descripcion={card.descripcion}
               />
