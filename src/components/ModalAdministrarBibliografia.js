@@ -17,6 +17,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
     temas: "",
     autor_NombrePagina: "",
     tipo: "",
+    customTipo: "",
     link: "",
     lastUser: "",
   };
@@ -124,8 +125,12 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
         "El autor/ nombre página solo puede contener letras y espacios";
     }
 
-    if (!/^[a-zA-ZÀ-ÿ]{1,20}$/.test(values.tipo)) {
-      errors.tipo = "El tipo solo puede contener letras";
+    if (!values.tipo) {
+      errors.tipo = "El tipo es requerido";
+    }
+
+    if (!/^[a-zA-ZÀ-ÿ]{1,20}$/.test(values.customTipo)) {
+      errors.customTipo = "El tipo solo puede contener letras";
     }
 
     if (!values.link) {
@@ -283,38 +288,46 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     </label>
                     <div className="col-7">
                       <select
-                        name="type-bibliography"
-                        id="type-bibliography"
-                        className="form-select"
-                        value={values.tipo}
-                        onChange={(e) => {
-                          setFormValues({
-                            ...values,
-                            tipo: e.target.value,
-                          });
-                        }}
-                      >
-                        <option value="">Selecciona el tipo del recurso</option>
-                        <option value="PDF">PDF</option>
-                        <option value="Página Web">Página Web</option>
-                      </select>
-                    </div>
-                    <div className="col-5">
-                      <input
-                        type="text"
-                        className="form-control"
                         id="type-bibliography"
                         name="tipo"
-                        placeholder="Otro tipo de recurso"
+                        className="form-select"
                         value={values.tipo}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        required
-                      />
+                      >
+                        <option value="">Selecciona el tipo del recurso</option>
+                        <option value="Página web">Página web</option>
+                        <option value="PDF">PDF</option>
+                        <option value="Imágen">Imágen</option>
+                        <option value="Artículo científico">
+                          Artículo científico
+                        </option>
+                        <option value="Otro">Otro</option>
+                      </select>
                     </div>
-                    {touched.tipo && errors.tipo && (
+                    {values.tipo === "Otro" && (
+                      <div className="col-5">
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="type-bibliography"
+                          name="customTipo"
+                          placeholder="Otro tipo de recurso"
+                          value={values.customTipo}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          required
+                        />
+                      </div>
+                    )}
+                    {touched.tipo && errors.tipo && values.tipo !== "Otro" && (
                       <div className="text-danger">{errors.tipo}</div>
                     )}
+                    {touched.customTipo &&
+                      errors.customTipo &&
+                      values.tipo === "Otro" && (
+                        <div className="text-danger">{errors.customTipo}</div>
+                      )}
                   </div>
                   <div className="form-group row mb-3">
                     <label htmlFor="link-bibliography" className="form-label">

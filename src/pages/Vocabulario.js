@@ -1,74 +1,74 @@
-import React, { useState, useEffect } from 'react'
-import Header from '../components/HeaderVideos&Biblio'
-import '../css/Vocabulario.css'
-import FooterVocabulario from '../components/FooterRepositorio'
-import FrameVocabulario from '../components/Frame_Vocabulario'
-import { MDBCol, MDBIcon } from 'mdbreact'
-import { ModalAdministrarVocabulario } from '../components/ModalAdministrarVocabulario'
-import { getEstadosNivs, getVocabularioQuery } from '../server/api'
-import { useFirestoreCollectionData, useSigninCheck } from 'reactfire'
-import DropdownVocabulario from '../components/DropdowOrden'
+import React, { useState, useEffect } from "react";
+import Header from "../components/HeaderVideos&Biblio";
+import "../css/Vocabulario.css";
+import FooterVocabulario from "../components/FooterRepositorio";
+import FrameVocabulario from "../components/Frame_Vocabulario";
+import { MDBCol, MDBIcon } from "mdbreact";
+import { ModalAdministrarVocabulario } from "../components/ModalAdministrarVocabulario";
+import { getEstadosNivs, getVocabularioQuery } from "../server/api";
+import { useFirestoreCollectionData, useSigninCheck } from "reactfire";
+import DropdownVocabulario from "../components/DropdowOrden";
 export default function Vocabulario() {
-  const [searchItem, setSearchItem] = useState('')
-  const [allowManage, setAllowManage] = useState(false)
-  const { status: statusUser, data: signInCheckResult } = useSigninCheck()
-  const [ordener, setOrdener] = useState(false)
+  const [searchItem, setSearchItem] = useState("");
+  const [allowManage, setAllowManage] = useState(false);
+  const { status: statusUser, data: signInCheckResult } = useSigninCheck();
+  const [ordener, setOrdener] = useState(false);
 
-  let [listVocabulario, setListVocabulario] = useState([])
+  let [listVocabulario, setListVocabulario] = useState([]);
   const { status, data: cards } = useFirestoreCollectionData(
-    getVocabularioQuery(),
-  )
+    getVocabularioQuery()
+  );
 
   useEffect(() => {
-    if (status !== 'loading') {
-      setListVocabulario(cards)
+    if (status !== "loading") {
+      setListVocabulario(cards);
     }
-  }, [status, cards])
+  }, [status, cards]);
 
   const getUserData = async () => {
-    if (statusUser !== 'loading' && signInCheckResult.signedIn) {
-      const userDataQuery = await getEstadosNivs(signInCheckResult.user.uid)
+    if (statusUser !== "loading" && signInCheckResult.signedIn) {
+      const userDataQuery = await getEstadosNivs(signInCheckResult.user.uid);
       userDataQuery.forEach((doc) => {
-        if (doc.data().role === 'admin') {
-          setAllowManage(true)
+        if (doc.data().role === "admin") {
+          setAllowManage(true);
         }
-      })
+      });
     }
-  }
+  };
 
   useEffect(() => {
-    getUserData()
-  }, [statusUser])
+    getUserData();
+  }, [statusUser]);
 
-  const modalId = 'modal-vocabulario'
+  const modalId = "modal-vocabulario";
 
   function ordenarAlfabeticamente() {
-    if (status !== 'loading') {
+    if (status !== "loading") {
       cards.sort((a, b) => {
-        if (a.titulo > b.titulo) return 1
-        if (a.titulo < b.titulo) return -1
-      })
-      setOrdener(!ordener)
+        if (a.titulo > b.titulo) return 1;
+        if (a.titulo < b.titulo) return -1;
+      });
+      setOrdener(!ordener);
     }
   }
 
   function ordenarAlfabeticamenteDes() {
-    if (status !== 'loading') {
+    if (status !== "loading") {
       cards.sort((a, b) => {
-        if (a.titulo < b.titulo) return 1
-        if (a.titulo > b.titulo) return -1
-      })
-      setOrdener(!ordener)
+        if (a.titulo < b.titulo) return 1;
+        if (a.titulo > b.titulo) return -1;
+      });
+      setOrdener(!ordener);
     }
   }
 
   function QueOrden(orden1, orden2) {
-    console.log(orden1, orden2)
-    if (orden1 === 'alfabeticamente') {
-      if (orden2 === 'ascendente') {
-        ordenarAlfabeticamente()
+    console.log(orden1, orden2);
+    if (orden1 === "alfabeticamente") {
+      if (orden2 === "ascendente") {
+        ordenarAlfabeticamente();
       } else {
-        ordenarAlfabeticamenteDes()
+        ordenarAlfabeticamenteDes();
       }
     }
   }
@@ -79,9 +79,9 @@ export default function Vocabulario() {
         modalId={modalId}
         listVocabulario={listVocabulario}
         currentUserId={
-          statusUser !== 'loading' && signInCheckResult.signedIn
+          statusUser !== "loading" && signInCheckResult.signedIn
             ? signInCheckResult.user.uid
-            : ''
+            : ""
         }
       />
       <div className="fondoVocabulario">
@@ -93,7 +93,7 @@ export default function Vocabulario() {
                 <h1>Vocabulario</h1>
               </div>
             </div>
-            {statusUser !== 'loading' && allowManage && (
+            {statusUser !== "loading" && allowManage && (
               <div className="row">
                 <button
                   className="col-auto m-3 btn btn-primary"
@@ -104,7 +104,7 @@ export default function Vocabulario() {
                 </button>
               </div>
             )}
-            <div class="row mb-5">
+            <div className="row mb-5">
               <MDBCol md="12">
                 <div className="input-group md-form form-sm form-lg form-1 pl-0 ancho">
                   <div className="input-group-prepend">
@@ -122,7 +122,7 @@ export default function Vocabulario() {
                     placeholder="Buscar"
                     aria-label="Search"
                     onChange={(event) => {
-                      setSearchItem(event.target.value)
+                      setSearchItem(event.target.value);
                     }}
                   />
                   <DropdownVocabulario funcionOrden={QueOrden} />
@@ -141,5 +141,5 @@ export default function Vocabulario() {
       </div>
       <FooterVocabulario />
     </>
-  )
+  );
 }
