@@ -1,6 +1,6 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "../css/ButtonsUser.css";
-import { getEstadosNivs} from "../server/api";
+import { getEstadosNivs } from "../server/api";
 import { useSigninCheck } from "reactfire";
 
 /*import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -42,25 +42,25 @@ const BotonIcono = ({ cerrarSesion }) => {
     var azar = Math.floor(Math.random() * url.length);
     return url[azar];
   };
-  
+
   const { status, data: signInCheckResult } = useSigninCheck();
 
-  const [userName, setUserName] = useState(""); 
+  const [userName, setUserName] = useState("");
 
   const obtNameUsuario = async () => {
     if (status !== "loading" && signInCheckResult.signedIn) {
       const querySnapshot = await getEstadosNivs(signInCheckResult.user.uid);
       let userName = "";
       querySnapshot.forEach((estado) => {
-        userName = estado.data().name
+        userName = estado.data().name;
       });
       setUserName(userName);
     }
-  }
+  };
 
   useEffect(() => {
-   obtNameUsuario();
-  }, [])
+    obtNameUsuario();
+  }, [status, signInCheckResult]);
 
   return (
     <div className="dropdown dropstart">
@@ -73,14 +73,16 @@ const BotonIcono = ({ cerrarSesion }) => {
         aria-expanded="false"
       >
         <img id="iconu" src={icono} width="150px" alt="Imágen de usuario" />
+        <h6 className="m-0">
+          {status !== "loading" && signInCheckResult.signedIn
+            ? userName
+            : "..."}
+        </h6>
       </button>
       <div
         className="dropdown-menu dropdown-menu-dark"
         aria-labelledby="dropdownMenuButton"
       >
-        {status !== "loading" && signInCheckResult.signedIn ? <a className="dropdown-item" >
-          {userName}
-        </a> : <div>Anónimo</div>}
         <a
           className="dropdown-item"
           href="#"
@@ -97,4 +99,5 @@ const BotonIcono = ({ cerrarSesion }) => {
     </div>
   );
 };
+
 export default BotonIcono;

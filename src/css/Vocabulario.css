@@ -1,23 +1,24 @@
 .fondoVocabulario {
-
   display: flex;
   background-image: url("../assets/images/fondoVocabulario.jpg");
-  background-size: cover ;
+  background-size: cover;
   flex-direction: column;
   min-height: 100vh;
-
 }
+
 #bootstrap-overrides {
-  background-color:rgba(0, 0, 0, 0.5);
-
+  background-color: rgba(0, 0, 0, 0.5);
 }
-#dropdownMenuButton1 {
+
+/*#dropdownMenuButton1 {
   background-color: purple;
   border: 6px solid black;
+}*/
+
+#bootstrap-overrides-title {
+  color: white;
 }
-#bootstrap-overrides-title{
-  color:white
-}
+
 @font-face {
   font-family: "VCR_OSD_MONO_1";
   src: url("../assets/fonts/VCR_OSD_MONO_1.001.ttf");
@@ -54,14 +55,17 @@
 .content-wrap {
   flex: 1;
 }
+
 .input-group.md-form.form-sm.form-1 input {
   border: 1px solid #bdbdbd;
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
+
 .ancho{
 width: 80vw;
 }
+
 #inputID::placeholder {
 color:white;
 opacity: 1;

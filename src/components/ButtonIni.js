@@ -2,14 +2,18 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { useSigninCheck } from "reactfire";
 import { auth } from "../server/firebaseConfig";
-import "../css/ButtonsUser.css"
+import "../css/ButtonsUser.css";
+import BotonIcono from "./BotonIcono";
+
 const ButtonIni = () => {
   const { status, data } = useSigninCheck();
+
   const cerrarSesion = () => {
     if (status !== "loading" && data.signedIn) {
       signOut(auth);
     }
   };
+
   return (
     <div className="contenedorb">
       {status !== "loading" && !data.signedIn ? (
@@ -31,7 +35,7 @@ const ButtonIni = () => {
             : "Iniciar sesión"}
         </a>
       ) : (
-        <div/>
+        <BotonIcono cerrarSesion={cerrarSesion} />
       )}
     </div>
   );
