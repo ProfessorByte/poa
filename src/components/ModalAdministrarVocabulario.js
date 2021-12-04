@@ -77,6 +77,8 @@ export const ModalAdministrarVocabulario = ({
     let errors = {};
     if (!values.titleWord) {
       errors.titleWord = "La palabra es requerida";
+    }  else if (!/^[a-zA-ZÀ-ÿ\s.,!?]{1,40}$/.test(values.titleWord)){
+      errors.titleWord = "El palabra solo puede contener letras";
     }
 
     if (!values.descriptionWord) {
