@@ -3,8 +3,8 @@ import Card_Vocabulario from "./Card_Vocabulario";
 
 import "../css/Vocabulario.css"
 import { render } from "@testing-library/react";
-export default function FrameVocabulario({listVocabulario,status}){
-   
+export default function FrameVocabulario({listVocabulario,status,searchTerm}){
+         const [searchItem, setSearchItem] = useState('')
         
           return(
             <>
@@ -14,9 +14,9 @@ export default function FrameVocabulario({listVocabulario,status}){
           </div>
         ) : (
             listVocabulario.filter((card) => {
-              if(props.searchTerm ==""){
+              if(searchTerm ==""){
                 return card
-              }else if (card.titulo.toLowerCase().includes(props.searchTerm.toLowerCase())){
+              }else if (card.titulo.toLowerCase().includes(searchTerm.toLowerCase())){
                 return card
               }
             }).map((card) => (
