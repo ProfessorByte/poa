@@ -33,28 +33,29 @@ export const getBibliographyQuery = () => {
   return query(collection(db, "bibliografia"), orderBy("id"));
 };
 
-export const setUsers = async (nombre, idUsuario) => {
+export const addUsers = async (nombre, idUsuario) => {
   console.log("nombre:", nombre, "id:", idUsuario);
   await setDoc(doc(db, "users", idUsuario), {
     name: nombre,
     userId: idUsuario,
     levels: levelsIni[0],
+    role: "user",
   });
 };
 
 export const createNewUser = (correo, contra, nombre) => {
-  let res = false;
+  console.log(correo, contra, nombre);
   const auth = getAuth();
+  let flag = false;
   createUserWithEmailAndPassword(auth, correo, contra)
     .then((userCredential) => {
+      flag = true;
       const user = userCredential.user;
-      setUsers(nombre, user.uid);
-      res = true;
+      addUsers(nombre, user.uid);
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      res = false;
     });
-  return res;
+  return flag;
 };
