@@ -36,7 +36,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
       let listTopicsAux = listSections[formValues.sectionId - 1].topics;
       listTopicsAux[formValues.indexVideo].title = formValues.titleVideo;
       listTopicsAux[formValues.indexVideo].videoLink = formValues.linkVideo;
-      listTopicsAux[formValues.indexVideo].userName = formValues.userName;
+      listTopicsAux[formValues.indexVideo].userName = userName;
       const listSectionsQuery = await getSectionsQuery(formValues.sectionId);
       listSectionsQuery.forEach((section) => {
         updateDoc(section.ref, {
@@ -55,12 +55,16 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
     users.forEach((user) => {
       userName = user.data().name;
     });
-    setFormValues({ ...formValues, userName: userName });
     let listTopicsAux = listSections[formValues.sectionId - 1].topics;
     listTopicsAux.push({
       title: formValues.titleVideo,
       videoLink: formValues.linkVideo,
-      userName: formValues.userName,
+      userName: userName,
+    });
+    setFormValues({
+      ...formValues,
+      userName: userName,
+      indexVideo: listTopicsAux.length - 1,
     });
     const listSectionsQuery = await getSectionsQuery(formValues.sectionId);
     listSectionsQuery.forEach((section) => {
@@ -70,7 +74,6 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
         topics: listTopicsAux,
       });
     });
-    setFormValues({ ...formValues, indexVideo: listTopicsAux.length - 1 });
     alert("Se agregó el vídeo correctamente");
   };
 
@@ -310,7 +313,10 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                     type="submit"
                     className="btn btn-success"
                     onClick={() => {
-                      setFormValues(values);
+                      setFormValues({
+                        ...values,
+                        sectionId: Number(values.sectionId),
+                      });
                       setAction("update");
                     }}
                   >
@@ -320,7 +326,10 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                     type="submit"
                     className="btn btn-secondary"
                     onClick={() => {
-                      setFormValues(values);
+                      setFormValues({
+                        ...values,
+                        sectionId: Number(values.sectionId),
+                      });
                       setAction("add");
                     }}
                   >
@@ -330,7 +339,10 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                     type="submit"
                     className="btn btn-danger"
                     onClick={() => {
-                      setFormValues(values);
+                      setFormValues({
+                        ...values,
+                        sectionId: Number(values.sectionId),
+                      });
                       setAction("delete");
                     }}
                   >
