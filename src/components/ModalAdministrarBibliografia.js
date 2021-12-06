@@ -100,7 +100,6 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
   };
 
   const handleSubmit = () => {
-    console.log(action);
     if (action === "update") {
       handleUpdate();
     } else if (action === "add") {
@@ -147,10 +146,12 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
       errors.tipo = "El tipo es requerido";
     }
 
-    if (!values.customTipo) {
-      errors.customTipo = "El tipo es requerido";
-    } else if (!/^[a-zA-ZÀ-ÿ]{1,20}$/.test(values.customTipo)) {
-      errors.customTipo = "El tipo solo puede contener letras";
+    if (values.tipo === "Otro") {
+      if (!values.customTipo) {
+        errors.customTipo = "El tipo es requerido";
+      } else if (!/^[a-zA-ZÀ-ÿ]{1,20}$/.test(values.customTipo)) {
+        errors.customTipo = "El tipo solo puede contener letras";
+      }
     }
 
     if (!values.link) {
