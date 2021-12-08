@@ -25,20 +25,25 @@ export const ModalAdministrarVocabulario = ({
   };
   const [formValues, setFormValues] = useState(defaultFormValues);
   const [action, setAction] = useState("");
+  const [disableModifyWord, setDisableModifyWord] = useState(true);
 
   const handleUpdate = async () => {
-    let userName = "";
-    const users = await getEstadosNivs(currentUserId);
-    users.forEach((user) => {
-      userName = user.data().name;
-    });
-    updateDoc(doc(db, `vocabulario/${formValues.lastItemId}`), {
-      titulo: formValues.titleWord,
-      descripcion: formValues.descriptionWord,
-      tema: formValues.topicWord,
-      ultimoUsuario: userName,
-    });
-    alert("Se modificó la palabra correctamente");
+    if (formValues.lastItemId) {
+      let userName = "";
+      const users = await getEstadosNivs(currentUserId);
+      users.forEach((user) => {
+        userName = user.data().name;
+      });
+      await updateDoc(doc(db, `vocabulario/${formValues.lastItemId}`), {
+        titulo: formValues.titleWord,
+        descripcion: formValues.descriptionWord,
+        tema: formValues.topicWord,
+        ultimoUsuario: userName,
+      });
+      alert("Se modificó la palabra correctamente");
+    } else {
+      alert("No se puede modificar una palabra sin identificarla primero");
+    }
   };
 
   const handleAdd = async () => {
@@ -58,12 +63,18 @@ export const ModalAdministrarVocabulario = ({
     alert("Se agregó la palabra correctamente");
   };
 
-  const handleDelete = () => {
-    deleteDoc(doc(db, `vocabulario/${formValues.lastItemId}`));
-    alert("Se eliminó la palabra correctamente");
+  const handleDelete = async () => {
+    if (formValues.lastItemId) {
+      await deleteDoc(doc(db, `vocabulario/${formValues.lastItemId}`));
+      setFormValues(defaultFormValues);
+      alert("Se eliminó la palabra correctamente");
+    } else {
+      alert("No se puede eliminar una palabra sin identificarla primero");
+    }
   };
 
   const handleSubmit = () => {
+    console.log(formValues);
     if (action === "update") {
       handleUpdate();
     } else if (action === "add") {
@@ -77,7 +88,7 @@ export const ModalAdministrarVocabulario = ({
     let errors = {};
     if (!values.titleWord) {
       errors.titleWord = "La palabra es requerida";
-    }  else if (!/^[a-zA-ZÀ-ÿ\s.,!?]{1,40}$/.test(values.titleWord)){
+    } else if (!/^[a-zA-ZÀ-ÿ\s.,!?]{1,40}$/.test(values.titleWord)) {
       errors.titleWord = "El palabra solo puede contener letras";
     }
 
@@ -153,6 +164,7 @@ export const ModalAdministrarVocabulario = ({
                                   lastUser: word.ultimoUsuario,
                                   lastItemId: word.NO_ID_FIELD,
                                 });
+                                setDisableModifyWord(false);
                               }}
                             >
                               {word.titulo}
@@ -259,6 +271,7 @@ export const ModalAdministrarVocabulario = ({
                   <button
                     type="submit"
                     className="btn btn-success"
+                    disabled={disableModifyWord}
                     onClick={() => {
                       setFormValues(values);
                       setAction("update");
@@ -279,6 +292,7 @@ export const ModalAdministrarVocabulario = ({
                   <button
                     type="submit"
                     className="btn btn-danger"
+                    disabled={disableModifyWord}
                     onClick={() => {
                       setFormValues(values);
                       setAction("delete");
