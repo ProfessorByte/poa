@@ -28,11 +28,35 @@ export const ModalAdministrarVocabulario = ({
   const [disableModifyButtons, setDisableModifyButtons] = useState(true);
   const [message, setMessage] = useState("");
 
-  const formatWord = (word) => {
-    let newWord = word.toLowerCase().trim();
-    newWord = newWord.charAt(0).toUpperCase() + newWord.slice(1);
-    console.log(newWord);
-    return newWord;
+  const formatText = (text) => {
+    let newText = text.toLowerCase().trim();
+    newText = newText.charAt(0).toUpperCase() + newText.slice(1);
+    return newText;
+  };
+
+  const compareStringsOnArr = (arr, str) => {
+    let result = false;
+    function Levenshtein(a, b) {
+      var n = a.length;
+      var m = b.length;
+      var d = [];
+      if (n == 0) return m;
+      if (m == 0) return n;
+      for (var i = 0; i <= n; i++) (d[i] = [])[0] = i;
+      for (var j = 0; j <= m; j++) d[0][j] = j;
+      for (var i = 1, I = 0; i <= n; i++, I++)
+        for (var j = 1, J = 0; j <= m; j++, J++)
+          if (b[J] == a[I]) d[i][j] = d[I][J];
+          else d[i][j] = Math.min(d[I][j], d[i][J], d[I][J]) + 1;
+      return d[n][m];
+    }
+
+    arr.forEach((item) => {
+      if (Levenshtein(item, str) <= 3) {
+        result = true;
+      }
+    });
+    return result;
   };
 
   const handleUpdate = async () => {
@@ -56,7 +80,10 @@ export const ModalAdministrarVocabulario = ({
 
   const handleAdd = async () => {
     if (
-      !listVocabulario.map((word) => word.titulo).includes(formValues.titleWord)
+      !compareStringsOnArr(
+        listVocabulario.map((word) => word.titulo),
+        formValues.titleWord
+      )
     ) {
       let userName = "";
       const users = await getEstadosNivs(currentUserId);
@@ -306,7 +333,7 @@ export const ModalAdministrarVocabulario = ({
                     onClick={() => {
                       setFormValues({
                         ...values,
-                        titleWord: formatWord(values.titleWord),
+                        titleWord: formatText(values.titleWord),
                       });
                       setAction("add");
                     }}

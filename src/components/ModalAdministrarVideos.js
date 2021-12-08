@@ -16,6 +16,8 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
   const [formValues, setFormValues] = useState(defaultFormValues);
   const [action, setAction] = useState("");
   const [disableModifyButtons, setDisableModifyButtons] = useState(true);
+  const [message, setMessage] = useState("");
+  const [changeSection, setChangeSection] = useState(false);
   const { data: user } = useUser();
 
   const removeItemFromArr = (arr, item) => {
@@ -23,7 +25,46 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
     arr.splice(i, 1);
   };
 
+  const formatText = (text) => {
+    let newText = text.toLowerCase().trim();
+    newText = newText.charAt(0).toUpperCase() + newText.slice(1);
+    return newText;
+  };
+
+  const compareStringsOnArr = (arr, str) => {
+    let result = false;
+    function Levenshtein(a, b) {
+      var n = a.length;
+      var m = b.length;
+      var d = [];
+      if (n == 0) return m;
+      if (m == 0) return n;
+      for (var i = 0; i <= n; i++) (d[i] = [])[0] = i;
+      for (var j = 0; j <= m; j++) d[0][j] = j;
+      for (var i = 1, I = 0; i <= n; i++, I++)
+        for (var j = 1, J = 0; j <= m; j++, J++)
+          if (b[J] == a[I]) d[i][j] = d[I][J];
+          else d[i][j] = Math.min(d[I][j], d[i][J], d[I][J]) + 1;
+      return d[n][m];
+    }
+
+    arr.forEach((item) => {
+      if (Levenshtein(item, str) <= 3) {
+        result = true;
+      }
+    });
+    return result;
+  };
+
   const handleUpdate = async () => {
+    if (changeSection) {
+      setMessage("No se puede modificar la sección de un vídeo");
+      setTimeout(() => {
+        setMessage("");
+      }, 6000);
+      return;
+    }
+
     if (formValues.sectionId === -1 || formValues.indexVideo === -1) {
       alert("No se puede actualizar una referencia sin identificarla primero");
       return;
@@ -51,32 +92,47 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
   };
 
   const handleAdd = async () => {
-    let userName = "";
-    const users = await getEstadosNivs(user.uid);
-    users.forEach((user) => {
-      userName = user.data().name;
-    });
-    let listTopicsAux = listSections[formValues.sectionId - 1].topics;
-    listTopicsAux.push({
-      title: formValues.titleVideo,
-      videoLink: formValues.linkVideo,
-      userName: userName,
-    });
-    setFormValues({
-      ...formValues,
-      userName: userName,
-      indexVideo: listTopicsAux.length - 1,
-    });
-    const listSectionsQuery = await getSectionsQuery(formValues.sectionId);
-    listSectionsQuery.forEach((section) => {
-      updateDoc(section.ref, {
-        sectionId: section.data().sectionId,
-        title: section.data().title,
-        topics: listTopicsAux,
+    if (
+      compareStringsOnArr(
+        []
+          .concat(...listSections.map((section) => section.topics))
+          .map((video) => video.title),
+        formValues.titleVideo
+      )
+    ) {
+      setMessage("El título del vídeo ya existe");
+      setTimeout(() => {
+        setMessage("");
+      }, 6000);
+      return;
+    } else {
+      let userName = "";
+      const users = await getEstadosNivs(user.uid);
+      users.forEach((user) => {
+        userName = user.data().name;
       });
-    });
-    setDisableModifyButtons(false);
-    alert("Se agregó el vídeo correctamente");
+      let listTopicsAux = listSections[formValues.sectionId - 1].topics;
+      listTopicsAux.push({
+        title: formValues.titleVideo,
+        videoLink: formValues.linkVideo,
+        userName: userName,
+      });
+      setFormValues({
+        ...formValues,
+        userName: userName,
+        indexVideo: listTopicsAux.length - 1,
+      });
+      const listSectionsQuery = await getSectionsQuery(formValues.sectionId);
+      listSectionsQuery.forEach((section) => {
+        updateDoc(section.ref, {
+          sectionId: section.data().sectionId,
+          title: section.data().title,
+          topics: listTopicsAux,
+        });
+      });
+      setDisableModifyButtons(false);
+      alert("Se agregó el vídeo correctamente");
+    }
   };
 
   const handleDelete = async () => {
@@ -311,6 +367,9 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                       </span>
                     </div>
                   </div>
+                  <div className="form-group row justify-content-center mb-3">
+                    <div className="col-auto text-danger">{message}</div>
+                  </div>
                 </div>
                 <div className="modal-footer footer-administration">
                   <button
@@ -320,8 +379,13 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                     onClick={() => {
                       setFormValues({
                         ...values,
-                        sectionId: Number(values.sectionId),
+                        sectionId: formValues.sectionId,
                       });
+                      if (Number(values.sectionId) !== formValues.sectionId) {
+                        setChangeSection(true);
+                      } else {
+                        setChangeSection(false);
+                      }
                       setAction("update");
                     }}
                   >
@@ -333,6 +397,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                     onClick={() => {
                       setFormValues({
                         ...values,
+                        titleVideo: formatText(values.titleVideo),
                         sectionId: Number(values.sectionId),
                       });
                       setAction("add");
@@ -347,7 +412,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                     onClick={() => {
                       setFormValues({
                         ...values,
-                        sectionId: Number(values.sectionId),
+                        sectionId: formValues.sectionId,
                       });
                       setAction("delete");
                     }}
