@@ -33,6 +33,12 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
     "Artículo científico",
   ];
 
+  const formatText = (text) => {
+    let newText = text.toLowerCase().trim();
+    newText = newText.charAt(0).toUpperCase() + newText.slice(1);
+    return newText;
+  };
+
   const handleUpdate = async () => {
     const lastId = await getCountBibliography();
     if (formValues.id < 1 || formValues.id > lastId) {
@@ -410,7 +416,10 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     type="submit"
                     className="btn btn-secondary"
                     onClick={() => {
-                      setFormValues(values);
+                      setFormValues({
+                        ...values,
+                        tituloReferencia: formatText(values.tituloReferencia),
+                      });
                       setAction("add");
                     }}
                   >
