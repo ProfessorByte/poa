@@ -26,6 +26,14 @@ export const ModalAdministrarVocabulario = ({
   const [formValues, setFormValues] = useState(defaultFormValues);
   const [action, setAction] = useState("");
   const [disableModifyButtons, setDisableModifyButtons] = useState(true);
+  const [message, setMessage] = useState("");
+
+  const formatWord = (word) => {
+    let newWord = word.toLowerCase().trim();
+    newWord = newWord.charAt(0).toUpperCase() + newWord.slice(1);
+    console.log(newWord);
+    return newWord;
+  };
 
   const handleUpdate = async () => {
     if (formValues.lastItemId) {
@@ -47,21 +55,30 @@ export const ModalAdministrarVocabulario = ({
   };
 
   const handleAdd = async () => {
-    let userName = "";
-    const users = await getEstadosNivs(currentUserId);
-    users.forEach((user) => {
-      userName = user.data().name;
-    });
-    const newDoc = await addDoc(collection(db, "vocabulario"), {
-      id: listVocabulario.length + 1,
-      titulo: formValues.titleWord,
-      descripcion: formValues.descriptionWord,
-      tema: formValues.topicWord,
-      ultimoUsuario: userName,
-    });
-    setFormValues({ ...formValues, lastItemId: newDoc.id });
-    setDisableModifyButtons(false);
-    alert("Se agregó la palabra correctamente");
+    if (
+      !listVocabulario.map((word) => word.titulo).includes(formValues.titleWord)
+    ) {
+      let userName = "";
+      const users = await getEstadosNivs(currentUserId);
+      users.forEach((user) => {
+        userName = user.data().name;
+      });
+      const newDoc = await addDoc(collection(db, "vocabulario"), {
+        id: listVocabulario.length + 1,
+        titulo: formValues.titleWord,
+        descripcion: formValues.descriptionWord,
+        tema: formValues.topicWord,
+        ultimoUsuario: userName,
+      });
+      setFormValues({ ...formValues, lastItemId: newDoc.id });
+      setDisableModifyButtons(false);
+      alert("Se agregó la palabra correctamente");
+    } else {
+      setMessage("Esa palabra ya existe en el vocabulario");
+      setTimeout(() => {
+        setMessage("");
+      }, 6000);
+    }
   };
 
   const handleDelete = async () => {
@@ -76,7 +93,6 @@ export const ModalAdministrarVocabulario = ({
   };
 
   const handleSubmit = () => {
-    console.log(formValues);
     if (action === "update") {
       handleUpdate();
     } else if (action === "add") {
@@ -268,6 +284,9 @@ export const ModalAdministrarVocabulario = ({
                       </span>
                     </div>
                   </div>
+                  <div className="form-group row justify-content-center mb-3">
+                    <div className="col-auto text-danger">{message}</div>
+                  </div>
                 </div>
                 <div className="modal-footer footer-administration">
                   <button
@@ -285,7 +304,10 @@ export const ModalAdministrarVocabulario = ({
                     type="submit"
                     className="btn btn-secondary"
                     onClick={() => {
-                      setFormValues(values);
+                      setFormValues({
+                        ...values,
+                        titleWord: formatWord(values.titleWord),
+                      });
                       setAction("add");
                     }}
                   >
