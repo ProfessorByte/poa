@@ -15,6 +15,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
   };
   const [formValues, setFormValues] = useState(defaultFormValues);
   const [action, setAction] = useState("");
+  const [disableModifyButtons, setDisableModifyButtons] = useState(true);
   const { data: user } = useUser();
 
   const removeItemFromArr = (arr, item) => {
@@ -74,6 +75,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
         topics: listTopicsAux,
       });
     });
+    setDisableModifyButtons(false);
     alert("Se agregó el vídeo correctamente");
   };
 
@@ -99,6 +101,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
         });
       });
       setFormValues(defaultFormValues);
+      setDisableModifyButtons(true);
       alert("Se eliminó el vídeo seleccionado");
     }
   };
@@ -209,6 +212,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                                       linkVideo: topic.videoLink,
                                       userName: topic.userName,
                                     });
+                                    setDisableModifyButtons(false);
                                   }}
                                 >
                                   {topic.title}
@@ -312,6 +316,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                   <button
                     type="submit"
                     className="btn btn-success"
+                    disabled={disableModifyButtons}
                     onClick={() => {
                       setFormValues({
                         ...values,
@@ -338,6 +343,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                   <button
                     type="submit"
                     className="btn btn-danger"
+                    disabled={disableModifyButtons}
                     onClick={() => {
                       setFormValues({
                         ...values,

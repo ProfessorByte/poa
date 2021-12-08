@@ -25,7 +25,7 @@ export const ModalAdministrarVocabulario = ({
   };
   const [formValues, setFormValues] = useState(defaultFormValues);
   const [action, setAction] = useState("");
-  const [disableModifyWord, setDisableModifyWord] = useState(true);
+  const [disableModifyButtons, setDisableModifyButtons] = useState(true);
 
   const handleUpdate = async () => {
     if (formValues.lastItemId) {
@@ -60,6 +60,7 @@ export const ModalAdministrarVocabulario = ({
       ultimoUsuario: userName,
     });
     setFormValues({ ...formValues, lastItemId: newDoc.id });
+    setDisableModifyButtons(false);
     alert("Se agregó la palabra correctamente");
   };
 
@@ -67,6 +68,7 @@ export const ModalAdministrarVocabulario = ({
     if (formValues.lastItemId) {
       await deleteDoc(doc(db, `vocabulario/${formValues.lastItemId}`));
       setFormValues(defaultFormValues);
+      setDisableModifyButtons(true);
       alert("Se eliminó la palabra correctamente");
     } else {
       alert("No se puede eliminar una palabra sin identificarla primero");
@@ -164,7 +166,7 @@ export const ModalAdministrarVocabulario = ({
                                   lastUser: word.ultimoUsuario,
                                   lastItemId: word.NO_ID_FIELD,
                                 });
-                                setDisableModifyWord(false);
+                                setDisableModifyButtons(false);
                               }}
                             >
                               {word.titulo}
@@ -271,7 +273,7 @@ export const ModalAdministrarVocabulario = ({
                   <button
                     type="submit"
                     className="btn btn-success"
-                    disabled={disableModifyWord}
+                    disabled={disableModifyButtons}
                     onClick={() => {
                       setFormValues(values);
                       setAction("update");
@@ -292,7 +294,7 @@ export const ModalAdministrarVocabulario = ({
                   <button
                     type="submit"
                     className="btn btn-danger"
-                    disabled={disableModifyWord}
+                    disabled={disableModifyButtons}
                     onClick={() => {
                       setFormValues(values);
                       setAction("delete");

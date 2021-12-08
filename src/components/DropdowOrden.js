@@ -1,47 +1,42 @@
-
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import "../css/DropdownVoca.css";
 export default class DropdownVocabulario extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       dropdownOpen: false,
       orden1: "alfabeticamente",
-      orden2: "ascendente"
-    }
+      orden2: "ascendente",
+    };
   }
+
   shouldComponentUpdate() {
-    console.log("Se actualizará")
-    this.props.funcionOrden(this.state.orden1,this.state.orden2);
+    console.log("Se actualizará");
+    this.props.funcionOrden(this.state.orden1, this.state.orden2);
     return true;
   }
-  
+
   handleChange = (e) => {
-    let valor= e.target.value;
-    let opcion=(valor==="alfabeticamente"||valor==="porTemas")
-    if(opcion){
-      this.setState({ orden1: e.target.value },()=>{
-        console.log("orden1 ac")
+    let valor = e.target.value;
+    let opcion = valor === "alfabeticamente" || valor === "porTemas";
+    if (opcion) {
+      this.setState({ orden1: e.target.value }, () => {
+        console.log("orden1 ac");
       });
-    }else{
-      this.setState({ orden2: e.target.value },()=>{
-        console.log("orden2 ac")
+    } else {
+      this.setState({ orden2: e.target.value }, () => {
+        console.log("orden2 ac");
       });
     }
-  }
-
-
+  };
 
   render() {
     return (
       <>
-        <div
-          className="dropdown text-end cuadro_general"
-
-        >
+        <div className="dropdown text-end cuadro_general">
           <button
-            className="btn btn-secondary dropdown-toggle"
+            className="btn btn-secondary dropdown-toggle purple-vocabulario"
             type="button"
             id="dropdownMenuButton1"
             data-bs-toggle="dropdown"
@@ -49,9 +44,13 @@ export default class DropdownVocabulario extends Component {
           >
             Orden
           </button>
-          <ul className="dropdown-menu text-start opciones container-fluid ">
+          <ul className="dropdown-menu text-start opciones container-fluid">
             <h1 className="SeccionDrop text-center "> Orden</h1>
-            <div id="orden" value={this.state.orden1} onChange={this.handleChange}>
+            <div
+              id="orden"
+              value={this.state.orden1}
+              onChange={this.handleChange}
+            >
               <div className="row">
                 <div className="col-md-auto">
                   <p className="opcionOrden">Alfabeticamente</p>
@@ -82,7 +81,11 @@ export default class DropdownVocabulario extends Component {
             </div>
             <hr className="dropdown-divider" />
             <h1 className="SeccionDrop text-center">Opcion Vista</h1>
-            <div id="vista" value={this.state.orden2} onChange={this.handleChange}>
+            <div
+              id="vista"
+              value={this.state.orden2}
+              onChange={this.handleChange}
+            >
               <div className="row">
                 <div className="col-md-auto">
                   <p className="opcionOrden">Ascendente</p>
@@ -114,6 +117,6 @@ export default class DropdownVocabulario extends Component {
           </ul>
         </div>
       </>
-    )
+    );
   }
 }
