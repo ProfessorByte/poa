@@ -23,6 +23,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
   };
   const [formValues, setFormValues] = useState(defaultFormValues);
   const [action, setAction] = useState("");
+  const [disableModifyButtons, setDisableModifyButtons] = useState(true);
   const { data: user } = useUser();
 
   const typesForBibliographicResources = [
@@ -81,6 +82,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
       link: formValues.link,
       lastUser: userName,
     });
+    setDisableModifyButtons(false);
     alert("Se agregó el recurso bibliográfico");
   };
 
@@ -95,6 +97,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
         deleteDoc(doc.ref);
       });
       setFormValues(defaultFormValues);
+      setDisableModifyButtons(true);
       alert("Se eliminó el recurso bibliográfico seleccionado");
     }
   };
@@ -231,6 +234,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                                   link: card.link,
                                   lastUser: card.lastUser,
                                 });
+                                setDisableModifyButtons(false);
                               }}
                             >
                               {card.tituloReferencia}
@@ -394,6 +398,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                   <button
                     type="submit"
                     className="btn btn-success"
+                    disabled={disableModifyButtons}
                     onClick={() => {
                       setFormValues(values);
                       setAction("update");
@@ -414,6 +419,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                   <button
                     type="submit"
                     className="btn btn-danger"
+                    disabled={disableModifyButtons}
                     onClick={() => {
                       setFormValues(values);
                       setAction("delete");
