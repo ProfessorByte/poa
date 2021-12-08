@@ -230,7 +230,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
               <div className="modal-content">
                 <div className="modal-header header-administration">
                   <h5 className="modal-title title-administration">
-                    Actualizar contenido de vídeos
+                    Actualizar contenido de videos
                   </h5>
                   <button
                     type="button"

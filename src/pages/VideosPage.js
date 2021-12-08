@@ -51,7 +51,7 @@ export const VideosPage = () => {
               <div className="row">
                 <div className="col-12">
                   <p>
-                    Aquí podrás ver los vídeos ordenados por temas, desde el más
+                    Aquí podrás ver los videos ordenados por temas, desde el más
                     básico al más complicado
                   </p>
                 </div>
