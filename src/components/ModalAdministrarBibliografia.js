@@ -122,18 +122,22 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
 
   const handleValidations = (values) => {
     let errors = {};
+    // validaciones titulo referencia//
     if (!values.tituloReferencia) {
       errors.tituloReferencia = "El título es requerido";
     } else if (!/^[a-zA-ZÀ-ÿ0-9.:,?¿!¡()/\-+"' ]+$/.test(values.tituloReferencia)) {
       errors.tituloReferencia =
         "El título solo puede contener letras, número, espacios o .:,?¿!¡()/+-'";
-    } 
-
+    }
     if (values.tituloReferencia.length > 70){
       errors.tituloReferencia =
         "El título es muy largo";
     }
+    if (new RegExp("^\\s+$").test(values.tituloReferencia)){
+      errors.tituloReferencia = "El título no puede tener solo espacios";
+     }
 
+    //validaciones temas//
     if (!values.temas) {
       errors.temas = "El tema es requerido";
     } else if (!/^[a-zA-ZÀ-ÿ0-9.:,?¿!¡()/\-+"' ]+$/.test(values.temas)) {
@@ -143,24 +147,31 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
       errors.temas=
         "El tema es muy largo";
     }
-
+    if (new RegExp("^\\s+$").test(values.temas)){
+      errors.temas = "El tema no puede tener solo espacios";
+     }
+    
+     //validaciones autor o nombre de pagina//
     if (!values.autor_NombrePagina) {
       errors.autor_NombrePagina = "El autor/ nombre página es requerido";
     } else if (!/^[a-zA-ZÀ-ÿ0-9.:,?¿!¡()/\-+"' ]+$/.test(values.autor_NombrePagina)) {
       errors.autor_NombrePagina =
-        "El autor/ nombre página solo puede contener letras, número, espacios o .:,?¿!¡()/+-'";
+        "El autor/nombre página solo puede contener letras, número, espacios o .:,?¿!¡()/+-'";
     }
-
     if (values.autor_NombrePagina.length > 40){
       errors.autor_NombrePagina=
-        "El autor/ nombre de página es muy largo";
+        "El autor/nombre de página es muy largo";
     }
+    if (new RegExp("^\\s+$").test(values.autor_NombrePagina)){
+      errors.autor_NombrePagina = "El autor/nombre de página no puede tener solo espacios";
+     }
 
+    //validacion tipo//
     if (!values.tipo) {
       errors.tipo = "El tipo es requerido";
     }
 
-
+    //validacion link//
     if (!values.link) {
       errors.link = "El link es requerido";
     } else if (!validateWebUrl(values.link)) {
@@ -437,3 +448,5 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
     </Formik>
   );
 };
+
+//// (^._.^)ﾉ
