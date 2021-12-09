@@ -24,6 +24,8 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
   const [formValues, setFormValues] = useState(defaultFormValues);
   const [action, setAction] = useState("");
   const [disableModifyButtons, setDisableModifyButtons] = useState(true);
+  const [message, setMessage] = useState("");
+  const [currentTitle, setCurrentTitle] = useState("");
   const { data: user } = useUser();
 
   const typesForBibliographicResources = [
@@ -39,63 +41,121 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
     return newText;
   };
 
+  const compareStringsOnArr = (arr, str) => {
+    let result = false;
+    const Levenshtein = (a, b) => {
+      let n = a.length;
+      let m = b.length;
+      let d = [];
+      if (n == 0) return m;
+      if (m == 0) return n;
+      for (let i = 0; i <= n; i++) (d[i] = [])[0] = i;
+      for (let j = 0; j <= m; j++) d[0][j] = j;
+      for (let i = 1, I = 0; i <= n; i++, I++)
+        for (let j = 1, J = 0; j <= m; j++, J++)
+          if (b[J] == a[I]) d[i][j] = d[I][J];
+          else d[i][j] = Math.min(d[I][j], d[i][J], d[I][J]) + 1;
+      return d[n][m];
+    };
+
+    arr.forEach((item) => {
+      if (Levenshtein(item, str) <= 3) {
+        result = true;
+      }
+    });
+    return result;
+  };
+
+  const showMessage = (message) => {
+    setMessage(message);
+    setTimeout(() => {
+      setMessage("");
+    }, 6000);
+  };
+
   const handleUpdate = async () => {
     const lastId = await getCountBibliography();
     if (formValues.id < 1 || formValues.id > lastId) {
-      alert("No se puede actualizar una referencia sin identificarla primero");
+      alert(
+        "No se puede actualizar un recurso bibliográfico sin identificarlo primero"
+      );
       return;
     } else {
+      if (
+        !compareStringsOnArr(
+          listCards
+            .map((cardBibliography) => cardBibliography.tituloReferencia)
+            .filter((cardBibliography) => cardBibliography !== currentTitle),
+          formValues.tituloReferencia
+        )
+      ) {
+        let userName = "";
+        const users = await getEstadosNivs(user.uid);
+        users.forEach((user) => {
+          userName = user.data().name;
+        });
+        setFormValues({ ...formValues, lastUser: userName });
+        const listDocs = await getDocBibliography(formValues.id);
+        listDocs.forEach((doc) => {
+          updateDoc(doc.ref, {
+            id: formValues.id,
+            tituloReferencia: formValues.tituloReferencia,
+            temas: formValues.temas,
+            autor_NombrePagina: formValues.autor_NombrePagina,
+            tipo:
+              formValues.tipo === "Otro"
+                ? formValues.customTipo
+                : formValues.tipo,
+            link: formValues.link,
+            lastUser: userName,
+          });
+        });
+        setCurrentTitle(formValues.tituloReferencia);
+        alert("Se actualizó el recurso bibliográfico seleccionado");
+      } else {
+        showMessage("Ya existe un recurso bibliográfico con ese título");
+      }
+    }
+  };
+
+  const handleAdd = async () => {
+    if (
+      !compareStringsOnArr(
+        listCards.map((cardBibliography) => cardBibliography.tituloReferencia),
+        formValues.tituloReferencia
+      )
+    ) {
       let userName = "";
       const users = await getEstadosNivs(user.uid);
       users.forEach((user) => {
         userName = user.data().name;
       });
-      setFormValues({ ...formValues, lastUser: userName });
-      const listDocs = await getDocBibliography(formValues.id);
-      listDocs.forEach((doc) => {
-        updateDoc(doc.ref, {
-          id: formValues.id,
-          tituloReferencia: formValues.tituloReferencia,
-          temas: formValues.temas,
-          autor_NombrePagina: formValues.autor_NombrePagina,
-          tipo:
-            formValues.tipo === "Otro"
-              ? formValues.customTipo
-              : formValues.tipo,
-          link: formValues.link,
-          lastUser: userName,
-        });
+      const lastId = await getCountBibliography();
+      setFormValues({ ...formValues, id: lastId + 1, lastUser: userName });
+      addDoc(collection(db, "bibliografia"), {
+        id: lastId + 1,
+        tituloReferencia: formValues.tituloReferencia,
+        temas: formValues.temas,
+        autor_NombrePagina: formValues.autor_NombrePagina,
+        tipo:
+          formValues.tipo === "Otro" ? formValues.customTipo : formValues.tipo,
+        link: formValues.link,
+        lastUser: userName,
       });
+      setDisableModifyButtons(false);
+      setCurrentTitle(formValues.tituloReferencia);
+      alert("Se agregó el recurso bibliográfico");
+    } else {
+      showMessage("Ya existe un recurso bibliográfico con ese título");
     }
-    alert("Se actualizó el recurso bibliográfico seleccionado");
-  };
-
-  const handleAdd = async () => {
-    let userName = "";
-    const users = await getEstadosNivs(user.uid);
-    users.forEach((user) => {
-      userName = user.data().name;
-    });
-    const lastId = await getCountBibliography();
-    setFormValues({ ...formValues, id: lastId + 1, lastUser: userName });
-    addDoc(collection(db, "bibliografia"), {
-      id: lastId + 1,
-      tituloReferencia: formValues.tituloReferencia,
-      temas: formValues.temas,
-      autor_NombrePagina: formValues.autor_NombrePagina,
-      tipo:
-        formValues.tipo === "Otro" ? formValues.customTipo : formValues.tipo,
-      link: formValues.link,
-      lastUser: userName,
-    });
-    setDisableModifyButtons(false);
-    alert("Se agregó el recurso bibliográfico");
   };
 
   const handleDelete = async () => {
     const lastId = await getCountBibliography();
     if (formValues.id < 1 || formValues.id > lastId) {
-      alert("No se puede eliminar una referencia sin identificarla primero");
+      alert(
+        "No se puede eliminar un recurso bibliográfico sin identificarlo primero"
+      );
       return;
     } else {
       const listDocs = await getDocBibliography(formValues.id);
@@ -103,6 +163,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
         deleteDoc(doc.ref);
       });
       setFormValues(defaultFormValues);
+      setCurrentTitle("");
       setDisableModifyButtons(true);
       alert("Se eliminó el recurso bibliográfico seleccionado");
     }
@@ -240,6 +301,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                                   link: card.link,
                                   lastUser: card.lastUser,
                                 });
+                                setCurrentTitle(card.tituloReferencia);
                                 setDisableModifyButtons(false);
                               }}
                             >
@@ -252,7 +314,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                   </div>
                   <div className="form-group row mb-3">
                     <label htmlFor="title-bibliography" className="form-label">
-                      Título de referencia:
+                      Título de la referencia bibliográfica:
                     </label>
                     <div className="col-12">
                       <input
@@ -385,7 +447,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                   </div>
                   <div className="form-group row mb-3">
                     <label htmlFor="user-bibliography" className="form-label">
-                      Último usuario que actualizó el recurso:
+                      Último usuario que actualizó el recurso bibliográfico:
                     </label>
                     <div className="col-12">
                       <h3>
@@ -394,10 +456,13 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                         </span>
                       </h3>
                       <span className="text-muted">
-                        Si actualiza o agrega un recurso, su nombre se verá en
-                        este campo
+                        Si actualiza o agrega un recurso bibliográfico, su
+                        nombre se verá en este campo
                       </span>
                     </div>
+                  </div>
+                  <div className="form-group row justify-content-center mb-3">
+                    <div className="col-auto text-danger">{message}</div>
                   </div>
                 </div>
                 <div className="modal-footer footer-administration">
@@ -406,7 +471,10 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
                     className="btn btn-success"
                     disabled={disableModifyButtons}
                     onClick={() => {
-                      setFormValues(values);
+                      setFormValues({
+                        ...values,
+                        tituloReferencia: formatText(values.tituloReferencia),
+                      });
                       setAction("update");
                     }}
                   >

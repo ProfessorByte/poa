@@ -18,10 +18,11 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
   const [disableModifyButtons, setDisableModifyButtons] = useState(true);
   const [message, setMessage] = useState("");
   const [changeSection, setChangeSection] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState("");
   const { data: user } = useUser();
 
   const removeItemFromArr = (arr, item) => {
-    var i = arr.indexOf(item);
+    let i = arr.indexOf(item);
     arr.splice(i, 1);
   };
 
@@ -33,20 +34,20 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
 
   const compareStringsOnArr = (arr, str) => {
     let result = false;
-    function Levenshtein(a, b) {
-      var n = a.length;
-      var m = b.length;
-      var d = [];
+    const Levenshtein = (a, b) => {
+      let n = a.length;
+      let m = b.length;
+      let d = [];
       if (n == 0) return m;
       if (m == 0) return n;
-      for (var i = 0; i <= n; i++) (d[i] = [])[0] = i;
-      for (var j = 0; j <= m; j++) d[0][j] = j;
-      for (var i = 1, I = 0; i <= n; i++, I++)
-        for (var j = 1, J = 0; j <= m; j++, J++)
+      for (let i = 0; i <= n; i++) (d[i] = [])[0] = i;
+      for (let j = 0; j <= m; j++) d[0][j] = j;
+      for (let i = 1, I = 0; i <= n; i++, I++)
+        for (let j = 1, J = 0; j <= m; j++, J++)
           if (b[J] == a[I]) d[i][j] = d[I][J];
           else d[i][j] = Math.min(d[I][j], d[i][J], d[I][J]) + 1;
       return d[n][m];
-    }
+    };
 
     arr.forEach((item) => {
       if (Levenshtein(item, str) <= 3) {
@@ -56,38 +57,55 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
     return result;
   };
 
+  const showMessage = (message) => {
+    setMessage(message);
+    setTimeout(() => {
+      setMessage("");
+    }, 6000);
+  };
+
   const handleUpdate = async () => {
     if (changeSection) {
-      setMessage("No se puede modificar la sección de un vídeo");
-      setTimeout(() => {
-        setMessage("");
-      }, 6000);
+      showMessage("No se puede modificar la sección de un vídeo");
       return;
     }
 
     if (formValues.sectionId === -1 || formValues.indexVideo === -1) {
-      alert("No se puede actualizar una referencia sin identificarla primero");
+      alert("No se puede actualizar un video sin identificarlo primero");
       return;
     } else {
-      let userName = "";
-      const users = await getEstadosNivs(user.uid);
-      users.forEach((user) => {
-        userName = user.data().name;
-      });
-      setFormValues({ ...formValues, userName: userName });
-      let listTopicsAux = listSections[formValues.sectionId - 1].topics;
-      listTopicsAux[formValues.indexVideo].title = formValues.titleVideo;
-      listTopicsAux[formValues.indexVideo].videoLink = formValues.linkVideo;
-      listTopicsAux[formValues.indexVideo].userName = userName;
-      const listSectionsQuery = await getSectionsQuery(formValues.sectionId);
-      listSectionsQuery.forEach((section) => {
-        updateDoc(section.ref, {
-          sectionId: section.data().sectionId,
-          title: section.data().title,
-          topics: listTopicsAux,
+      if (
+        !compareStringsOnArr(
+          []
+            .concat(...listSections.map((section) => section.topics))
+            .map((video) => video.title)
+            .filter((videoTitle) => videoTitle !== currentVideo),
+          formValues.titleVideo
+        )
+      ) {
+        let userName = "";
+        const users = await getEstadosNivs(user.uid);
+        users.forEach((user) => {
+          userName = user.data().name;
         });
-      });
-      alert("Se actualizó el vídeo seleccionado");
+        setFormValues({ ...formValues, userName: userName });
+        let listTopicsAux = listSections[formValues.sectionId - 1].topics;
+        listTopicsAux[formValues.indexVideo].title = formValues.titleVideo;
+        listTopicsAux[formValues.indexVideo].videoLink = formValues.linkVideo;
+        listTopicsAux[formValues.indexVideo].userName = userName;
+        const listSectionsQuery = await getSectionsQuery(formValues.sectionId);
+        listSectionsQuery.forEach((section) => {
+          updateDoc(section.ref, {
+            sectionId: section.data().sectionId,
+            title: section.data().title,
+            topics: listTopicsAux,
+          });
+        });
+        setCurrentVideo(formValues.titleVideo);
+        alert("Se actualizó el vídeo seleccionado");
+      } else {
+        showMessage("Ya existe un vídeo con ese título");
+      }
     }
   };
 
@@ -100,10 +118,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
         formValues.titleVideo
       )
     ) {
-      setMessage("El título del vídeo ya existe");
-      setTimeout(() => {
-        setMessage("");
-      }, 6000);
+      showMessage("Ya existe un video con ese título");
       return;
     } else {
       let userName = "";
@@ -131,13 +146,14 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
         });
       });
       setDisableModifyButtons(false);
+      setCurrentVideo(formValues.titleVideo);
       alert("Se agregó el vídeo correctamente");
     }
   };
 
   const handleDelete = async () => {
     if (formValues.sectionId === -1 || formValues.indexVideo === -1) {
-      alert("No se puede eliminar una referencia sin identificarla primero");
+      alert("No se puede eliminar un video sin identificarlo primero");
       return;
     } else {
       let userName = "";
@@ -157,6 +173,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
         });
       });
       setFormValues(defaultFormValues);
+      setCurrentVideo("");
       setDisableModifyButtons(true);
       alert("Se eliminó el vídeo seleccionado");
     }
@@ -174,7 +191,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
 
   const validateYouTubeUrl = (url) => {
     if (url) {
-      var regExp =
+      let regExp =
         /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
       if (url.match(regExp)) {
         return true;
@@ -268,6 +285,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                                       linkVideo: topic.videoLink,
                                       userName: topic.userName,
                                     });
+                                    setCurrentVideo(topic.title);
                                     setDisableModifyButtons(false);
                                   }}
                                 >
@@ -290,7 +308,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                         className="form-control"
                         id="title-videos"
                         name="titleVideo"
-                        placeholder="Título de referencia"
+                        placeholder="Título del video"
                         value={values.titleVideo}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -353,7 +371,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                   </div>
                   <div className="form-group row mb-3">
                     <label htmlFor="user" className="form-label">
-                      Último usuario que actualizó el recurso:
+                      Último usuario que actualizó el video:
                     </label>
                     <div className="col-12">
                       <h3>
@@ -362,7 +380,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                         </span>
                       </h3>
                       <span className="text-muted">
-                        Si actualiza o agrega un recurso, su nombre se verá en
+                        Si actualiza o agrega un video, su nombre se verá en
                         este campo
                       </span>
                     </div>
@@ -379,6 +397,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                     onClick={() => {
                       setFormValues({
                         ...values,
+                        titleVideo: formatText(values.titleVideo),
                         sectionId: formValues.sectionId,
                       });
                       if (Number(values.sectionId) !== formValues.sectionId) {

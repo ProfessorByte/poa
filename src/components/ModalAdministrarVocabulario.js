@@ -27,6 +27,7 @@ export const ModalAdministrarVocabulario = ({
   const [action, setAction] = useState("");
   const [disableModifyButtons, setDisableModifyButtons] = useState(true);
   const [message, setMessage] = useState("");
+  const [currentWord, setCurrentWord] = useState("");
 
   const formatText = (text) => {
     let newText = text.toLowerCase().trim();
@@ -36,20 +37,20 @@ export const ModalAdministrarVocabulario = ({
 
   const compareStringsOnArr = (arr, str) => {
     let result = false;
-    function Levenshtein(a, b) {
-      var n = a.length;
-      var m = b.length;
-      var d = [];
+    const Levenshtein = (a, b) => {
+      let n = a.length;
+      let m = b.length;
+      let d = [];
       if (n == 0) return m;
       if (m == 0) return n;
-      for (var i = 0; i <= n; i++) (d[i] = [])[0] = i;
-      for (var j = 0; j <= m; j++) d[0][j] = j;
-      for (var i = 1, I = 0; i <= n; i++, I++)
-        for (var j = 1, J = 0; j <= m; j++, J++)
+      for (let i = 0; i <= n; i++) (d[i] = [])[0] = i;
+      for (let j = 0; j <= m; j++) d[0][j] = j;
+      for (let i = 1, I = 0; i <= n; i++, I++)
+        for (let j = 1, J = 0; j <= m; j++, J++)
           if (b[J] == a[I]) d[i][j] = d[I][J];
           else d[i][j] = Math.min(d[I][j], d[i][J], d[I][J]) + 1;
       return d[n][m];
-    }
+    };
 
     arr.forEach((item) => {
       if (Levenshtein(item, str) <= 3) {
@@ -59,20 +60,39 @@ export const ModalAdministrarVocabulario = ({
     return result;
   };
 
+  const showMessage = (message) => {
+    setMessage(message);
+    setTimeout(() => {
+      setMessage("");
+    }, 6000);
+  };
+
   const handleUpdate = async () => {
     if (formValues.lastItemId) {
-      let userName = "";
-      const users = await getEstadosNivs(currentUserId);
-      users.forEach((user) => {
-        userName = user.data().name;
-      });
-      await updateDoc(doc(db, `vocabulario/${formValues.lastItemId}`), {
-        titulo: formValues.titleWord,
-        descripcion: formValues.descriptionWord,
-        tema: formValues.topicWord,
-        ultimoUsuario: userName,
-      });
-      alert("Se modificó la palabra correctamente");
+      if (
+        !compareStringsOnArr(
+          listVocabulario
+            .map((word) => word.titulo)
+            .filter((word) => word !== currentWord),
+          formValues.titleWord
+        )
+      ) {
+        let userName = "";
+        const users = await getEstadosNivs(currentUserId);
+        users.forEach((user) => {
+          userName = user.data().name;
+        });
+        await updateDoc(doc(db, `vocabulario/${formValues.lastItemId}`), {
+          titulo: formValues.titleWord,
+          descripcion: formValues.descriptionWord,
+          tema: formValues.topicWord,
+          ultimoUsuario: userName,
+        });
+        setCurrentWord(formValues.titleWord);
+        alert("Se modificó la palabra correctamente");
+      } else {
+        showMessage("Ya existe una palabra con ese nombre");
+      }
     } else {
       alert("No se puede modificar una palabra sin identificarla primero");
     }
@@ -99,12 +119,10 @@ export const ModalAdministrarVocabulario = ({
       });
       setFormValues({ ...formValues, lastItemId: newDoc.id });
       setDisableModifyButtons(false);
+      setCurrentWord(formValues.titleWord);
       alert("Se agregó la palabra correctamente");
     } else {
-      setMessage("Esa palabra ya existe en el vocabulario");
-      setTimeout(() => {
-        setMessage("");
-      }, 6000);
+      showMessage("Ya existe una palabra con ese nombre");
     }
   };
 
@@ -112,6 +130,7 @@ export const ModalAdministrarVocabulario = ({
     if (formValues.lastItemId) {
       await deleteDoc(doc(db, `vocabulario/${formValues.lastItemId}`));
       setFormValues(defaultFormValues);
+      setCurrentWord("");
       setDisableModifyButtons(true);
       alert("Se eliminó la palabra correctamente");
     } else {
@@ -209,6 +228,7 @@ export const ModalAdministrarVocabulario = ({
                                   lastUser: word.ultimoUsuario,
                                   lastItemId: word.NO_ID_FIELD,
                                 });
+                                setCurrentWord(word.titulo);
                                 setDisableModifyButtons(false);
                               }}
                             >
@@ -297,7 +317,7 @@ export const ModalAdministrarVocabulario = ({
                   </div>
                   <div className="form-group row mb-3">
                     <label htmlFor="user" className="form-label">
-                      Último usuario que actualizó el recurso:
+                      Último usuario que actualizó la palabra:
                     </label>
                     <div className="col-12">
                       <h3>
@@ -306,7 +326,7 @@ export const ModalAdministrarVocabulario = ({
                         </span>
                       </h3>
                       <span className="text-muted">
-                        Si actualiza o agrega un recurso, su nombre se verá en
+                        Si actualiza o agrega una palabra, su nombre se verá en
                         este campo
                       </span>
                     </div>
@@ -321,7 +341,10 @@ export const ModalAdministrarVocabulario = ({
                     className="btn btn-success"
                     disabled={disableModifyButtons}
                     onClick={() => {
-                      setFormValues(values);
+                      setFormValues({
+                        ...values,
+                        titleWord: formatText(values.titleWord),
+                      });
                       setAction("update");
                     }}
                   >
