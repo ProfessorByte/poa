@@ -66,7 +66,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
 
   const handleUpdate = async () => {
     if (changeSection) {
-      showMessage("No se puede modificar la sección de un vídeo");
+      showMessage("No se puede modificar la sección de un video");
       return;
     }
 
@@ -102,9 +102,9 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
           });
         });
         setCurrentVideo(formValues.titleVideo);
-        alert("Se actualizó el vídeo seleccionado");
+        alert("Se actualizó el video seleccionado");
       } else {
-        showMessage("Ya existe un vídeo con ese título");
+        showMessage("Ya existe un video con ese título");
       }
     }
   };
@@ -147,7 +147,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
       });
       setDisableModifyButtons(false);
       setCurrentVideo(formValues.titleVideo);
-      alert("Se agregó el vídeo correctamente");
+      alert("Se agregó el video correctamente");
     }
   };
 
@@ -175,7 +175,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
       setFormValues(defaultFormValues);
       setCurrentVideo("");
       setDisableModifyButtons(true);
-      alert("Se eliminó el vídeo seleccionado");
+      alert("Se eliminó el video seleccionado");
     }
   };
 
@@ -267,7 +267,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                         data-bs-toggle="dropdown"
                         aria-expanded={false}
                       >
-                        Selecciona un vídeo
+                        Selecciona un video
                       </button>
                       <ul className="dropdown-menu col-12 selector-administration">
                         {listSections.map((section) => (
@@ -300,7 +300,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                   </div>
                   <div className="form-group row mb-3">
                     <label htmlFor="title-videos" className="form-label">
-                      Título del vídeo:
+                      Título del video:
                     </label>
                     <div className="col-12">
                       <input
@@ -321,7 +321,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                   </div>
                   <div className="form-group row mb-3">
                     <label htmlFor="tema-videos" className="form-label">
-                      Sección del vídeo:
+                      Sección del video:
                     </label>
                     <div className="col-12">
                       <select
@@ -358,7 +358,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
                         className="form-control"
                         id="enlace-video"
                         name="linkVideo"
-                        placeholder="Enlace del vídeo"
+                        placeholder="Enlace del video"
                         value={values.linkVideo}
                         onChange={handleChange}
                         onBlur={handleBlur}
