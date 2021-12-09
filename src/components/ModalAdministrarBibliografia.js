@@ -131,7 +131,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
 
     if (values.tituloReferencia.length > 70){
       errors.tituloReferencia =
-        "El título solo puede contener 70 caracteres";
+        "El título es muy largo";
     }
 
     if (!values.temas) {
@@ -141,7 +141,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
     }
     if (values.temas.length > 50){
       errors.temas=
-        "El tema solo puede contener 50 caracteres";
+        "El tema es muy largo";
     }
 
     if (!values.autor_NombrePagina) {
@@ -153,7 +153,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
 
     if (values.autor_NombrePagina.length > 40){
       errors.autor_NombrePagina=
-        "El autor/ nombre página solo puede contener 40 caracteres";
+        "El autor/ nombre de página es muy largo";
     }
 
     if (!values.tipo) {
