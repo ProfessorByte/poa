@@ -206,9 +206,15 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
     let errors = {};
     if (!values.titleVideo) {
       errors.titleVideo = "El título es requerido";
-    } else if (!/^[a-zA-ZÀ-ÿ\s.,!?]{1,40}$/.test(values.titleVideo)) {
-      errors.titleVideo =
-        "El título solo puede contener letras, espacios y .,!?";
+    } else if (!/^[a-zA-ZÀ-ÿ0-9.:,?¿!¡()/\-+"' ]+$/.test(values.titleVideo)) {
+      errors.titleVideo = `El título solo puede contener letras, número, espacios o .:,?¿!¡()/+-'"`;
+    }
+    if (values.titleVideo.length > 70) {
+      errors.titleVideo = "El título es muy largo";
+    }
+
+    if (new RegExp("^\\s+$").test(values.titleVideo)) {
+      errors.titleVideo = "El título no puede tener solo espacios";
     }
 
     if (Number(values.sectionId) === -1) {

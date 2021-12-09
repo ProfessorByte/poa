@@ -154,12 +154,28 @@ export const ModalAdministrarVocabulario = ({
     let errors = {};
     if (!values.titleWord) {
       errors.titleWord = "La palabra es requerida";
-    } else if (!/^[a-zA-ZÀ-ÿ\s.,!?]{1,40}$/.test(values.titleWord)) {
-      errors.titleWord = "El palabra solo puede contener letras";
+    } else if (!/^[a-zA-ZÀ-ÿ ]+$/.test(values.titleWord)) {
+      errors.titleWord = "El palabra solo puede contener letras y espacios";
+    }
+
+    if (values.titleWord.length > 40) {
+      errors.titleWord = "La palabra es muy larga";
+    }
+
+    if (new RegExp("^\\s+$").test(values.titleWord)) {
+      errors.titleWord = "La palabra no puede tener solo espacios";
     }
 
     if (!values.descriptionWord) {
       errors.descriptionWord = "La descripción es requerida";
+    }
+
+    if (values.descriptionWord.length > 600) {
+      errors.descriptionWord = "La descripción de la palabra es muy larga";
+    }
+
+    if (new RegExp("^\\s+$").test(values.descriptionWord)) {
+      errors.descriptionWord = "La descripción no puede tener solo espacios";
     }
 
     if (!values.topicWord) {
