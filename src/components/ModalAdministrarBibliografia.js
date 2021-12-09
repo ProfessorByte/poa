@@ -36,7 +36,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
   ];
 
   const formatText = (text) => {
-    let newText = text.toLowerCase().trim();
+    let newText = text.trim();
     newText = newText.charAt(0).toUpperCase() + newText.slice(1);
     return newText;
   };
@@ -58,8 +58,10 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
       return d[n][m];
     };
 
-    arr.forEach((item) => {
-      if (Levenshtein(item, str) <= 3) {
+    arr.forEach((text) => {
+      if (
+        Levenshtein(text.toLowerCase().trim(), str.toLowerCase().trim()) <= 3
+      ) {
         result = true;
       }
     });
