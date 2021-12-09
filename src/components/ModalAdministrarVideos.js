@@ -137,6 +137,10 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
         "El título es muy largo";
     }
 
+    if (new RegExp("^\\s+$").test(values.titleVideo)){
+     errors.titleVideo = "El título no puede tener solo espacios"
+    }
+
     if (Number(values.sectionId) === -1) {
       errors.sectionId = "La sección es requerida";
     }
