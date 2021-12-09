@@ -134,7 +134,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
     }
     if (values.titleVideo.length > 70){
       errors.titleVideo =
-        "El título solo puede contener 70 caracteres";
+        "El título es muy largo";
     }
 
     if (Number(values.sectionId) === -1) {
