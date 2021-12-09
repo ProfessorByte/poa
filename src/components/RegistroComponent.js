@@ -70,10 +70,15 @@ class RegistroComponente extends React.Component {
         })
         .catch((error) => {
           //this.state.error = "El correo ya esta registrado, ingresa otro";
-          alert("El correo ya esta registrado, ingresa otro");
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorMessage, errorCode);
+          if (
+            errorCode === "auth/email-already-in-use" ||
+            errorCode === "auth/email-already-exists"
+          ) {
+            alert("El correo ya esta registrado, ingresa otro");
+          }
         });
     }
   };
