@@ -124,35 +124,42 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
     let errors = {};
     if (!values.tituloReferencia) {
       errors.tituloReferencia = "El título es requerido";
-    } else if (!/^[a-zA-ZÀ-ÿ\s.,!?]{1,80}$/.test(values.tituloReferencia)) {
+    } else if (!/^[a-zA-ZÀ-ÿ0-9.:,?¿!¡()/\-+"' ]+$/.test(values.tituloReferencia)) {
       errors.tituloReferencia =
-        "El título solo puede contener letras, espacios y .,!?";
+        "El título solo puede contener letras, número, espacios o .:,?¿!¡()/+-'";
+    } 
+
+    if (values.tituloReferencia.length > 70){
+      errors.tituloReferencia =
+        "El título solo puede contener 70 caracteres";
     }
 
     if (!values.temas) {
       errors.temas = "El tema es requerido";
-    } else if (!/^[a-zA-ZÀ-ÿ\s.,]{1,40}$/.test(values.temas)) {
-      errors.temas = "El tema solo puede contener letras ,espacios y .,";
+    } else if (!/^[a-zA-ZÀ-ÿ0-9.:,?¿!¡()/\-+"' ]+$/.test(values.temas)) {
+      errors.temas = "El tema solo puede contener letras, número, espacios o .:,?¿!¡()/+-'";
+    }
+    if (values.temas.length > 50){
+      errors.temas=
+        "El tema solo puede contener 50 caracteres";
     }
 
     if (!values.autor_NombrePagina) {
       errors.autor_NombrePagina = "El autor/ nombre página es requerido";
-    } else if (!/^[a-zA-ZÀ-ÿ\s.,]{1,40}$/.test(values.autor_NombrePagina)) {
+    } else if (!/^[a-zA-ZÀ-ÿ0-9.:,?¿!¡()/\-+"' ]+$/.test(values.autor_NombrePagina)) {
       errors.autor_NombrePagina =
-        "El autor/ nombre página solo puede contener letras y espacios";
+        "El autor/ nombre página solo puede contener letras, número, espacios o .:,?¿!¡()/+-'";
+    }
+
+    if (values.autor_NombrePagina.length > 40){
+      errors.autor_NombrePagina=
+        "El autor/ nombre página solo puede contener 40 caracteres";
     }
 
     if (!values.tipo) {
       errors.tipo = "El tipo es requerido";
     }
 
-    if (values.tipo === "Otro") {
-      if (!values.customTipo) {
-        errors.customTipo = "El tipo es requerido";
-      } else if (!/^[a-zA-ZÀ-ÿ]{1,20}$/.test(values.customTipo)) {
-        errors.customTipo = "El tipo solo puede contener letras";
-      }
-    }
 
     if (!values.link) {
       errors.link = "El link es requerido";
