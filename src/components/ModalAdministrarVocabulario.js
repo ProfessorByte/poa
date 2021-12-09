@@ -85,6 +85,11 @@ export const ModalAdministrarVocabulario = ({
       errors.titleWord =
         "La palabra es muy larga";
     }
+
+    if (new RegExp("^\\s+$").test(values.titleWord)){
+      errors.titleWord = "La palabra no puede tener solo espacios"
+     }
+
     if (!values.descriptionWord) {
       errors.descriptionWord = "La descripción es requerida";
     }
@@ -93,6 +98,10 @@ export const ModalAdministrarVocabulario = ({
       errors.descriptionWord =
         "La descripción de la palabra es muy larga";
     }
+    
+    if (new RegExp("^\\s+$").test(values.descriptionWord)){
+      errors.descriptionWord = "La descripción no puede tener solo espacios"
+     }
 
     if (!values.topicWord) {
       errors.topicWord = "El tema es requerido";
