@@ -130,9 +130,19 @@ export default function Vocabulario() {
               </MDBCol>
             </div>
             <div>
+              
               <FrameVocabulario
                 searchTerm={searchItem}
-                listVocabulario={listVocabulario}
+                listVocabulario={listVocabulario.filter((card) => {
+                  if (searchItem == "") {
+                    return card;
+                  } else if (
+                    card.titulo.toLowerCase().includes(searchItem.toLowerCase())
+                  ) {
+      
+                    return card;
+                  }
+                })}
                 status={status}
               />
             </div>
