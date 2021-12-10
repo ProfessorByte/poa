@@ -104,7 +104,7 @@ export default function Vocabulario() {
                 </button>
               </div>
             )}
-            <div class="row mb-5">
+            <div className="row mb-5">
               <MDBCol md="12">
                 <div className="input-group md-form form-sm form-lg form-1 pl-0 ancho">
                   <div className="input-group-prepend">
@@ -130,9 +130,19 @@ export default function Vocabulario() {
               </MDBCol>
             </div>
             <div>
+              
               <FrameVocabulario
                 searchTerm={searchItem}
-                listVocabulario={listVocabulario}
+                listVocabulario={listVocabulario.filter((card) => {
+                  if (searchItem == "") {
+                    return card;
+                  } else if (
+                    card.titulo.toLowerCase().includes(searchItem.toLowerCase())
+                  ) {
+      
+                    return card;
+                  }
+                })}
                 status={status}
               />
             </div>
