@@ -49,13 +49,17 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
       return d[n][m];
     };
 
-    arr.forEach((text) => {
-      if (
-        Levenshtein(text.toLowerCase().trim(), str.toLowerCase().trim()) <= 3
-      ) {
-        result = true;
-      }
-    });
+    if (str.length > 3) {
+      arr.forEach((text) => {
+        if (
+          Levenshtein(text.toLowerCase().trim(), str.toLowerCase().trim()) <= 3
+        ) {
+          result = true;
+        }
+      });
+    } else {
+      result = arr.includes(str);
+    }
     return result;
   };
 
