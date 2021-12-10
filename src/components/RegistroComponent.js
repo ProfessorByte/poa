@@ -10,9 +10,9 @@ const iniState = {
   password: "",
   passwordError: "",
   emailError: "",
-  email:"",
-  nombre:"",
-  nombreError:"",
+  email: "",
+  nombre: "",
+  nombreError: "",
   confirmPassword: "",
 };
 
@@ -23,9 +23,9 @@ class RegistroComponente extends React.Component {
       showPassword: false,
       showPassword1: false,
       email: "",
-      emailError:"",
+      emailError: "",
       nombre: "",
-      nombreError:"" ,
+      nombreError: "",
       password: "",
       confirmPassword: "",
       confirmPasswordError: "",
@@ -42,41 +42,46 @@ class RegistroComponente extends React.Component {
     this.setState({ showPassword1: !showPassword1 });
   };
   validate = () => {
-    let nombreError="" ;
+    let nombreError = "";
     let emailError = "";
     let passwordError = "";
-    let confirmPasswordError="";
+    let confirmPasswordError = "";
     let regex =
       /^(?:[^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*|"[^\n"]+")@(?:[^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,63}$/i;
-      if (!this.state.nombre) {
-        nombreError = "Debe registrar un nombre";
-      }
-      if (this.state.nombre.length > 100 ) {
-        nombreError = "Escoja un nombre mas corto";
-      }
-      if (!regex.test(this.state.email)) {
+    if (!this.state.nombre) {
+      nombreError = "Debe registrar un nombre";
+    }
+    if (this.state.nombre.length > 100) {
+      nombreError = "Escoja un nombre mas corto";
+    }
+    if (!regex.test(this.state.email)) {
       emailError = "Debe registrar un email válido";
-      }
-      if (this.state.password.length < 8) {
+    }
+    if (this.state.password.length < 8) {
       passwordError = "La contraseña es muy corta.";
-      }
-       if (!this.state.password) {
+    }
+    if (!this.state.password) {
       passwordError = "Debe registrar una contraseña.";
-       }
-       if (!this.state.confirmPassword) {
-        confirmPasswordError = "Debe verificar su contraseña.";
-       }
-       if (this.state.password !== this.state.confirmPassword) {
-         confirmPasswordError="Las contraseñas son distintas";
-      }
-       if (emailError || passwordError || nombreError || confirmPasswordError ) {
-      this.setState({ emailError, passwordError, nombreError, confirmPasswordError,});
+    }
+    if (!this.state.confirmPassword) {
+      confirmPasswordError = "Debe verificar su contraseña.";
+    }
+    if (this.state.password !== this.state.confirmPassword) {
+      confirmPasswordError = "Las contraseñas son distintas";
+    }
+    if (emailError || passwordError || nombreError || confirmPasswordError) {
+      this.setState({
+        emailError,
+        passwordError,
+        nombreError,
+        confirmPasswordError,
+      });
       return false;
     }
 
     return true;
   };
-  
+
   handleChangePassword = (event) => {
     this.setState({ password: event.target.value });
   };
@@ -108,13 +113,18 @@ class RegistroComponente extends React.Component {
           window.location.assign("/poa");
         })
         .catch((error) => {
-          //this.state.error = "El correo ya esta registrado, ingresa otro";
-          alert("El correo ya esta registrado, ingresa otro");
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorMessage, errorCode);
+          if (
+            errorCode === "auth/email-already-in-use" ||
+            errorCode === "auth/email-already-exists"
+          ) {
+            this.state.emailError =
+              "El correo ya esta registrado, ingresa otro";
+          }
         });
-        this.setState(iniState);
+      this.setState(iniState);
     }
   };
   /*
@@ -135,7 +145,7 @@ class RegistroComponente extends React.Component {
     }
   };
 */
-/*
+  /*
    handleSubmit = (event) => {
     event.preventDefault();
     if (this.state.password !== this.state.confirmPassword) {
@@ -190,14 +200,14 @@ class RegistroComponente extends React.Component {
                   : "rounded-pill"
               }
             >
-            <Input
-              type="text"
-              placeholder="Registre su nombre"
-              className="rounded-pill"
-              value={this.state.nombre}
-              onChange={this.handleChangeNombre}
-              id="llenadoNombre"
-            />
+              <Input
+                type="text"
+                placeholder="Registre su nombre"
+                className="rounded-pill"
+                value={this.state.nombre}
+                onChange={this.handleChangeNombre}
+                id="llenadoNombre"
+              />
             </div>
             <div className="mensaje-error">{this.state.nombreError}</div>
           </FormGroup>
@@ -210,17 +220,16 @@ class RegistroComponente extends React.Component {
                   : "rounded-pill"
               }
             >
-            <Input
-              type="text"
-              placeholder="Registre su correo"
-              className="rounded-pill"
-              value={this.state.email}
-              onChange={this.handleChangeEmail}
-              id="llenadoCorreo"
-             
-            />
+              <Input
+                type="text"
+                placeholder="Registre su correo"
+                className="rounded-pill"
+                value={this.state.email}
+                onChange={this.handleChangeEmail}
+                id="llenadoCorreo"
+              />
             </div>
-          <div className="mensaje-error">{this.state.emailError}</div>
+            <div className="mensaje-error">{this.state.emailError}</div>
           </FormGroup>
           <FormGroup className="label">
             <label>Contraseña:</label>
@@ -238,7 +247,7 @@ class RegistroComponente extends React.Component {
                   className="rounded-pill"
                   value={this.state.password}
                   onChange={this.handleChangePassword}
-                  id="llenadoContra"                 
+                  id="llenadoContra"
                 />
               </div>
               <FontAwesomeIcon
@@ -271,7 +280,6 @@ class RegistroComponente extends React.Component {
                   value={this.state.confirmPassword}
                   onChange={this.handleChangeConfirmPassword}
                   id="llenadoConfir"
-                  
                 />
               </div>
               <FontAwesomeIcon
@@ -285,7 +293,9 @@ class RegistroComponente extends React.Component {
                 onClick={this.togglePasswordVisibility1}
               />
             </div>
-            <div className="mensaje-error">{this.state.confirmPasswordError}</div>
+            <div className="mensaje-error">
+              {this.state.confirmPasswordError}
+            </div>
           </FormGroup>
           <div className="registroboton form-btn">
             <Button
@@ -296,6 +306,7 @@ class RegistroComponente extends React.Component {
               Registrarse
             </Button>
             <h1>{this.state.error}</h1>
+            <div className="mensaje-error">{this.state.emailError}</div>
           </div>
         </div>
       </Form>
