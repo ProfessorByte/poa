@@ -120,8 +120,9 @@ class RegistroComponente extends React.Component {
             errorCode === "auth/email-already-in-use" ||
             errorCode === "auth/email-already-exists"
           ) {
-            this.state.emailError =
-              "El correo ya esta registrado, ingresa otro";
+            this.setState({
+              emailError: "El correo ya esta registrado, ingresa otro",
+            });
           }
         });
       this.setState(iniState);
@@ -306,7 +307,6 @@ class RegistroComponente extends React.Component {
               Registrarse
             </Button>
             <h1>{this.state.error}</h1>
-            <div className="mensaje-error">{this.state.emailError}</div>
           </div>
         </div>
       </Form>
