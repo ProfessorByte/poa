@@ -22,7 +22,7 @@ export default function FrameVocabulario(props) {
       )): (<div  className="container-fluid">
       <Card_Vocabulario
         titulo=':('
-        descripcion='Lo sentimos, no pudimos encontrar lo que estaba buscando. Revise si escribio correctamente y por favor
+        descripcion='Lo sentimos, no pudimos encontrar lo que estaba buscando. Revise si escribió correctamente y por favor
         intente de nuevo.  '
       />
     </div>)
