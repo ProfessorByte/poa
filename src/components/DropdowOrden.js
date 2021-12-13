@@ -52,7 +52,7 @@ export default class DropdownVocabulario extends Component {
             >
               <div className="row">
                 <div className="col">
-                  <p className="opcionOrden">Alfabeticamente</p>
+                  <p className="opcionOrden">Alfabéticamente</p>
                 </div>
                 <div className="col">
                   <input
