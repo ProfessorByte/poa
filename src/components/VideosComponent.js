@@ -17,8 +17,8 @@ export default function Videos({ listId, listSections }) {
       data-offset="50"
       className="scrollspy-example"
     >
-      {listSections.map((section) => (
-        <div key={`section-${section.sectionId}`}>
+      {listSections.map((section, index) => (
+        <div key={`section-${index}`}>
           {section.topics.map((topic, index) => (
             <div
               id={`list-video-${index}-${section.sectionId}`}

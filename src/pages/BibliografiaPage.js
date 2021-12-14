@@ -66,8 +66,8 @@ export default function BibliografiaPage() {
               <Cards tituloReferencia="Cargando..." link="#" />
             </div>
           ) : (
-            listCards.map((card) => (
-              <div key={card.id} className="container_cards">
+            listCards.map((card, index) => (
+              <div key={index} className="container_cards">
                 <Cards
                   tituloReferencia={card.tituloReferencia}
                   autor_NombrePagina={card.autor_NombrePagina}

@@ -4,9 +4,9 @@ import { AccordionItem } from "./AccordionItemComponent";
 export const Accordion = ({ accordionId, listSections }) => {
   return (
     <div className="accordion" id={accordionId}>
-      {listSections.map((section) => (
+      {listSections.map((section, index) => (
         <AccordionItem
-          key={`accordion-item-key-${section.sectionId}`}
+          key={`accordion-item-key-${index}`}
           accordionId={accordionId}
           itemId={section.sectionId}
           expanded={false}
