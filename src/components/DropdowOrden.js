@@ -52,8 +52,8 @@ export default class DropdownVocabulario extends Component {
               onChange={this.handleChange}
             >
               <div className="row">
-                <div className="col-md-auto">
-                  <p className="opcionOrden">Alfabeticamente</p>
+                <div className="col">
+                  <p className="opcionOrden">Alfabéticamente</p>
                 </div>
                 <div className="col">
                   <input
@@ -66,8 +66,8 @@ export default class DropdownVocabulario extends Component {
                 </div>
               </div>
               <div className="row">
-                <div className="col">
-                  <p className="opcionOrden">Por temas</p>
+                <div className="col-auto">
+                  <p className="opcionOrden">Por Temas</p>
                 </div>
                 <div className="col">
                   <input
@@ -87,7 +87,7 @@ export default class DropdownVocabulario extends Component {
               onChange={this.handleChange}
             >
               <div className="row">
-                <div className="col-md-auto">
+                <div className="col">
                   <p className="opcionOrden">Ascendente</p>
                 </div>
                 <div className="col">

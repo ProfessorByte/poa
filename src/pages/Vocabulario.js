@@ -62,13 +62,40 @@ export default function Vocabulario() {
     }
   }
 
+  function ordenarPorTema(){
+    if (status !== "loading") {
+      cards.sort((a, b) => {
+        if (a.id > b.id) return 1;
+        if (a.id < b.id) return -1;
+      });
+      setOrdener(!ordener);
+    }
+  }
+
+  function ordenarPorTemaDes(){
+    if (status !== "loading") {
+      cards.sort((a, b) => {
+        if (a.id < b.id) return 1;
+        if (a.id > b.id) return -1;
+      });
+      setOrdener(!ordener);
+    }
+  }
+
+
   function QueOrden(orden1, orden2) {
-    console.log(orden1, orden2);
+    console.log(cards);
     if (orden1 === "alfabeticamente") {
       if (orden2 === "ascendente") {
         ordenarAlfabeticamente();
       } else {
         ordenarAlfabeticamenteDes();
+      }
+    }else{
+       if(orden2==="ascendente"){
+         ordenarPorTema();
+      }else{
+         ordenarPorTemaDes();
       }
     }
   }
