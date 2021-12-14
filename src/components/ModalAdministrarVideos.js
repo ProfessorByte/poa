@@ -107,7 +107,10 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
             topics: listTopicsAux,
           });
         });
-        setCurrentVideo(formValues.titleVideo);
+        // setCurrentVideo(formValues.titleVideo);
+        setFormValues(defaultFormValues);
+        setCurrentVideo("");
+        setDisableModifyButtons(true);
         alert("Se actualizó el video seleccionado");
       } else {
         showMessage("Ya existe un video con ese título");
@@ -151,8 +154,11 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
           topics: listTopicsAux,
         });
       });
-      setDisableModifyButtons(false);
-      setCurrentVideo(formValues.titleVideo);
+      // setDisableModifyButtons(false);
+      // setCurrentVideo(formValues.titleVideo);
+      setFormValues(defaultFormValues);
+      setCurrentVideo("");
+      setDisableModifyButtons(true);
       alert("Se agregó el video correctamente");
     }
   };

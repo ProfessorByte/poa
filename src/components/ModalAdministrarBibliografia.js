@@ -116,7 +116,10 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
             lastUser: userName,
           });
         });
-        setCurrentTitle(formValues.tituloReferencia);
+        // setCurrentTitle(formValues.tituloReferencia);
+        setFormValues(defaultFormValues);
+        setCurrentTitle("");
+        setDisableModifyButtons(true);
         alert("Se actualizó el recurso bibliográfico seleccionado");
       } else {
         showMessage("Ya existe un recurso bibliográfico con ese título");
@@ -148,8 +151,11 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
         link: formValues.link,
         lastUser: userName,
       });
-      setDisableModifyButtons(false);
-      setCurrentTitle(formValues.tituloReferencia);
+      // setDisableModifyButtons(false);
+      // setCurrentTitle(formValues.tituloReferencia);
+      setFormValues(defaultFormValues);
+      setCurrentTitle("");
+      setDisableModifyButtons(true);
       alert("Se agregó el recurso bibliográfico");
     } else {
       showMessage("Ya existe un recurso bibliográfico con ese título");

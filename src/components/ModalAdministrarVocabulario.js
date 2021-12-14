@@ -94,7 +94,10 @@ export const ModalAdministrarVocabulario = ({
           tema: formValues.topicWord,
           ultimoUsuario: userName,
         });
-        setCurrentWord(formValues.titleWord);
+        // setCurrentWord(formValues.titleWord);
+        setFormValues(defaultFormValues);
+        setCurrentWord("");
+        setDisableModifyButtons(true);
         alert("Se modificó la palabra correctamente");
       } else {
         showMessage("Ya existe una palabra con ese nombre");
@@ -123,9 +126,12 @@ export const ModalAdministrarVocabulario = ({
         tema: formValues.topicWord,
         ultimoUsuario: userName,
       });
-      setFormValues({ ...formValues, lastItemId: newDoc.id });
-      setDisableModifyButtons(false);
-      setCurrentWord(formValues.titleWord);
+      // setFormValues({ ...formValues, lastItemId: newDoc.id });
+      // setDisableModifyButtons(false);
+      // setCurrentWord(formValues.titleWord);
+      setFormValues(defaultFormValues);
+      setCurrentWord("");
+      setDisableModifyButtons(true);
       alert("Se agregó la palabra correctamente");
     } else {
       showMessage("Ya existe una palabra con ese nombre");
