@@ -1,5 +1,5 @@
 .contenedor-registro {
-  background-image: url(../assets/images/fondo_registro.gif);
+  background-image: url(../assets/images/fondo_inicio_sesion.gif);
   background-position: center bottom;
   background-size: cover;
   padding-bottom: 3%;
@@ -40,4 +40,28 @@
 .type {
   color: black;
   background-color: black;
+}
+@media screen and (min-width: 320px) {
+  .formularior {
+    width: 80%;
+    font-size: small;
+  }
+}
+@media screen and (min-width: 425px) {
+  .formularior {
+    width: 60%;
+    font-size: small;
+  }
+}
+@media screen and (min-width: 768px) {
+  .formularior {
+    width: 40%;
+    font-size: small;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .formularior {
+    width: 30%;
+    font-size: small;
+  }
 }
