@@ -100,7 +100,7 @@ export const ModalAdministrarVocabulario = ({
         setDisableModifyButtons(true);
         alert("Se modificó la palabra correctamente");
       } else {
-        showMessage("Ya existe una palabra con ese nombre");
+        showMessage("Ya existe una palabra con un nombre muy similar");
       }
     } else {
       alert("No se puede modificar una palabra sin identificarla primero");
@@ -134,7 +134,7 @@ export const ModalAdministrarVocabulario = ({
       setDisableModifyButtons(true);
       alert("Se agregó la palabra correctamente");
     } else {
-      showMessage("Ya existe una palabra con ese nombre");
+      showMessage("Ya existe una palabra con un nombre muy similar");
     }
   };
 

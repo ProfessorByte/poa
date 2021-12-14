@@ -122,7 +122,9 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
         setDisableModifyButtons(true);
         alert("Se actualizó el recurso bibliográfico seleccionado");
       } else {
-        showMessage("Ya existe un recurso bibliográfico con ese título");
+        showMessage(
+          "Ya existe un recurso bibliográfico con un título muy similar"
+        );
       }
     }
   };
@@ -158,7 +160,9 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
       setDisableModifyButtons(true);
       alert("Se agregó el recurso bibliográfico");
     } else {
-      showMessage("Ya existe un recurso bibliográfico con ese título");
+      showMessage(
+        "Ya existe un recurso bibliográfico con un título muy similar"
+      );
     }
   };
 

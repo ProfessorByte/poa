@@ -113,7 +113,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
         setDisableModifyButtons(true);
         alert("Se actualizó el video seleccionado");
       } else {
-        showMessage("Ya existe un video con ese título");
+        showMessage("Ya existe un video con un título muy similar");
       }
     }
   };
@@ -127,7 +127,7 @@ export const ModalAdministrarVideos = ({ modalId, listSections }) => {
         formValues.titleVideo
       )
     ) {
-      showMessage("Ya existe un video con ese título");
+      showMessage("Ya existe un video con un título muy similar");
       return;
     } else {
       let userName = "";
