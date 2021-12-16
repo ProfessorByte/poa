@@ -1,122 +1,107 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/DropdownVoca.css";
-export default class DropdownVocabulario extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      dropdownOpen: false,
-      orden1: "alfabeticamente",
-      orden2: "ascendente",
-    };
-  }
+export const DropdownVocabulario = ({ funcionOrden }) => {
+  const [valuesOrder, setValuesOrder] = useState({
+    platform: "alfabeticamente",
+    platform2: "ascendenete",
+  });
 
-  shouldComponentUpdate() {
-    console.log("Se actualizará");
-    this.props.funcionOrden(this.state.orden1, this.state.orden2);
-    return true;
-  }
+  useEffect(() => {
+    funcionOrden(valuesOrder.platform, valuesOrder.platform2);
+  }, [valuesOrder]);
 
-  handleChange = (e) => {
-    let valor = e.target.value;
-    let opcion = valor === "alfabeticamente" || valor === "porTemas";
-    if (opcion) {
-      this.setState({ orden1: e.target.value }, () => {
-        console.log("orden1 ac");
-      });
-    } else {
-      this.setState({ orden2: e.target.value }, () => {
-        console.log("orden2 ac");
-      });
-    }
+  const handleChange = (event) => {
+    setValuesOrder({ ...valuesOrder, [event.target.name]: event.target.value });
   };
 
-  render() {
-    return (
-      <>
-        <div className="dropdown text-end cuadro_general">
-          <button
-            className="btn btn-secondary dropdown-toggle purple-vocabulario"
-            type="button"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Orden
-          </button>
-          <ul className="dropdown-menu text-start opciones container-fluid">
-            <h1 className="SeccionDrop text-center "> Orden</h1>
-            <div
-              id="orden"
-              value={this.state.orden1}
-              onChange={this.handleChange}
-            >
-              <div className="row">
-                <div className="col">
-                  <p className="opcionOrden">Alfabéticamente</p>
-                </div>
-                <div className="col">
-                  <input
-                    id="opcion1"
-                    value="alfabeticamente"
-                    name="platform"
-                    type="radio"
-                    defaultChecked="checked"
-                  />
-                </div>
+  return (
+    <>
+      <div className="dropdown text-end cuadro_general">
+        <button
+          className="btn btn-secondary dropdown-toggle purple-vocabulario"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Orden
+        </button>
+        <ul
+          className="dropdown-menu text-start opciones container-fluid p-2"
+          style={{ width: "200px" }}
+        >
+          <h1 className="SeccionDrop text-center">Orden</h1>
+          <div id="orden" value={valuesOrder.platform} onChange={handleChange}>
+            <div className="row">
+              <div className="col">
+                <label htmlFor="opcion1" className="opcionOrden">
+                  Alfabéticamente
+                </label>
               </div>
-              <div className="row">
-                <div className="col-auto">
-                  <p className="opcionOrden">Por Temas</p>
-                </div>
-                <div className="col">
-                  <input
-                    id="opcion2"
-                    value="porTemas"
-                    name="platform"
-                    type="radio"
-                  />
-                </div>
+              <div className="col">
+                <input
+                  id="opcion1"
+                  value="alfabeticamente"
+                  name="platform"
+                  type="radio"
+                  defaultChecked="checked"
+                />
               </div>
             </div>
-            <hr className="dropdown-divider" />
-            <h1 className="SeccionDrop text-center">Opcion Vista</h1>
-            <div
-              id="vista"
-              value={this.state.orden2}
-              onChange={this.handleChange}
-            >
-              <div className="row">
-                <div className="col">
-                  <p className="opcionOrden">Ascendente</p>
-                </div>
-                <div className="col">
-                  <input
-                    id="opcion3"
-                    value="ascendente"
-                    name="platform2"
-                    type="radio"
-                    defaultChecked="checked"
-                  />
-                </div>
+            <div className="row">
+              <div className="col-auto">
+                <label htmlFor="opcion2" className="opcionOrden">
+                  Por Temas
+                </label>
               </div>
-              <div className="row">
-                <div className="col">
-                  <p className="opcionOrden">Descendente</p>
-                </div>
-                <div className="col">
-                  <input
-                    id="opcion4"
-                    value="descendente"
-                    name="platform2"
-                    type="radio"
-                  />
-                </div>
+              <div className="col">
+                <input
+                  id="opcion2"
+                  value="porTemas"
+                  name="platform"
+                  type="radio"
+                />
               </div>
             </div>
-          </ul>
-        </div>
-      </>
-    );
-  }
-}
+          </div>
+          <hr className="dropdown-divider" />
+          <h1 className="SeccionDrop text-center">Opcion Vista</h1>
+          <div id="vista" value={valuesOrder.platform2} onChange={handleChange}>
+            <div className="row">
+              <div className="col">
+                <label htmlFor="opcion3" className="opcionOrden">
+                  Ascendente
+                </label>
+              </div>
+              <div className="col">
+                <input
+                  id="opcion3"
+                  value="ascendente"
+                  name="platform2"
+                  type="radio"
+                  defaultChecked="checked"
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <label htmlFor="opcion4" className="opcionOrden">
+                  Descendente
+                </label>
+              </div>
+              <div className="col">
+                <input
+                  id="opcion4"
+                  value="descendente"
+                  name="platform2"
+                  type="radio"
+                />
+              </div>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </>
+  );
+};

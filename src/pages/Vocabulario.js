@@ -7,12 +7,17 @@ import { MDBCol, MDBIcon } from "mdbreact";
 import { ModalAdministrarVocabulario } from "../components/ModalAdministrarVocabulario";
 import { getEstadosNivs, getVocabularioQuery } from "../server/api";
 import { useFirestoreCollectionData, useSigninCheck } from "reactfire";
-import DropdownVocabulario from "../components/DropdowOrden";
+import { DropdownVocabulario } from "../components/DropdowOrden";
+
 export default function Vocabulario() {
   const [searchItem, setSearchItem] = useState("");
   const [allowManage, setAllowManage] = useState(false);
   const { status: statusUser, data: signInCheckResult } = useSigninCheck();
-  const [ordener, setOrdener] = useState(false);
+
+  const [currentOrder, setCurrentOrder] = useState({
+    platform: "alfabeticamente",
+    platform2: "ascendenete",
+  });
 
   let [listVocabulario, setListVocabulario] = useState([]);
   const { status, data: cards } = useFirestoreCollectionData(
@@ -21,7 +26,23 @@ export default function Vocabulario() {
 
   useEffect(() => {
     if (status !== "loading") {
-      setListVocabulario(cards);
+      let listVocabularioAux = cards.slice();
+      if (currentOrder.platform === "alfabeticamente") {
+        listVocabularioAux.sort((a, b) => {
+          if (a.titulo > b.titulo) return 1;
+          if (a.titulo < b.titulo) return -1;
+        });
+      } else if (currentOrder.platform === "porTemas") {
+        listVocabularioAux.sort((a, b) => {
+          if (a.tema > b.tema) return 1;
+          if (a.tema < b.tema) return -1;
+        });
+      }
+
+      if (currentOrder.platform2 === "descendente") {
+        listVocabularioAux.reverse();
+      }
+      setListVocabulario(listVocabularioAux);
     }
   }, [status, cards]);
 
@@ -40,65 +61,28 @@ export default function Vocabulario() {
     getUserData();
   }, [statusUser]);
 
-  const modalId = "modal-vocabulario";
-
-  function ordenarAlfabeticamente() {
-    if (status !== "loading") {
-      cards.sort((a, b) => {
+  function QueOrden(orden1, orden2) {
+    setCurrentOrder({ platform: orden1, platform2: orden2 });
+    let listVocabularioAux = listVocabulario.slice();
+    if (orden1 === "alfabeticamente") {
+      listVocabularioAux.sort((a, b) => {
         if (a.titulo > b.titulo) return 1;
         if (a.titulo < b.titulo) return -1;
       });
-      setOrdener(!ordener);
-    }
-  }
-
-  function ordenarAlfabeticamenteDes() {
-    if (status !== "loading") {
-      cards.sort((a, b) => {
-        if (a.titulo < b.titulo) return 1;
-        if (a.titulo > b.titulo) return -1;
+    } else if (orden1 === "porTemas") {
+      listVocabularioAux.sort((a, b) => {
+        if (a.tema > b.tema) return 1;
+        if (a.tema < b.tema) return -1;
       });
-      setOrdener(!ordener);
     }
+
+    if (orden2 === "descendente") {
+      listVocabularioAux.reverse();
+    }
+    setListVocabulario(listVocabularioAux);
   }
 
-  function ordenarPorTema(){
-    if (status !== "loading") {
-      cards.sort((a, b) => {
-        if (a.id > b.id) return 1;
-        if (a.id < b.id) return -1;
-      });
-      setOrdener(!ordener);
-    }
-  }
-
-  function ordenarPorTemaDes(){
-    if (status !== "loading") {
-      cards.sort((a, b) => {
-        if (a.id < b.id) return 1;
-        if (a.id > b.id) return -1;
-      });
-      setOrdener(!ordener);
-    }
-  }
-
-
-  function QueOrden(orden1, orden2) {
-    console.log(cards);
-    if (orden1 === "alfabeticamente") {
-      if (orden2 === "ascendente") {
-        ordenarAlfabeticamente();
-      } else {
-        ordenarAlfabeticamenteDes();
-      }
-    }else{
-       if(orden2==="ascendente"){
-         ordenarPorTema();
-      }else{
-         ordenarPorTemaDes();
-      }
-    }
-  }
+  const modalId = "modal-vocabulario";
 
   return (
     <>
@@ -161,11 +145,11 @@ export default function Vocabulario() {
                 searchTerm={searchItem}
                 listVocabulario={listVocabulario.filter((card) => {
                   if (searchItem == "") {
-                    return card;
+                    return true;
                   } else if (
                     card.titulo.toLowerCase().includes(searchItem.toLowerCase())
                   ) {
-                    return card;
+                    return true;
                   }
                 })}
                 status={status}

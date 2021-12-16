@@ -10,7 +10,7 @@ export default function FrameVocabulario(props) {
         </div>
       ) : props.listVocabulario.length != 0 ? (
         props.listVocabulario.map((card, index) => (
-          <div key={index} className="container-fluid">
+          <div key={index} className="container-fluid mb-1">
             <Card_Vocabulario
               tema={card.tema}
               titulo={card.titulo}
