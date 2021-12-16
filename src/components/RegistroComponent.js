@@ -153,8 +153,8 @@ class RegistroComponente extends React.Component {
       alert("Contraseñas Distintas");
       //this.state.error = "Contraseñas Distintas";
     } else if (this.state.password.length < 6) {
-      //this.state.error = "Contraseña demaciado corta";
-      alert("Contraseña demaciado corta");
+      //this.state.error = "Contraseña demasiado corta";
+      alert("Contraseña demasiado corta");
     } else {
       const auth = getAuth();
       let flag = false;

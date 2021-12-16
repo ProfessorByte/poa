@@ -22,6 +22,7 @@ class LogInComponent extends React.Component {
       password: "",
       emailError: "",
       passwordError: "",
+      message: "",
     };
   }
 
@@ -71,7 +72,11 @@ class LogInComponent extends React.Component {
           window.location.assign("/");
         })
         .catch((error) => {
-          alert("Datos inválidos.");
+          // alert("Datos inválidos.");
+          this.setState({ message: "Datos inválidos" });
+          setTimeout(() => {
+            this.setState({ message: "" });
+          }, 6000);
         });
       //limpiar el form
       this.setState(iniState);
@@ -137,6 +142,7 @@ class LogInComponent extends React.Component {
             <div className="mensaje-error">{this.state.passwordError}</div>
           </FormGroup>
           <a href="/recuperar">Recuperar Contraseña</a>
+          <div className="text-danger">{this.state.message}</div>
           <div className="label form-btn">
             <Button
               type="submit"
@@ -146,8 +152,8 @@ class LogInComponent extends React.Component {
             </Button>
           </div>
           <div className="Registro">
-          <p>No tienes cuenta?</p>
-          <a href="/registro">Registrate</a>
+            <p>No tienes cuenta?</p>
+            <a href="/registro">Registrate</a>
           </div>
         </div>
       </Form>
