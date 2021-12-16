@@ -58,7 +58,7 @@ export const ModalAdministrarBibliografia = ({ modalId, listCards }) => {
       return d[n][m];
     };
 
-    if (str.length > 3) {
+    if (str.length > 4) {
       arr.forEach((text) => {
         if (
           Levenshtein(text.toLowerCase().trim(), str.toLowerCase().trim()) <= 3
